@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript">
+		// 构造函数是最有用,也是最难的,后期学习面向对象,还需要用构造函数继承,原型对象,原型链,作用域链
+		
+		// 构造函数也是一种函数,只不过是一种特殊的函数,它的主要作用是用于创建对象,以及给对象初始化属性和方法
+
+		// 3.用构造函数方式,创建一个车的对象,有重量,颜色,牌子,可以载人,拉货
+		function Car(weight,color,bland){
+			// 属性
+			this.weight = weight;
+			this.color = color;
+			this.bland = bland;
+
+			// 方法
+			this.manned = function(){
+				console.log( this.bland +"可以载人");
+			}
+
+			this.pickUp =  function(){
+				console.log( this.bland +"可以拉货");
+			}
+		}
+
+		// 构造函数定义的是一个大类,还需要通过new关键字实例化得到新的对象
+		var car1 = new Car("1000kg","white","宝马");
+		car1.manned();
+		car1.pickUp();
+
+		var car2 = new Car("2000kg","pink","奔驰");
+		console.log( car2.color );
+		console.log( car2.weight );
+		car2.manned();
+		car2.pickUp();
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

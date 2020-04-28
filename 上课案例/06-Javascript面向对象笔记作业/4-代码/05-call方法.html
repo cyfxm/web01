@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // call()方法调用一个对象。简单理解为  是一种调用函数的方式 ,  但是它可以改变函数的 this 指向
+        // 应用场景:  经常用call实现继承. 
+
+        // 语法
+        // 函数.call(thisArg,arg1,arg2,...)
+
+        // 参数说明:
+        // thisArg     : 在函数运行时指定的 this 值,如果不需要改变函数内部this指向,可以传递null
+        // arg1,arg2... : 传递的其他参数,使用逗号隔开
+
+        // 返回值就是函数的返回值，因为它就是调用函数
+        // 因此当我们想改变 this 指向，同时想调用这个函数的时候，可以使用 call，比如继承
+        function fn(x,y){
+            console.log( this );
+            console.log( x + y);
+        }
+        fn(10,20);
+
+        // call的第一个功能,就是调用函数
+        fn.call();
+        // call的第二个功能,改变函数里面的this指向
+        var obj = {
+            uname:"zhangsan"
+        };
+        fn.call(obj);
+        // call在改变this的时候,还可以传递参数
+        fn.call(obj,50,100);
+
+        // call()方法主要用于实现es5中的构造函数+原型对象组合继承
+    </script>
+</body>
+</html>

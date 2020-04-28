@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript">
+		// 三个常用的输出语句
+		// document.write("要输出的内容")  可以在body标签里面输出内容,如果内容不是数值或者不是变量名,则需要加一对双引号或者一对单引号
+
+		// document.write("abc");
+
+		// document.write(abc);// 会报错,报abc is not defined,也就是abc变量没有被定义的意思
+
+		// 输出的是数值可以不加引号包裹
+		// document.write(123456);
+
+		// 虽然我们在script标签中不能直接出现HTML标签,但是我们可以使用document.write("HTML标签")输出HTML标签页面中,可以解析
+		// 注意:不能出现双引号包裹双引号
+		document.write("<h1 style='color:red'>肚子饿了~</h1>");
+
+
+		// 第二个输出语句:alert(内容),可以以弹窗的方式显示指定内容, 内容用法跟document.write几乎一样,但是alert不能解析HTML标签
+		// alert("你好");
+		// alert(789456123);
+		// alert("<span>我是span内容</span>");
+
+		// 第三个输出语句:在控制台输出内容
+		// 控制台在浏览器检查工具里面的console栏目中
+		// console.log(内容)
+		console.log("看看我出现在哪里");
+		console.log(11123123);
+		console.log("<p>p段落标签</p>")
+
+
+		// console.log还可以同时输出多个值
+		// console.log(值1,值2,值3,值4...)
+		console.log(11,22,88,"abc","zhangsan");
+
+		// 三种输出语句,我们后面用的最多的是console.log调试bug非常好用
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		/*外边距(margin)的基本用法跟padding用法基本一样*/
+		/*margin指的是盒子到盒子之间的距离,可以理解为盒子外面的距离*/
+		/*margin取值可以是数值带px,正值负值都可以,还有一个特殊的值auto自动的意思,待会会讲auto*/
+
+		/*margin-top上外边距*/
+		/*margin-bottom下外边距*/
+		/*margin-left左外边距*/
+		/*margin-right右外边距*/
+
+		div{
+			width: 200px;
+			height: 200px;
+		}
+		.one{
+			background: red;
+			margin-top: 100px;
+			margin-bottom: 50px;
+		}
+		.two{
+			background: blue;
+			margin-left: 100px;
+		}
+		.three{
+			background: green;
+			/*先使用浮动属性,这个浮动属性明天我们会讲*/
+			float: right;
+			margin-right: 100px;
+		}
+	</style>
+</head>
+<body>
+	<div class="one">one</div>
+	<div class="two">two</div>
+	<div class="three">three</div>
+</body>
+</html>

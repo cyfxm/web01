@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>淘宝轮播图</title>
+</head>
+<style>
+	*{
+		margin: 0;
+		padding: 0;
+	}
+	li{
+		list-style: none;
+	}
+
+	.box{
+		margin: 50px auto;
+		width: 520px;
+		height: 280px;
+		position: relative;
+	}
+
+	.box .left{
+		left: 0;
+		bottom: 50%;
+		position: absolute;
+	}
+
+	.box .right{
+		right: 0;
+		bottom: 50%;
+		position: absolute;
+	}
+
+	.box ul{
+		background-color: #a9a1a0;
+		width: 80px;
+		height: 12px;
+		position: absolute;
+		top:250px;
+		left: 220px;
+		border-radius: 25px;
+	}
+	.box ul li{
+		width: 10px;
+		height: 10px;
+		background-color:#b7b7b7;
+		border-radius: 50%;
+		float: left;
+		margin-top: 1px;
+		margin-bottom: 1px;
+		margin-left: 5px;
+	}
+	.box ul li:first-child{
+		background: #ff4400;
+	}
+</style>
+<body>
+	<div class="box">
+		<img src="images/taobao.jpg"/>
+		<a href="#">
+			<img src="images/right.png"/ class="right">
+		</a>
+		<a href="#">
+			<img src="images/left.png"/ class="left">
+		</a>
+		<ul>
+			<li><a href="#"></a></li>
+			<li><a href="#"></a></li>
+			<li><a href="#"></a></li>
+			<li><a href="#"></a></li>
+			<li><a href="#"></a></li>
+		</ul>
+	</div>
+</body>
+</html>

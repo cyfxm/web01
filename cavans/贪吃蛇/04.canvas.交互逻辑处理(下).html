@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>canvas 交互</title>
+    <style>
+        canvas {
+            background-color: #ccc;
+        }
+    </style>
+</head>
+<body>
+
+    <canvas id="canvas">不支持canvas标签！</canvas>
+
+    <script>
+        // 1.0 获取canvas标签
+        var canvas = document.getElementById("canvas");
+        // 2.0 设置画布的大小
+        canvas.width = 800;
+        canvas.height = 800;
+        // 3.0 获取canvas上下文对象
+        var ctx = canvas.getContext('2d');
+
+        // 编写函数 获取鼠标在canvas的位置
+        function getPoint(x,y){
+            // 这是canvas在页面的位置
+            var left = canvas.getBoundingClientRect().left ;
+            var ttop = canvas.getBoundingClientRect().top ;
+            // 返回鼠标在canvas的位置
+            return {
+                x:x - left,
+                y:y-ttop
+            }
+        }
+
+        // 4.0 绘制矩形
+        // 4.1.0  红色的矩形
+        var red = {
+            x:100,
+            y:50,
+            w:200,
+            h:100,
+            maxDistanceX:300,
+            maxDistanceY:150
+        }
+        ctx.beginPath();
+        ctx.fillStyle="red";
+        ctx.rect(red.x,red.y,red.w,red.h);
+        ctx.closePath();
+        ctx.fill()
+        // 4.2.0 蓝色的矩形
+        var blue = {
+            x:100,
+            y:250,
+            w:200,
+            h:100,
+            maxDistanceX:300,
+            maxDistanceY:350
+        }
+        ctx.beginPath();
+        ctx.fillStyle="blue";
+        ctx.rect(blue.x,blue.y,blue.w,blue.h);
+        ctx.closePath();
+        ctx.fill()
+
+        // 事件绑定
+        canvas.onclick = function(event){
+            // 获取鼠标在canvas上的位置
+            var obj = getPoint(event.pageX,event.pageY);
+            // console.log(obj)
+            // console.log(red)
+            // 判断鼠标是否点击了红色的矩形
+            if(obj.x >= red.x && obj.x <=red.maxDistanceX && obj.y >= red.y && obj.y<= red.maxDistanceY ){
+                console.log("点击了红色的矩形")
+            }
+            // 判断鼠标是否点击了蓝色的矩形
+            if(obj.x >= blue.x && obj.x <=blue.maxDistanceX && obj.y >= blue.y && obj.y<= blue.maxDistanceY ){
+                console.log("点击了蓝色的矩形")
+            }
+        }
+
+        
+    </script>
+</body>
+</html>

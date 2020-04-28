@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript">
+		// 其他类型转转换成布尔类型
+		// Boolean(要转换的变量)     可以实现将其它的类型转换为布尔类型
+
+		// Boolean(要转换的变量)转换规律如下
+		// 将number类型转换为boolean类型 只有0与NaN是false  其它的都是true
+		// null与undefined 转换为boolean类型 是false
+		// 将String转换为boolean类型  只有空字符串是false  其它的字符串都是true  只要是这个字符串里面有内容  就是true 
+
+		var v1 = null;
+		var v2 = undefined;
+		var v3 = 0;
+		var v4 = "";
+		var v5 = NaN;
+		var v6 = "0";// 字符串0
+		var v7 = 1;// 非0数字
+		var v8 = " ";// 有空格字符串
+		var v9 = "123abc";// 有具体内容的字符串
+		console.log( Boolean(v1) );// false
+		console.log( Boolean(v2) );// false
+		console.log( Boolean(v3) );// false
+		console.log( Boolean(v4) );// false
+		console.log( Boolean(v5) );// false
+		console.log( Boolean(v6) );// true
+		console.log( Boolean(v7) );// true
+		console.log( Boolean(v8) );// true
+		console.log( Boolean(v9) );// true
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

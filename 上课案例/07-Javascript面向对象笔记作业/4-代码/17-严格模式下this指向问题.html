@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button>按钮</button>
+
+    <script>
+        // "use strict";
+        // 以前在全局作用域函数中的 this 指向 window 对象
+        // 严格模式下全局作用域中函数中的 this 是 "undefined"
+       
+        function fn(){
+            console.log("全局作用域函数中");
+            console.log( this );
+            console.log("");
+        }
+        fn();
+
+        // 以前构造函数时不加 new也可以 调用构造函数,  构造函数会被当做普通函数，this 指向全局对象
+        // 严格模式下,如果 构造函数不加new调用, this 指向的是undefined 如果给他赋值则 会报错
+        // new实例化的构造函数,this指向创建对象的实例 
+        function Star(uname,age){
+            this.uname = uname;
+            this.age = age;
+            console.log( this );
+        }
+        var ldh = new Star("刘德华",18);
+        // var zxy = Star("张学友",19); // 严格模式下,不能省略new关键字
+
+        // 定时器、延时器里面的this还是指向window 
+        /* setInterval(function(){
+            console.log("定时器中的this");
+            console.log( this );
+        },1000); */
+        
+        /* setTimeout(function(){
+            console.log("延时器中的this");
+            console.log( this );
+        },3000); */
+
+        // 事件方法、对象的方法还是指向调用者 
+        var obj = {
+            uname:"张三",
+            sayHello:function(){
+                console.log("对象里面的方法,this指向");
+                console.log( this );
+            }
+        }
+        obj.sayHello();
+
+        var btn = document.querySelector("button");
+        btn.onclick =  function(){
+            console.log("事件方法中的this");
+            console.log( this );
+        }
+    </script>
+</body>
+</html>

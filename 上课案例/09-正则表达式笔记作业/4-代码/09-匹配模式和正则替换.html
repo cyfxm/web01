@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 在字符串对象中有一个  replace的方法可以替换指定字符串
+        // 正则替换replace
+        // replace() 方法可以实现替换字符串操作，用来替换的参数可以是一个字符串或是一个正则表达式。
+        // 语法:
+        // stringObject.replace(regexp/substr,replacement)
+        // 1. 第一个参数: 被替换的字符串 或者 正则表达式
+        // 2. 第二个参数: 替换为的字符串
+        // 3. 返回值是一个替换完毕的新字符串
+
+        var str1 = "Abc123abcAbc";
+
+        // 替换的参数可以是一个字符串
+        var str2 = str1.replace("A","啊");
+        console.log( str2 );
+        console.log("");
+
+        // 替换的参数也可以是一个正则表达式
+        var reg1 = /A/;
+        var str3 = str1.replace( reg1 , "啊" );
+        console.log( str3 );
+        console.log("");
+
+
+        // 匹配模式g  g代表global全局的意思 会全文匹配满足条件所有内容
+        var reg2 = /A/g;
+        var str4 = str1.replace( reg2 , "啊" );
+        console.log( str4 );
+        console.log("");
+
+        // 匹配模式i i代表ignore忽略的意思,指的是忽略大小字母
+        var reg3 = /a/i;
+        var str5 = str1.replace( reg3 , "啊" );
+        console.log( str5 );
+        console.log("");
+
+
+        // 组合的匹配模式 gi 或 ig 一样的效果  忽略大小写并且全局匹配
+        var reg4 = /a/gi;
+        // var reg4 = new RegExp(/a/gi,"gi");
+        // var reg4 = /a/ig;
+        var str6 = str1.replace( reg4 , "啊" );
+        console.log( str6 );
+        console.log("");
+    </script>
+</body>
+</html>

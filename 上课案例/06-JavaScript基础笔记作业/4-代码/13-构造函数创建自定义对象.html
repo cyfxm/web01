@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript">
+		// 我们之前学的{}跟new Object()创建对象的方法,每次只能创建一个对象,非常麻烦
+		// 那么这个时候,如果想创建多个对象,我们就可以考虑使用构造函数来创建对象
+
+		// 我们可以和以前封装函数一样， 想创建多个对象，不用一个个的创造对象了。
+
+		// 抽象可以将具有相同或相似功能的js代码独立出来封装成一个函数，这样可以提高代码的重复利用率，提高代码书写的效率，也可以有效的减少代码的冗余。
+
+		// 我们这个函数里面"封装的对象"， 为了和以前区别显示不同。 我们称为 "构造函数"。
+
+		// 构造函数 ，是一种"特殊"的函数。主要用来"在创建对象时初始化对象"， 即为"对象成员变量赋初始值"，总与"new运算符"一起使用在创建对象的语句中。
+
+		// 构造函数用于创建某一大类对象，类名建议"首字母大写"。
+		
+		// 构造函数要和new一起使用才有意义。
+
+		//定义构造函数
+		/*function 类名(形参1,形参2,形参3...){
+		   this.属性1 = 形参1;
+		   this.属性2 = 形参2;
+		   this.属性3 = 形参3;
+		   this.方法名 = function(){
+		       方法体;
+		   }
+		}*/
+
+		// 定义一个手机类
+		function Phone(brand,price,color){
+		   // 属性
+		   this.brand = brand;
+		   this.price = price;
+		   this.color = color;
+		   // 方法
+		   this.call = function(){
+		   		console.log( "手机可以打电话" );
+		   }
+
+		   this.send = function(){
+		   		console.log("手机可以发短信");
+		   }
+
+		   this.show = function(){
+		   	  console.log("品牌为"+this.brand+"的手机,价格为"+this.price+",颜色为"+this.color);
+		   }
+		}
+
+
+		//调用构造函数
+		// var 变量名 = new 类名(实参1,实参2,实参3...);
+
+		// 通过new从类中实例化出一个具体对象
+		var iphone = new Phone("iphoneX",5999,"黑色");
+		console.log( iphone );
+		
+		var xiaomi = new Phone("小米10",3999,"白色");
+		console.log( xiaomi );
+
+		var huawei = new Phone("华为P30",3299,"天空蓝");
+		console.log( huawei );
+		console.log("");
+
+		//使用对象中某个属性
+		/*console.log(变量名.属性1);
+		console.log(变量名.属性2);
+		console.log(变量名.属性3);*/
+
+		console.log( iphone.brand );
+		console.log( iphone.price );
+		console.log( iphone.color );
+		console.log("");
+
+		//使用对象中某个方法
+		// 变量名.方法名();
+		iphone.call();
+		iphone.send();
+		iphone.show();
+		console.log("");
+
+		xiaomi.show();
+		console.log("");
+		
+		huawei.show();
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 数组方法every检查数组
+        // every 检测数组中的元素是否存在满足条件的值，全部满足条件返回true;   有一个不满足就返回false，不对空数组进行检测，不改变原数组 
+        var arr = [85,58,70,52,92,40];
+        var result1 = arr.every(function(value){
+            return value > 60;
+        });
+        console.log( result1 );
+
+        var result2 = arr.every(function(value){
+            return value > 30;
+        });
+        console.log( result2 );
+    </script>
+</body>
+</html>

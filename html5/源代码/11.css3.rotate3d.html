@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>rotate3d() </title>
+    <style>
+        .container {
+            width: 1200px;
+            margin: 0px auto;
+            height:150px;
+            background-color: #ccc;
+            padding: 100px 0 ;
+            overflow: hidden;
+        }
+        .container .box {
+            width: 150px;
+            height: 150px;
+            background-color: red;
+            margin: 0 auto;
+        }
+        .form {
+            width: 1200px;
+            margin: 0 auto;
+        }
+        .form > div {
+            height: 50px;
+            line-height: 50px;
+            background-color: #f0f0f0;
+            margin: 0 0 10px 0;
+        }
+        .form > div input {
+            width: 600px;
+            vertical-align: middle;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="box" id="box"></div>
+    </div>
+
+    <div class="form">
+        <div>
+            <label> X 轴 </label> <input id="rotateX" type="range" max="300" min="0" value="0">
+        </div>
+        <div>
+            <label> Y 轴 </label> <input id="rotateY" type="range" max="300" min="0" value="0">
+        </div>
+        <div>
+            <label> Z 轴 </label> <input id="rotateZ" type="range" max="300" min="0" value="0">
+        </div>
+
+        <div>
+            <label> DEG </label> <input id="rotateD" type="range" max="360" min="0" value="0">
+        </div>
+        <div>
+            <input type="text" id="res">
+        </div>
+    </div>
+
+
+
+</body>
+</html>
+
+<script>
+        // 1.0 获取元素
+        var box = document.querySelector("#box");
+        var rotateX_el = document.querySelector("#rotateX");
+        var rotateY_el = document.querySelector("#rotateY");
+        var rotateZ_el = document.querySelector("#rotateZ");
+        var rotateD_el = document.querySelector("#rotateD");
+        var res = document.querySelector("#res");
+
+        // 2.0 定义变量 记录数据
+        var x = 0 ;
+        var y = 0 ;
+        var z = 0;
+        var angle = 0;
+
+        // 3.0 编一个函数 设置.box标签的rotate3d()
+        function setBoxRotate3d() {
+            // 3.0.1 设置.box标签的rotate3d()
+            box.style.webkitTransform="rotate3d("+x+","+y+","+z+","+angle+"deg)";
+            box.style.transform="rotate3d("+x+","+y+","+z+","+angle+"deg)";
+            // 3.0.2 显示设置.box标签的rotate3d()
+            res.value = "rotate3d("+x+","+y+","+z+","+angle+"deg)";
+        }
+
+        // setBoxRotate3d();
+        // 4.0 X 轴的变化 监听输入框的值变化
+        rotateX_el.oninput = function(){
+            // 4.0.1 获取input的值
+            // console.log("x:",this.value)
+            x= this.value;
+            setBoxRotate3d();
+        }
+        rotateY_el.oninput = function(){
+            y = this.value;
+            setBoxRotate3d();
+        }
+        rotateZ_el.oninput = function(){
+            z = this.value;
+            setBoxRotate3d();
+        }
+        rotateD_el.oninput = function(){
+            angle = this.value;
+            setBoxRotate3d();
+        }
+
+</script>

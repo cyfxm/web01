@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript">
+		// 要求:  去除数组中重复的元素  ['c', 'a', 'z', 'a', 'x', 'a', 'x', 'c', 'b'] 
+		// 意思就是只留下不重复的元素
+
+		// 1.目标： 把旧数组里面不重复的元素选取出来放到新数组中， 重复的元素只保留一个， 放到新数组中去重
+		// 2.核心算法： 我们遍历旧数组， 然后拿着旧数组元素去查询新数组， 如果该元素在新数组里面没有出现过， 我们就添加， 否则不添加
+		// 3.我们怎么知道该元素没有存在？ 利用 新数组.indexOf(数组元素) 如果返回时 - 1 就说明 新数组里面没有改元素
+
+		var arr = ['c', 'a', 'z', 'a', 'x', 'a', 'x', 'c', 'b'];
+		// 定义一个新的空数组
+		var newArr = [];
+		for(var i=0;i<arr.length;i++){
+			// 判断某个值在数组中是否存在,可以使用indexOf,如果存在返回对应的下标,如果不存在返回-1
+			if( newArr.indexOf(arr[i]) == -1 ){ // 在新数组中查询是否存在旧数组中的某个元素,如果不存在,则把这个元素添加到新数组中
+				newArr.push( arr[i] );
+			}
+		}
+		console.log( newArr );
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

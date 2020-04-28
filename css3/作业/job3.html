@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
+        .box{
+            width: 500px;
+            height: 300px;
+            border: 1px solid #ccc;
+            margin: 50px auto;
+        }
+        /* 第一种 */
+        .box1{
+            display: flex;
+        }
+
+        .box1 .aside{
+            width: 120px;
+            height: 100%;
+            border: 1px solid #ccc;
+        }
+        .box1 .content{
+            flex-grow: 1;
+        }
+
+        /* 第二种 */
+        .box2{
+            position: relative;
+        }
+        .box2 .aside{
+            position: absolute;
+            border: 1px solid #ccc;
+            width: 120px;
+            height: 100%;
+        }
+        .box2 .content{
+            margin-left: 100px;
+        }
+
+        /* 第三种 */
+        .box3 .aside{
+            float: left;
+            width: 120px;
+            border: 1px solid #ccc;
+            height: 100%;
+        }
+        .box3 .content{
+            overflow: hidden;
+        }
+        .box3::after{
+            content: "";
+            height: 0;
+            line-height: 0;
+            display: block;
+            visibility: hidden;
+            clear: both;
+        }
+    </style>
+</head>
+<body>
+    <div class="box box1">
+        <div class="aside"></div>
+        <div class="content"></div>
+    </div>
+
+    <div class="box box2">
+        <div class="aside"></div>
+        <div class="content"></div>
+    </div>
+
+    <div class="box box3">
+        <div class="aside"></div>
+        <div class="content"></div>
+    </div>
+</body>
+</html>

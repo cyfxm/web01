@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		input{
+			/*去掉外轮廓线*/
+			outline:none;
+		}
+		.username{
+			border:1px dashed gray;
+			background: #e7eefe;
+		}
+		/*文本框获取鼠标焦点对应的样式*/
+		.username:focus{
+			border:1px dashed #ffc8d2;
+			background: #fff7fb;
+		}
+		.email{
+			/*去掉所有方向的边框*/
+			border:none;
+			border-bottom:1px dashed red;
+		}
+	</style>
+</head>
+<body>
+	<form action="index.php" method="get">
+		<p>用户名：<input type="text" class="username"/></p>
+
+		<p>邮　箱：<input type="text" class="email"/></p>
+
+		<p>搜索一下：<input type="text" class="search" placeholder="请输入..." /></p>
+	</form>
+</body>
+</html>

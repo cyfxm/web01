@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* 我们之前讲过定义函数的语法是:
+        function 函数名([形参1,形参2,形参3...]){
+            函数体;
+            return 返回值;
+        }
+        我们之前讲过调用函数的语法是
+        函数名([实参1,实参2,实参3...]) */
+
+        // 函数的定义方式
+        // 1.方式1 函数声明方式 function 关键字 (命名函数)
+        // function fn(){}
+        function fn1(){
+            console.log("fn1的函数");
+        }
+        fn1();
+
+        // 2.方式2 函数表达式(匿名函数)   
+        // var fun = function(){}
+
+        // 匿名函数可以赋值给一个变量或者给事件绑定
+        var fn2 = function(){
+            console.log("我是匿名函数");
+        }
+        // 通过变量名就可以调用匿名函数了
+        fn2();
+
+        // 3.方式3 通过构造函数new实例化得到   new Function() 
+        // var fn = new Function('参数1','参数2'..., '函数体')
+        // new Function里面的参数必须要加引号
+        // new Function因为局限性多,也非常麻烦,实际开发的时候,几乎不用
+        var fn3 = new Function("a","b","console.log('传进来的两个数的和为:'+(a+b) );");
+        fn3(10,20);
+    </script>
+</body>
+</html>

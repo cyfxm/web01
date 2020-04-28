@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<!-- 表单的作用是用于收集用户信息 -->
+	<!-- 表单的组成有三部分, 表单域  提示信息 以及 表单控件 -->
+
+	<!-- 表单域在html中使用form标签表示  form不要打成了from -->
+	<!-- 表单域就是一个容器,可以理解为一张白纸 -->
+
+	<!-- form标签中有两个属性 -->
+	<!-- 一个是action属性 数据提交的地址(取值一般是网址或者文件名) -->
+	<!-- 另一个是method属性 数据提交的方式 取值 get(默认值)或者post -->
+	<!-- ​所有的表单控件都要放在表单域中! -->
+	<form action="abc.php" method="post">
+		<!-- 我们可以给表单控件自定义name属性值,这个name属性值提供给后台页面获取用户输入数据的标识符 -->
+		<p>用户名:<input type="text" name="username"/></p>
+
+		<!-- 在html代码中,半角空格无效,但是全角空格有效 -->
+		<p>密　码:<input type="password" name="userpass"/></p>
+		
+		<p><input type="submit" value="登录"/></p>
+	</form>
+</body>
+</html>

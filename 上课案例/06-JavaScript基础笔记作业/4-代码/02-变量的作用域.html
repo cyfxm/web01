@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript">
+		// 什么是变量的作用域？指变量在什么地方可以使用，什么地方不可以使用。
+		// 我们js中的变量的作用域是通过"函数"来进行划分的
+
+		/*全局变量: 在全局作用域下声明的变量叫做全局变量（"在函数外部定义的变量"）。
+		全局变量在代码的"任何位置"都可以使用
+		在全局作用域下 var 声明的变量 是全局变量
+		特殊情况下，在函数内不使用 var 声明的变量也是全局变量（不建议使用）*/
+
+		// 在函数外定义了一个变量a,那么这个a就是全局变量
+		var a = 10;
+		// 定义函数
+		function fn1(){
+			console.log( a );// 10
+
+			// 特殊情况下，在函数内不使用 var 声明的变量也是全局变量（不建议使用）
+			b = 20;// 注意:没有加var
+			console.log( b );// 20
+		}
+		// 调用函数
+		fn1();
+		console.log("----");
+		console.log( a );// 10
+		console.log( b );// 20
+		console.log("");
+		console.log("");
+		console.log("");
+		console.log("");
+		console.log("");
+
+		/*局部变量: 在局部作用域下声明的变量叫做局部变量（"在函数内部定义的变量"）。
+		局部变量只能在该"函数内部"使用
+		在函数内部 var 声明的变量是局部变量
+		函数的形参实际上就是局部变量*/
+
+		function fn2(num1,num2){
+			console.log("形参1的值为:"+num1);
+			console.log("形参2的值为:"+num2);
+
+			// 在函数内部 var 声明的变量是局部变量
+			var num3 = 30;
+			console.log( num3 );
+		}
+		fn2(10,20);
+
+		// 访问函数内形参的值
+		// console.log( num1 );// 报错
+		// console.log( num2 );// 报错
+
+		// 输出在函数内使用var定义的变量
+		// console.log( num3 );// 报错
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

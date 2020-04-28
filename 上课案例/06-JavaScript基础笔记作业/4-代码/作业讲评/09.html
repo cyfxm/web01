@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript">
+		/*进阶题,也要做 封装一个查找数组元素的函数,找到则返回元素的下标,找不到返回-1
+		function findElement(arr,element,startIndex){
+			// arr:原数组
+			// element:需要查找的元素
+		    // startIndex:开始查找的下标,如果不传,代表从0开始查找
+		}
+		比如: findElement(["a","b","c","d","e","c"],"c") 返回2
+		比如: findElement(["a","b","c","d","e","c"],"c",3) 返回5*/
+
+
+		// 参数是可以设置默认值的
+		function findElement(arr,element,startIndex = 0){
+			// arr:原数组
+			// element:需要查找的元素
+		    // startIndex:开始查找的下标,如果不传,代表从0开始查找
+		    
+		    // 怎么查询数组中的所有元素是否等于某个值
+		    for(var i=startIndex;i<arr.length;i++){
+		    	if( arr[i] == element ){// 判断数组中的元素的值是否等于element
+		    		// console.log( arr[i] );
+		    		return i ;// 返回数组下标
+		    	}
+		    }
+
+		    // 如果整个数组都遍历完了,还是找不到相等的,那就代表数组中没有这个element,返回-1
+		    return -1;
+		}
+
+		// 比如: findElement(["a","b","c","d","e","c"],"c") 返回2
+		console.log(  findElement(["a","b","c","d","e","c"],"c") );
+
+		// 比如: findElement(["a","b","c","d","e","c"],"c",3) 返回5
+		console.log(  findElement(["a","b","c","d","e","c"],"c",3) );
+
+		console.log(  findElement(["a","b","c","d","e","c"],"g") );
+
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript">
+		// 王可可   是一条   阿拉斯加犬(type)， 今年5岁了， 颜色是 红色。    它会 汪汪汪(cry)     它 会 演电影 《后会无期》(showFilm)
+		var dog = {
+			dogname : "王可可",
+			type    : "阿拉斯加犬",
+			age		: 5,
+			color	: 'red',
+			cry:function(){
+				console.log("汪汪汪");
+			},
+			showFilm:function(){
+				console.log("演电影 《后会无期》");
+			}
+		};
+
+		console.log("狗狗名字:"+dog.dogname);
+		console.log("狗狗类型:"+dog.type);
+		console.log("狗狗年龄:"+dog.age);
+		console.log("狗狗颜色:"+dog.color);
+		dog.cry();
+		dog.showFilm();
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

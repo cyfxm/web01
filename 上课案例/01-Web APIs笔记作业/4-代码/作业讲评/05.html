@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /* 进阶作业——随机选学员
+        ​从以下学员名单中随机选出4个学员：
+        var arr = ["鹿晗","王俊凯","蔡徐坤","彭于晏","周杰伦","刘德华","赵本山"];
+        注意：不要有重复的学员
+        效果图:  每次刷新结果都会不一样 */
+
+        var arr = ["鹿晗","王俊凯","蔡徐坤","彭于晏","周杰伦","刘德华","赵本山"];
+        // 思路:  每次随机取出一个数组元素,再把这个数组元素从数组中删除,下次再取,就不会取到重复的学员了
+        // console.log( arr );// 输出原数组
+        
+        // 定义一个随机函数
+        function getRandom(min,max){
+            return Math.floor( Math.random()*(max-min+1) + min );
+        }
+
+        // 定义一个新的空数组
+        var newArr = [];
+        for(var i = 1;i<= 4; i++){
+            // 先取一个,需要使用到随机数,随机数的范围就是数组的下标   0 到 数组长度-1
+            var index = getRandom(0, arr.length-1 );
+            // console.log( arr[index] );// 输出取到的元素
+            
+            // 把取出来的数组元素放进新数组中
+            newArr.push( arr[index] );
+
+            // 取到的元素,还需要从原数组中移除   splice(start,length)
+            arr.splice( index, 1);
+            // console.log( arr );// 输出移除元素以后的数组
+        }
+        console.log( newArr );
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="fn()">行内绑定-传统注册事件</button>
+    <button>动态绑定-传统注册事件</button>
+    <button>方法监听注册事件</button>
+    <button>ie9 attachEvent</button>
+
+    <script>
+        function fn(){
+            alert("我是行内绑定的");
+        }
+        // 1、传统注册事件
+        var btns = document.getElementsByTagName("button");
+        btns[1].onclick = function(){
+            alert("我是行内绑定的1111");
+        }
+        btns[1].onclick = function(){
+            alert("我是行内绑定的2222");
+        }
+        btns[1].onclick = function(){
+            alert("我是行内绑定的3333");
+        }
+        // 2、事件侦听注册事件
+        btns[2].addEventListener("click",function(){
+            alert("我是事件监听绑定的按钮1111");
+        })
+        btns[2].addEventListener("click",function(){
+            alert("我是事件监听绑定的按钮22222");
+        })
+        btns[2].addEventListener("click",function(){
+            alert("我是事件监听绑定的按钮333333");
+        })
+
+        btns[2].addEventListener("click",fn2);
+        function fn2(){
+            alert("我是有名函数fn2");
+        }
+
+        // 3、ie9以下监听方式
+        btns[3].attachEvent("onclick",function(){
+            alert("我是IE9以下浏览器专用的绑定方式1111");
+        })
+        
+        btns[3].attachEvent("onclick",fn3);
+
+        function fn3(){
+            alert("我是有名函数fn3，我用于测试attachEvevt监听方式");
+        }
+    </script>
+</body>
+</html>

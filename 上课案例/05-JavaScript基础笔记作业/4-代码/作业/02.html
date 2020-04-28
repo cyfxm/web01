@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript">
+		// 2.var arr= [2,6,1,77,52,25,7] 然后将这个数组中的元素为奇数的平均值求出来
+		var arr = [2,6,1,77,52,25,7];
+		var sum = 0;// 统计奇数的和
+		var count = 0;// 统计奇数的个数
+
+		for(var i = 0;i< arr.length; i++){
+			if( arr[i]%2 == 1){// 判断数组元素是否为奇数
+				sum = sum + arr[i];
+				count++;
+			}
+		}
+		// 奇数平均值 = 奇数的和/奇数的个数
+		console.log( "平均值为:" + sum/count );
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="demo" class="nav">div的内容</div>
+
+    <script>
+        var div = document.getElementById("demo");
+        // 特别注意:  使用getAttribute和setAttribute操作类名需要使用"class",而不是className
+        console.log( div.getAttribute("class") );// nav
+        console.log( div.getAttribute("className") );// null
+
+        div.setAttribute("class","nav abc");// 成功设置
+        div.setAttribute("className","nav edg");// 无效
+    </script>
+</body>
+</html>

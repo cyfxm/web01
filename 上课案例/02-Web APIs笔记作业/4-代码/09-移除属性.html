@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="demo" index="1" class="nav">div的内容</div>
+    <script>
+        // 移除属性使用的语法是  对象.removeAttribute("属性名")
+        // 对象.removeAttribute("属性名")可以移除内置属性也可以移除自定义属性
+        var div = document.getElementById("demo");
+
+        // 移除内置class属性
+        div.removeAttribute("class");
+
+        // 移除自定义属性index
+        div.removeAttribute("index");
+    </script>
+</body>
+</html>

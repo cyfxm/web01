@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //注意: 正则表达式里面写字符,不管字母还是数字还是其他符号,都不需要加引号
+
+        var reg1 = /a/;// 这个正则代表含有a就返回true
+        console.log( reg1.test("abc") ); // true
+        console.log( reg1.test("abcaaa") ); // true
+        console.log( reg1.test("bcd") ); // false
+        console.log( reg1.test("123") ); // false
+        console.log("");
+
+        var reg2 = /abc/;// 这个正则代表含有abc才返回true
+        console.log( reg2.test("a") ); // false
+        console.log( reg2.test("a456") ); // false
+        console.log( reg2.test("b123") );// false
+        console.log( reg2.test("c789") );// false
+        console.log( reg2.test("abc") );// true
+        console.log( reg2.test("123abc") );// true
+        console.log("");
+
+        /* 字符类
+        字符类表示有一系列字符可供选择，只要匹配其中一个就可以了。所有可供选择的字符都放在方括号[]内。 */
+
+        /* [] 方括号
+        [] 方括号,表示有一系列字符可供选择，只要匹配其中一个就可以了 */
+
+        var reg3 = /[abc]/;// 表示只要含有 a 或者  含有b  或者含有c 其他一个字符都返回true
+        console.log( reg3.test("a") ); // true
+        console.log( reg3.test("a456") ); // true
+        console.log( reg3.test("b123") );// true
+        console.log( reg3.test("c789") );// true
+        console.log( reg3.test("abc") );// true
+        console.log( reg3.test("123abc") );// true
+        console.log("");
+
+        /* 范围符-
+        [-] 方括号内部 范围符-    
+        方括号内部加上 - 表示范围 
+        可以在中括号里面加一个短横线表示一个范围 ,比如[a-z]表示a到z的26个英文字母任何一个字母 */
+        var reg4 = /[a-z]/;  // 只要含有a到z其中一个小写英文字母,包括a和z都返回true
+        console.log( reg4.test("a") );// true
+        console.log( reg4.test("A") );// false
+        console.log( reg4.test("a123") );// true
+        console.log( reg4.test("z123") );// true
+        console.log( reg4.test("12b3") );// true
+        console.log( reg4.test("1#2c3") );// true
+        console.log( reg4.test("-") );// false
+        console.log("");
+
+        /* 字符组合
+        /[a-z1-9]/.test('andy') // true
+
+        方括号内部可以使用字符组合，这里表示包含 a 到 z 的26个英文字母和 1 到 9 的数字都可以 */
+
+        var reg5 = /[a-zA-Z0-9_-]/; // 代表含有26个小写大写字母以及0~9以及下划线和短横杠其中一个都返回true
+        console.log( reg5.test("a") );// true
+        console.log( reg5.test("A") );// true
+        console.log( reg5.test("a123") );// true
+        console.log( reg5.test("z123") );// true
+        console.log( reg5.test("12b3") );// true
+        console.log( reg5.test("1#2c3") );// true
+        console.log( reg5.test("456-abc") );// true
+        console.log( reg5.test("abc_zhagnsan") );// true 
+        console.log( reg5.test("5") );// true
+        console.log( reg5.test("-") );// true
+        console.log( reg5.test("_") );// true
+        console.log("");
+
+        /* 取反符^
+        [^] 方括号内部 取反符^
+        /[^abc]/.test('andy') // false
+        "方括号内部"加上 ^ 表示取反，只要包含方括号内的字符，都返回 false  */
+
+        // 如果^没在方括号内部,代表边界符,以什么开头
+        var reg6 = /^abc/; // 代表以abc开头的字符串才会返回true
+        console.log( reg6.test("abc123456") );// true
+        console.log( reg6.test("a123456bc") );// false
+        console.log( reg6.test("123456abc") );// false
+        console.log( reg6.test("123abc456") );// false
+        console.log( reg6.test("^123abc456") );// false
+        console.log( reg6.test("^abc123456") );// false
+        console.log("");
+
+        var reg7 = /[abc]/;
+        console.log( reg7.test("a") );// true
+        console.log( reg7.test("b") );// true
+        console.log( reg7.test("c") );// true
+        console.log( reg7.test("789a456") );// true
+        console.log( reg7.test("d789") );// false
+        console.log( reg7.test("123") );// false
+        console.log("");
+        
+        // 如果^在方括号内部 表示取反，只要包含方括号内的其中一个字符，都返回 false
+        var reg8 = /[^abc]/;
+        console.log( reg8.test("a") );// false
+        console.log( reg8.test("b") );// false
+        console.log( reg8.test("c") );// false
+        console.log( reg8.test("123") );// true
+        console.log( reg8.test("12a3") );// true
+        console.log( reg8.test("@c") );// true
+        console.log("");
+
+        var reg9 = /[^a-z]/; // 匹配字符串中,是否有"某个"字符符合这个正则表达式
+        console.log( reg9.test("a") );// false
+        console.log( reg9.test("A") );// true
+        console.log( reg9.test("123") );// true
+        console.log( reg9.test("123a456") );// true
+        console.log( reg9.test("1") );// true
+        console.log( reg9.test("b") );// false
+        console.log( reg9.test("1b") );// true
+    </script>
+</body>
+</html>

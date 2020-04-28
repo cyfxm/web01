@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script src="./ajaxV0.0.3.js"></script>
+    <script>
+
+        $.ajax({
+            url: "./api/data.js",
+            // type:"get",
+            // data:{},
+            dataType: "jsonp", //用于判断走jsonp逻辑，还是XMLHttpRequest逻辑
+            jsonpCallback: "foo",
+            success: function (res) {
+                console.log(res);
+            }
+        })
+    </script>
+</body>
+
+</html>

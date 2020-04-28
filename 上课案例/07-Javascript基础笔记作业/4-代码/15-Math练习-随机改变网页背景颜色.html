@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<!-- 刷新随机生成rgb颜色值,script暂时需要写在body中或者body下面 -->
+	<!-- rgb的颜色取值范围rgb(0~255,0~255,0~255) -->
+	<script type="text/javascript">
+		// 一般得到指定返回的随机数这个功能是非常常见,所以我们会写在一个函数里面,专门得到一个指定范围的随机整数
+		function getRandom(min,max){
+			return Math.floor( Math.random()*(max-min+1) + min )
+		}
+
+		// 我们的rgb取值范围是0~255
+		var r = getRandom(0,255);
+		var g = getRandom(0,255);
+		var b = getRandom(0,255);
+		// console.log( r,g,b);
+
+		document.body.style.backgroundColor = "rgb("+r+","+g+","+b+")";
+	</script>
+</body>
+</html>

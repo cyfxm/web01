@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>动画</title>
+    <style>
+        body {
+            background-color: #333;
+        }
+
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: yellow;
+            box-shadow: 1px 1px 10px white;
+            opacity: 0.5;
+            margin: 50px ;
+        }
+
+        .box1 {
+            border-top-left-radius: 50%;
+            border-top-right-radius: 50%;
+            border-bottom-left-radius: 50%;
+            border-bottom-right-radius: 50%;
+        }
+
+        /* 1.0 定义动画 */
+        @keyframes loop {
+            0% {
+                box-shadow: 1px 1px 10px white;
+                opacity: 0.5;
+            }
+
+            50% {
+                box-shadow: 2px 2px 20px white;
+                opacity: 1;
+            }
+
+            100% {
+                box-shadow: 1px 1px 10px white;
+                opacity: 0.5;
+            }
+        }
+
+
+
+        /* 2.0 使用动画 */
+        .box2 {
+            animation-name: loop;
+            animation-duration: 2s;
+            animation-iteration-count: infinite;
+            animation-timing-function: linear;
+        }
+
+
+
+        /* 3.0 定义动画 */
+        @keyframes loop2 {
+            0% {
+                box-shadow: 1px 1px 10px white;
+                opacity: 0.5;
+                transform: scaleX(1) translate(0px ,0px);
+            }
+            25% {
+                box-shadow: 1px 1px 10px white;
+                opacity: 0.8;
+                transform: scaleX(1.2) translate(20px ,20px);
+            }
+
+            50% {
+                box-shadow: 1px 1px 10px white;
+                opacity:1;
+                transform: scaleX(1) translate(0px ,0px);
+            }
+           75% {
+                box-shadow: 1px 1px 10px white;
+                opacity: 0.8;
+                transform: scaleX(0.8) translate(-20px ,-20px);
+            }
+            100% {
+                box-shadow: 1px 1px 10px white;
+                opacity: 0.5;
+                transform: scaleX(1) translate(0px ,0px);
+            }
+            
+        }
+
+        /* 4.使用动画 */
+        .box3 {
+            transform: scale(1) translate(0px ,0px);
+
+            /*名称 */
+            /* animation: name duration timing-function delay iteration-count direction fill-mode; */
+            animation: loop2 2s linear infinite ;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="box box1 box2"></div>
+
+    <div class="box box1 box3"></div>
+
+
+</body>
+
+</html>

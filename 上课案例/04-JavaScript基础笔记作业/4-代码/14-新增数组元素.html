@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript">
+		// 新增数组元素
+		// 格式:
+		// javascript里的数组可以通过直接访问    数组变量名[下标]=值    实现新增数组元素
+
+		// 注意:一定 要用 数组加下标的方式 , 并且这个下标不存在,  追加数组元素;如果下标存在,会覆盖原下标对应的的值;
+		// 不能直接给数组名赋值， 否则会覆盖掉以前的数据。
+
+		var arr = [10,20,30,40];
+		arr[0] = 50;
+		arr[2] = 60;
+		arr[6] = 70;
+		console.log( arr );// [50, 20, 60, 40, empty × 2, 70]
+		console.log( arr[4] );// undefined
+		console.log( arr[5] );// undefined
+		console.log( arr.length );// 7
+		console.log("");
+
+		var arr2 = [50,78,90];
+		// 如果没有设置下标,整个数组都会被覆盖
+		arr2 = 5;
+		arr2 = 6;
+		console.log(arr2);
+		console.log("");
+
+		// 巧妙利用数组的长度,给数组添加元素
+		var arr3 = [10,20,30];
+		arr3[arr3.length] = 40;
+		arr3[arr3.length] = 50;
+		arr3[arr3.length] = 60;
+		console.log(arr3);
+		console.log(arr3.length);
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

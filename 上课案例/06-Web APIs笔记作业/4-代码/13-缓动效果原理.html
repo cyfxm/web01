@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        div{
+            width: 100px;
+            height: 100px;
+            background: pink;
+            /* 设置绝对定位 */
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+        button{
+            position:absolute;
+            top: 120px;
+        }
+    </style>
+</head>
+<body>
+    <div>下冰雹</div>
+    <button>点我,夏雨荷开始运动</button>
+
+    <script>
+        // 缓动效果原理
+        // 缓动动画就是让元素运动速度有所变化，最常见的是让速度慢慢停下来
+
+        /* 思路:
+        1. 让盒子每次移动的距离慢慢变小，速度就会慢慢落下来。
+        2. 核心算法: (目标值 - 现在的位置)   /  10    做为每次移动的距离    这个距离一般称为步长
+        缓动动画公式:(目标值 - 现在的位置) / 10
+        ​
+        假设 目标值为100 现在的位置为 0
+        ​
+        第一次运动 (100-0)/10 = 10
+        第二次运动 (100-10)/10 = 9
+        第三次运动 (100-19)/10 = 8.1 */
+
+        // 3. 停止的条件是: 让当前盒子位置等于目标位置就停止定时器  
+        // 4. 注意步长值需要取整     步长值是正值向上取整    步长值是负值向下取整    如果不取整,容易导致达不到目标值的问题
+
+        function animate(obj,target){
+            // 先清除定时器
+            clearInterval( obj.timer );
+           
+           // 再开启定时器,让对象开始移动
+           obj.timer = setInterval(function(){
+               // 缓动动画公式:(目标值 - 现在的位置) / 10
+                /* 
+                假设target = 400;
+                step = (400 - 0) / 10 = 40   现在的位置变成的 40
+                step = (400 - 40)/ 10 = 36   现在的位置变成了 40+36 = 76
+                step = (400 - 76)/ 10 = 32.4 现在的位置变成了 76+32.4
+                ...
+                */
+                // 定义一个变量 step 保存对象每次移动的速度  这个step我们也会叫步长值
+                var step = (target - obj.offsetLeft)/10;
+                // 注意步长值需要取整   步长值是正值向上取整    步长值是负值向下取整    如果不取整,容易导致达不到目标值的问题
+                step = Math.ceil( step );
+                
+                if(obj.offsetLeft == target){
+                    // 到达目标值的时候,清除定时器
+                    clearInterval( obj.timer );
+                }else{
+                    obj.style.left = obj.offsetLeft + step + "px";
+                }
+            },15);
+        }
+
+        // 获取按钮对象
+        var btn = document.querySelector("button");
+        // 获取div对象
+        var div = document.querySelector("div");
+
+        btn.onclick = function(){
+            animate( div, 500 );
+        }
+    </script>
+</body>
+</html>

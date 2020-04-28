@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript">
+		// 创建一个函数,从函数外传递一个9个元素数组  求这个数组中中元素为奇数的平均值,并把结果返回
+
+		function getAvg(arr){
+			var sum		= 0;//保存奇数的和
+			var count	= 0;//保存奇数的个数
+			for(var i=0;i<arr.length;i++){
+				if( arr[i]%2!=0 ){
+					sum += arr[i];
+					count++;
+				}
+			}
+			return sum/count;
+		}
+
+		var arr = [11,21,36,40,51];
+		document.write( getAvg(arr) );
+
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

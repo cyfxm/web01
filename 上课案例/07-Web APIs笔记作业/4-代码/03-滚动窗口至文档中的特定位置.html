@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            /* 给body设置宽度高度2000是为了让页面出现滚动条 */
+            height: 2000px;
+            width: 2000px;
+            background:skyblue;
+        }
+        div{
+            position: fixed;
+            left:50%;
+            top:50%;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <button>按钮1</button>
+        <button>按钮2</button>
+        <button>按钮3</button>
+    </div>
+
+    <script>
+        // 滚动窗口至文档中的特定位置
+        // window.scroll(水平滚动条的位置,垂直滚动条的位置);
+        // window.scroll(x,y);
+        // 注意:里面的x和y不需要带px单位 直接写数字即可
+        // 说白了window.scroll(x,y);就是控制滚动滚动的距离
+        // 一般的网页的滚动只有垂直的,没有水平的
+
+        // 获取所有按钮对象
+        var btns = document.querySelectorAll("button");
+        btns[0].onclick = function(){
+            // window.scroll(0,0)代表把网页水平滚动条跟垂直滚动条移动到 0 0位置
+            window.scroll(0,0);
+        }
+        btns[1].onclick = function(){
+            // window.scroll(0,0)代表把网页水平滚动条跟垂直滚动条移动到 0 0位置
+            window.scroll(0,100);
+        }
+        btns[2].onclick = function(){
+            // 实现点击一次按钮,垂直滚动条就向上移动几个像素
+
+            // 先获取当前页面被卷去的距离
+            var pageScroll = document.body.scrollTop || document.documentElement.scrollTop || window.pageYOffset;
+
+            // 然后再把这个页面被卷去的距离+50
+            // pageScroll = pageScroll + 50;
+            // console.log( pageScroll );
+
+            // 然后再把这个页面被卷去的距离-50
+            pageScroll = pageScroll - 50;
+            console.log( pageScroll );
+            
+
+            // 再通过window.scroll(x,y)  移动滚动条的位置
+            // 如果pageScroll的值越来越大,垂直滚动条会越往下
+            // 如果pageScroll的值越来越小,垂直滚动条会越往上
+            window.scroll(0,pageScroll);
+        }
+    </script>
+</body>
+</html>

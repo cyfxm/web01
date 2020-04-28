@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		/*垂直对齐vertical-align这个属性用于设置或检索对象内容的垂直对齐方式*/
+
+		/*注意:vertical-align 不影响块级元素中的内容对齐，它只针对于 "行内元素"或者"行内块元素"，特别是"行内块元素"， 通常用来控制图片"img图片标签" 或者  表单控件"input标签"与文字的对齐方式。;*/
+
+		.div1{
+			height: 100px;
+			background: pink;
+			/*想实现文本垂直居中,但是vertical-align对块级元素无效*/
+			vertical-align: middle;
+		}
+		.search{
+			margin-top: 100px;
+			margin-bottom: 100px;
+		}
+		.search input{
+			height: 50px;
+			/*vertical-align: bottom;*/
+			/*vertical-align: top;*/
+			vertical-align: middle;
+		}
+		
+		.box div img{
+			width: 100px;
+		}
+		.box div{
+			background: pink;
+			margin-bottom: 10px;
+		}
+	</style>
+</head>
+<body>
+	<div class="div1">div的内容</div>
+
+	<div class="search">
+		<input type="text"/>百度一下,你就知道
+	</div>
+	
+	<!-- 注意:vertical-align属性默认取值是baseline,这样baseline取值导致图片底部跟文字之间有一条缝隙,只有vertical-align的取值不是baseline,就可以去掉这个缝隙,比如取值为top,bottom,middle -->
+	<div class="box">
+		<div>
+		默认对齐:<img src='images/2.jpg'/>默认文字和图片基线对齐(vertical-align:baseline)
+		</div>
+
+		<div>
+		基线对齐:<img src='images/2.jpg' style="vertical-align: baseline";/>文字和图片基线对齐(vertical-align:baseline)
+		</div>
+
+		<div>
+		垂直居中:<img src='images/2.jpg' style="vertical-align: middle"/>文字和图片中线对齐(vertical-align:middle)
+		</div>
+
+		<div>
+		顶部对齐:<img src='images/2.jpg' style="vertical-align: top"/>文字和图片行顶线对齐(vertical-align:top)
+		</div>
+
+		<div>
+		底部对齐:<img src='images/2.jpg' style="vertical-align: bottom"/>文字和图片底线对齐(vertical-align:bottom)
+		</div>
+
+		<div>
+		 长度值:<img src="images/2.jpg" style="vertical-align: -14px"/>设置vertical-align:长度值带px单位,可以正值也可以负值
+		</div>
+
+		<div>
+		百分比:<img src="images/2.jpg" style="vertical-align: -56%"/>设置vertical-align:百分比
+		</div>
+	</div>
+</body>
+</html>

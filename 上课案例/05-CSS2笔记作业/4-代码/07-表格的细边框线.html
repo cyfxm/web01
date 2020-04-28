@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		table{
+			/*CSS给table标签设置边框,只有最外层有*/
+			border:1px solid #ff3aa4;
+
+			/*我们以前是通过html属性,rules="all"合并边框线*/
+
+			/*现在我们可以使用css的一个属性 border-collapse:collapse;*/
+			/*注意: border-collapse:collapse只能给table标签设置*/
+			border-collapse: collapse;
+		}
+		/*CSS给tr标签设置边框无效*/
+		/*tr{
+			border:1px solid #ff3aa4;
+		}*/
+
+
+		td,th{
+			border:1px solid #ff3aa4;
+		}
+
+		table tr:nth-child(odd){
+			background: #ffc0cb;
+		}
+		table tr th{
+			background: #ff69b4;
+		}
+	</style>
+</head>
+<body>
+	<table>
+		<caption><h3>小说排行榜</h3></caption>
+		<tr>
+			<th>排名</th>
+			<th>关键词</th>
+			<th>趋势</th>
+			<th>今日搜索</th>
+			<th>最近七日</th>
+			<th>相关链接</th>
+		</tr>
+		<tr>
+			<td>1</td>
+			<td>鬼吹灯</td>
+			<td>1</td>
+			<td>356</td>
+			<td>3560</td>
+			<td>
+				<a href="#">贴吧</a>
+				<a href="#">图片</a>
+				<a href="#">百科</a>
+			</td>
+		</tr>
+		<tr>
+			<td>1</td>
+			<td>鬼吹灯</td>
+			<td>1</td>
+			<td>356</td>
+			<td>3560</td>
+			<td>
+				<a href="#">贴吧</a>
+				<a href="#">图片</a>
+				<a href="#">百科</a>
+			</td>
+		</tr>
+		<tr>
+			<td>1</td>
+			<td>鬼吹灯</td>
+			<td>1</td>
+			<td>356</td>
+			<td>3560</td>
+			<td>
+				<a href="#">贴吧</a>
+				<a href="#">图片</a>
+				<a href="#">百科</a>
+			</td>
+		</tr>
+		<tr>
+			<td>1</td>
+			<td>鬼吹灯</td>
+			<td>1</td>
+			<td>356</td>
+			<td>3560</td>
+			<td>
+				<a href="#">贴吧</a>
+				<a href="#">图片</a>
+				<a href="#">百科</a>
+			</td>
+		</tr>
+		<tr>
+			<td>1</td>
+			<td>鬼吹灯</td>
+			<td>1</td>
+			<td>356</td>
+			<td>3560</td>
+			<td>
+				<a href="#">贴吧</a>
+				<a href="#">图片</a>
+				<a href="#">百科</a>
+			</td>
+		</tr>
+		<tr>
+			<td>1</td>
+			<td>鬼吹灯</td>
+			<td>1</td>
+			<td>356</td>
+			<td>3560</td>
+			<td>
+				<a href="#">贴吧</a>
+				<a href="#">图片</a>
+				<a href="#">百科</a>
+			</td>
+		</tr>
+		<tr>
+			<td>1</td>
+			<td>鬼吹灯</td>
+			<td>1</td>
+			<td>356</td>
+			<td>3560</td>
+			<td>
+				<a href="#">贴吧</a>
+				<a href="#">图片</a>
+				<a href="#">百科</a>
+			</td>
+		</tr>
+	</table>
+</body>
+</html>

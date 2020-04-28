@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<form action="index.php" method="get">
+		<!-- name 设置表单控件的名称(提交给后台程序之后,后台程序需要根据name来区分众多的表单控件) -->
+		<p>
+			用户名:<input type="text" name="yonghuming"/>
+		</p>
+
+		<!-- value 设置input控件中默认的文本值(可以修改文本框默认显示的内容,以及按钮的显示内容),用户输入的数据也会存在value属性中 -->
+		<p>
+			value可以设置按钮上显示的文字内容
+			<input type="button" value="我是普通按钮">
+			<input type="reset" value="我是重置按钮">
+			<input type="text" value="123456">
+		</p>
+
+		<!-- placeholder html5新增属性,占位符(没有设置value值的时候,显示的提示内容) 这个用的多-->
+		<p>
+			placeholder占位符
+			<input type="text" placeholder="请输入您的银行卡密码">
+		</p>
+
+		<!-- checked="checked" 选中状态,只有单选按钮和复选框有这个属性,取值:checked -->
+		<p>
+			checked="checked"属性
+			<input type="checkbox" checked="checked">吃饭
+			<input type="checkbox">睡觉
+		</p>
+		
+		<p>
+			disabled="disabled" 表示禁用控件,不能编辑,只能看,被禁用控件的数据,"不会被"提交到后台
+			<input type="text" value="abcd" disabled="disabled" name="data1"/>
+		</p>
+
+		<p>
+			readonly="readonly" 表示控件只读,不能编辑,只能看,只有控件的数据,"是可以被"提交到后台
+			<input type="text" value="efg" readonly="readonly" name="data2"/>
+		</p>
+
+		<p>
+			<input type="submit" value="提交数据">
+		</p>
+	</form>
+</body>
+</html>

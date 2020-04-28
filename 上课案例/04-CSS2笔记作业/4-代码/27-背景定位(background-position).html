@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		.div1{
+			width: 600px;
+			height: 600px;
+			border:5px solid blue;
+			background-image: url(images/3.jpg);
+			background-repeat: no-repeat;
+			/*background-position设置"背景图片开始显示的位置",默认是从元素的"左上角"开始显示的*/
+			
+			/*语法*/
+			/*background-position: 水平位置 垂直位置*/
+
+			/*取值方式有三种*/
+			/*第一种 方位位置英文单词 
+				水平 left center right 
+				垂直 top center bottom
+				最多可以表示9个位置
+			*/
+			/*background-position: left top;*/
+			/*background-position: right top;*/
+			/*background-position: center bottom;*/
+			/*background-position: center center;*/
+
+			/*第二种取值方式是百分比 百分比取值可以正值也可以负值*/
+			/*水平方向:正值背景图片往右边移动,负值背景图片往左边移动*/
+			/*垂直方向:正值背景图片往下边移动,负值背景图片往上边移动*/
+			/*background-position: 50% 100%;*/
+
+			/*第三种取值方式是数值带px单位,"这种方式用的最多",因为最准确,能够表示的位置非常多*/
+			/*数值取值可以正值也可以负值*/
+			/*水平方向:正值背景图片往右边移动,负值背景图片往左边移动*/
+			/*垂直方向:正值背景图片往下边移动,负值背景图片往上边移动*/
+			/*background-position: 0px 0px;*/
+			/*background-position: -52px -39px;*/
+
+			/*以上三种取值方式可以混搭使用*/
+			background-position: right 100px;
+		}
+	</style>
+</head>
+<body>
+	<div class="div1">div1的内容</div>
+</body>
+</html>

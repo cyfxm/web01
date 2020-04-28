@@ -1,0 +1,74 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        input{
+            border:none;
+            outline: none;
+        }
+        .box{
+            width: 500px;
+            margin:100px auto;
+        }
+        .box input{
+            width: 430px;
+            height: 30px;
+            border:2px solid #e2231a;
+            text-indent: 1em;
+            float: left;
+        }
+        .box span{
+            float: left;
+            background: url(images/fangdajing.png) #e2231a no-repeat center center;
+            width: 58px;
+            height: 34px;
+            cursor: pointer;
+        }
+        input {
+            color: #999;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <input type="text" value="手机"/>
+        <span></span>
+    </div>
+
+    <script>
+        // 获取input对象
+        var input = document.querySelector("input");
+        // 给input绑定获取焦点事件
+        input.onfocus = function(){
+            if(input.value == "手机"){
+                // 清空input的内容
+                input.value = "";
+                // 改变input中内容的字体颜色
+                input.style.color = "#333333";
+            }
+            
+        }
+
+        // 给input绑定失去焦点事件
+        input.onblur = function(){
+            // 判断内容不为空,就赋值默认值手机
+            if(input.value == ""){
+                input.value = "手机";
+            }
+            input.style.color = "#999999";
+        }
+    </script>
+</body>
+
+</html>

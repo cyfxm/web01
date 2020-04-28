@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript">
+		// 封装一个查找数组元素的函数,找到则返回元素的下标,找不到返回-1
+		function findElement(arr,value){ 
+			for(var i = 0,vlen = arr.length; i < vlen; i++){ 
+				if(arr[i] == value){ 
+					return i; 
+					} 
+				} 
+			return -1; 
+			} 
+			// var arr = [1,2,3,4,5,6];
+			document.write(findElement(["a","b","c","d","e","c"],"c"));
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

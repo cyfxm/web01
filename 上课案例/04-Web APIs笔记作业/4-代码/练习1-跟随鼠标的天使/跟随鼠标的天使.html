@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        img{
+            position: absolute;
+        }
+    </style>
+</head>
+
+<body>
+    <img src="images/angel.gif"/>
+    <script>
+        // 因为图片要跟随鼠标整个网页中移动,所以我们给document绑定鼠标移动事件
+
+        // 获取img对象
+        var img = document.querySelector("img");
+
+        // 鼠标移动事件
+        document.onmousemove=function(e){
+            e = e || window.event;
+            // 获取鼠标在当前文档中的位置
+            // console.log( e.pageX );
+            // console.log( e.pageY );
+
+            // e.pageX跟e.pageY只有IE9以及IE9以后的浏览器才可以使用
+            // IE9之前的需要使用e.x  e.y
+            var x = e.pageX || e.x;
+            var y = e.pageY || e.y;
+
+            // 把鼠标的坐标位置给img,注意:静态定位下,偏移量无效
+            img.style.left = (x-40)+"px";
+            img.style.top = (y-34)+"px";
+        }
+        
+    </script>
+</body>
+
+</html>

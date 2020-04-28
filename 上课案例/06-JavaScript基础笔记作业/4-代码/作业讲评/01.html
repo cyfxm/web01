@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript">
+		// 封装一个函数求这个数组var arr=[10,4,20,15,6,9]中最小值 并且在函数中输出这个最小值
+		
+		function getMin(){
+			var arr=[10,4,20,15,6,9];
+
+			// 假设数组的第一个元素为最小值
+			var minValue = arr[0];
+
+			for(var i = 1;i<arr.length;i++){
+				if( minValue > arr[i] ){ // 如果数组元素比我们假设的那个值还要小
+					minValue = arr[i];// 让它成为新的最小值
+				} 
+			}
+
+			document.write( minValue );
+		}
+
+		getMin();
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

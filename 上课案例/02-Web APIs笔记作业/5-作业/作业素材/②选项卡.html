@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		ul,li{
+			list-style: none;
+		}
+		a{
+			text-decoration: none;
+			color:#c0c0c0;
+		}
+		a:hover{
+			color:#c2130e;
+		}
+		body{
+			font-size:12px;
+		}
+		.box{
+			width: 320px;
+			margin:100px auto;
+			position: relative;
+		}
+		.box .top{
+			height: 20px;
+			line-height: 20px;
+			border-bottom:3px solid #c2130e;
+		}
+		.box .top span{
+			width: 100px;
+			text-align: center;
+			display: block;
+			float: left;
+			color:#000000;
+			font-weight: bold;
+		}
+		.box .top ul li{
+			float: left;
+			width: 50px;
+			margin-right: 1px;
+			text-align: center;
+			background: #dcdcdc;
+		}
+		.box .top ul li a{
+			color:#000000;
+			display: block;
+		}
+		.box .top ul li.topover{
+			background: #c2130e;
+		}
+		.box .top ul li.topover a{
+			color: #ffffff;
+		}
+		.box .num{
+			position: absolute;
+			left: 10px;
+			top: 30px;
+		}
+		.box .num ul li{
+			width: 17px;
+			height: 13px;
+			line-height: 13px;
+			color:#ffffff;
+			text-align: center;
+			background: #c2130e;
+			margin-bottom: 14px;
+		}
+		.box .content{
+			display: none;
+		}
+		.box .content ul li {
+			height: 27px;
+			line-height: 27px;
+			text-indent: 38px;
+		}
+		.box .content .more{
+			float: right;
+		}
+		.box .content.show{
+			display: block;
+		}
+	</style>
+</head>
+<body>
+	<div class="box">
+		<div class="top">
+			<span>新闻排行</span>
+			<ul id='topUl'>
+				<li class='topover'><a href="#">国内</a></li>
+				<li><a href="#">国际</a></li>
+				<li><a href="#">社会</a></li>
+				<li><a href="#">网评</a></li>
+			</ul>
+		</div>
+		<div class="num">
+			<ul>
+				<li>1</li>
+				<li>2</li>
+				<li>3</li>
+				<li>4</li>
+				<li>5</li>
+				<li>6</li>
+				<li>7</li>
+				<li>8</li>
+				<li>9</li>
+				<li>10</li>
+			</ul>
+		</div>
+		<div class="content show">
+			<ul>
+				<li><a href='#'>新疆阜康铁路桥梁坍塌多节运煤车厢侧翻坠河</a></li>
+				<li><a href='#'>最高法:承诺不判赖昌星死刑没有超越法律程序</a></li>
+				<li><a href='#'>物权法:满70年住宅建设用地使用权将自动续期</a></li>
+				<li><a href='#'>弟弟被妻下药毒死男子买女尸为其配阴婚(图)</a></li>
+				<li><a href='#'>揭开郑州神枪手神秘面纱 头号狙击手是近视眼</a></li>
+				<li><a href='#'>美军高官:不排除和中国发生直接军事对抗可能</a></li>
+				<li><a href='#'>浙江东阳传奇富姐吴英涉嫌非法吸收存款被批捕</a></li>
+				<li><a href='#'>西方炒作"中国航母威胁论"称05年已正式服役</a></li>
+				<li><a href='#'>女孩生活无法自理请人大代表递交安乐死议案</a></li>
+				<li><a href='#'>建设部：住房公积金制度将覆盖农民工</a></li>
+			</ul>
+			<div class='more'><a href="#">...more</a></div>
+		</div>
+
+		<div class="content">
+			<ul>
+				<li><a href='#'>美华裔女兵在营房上吊死亡军方介入调查(图)</a></li>
+				<li><a href='#'>组图：美国总统布什车队被撞骗自杀(组图)</a></li>
+				<li><a href='#'>梦露掌握肯尼迪之弟秘密遭诱驰宝马抛弃路边</a></li>
+				<li><a href='#'>孟加拉国严打贪官人人自危奔</a></li>
+				<li><a href='#'>韩国将举行大规模军事演习(图文) </a></li>
+				<li><a href='#'>组图：土星最大卫星表面发现“海洋”</a></li>
+				<li><a href='#'>墨西哥缉毒行动缴获2亿美元巨额现钞(组图) </a></li>
+				<li><a href='#'>组图：全球掀起裸体抗议加拿大捕猎海豹活动</a></li>
+				<li><a href='#'>美潜艇在百慕大失踪一晚航母战群出动搜索</a></li>
+				<li><a href='#'>匈牙利20万人示威 政要被民众扔鸡蛋(组图)</a></li>
+			</ul>
+			<div class='more'><a href="#">...more</a></div>
+		</div>
+
+		<div class="content">
+			<ul>
+				<li><a href='#'>深圳女工被三名男子轮奸男友目睹过程(组图)</a></li>
+				<li><a href='#'>男子珍藏一角钱“币王”价格高达1.3万(图)</a></li>
+				<li><a href='#'>青海女孩被困洗头房每天接客十几次(图)</a></li>
+				<li><a href='#'>组图：老妻少夫演绎忘年恋69岁妻子成功除皱</a></li>
+				<li><a href='#'>陕西蓝田县电视台播放淫秽影像 达10分钟左右</a></li>
+				<li><a href='#'>女子自称被大学教授诱骗同居讨要分手费(图)</a></li>
+				<li><a href='#'>李克强鼓励“创客”小伙伴：众人拾柴火焰高</a></li>
+				<li><a href='#'>组图：四川泸州16岁女孩打造中国第一丑女</a></li>
+				<li><a href='#'>最高法:承诺不判赖昌星死刑没有超越法律程序</a></li>
+				<li><a href='#'>深圳发现睾丸被摘男童尸体续：疑为1月前失踪</a></li>
+			</ul>
+			<div class='more'><a href="#">...more</a></div>
+		</div>
+
+		<div class="content">
+			<ul>
+				<li><a href='#'>养路费征稽员强制扣车致三轮车夫惨死车轮下</a></li>
+				<li><a href='#'>20多位学者谈中医问题 方舟子遭多名专家批驳</a></li>
+				<li><a href='#'>考研女生自称揭露监考老师作弊 成绩被判零分</a></li>
+				<li><a href='#'>全国政协委员建议一户一房制引起网民热议</a></li>
+				<li><a href='#'>河南周口市6名警察将人打昏后扔下楼摔死</a></li>
+				<li><a href='#'>组图：69岁老妻除皱成功 与少夫开始新生活</a></li>
+				<li><a href='#'>青海女孩被困洗头房每天接客十几次(图)</a></li>
+				<li><a href='#'>美上将：解放军不是美军对手 导弹打不垮台湾</a></li>
+				<li><a href='#'>新疆阜康铁路桥梁坍塌导致运煤列车脱轨</a></li>
+				<li><a href='#'>铁道部回应吴敬琏质疑:春运不涨价将长期坚持</a></li>
+			</ul>
+			<div class='more'><a href="#">...more</a></div>
+		</div>
+	</div>
+</body>
+</html>

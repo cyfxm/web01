@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 2、(Date)计算自己出生到现在活了多少天？
+        // 思路:是使用现在时间戳-出生时间戳  最后时间戳单位是毫秒数,需要转成天数
+        var now = new Date();
+        var birthday = new Date("1999-9-9");
+        var millseconds = now.getTime() - birthday.getTime();
+        // 毫秒数需要转成天数
+        var days = Math.ceil( millseconds/1000/60/60/24 );
+        console.log("出生到现在活了" + days +"天" );
+        
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

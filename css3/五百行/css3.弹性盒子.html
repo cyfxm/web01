@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .header {
+            height: 100px;
+            background-color: #ccc;
+        }
+
+        .header ul{
+            width: 100%;
+            background-color: pink;
+            padding: 10px 10px;
+        }
+        .header ul::after{
+            content: "";
+            clear: both;
+            display: block;
+        }
+        .header ul li{
+            float: left;
+            width: 25%;
+            height: 50px;
+            background-color: #af0;
+            border: 1px solid #fff;
+            box-sizing: border-box;
+        }
+
+        .nav{
+            height: 100px;
+            background-color: #f0f0f0;
+        }
+        .nav ul{
+            width: 100%;
+            padding: 10px 10px;
+            background-color: skyblue;
+            display: flex;
+        }
+        .nav ul li{
+            height: 50px;
+            border: 1px solid red;
+            background-color: lightyellow;
+            flex: 1;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <ul>
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+        </ul>
+    </div>
+
+    <div class="nav">
+        <ul>
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+        </ul>
+    </div>
+</body>
+</html>

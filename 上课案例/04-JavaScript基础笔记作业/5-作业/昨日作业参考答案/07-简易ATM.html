@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript">
+		var money = 100;
+		var operation = Number( window.prompt("请输入您要操作\r\n1.存钱\r\n2.取钱\r\n3.显示余额\r\n4.退出") );
+		switch(operation){
+			case 1:
+				var add = Number( window.prompt("请输入存入的金额") );
+				alert("存入成功,当前余额为:"+(money+add) );
+				break;
+
+			case 2:
+				var reduce = Number( window.prompt("请输入取款金额") );
+				if(reduce>money){
+					alert("取钱失败,当前余额不足" );
+				}else if(reduce<0){
+					alert("请不要输入负数");
+				}else{
+					alert("取钱成功,当前余额为:"+(money-reduce) );
+				}
+				break;
+
+			case 3:
+				alert("当前余额为:"+money );
+				break;
+
+			case 4:
+				alert("退出成功,欢迎再次使用ATM柜员机");
+				break;
+
+			default:
+				alert("非法操作");
+		}
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

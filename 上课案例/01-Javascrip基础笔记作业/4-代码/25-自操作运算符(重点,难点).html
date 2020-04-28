@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript">
+		// 自操作运算符分为 前加加 后加加 前减减 后减减
+
+		// 自操作运算符就是可以自己操作自己
+		// 自加加包括了前加加,后加加
+		// 自加加就是自己+1
+
+		// 自减减包括了前减减,后减减
+		// 自减减就是自己-1
+
+		// 我们只讲自加加,不讲自减减
+
+		var a = 10;
+		// 后加加
+		a++;
+		console.log(a);
+
+		var b = 20;
+		// 前加加
+		++b;
+		console.log(b);
+		console.log("");
+
+
+
+		// 有其他代码的时候
+		var x = 50;
+		var y = ++x;
+		console.log(x,y);// 51 51
+
+		var i = 60;
+		var j = i++;
+		console.log(i,j);// 61 60
+		console.log("");
+
+		// 同学需要记的
+		// 情况一: 没有其他代码的时候,前加加跟后加加效果是一样,最后自己都会加1
+		// 情况二: 有其他代码的时候,前加加会自己先加1,再把自己加1以后的值给其他代码使用;后加加是把自己原来的值给别的代码使用以后,自己再加1
+
+		var num1 = 30;
+		console.log(num1++);// 30
+		console.log(num1);// 31
+		console.log("");
+
+		var num2 = 40;
+		console.log(++num2);// 41
+		console.log(num2);// 41
+		console.log("");
+
+		// 自操作运算符的优先级会高于+
+		
+		// 练习
+		var a = 1; 
+		var b = ++a + ++a;
+		console.log(b); // 5
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

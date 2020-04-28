@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		/*刚才我们讲的层叠性有个前提,是他们的选择器优先级一样,我们才要考虑层叠性*/
+
+		/*CSS优先级*/
+		/*定义CSS样式时，经常出现两个或更多选择器选择在同一元素上，这时就会出现优先级的问题。*/
+		
+		/*基础选择器优先级比较: 
+			继承<通配符选择器<标签选择器<类选择器<id选择器<style行内式<!important属性
+		*/
+		
+		#two{
+			color:pink;
+		}
+		.one{
+			color:green;
+		}
+		div{
+			color:orange !important;
+		}
+		*{
+			color:blue !important;
+		}
+		body{
+			color:red;
+
+			/*!important语法格式*/
+			/*css属性:css属性值 !important;*/
+			/*color:red !important;*/
+		}
+
+
+		/*使用!important一定要注意以下几点*/
+		/*1.!important它是提升的属性的权重，而不是提升选择器的优先级！*/
+		/*2.!important它只能提升作用于"自己身上的属性"，"并不能提升继承过来属性的权重！"*/
+	</style>
+</head>
+<body>
+	<div class="one" id="two" style="color:purple">看看这行文字是什么颜色</div>
+</body>
+</html>

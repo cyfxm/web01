@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button>开始</button>
+    <button>停止</button>
+
+    <script>
+        // 实现一个开始按钮点击以后可以每隔3秒在控制台输出一个hello,再实现一个停止按钮,点击停止输出
+        
+        // 定义一个全局变量保存延时器的返回值
+        var timer = null;
+
+        var btns = document.querySelectorAll("button");
+        // 实现一个开始按钮点击以后可以每隔3秒在控制台输出一个hello
+        btns[0].onclick = function(){
+            // console.log("hello");
+
+            // 延时器到一定时间以后,只执行一次代码
+            /* setTimeout(function(){
+                console.log("hello");
+            },3000) */
+
+            // setTimeout延时器会返回一个值,记录当前延时器
+            timer = setTimeout( sayHello ,3000 );
+        }
+
+        // 如果想要延时器不断执行,我们可以在函数里面再次调用延时器
+        function sayHello(){
+            console.log("hello");
+            timer = setTimeout( sayHello ,3000 );
+        }
+
+        // 一个停止按钮,点击停止输出,其实就是清除延时器
+        btns[1].onclick = function(){
+            // window.clearTimeout(timer)参数说明: timer:要清除的延时器的返回值 清除指定的延时器
+            window.clearTimeout( timer );
+        }
+    </script>
+</body>
+</html>

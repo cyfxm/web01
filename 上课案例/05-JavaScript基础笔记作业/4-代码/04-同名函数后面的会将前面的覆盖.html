@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript">
+		// js有预解析的功能,函数会被提前声明定义
+
+		// 定义多个相同名字的函数,后面定义的,会覆盖前面定义的
+		function fn(){
+			document.write("我是第一个函数<br/>");
+		}
+		fn();
+
+		// 我们又定义了跟fn同名的函数
+		function fn(){
+			document.write("我是第二个函数<br/>");
+		}
+		fn();
+
+		// 我们又定义了跟fn同名的函数
+		function fn(){
+			document.write("我是第三个函数<br/>");
+		}
+		fn();
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

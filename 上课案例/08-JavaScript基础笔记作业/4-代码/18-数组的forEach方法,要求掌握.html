@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript">
+		// forEach对数组进行循环。（一般我们也会用for对数组进行循环，但是用for会麻烦一些，因为它要用循环变量）
+
+		/*
+			forEach语法
+
+			数组对象.forEach(function(item,index,arr){
+				// item数组元素
+				// index数组的下标
+				// arr原数组
+			})
+
+			注意：
+			(1)形参是一个回调函数。
+			(2)回调函数的三个形参分别：当前的数组元素 ， 元素的索引 ，当前的数组
+			修改item并不影响原数组(有一个前提，这个item的值是基本数据类型。
+			即如果它是引用数据类型，则这个修改会影响原数组)
+			(3)数组对象.forEach() 只是单纯地进行遍历 函数返回值为undefined
+		*/
+
+		/*
+		var arr = [10,30,20,5,6];
+		for(var i=0;i<arr.length;i++){
+			console.log( arr[i] );
+		}
+		*/
+
+		var arr = [10,30,20,5,6];
+		var arr2 = arr.forEach( function(item,index,arr){
+			// console.log( item );
+			// console.log( index );
+			// console.log( arr );
+
+			// return item*10;
+
+			console.log( item*10 );
+		});
+
+		console.log( arr );// [10,30,20,5,6]
+
+		console.log( arr2 );// undefined
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

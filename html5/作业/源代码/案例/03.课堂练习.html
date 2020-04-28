@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>滚动 当前元素  添加动画</title>
+    <style>
+        html , body {
+            width:100%;
+            height: 100%;
+            overflow: hidden;
+            padding: 0;
+            margin: 0;
+        }
+
+        #fullpage {
+            height: 100%;
+            width: 100%;
+            transform: translateY(0%);
+        }
+        #fullpage .section{
+            height: 100%;
+            width: 100%;
+        }
+        #fullpage .section.first {
+            background-color: darkred;
+        }
+        #fullpage .section.second {
+            background-color: skyblue;
+        }
+        #fullpage .section.third {
+            background-color: green;
+        }
+        #fullpage .section.fourth {
+            background-color: pink;
+        }
+
+        #fullpage  .first div.title {
+            line-height: 200px;
+            text-align: center;
+            color: white;
+        }
+        #fullpage .first.active div.title{
+            animation-name: foo1;
+            animation-duration: 2s;
+            animation-timing-function: linear;
+            animation-fill-mode: forwards;
+        }   
+        
+        #fullpage  .second div.title {
+            line-height: 200px;
+            text-align: center;
+            color: white;
+        }
+        #fullpage .second.active div.title{
+            animation-name: foo1;
+            animation-duration: 2s;
+            animation-timing-function: linear;
+            animation-fill-mode: forwards;
+        }   
+
+        #fullpage  .third div.title {
+            line-height: 200px;
+            text-align: center;
+            color: white;
+        }
+        #fullpage .third.active div.title{
+            animation-name: foo1;
+            animation-duration: 2s;
+            animation-timing-function: linear;
+            animation-fill-mode: forwards;
+        }   
+
+        #fullpage  .fourth div.title {
+            line-height: 200px;
+            text-align: center;
+            color: white;
+        }
+        #fullpage .fourth.active div.title{
+            animation-name: foo1;
+            animation-duration: 2s;
+            animation-timing-function: linear;
+            animation-fill-mode: forwards;
+        }   
+
+        @keyframes foo1 {
+            from {
+                font-size: 16px;
+            }
+
+            to {
+                font-size: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div id="fullpage">
+        <section class="section first">
+            <div class="title">第一屏的内容</div>
+        </section>
+        <section class="section second">
+            <div class="title">第二屏的内容</div>
+        </section>
+        <section class="section third">
+            <div class="title">第三屏的内容</div>
+        </section>
+        <section class="section fourth">
+            <div class="title">第四屏的内容</div>
+        </section>
+    </div>
+
+</body>
+</html>
+<script src="../jquery/jquery.js"></script>
+<script>
+    // 1.0  获取元素
+    var fullpage_element = document.querySelector("#fullpage");
+    var elements =  fullpage_element.querySelectorAll(".section");
+    // 2.0 定义索引值
+    var index = 0;
+    // 初始化
+    // 给index对应的section标签添加类名  添加动画
+    addAimation(index , elements);
+    // 3.0 可视区的高度
+    var winHeight = window.innerHeight;
+    // 4.0 定义全局变量
+    var bool = false;
+    var startY = 0;
+    var moveY = 0;
+    var resY = 0;
+    var curY = 0;
+    // 5.0 手指按下
+    document.ontouchstart = function(evt){
+        // 5.0.1 记录手指按下了
+        bool = true;
+        // 5.0.2记录手指按下的坐标
+        startY = evt.touches[0].pageY;
+    }
+    // 6.0 手指滑动
+    document.ontouchmove = function(evt){
+        // 6.0.1 判断手指是否按下了
+        if(bool){
+            // 6.0.2 记录手指滑动的位置
+            moveY = evt.touches[0].pageY;
+            // 6.0.3 记录手指在页面滑动了多少
+            resY = moveY - startY ;
+            // 6.0.4 移除过渡
+            fullpage_element.style.transition="none";
+            // 6.0.5 设置元素#fullpage的位置
+            fullpage_element.style.transform ="translateY("+(resY+curY)+"px)";
+        }   
+    }
+    // 7.0 手指松开
+    document.ontouchend = function(){
+        // console.log(resY,'判断上下滑动 ， 正数表示往下，负数表示往上')
+        // 正数往下   
+        if(resY > 0 ){
+            // 判断页面有没有滑动了100px
+            if(Math.abs(resY) > 100){
+                // index ++;
+                console.log(" index --",index)
+                // 改变index
+                index -- ;
+                // 三元运算
+                index = index < 0 ? 0 : index;
+                // 添加过渡
+                fullpage_element.style.transition="all 0.5s";
+                // 设置#fullpage位移属性
+                fullpage_element.style.transform ="translateY("+(-index * winHeight)+"px)";
+                
+                // 给index对应的section标签添加类名  添加动画
+                addAimation(index , elements);
+          
+            }else {
+                // 添加过渡
+                fullpage_element.style.transition="all 0.5s";
+                // 设置#fullpage位移属性
+                fullpage_element.style.transform ="translateY("+(-index * winHeight)+"px)";
+            }
+
+            console.log("往下")
+        }else {
+            // 负数往上
+            if(Math.abs(resY) > 100){
+                console.log(" index ++ ",index)
+                // index --;
+                // 改变index
+                index ++;
+                // 三元运算
+                index = index > 3 ? 3 : index;
+                // 添加过渡
+                fullpage_element.style.transition="all 0.5s";
+                // 设置#fullpage位移
+                fullpage_element.style.transform ="translateY("+(-index * winHeight)+"px)";
+                // 给index对应的section标签添加类名  添加动画
+                addAimation(index , elements);
+            }else {
+                // 添加过渡
+                fullpage_element.style.transition="all 0.5s";
+                // 设置#fullpage位移
+                fullpage_element.style.transform ="translateY("+(-index * winHeight)+"px)";
+            }
+            console.log("往上")
+        }
+        // 记录手指松开了
+        bool = false;
+        // 记录#fullpage当前位置
+        curY = (-index * winHeight);
+    }
+
+
+
+    // 编写一个函数 给元素添加动画
+    function addAimation(index,elements){
+        for(var i = 0 ; i < elements.length ; i++){
+            elements[i].classList.remove("active");
+        }
+        elements[index].classList.add("active");
+    }
+
+
+
+</script>
+

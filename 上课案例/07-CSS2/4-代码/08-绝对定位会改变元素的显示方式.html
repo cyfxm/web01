@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		/*绝对定位会改变元素的显示方式,具有行内块特性*/
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.div1{
+			/*我们没有给div设置宽度,默认宽度应该是父元素的100%*/
+
+			/*但是我们给div加上绝对定位以后,默认宽度就会由内容决定了*/
+			position: absolute;
+			background: red;
+		}
+		.span1{
+			background: blue;
+			/*绝对定位*/
+			position: absolute;
+			left: 500px;
+			top: 200px;
+			
+			width: 100px;
+			height: 100px;
+		}
+	</style>
+</head>
+<body>
+	<div class="div1">我是div1的内容我是div1的内容我是div1的内容</div>
+	<span class="span1">我是span1的内容</span>
+</body>
+</html>

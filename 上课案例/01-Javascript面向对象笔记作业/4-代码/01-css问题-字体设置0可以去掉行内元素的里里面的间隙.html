@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        /* 想去掉行内元素左右缝隙,可以给行内元素的"父元素"设置字体为0 */
+        .box{
+            font-size:0;
+        }
+        /* 因为父元素设置了字体大小0,有可能会让子元素的内容看不见,这个时候,可以单独给子元素设置字体大小 */
+        .box span{
+            font-size:16px;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <span style="background:red">span1</span>
+        <span style="background:blue">span2</span>
+        <span style="background:green">span3</span>
+    </div>
+</body>
+</html>

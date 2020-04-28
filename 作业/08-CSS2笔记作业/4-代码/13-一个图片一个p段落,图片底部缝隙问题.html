@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.box{
+			background: pink;
+		}
+		.box p{
+			background: skyblue;
+		}
+		/*默认情况下,图片底部会有一条缝隙,我们只会设置vertical-align的值不是baseline就可以解决*/
+		.box img{
+			/*vertical-align: top;*/
+			/*vertical-align: middle;*/
+			vertical-align: bottom;
+		}
+	</style>
+</head>
+<body>
+	<div class="box">
+		<img src="images/3.jpg"/>
+		<p>我是p段落,哈哈哈</p>
+	</div>
+</body>
+</html>

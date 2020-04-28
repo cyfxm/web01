@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var arr = [10,20,30,40,50];
+        /*
+         forEach语法
+
+        数组对象.forEach( 回调函数 )
+        数组对象.forEach( function(value,index,array){
+            value代表当前数组元素的值,可选
+            index代表当前数组元素的下标,可选
+            array代表遍历正在遍历的那个数组,可选
+        } )
+
+        注意: forEach没有返回值  forEach中写return不会终止forEach的执行
+         */
+
+        var result = arr.forEach(function(value){
+            console.log( value );
+            // return false;
+        })
+    </script>
+</body>
+</html>

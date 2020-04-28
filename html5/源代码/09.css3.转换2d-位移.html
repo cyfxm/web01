@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>转换   transform  : translate()</title>
+    <style>
+        div[class^="b"] {
+            width: 100px;
+            height: 100px;
+            background-color: #ccc;
+            margin: 50px;
+        }
+        
+        .box1 {
+            /* 位移：*/
+            /* x   正数往右边位移   ，负数往左边位移 */
+            /* y   正数往下边位移   ，负数往上边位移 */
+            /* z   正数离眼睛越来越远   ，负数离眼睛越来越近 */
+            /* transform: translate(x,y); */
+            transform: translateX(100px) translateY(100px) translateZ(100px);
+        }
+
+        .box2 {
+            /* transform: translate3d(x , y ,z); */
+            transform: translate3d(100px,100px ,100px);
+        }
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+    <div class="box1"></div>
+    <div class="box2"></div>
+
+</body>
+</html>

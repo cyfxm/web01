@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .map {
+            width: 300px;
+            height: 300px;
+            background-color: #ccc;
+        }
+
+        .map ul {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+            height: 100px;
+        }
+
+        .map ul li {
+            width: 98px;
+            height: 98px;
+            border: 1px solid transparent;
+            float: left;
+            text-align: center;
+            line-height: 98px;
+        }
+
+        .map ul li.green {
+            border: 1px solid green;
+            background-color: #f0f0f0;
+            cursor: pointer;
+        }
+
+        .map ul li.blue {
+            border: 1px solid blue;
+            background-color: #f0f0f0;
+            cursor: pointer;
+        }
+
+        .map ul li.purple {
+            border: 1px solid purple;
+            background-color: #f0f0f0;
+            cursor: pointer;
+        }
+
+        .map ul li.orange {
+            border: 1px solid orange;
+            background-color: #f0f0f0;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="map">
+        <ul>
+            <li></li>
+            <li class="green" id="up">上</li>
+            <li></li>
+        </ul>
+        <ul>
+            <li class="orange" id="left">左</li>
+            <li>上</li>
+            <li class="blue" id="right">右</li>
+        </ul>
+        <ul>
+            <li></li>
+            <li class="purple" id="down">下</li>
+            <li></li>
+        </ul>
+    </div>
+
+    <div class="message"></div>
+
+    <script src="./ajaxV0.0.3.js"></script>
+    <script>
+        var up_element = document.getElementById("up");
+        var right_element = document.getElementById("right");
+        var down_element = document.getElementById("down");
+        var left_element = document.getElementById("left");
+        var message_element = document.getElementById("message");
+
+        function getData(res_number, cb) {
+            $.ajax({
+                url: " http://127.0.0.1:3005/direction",
+                // type:"get",
+                dataType: "jsonp",
+                // 响应的脚本中函数的名字
+                jsonpCallback: "foo",//查看服务端怎么定义
+                data: {
+                    num: res_number
+                },
+                success: function (res) { //res 形参
+                    if (cb) {
+                        cb(res)
+                    }
+                }
+            })
+        }
+
+        // 事件绑定
+        up_element.onclick = function () {
+            getData(38, function (res) {
+                console.log(res);
+                message_element.innerHTML = res.message;
+            })
+        }
+
+        right_element.onclick = function () {
+            getData(39, function (res) {
+                console.log(rs);
+                message_element.innerHTML = res.message;
+
+            })
+        }
+
+        down_element.onclick = function () {
+            getData(40, function (res) {
+                console.log(res);
+                message_element.innerHTML = message;
+            })
+        }
+
+        left_element.onclick = function () {
+            getData(37, function (res) {
+                console.log(res);
+                message_element.innerHTML = res.message;
+
+            })
+        }
+    </script>
+</body>
+
+</html>

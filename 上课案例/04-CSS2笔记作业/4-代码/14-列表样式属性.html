@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		/*列表样式属性,可以给ul或者ol或者li标签设置*/
+		
+		ul li{
+			/*
+			list-style-type设置列表项目符号类型
+			取值:
+				disc实心圆点,默认值
+				square正方形
+				circle空心圆点
+				none这个取值用的最多,去掉列表项目符号,要记
+			*/
+			/*list-style-type: disc;*/
+			/*list-style-type: square;*/
+			/*list-style-type: circle;*/
+			/*list-style-type: none;*/
+
+			/*list-style-position设置列表项目符号的位置
+				取值:inside里面  outside外面(默认值)
+			*/
+			border:1px solid red;
+			/*list-style-position: inside;*/
+			/*list-style-position: outside;*/
+
+			/*list-style-image使用图片代替列表项目符号,取值url(图片所在路径)
+			*/
+		
+			/*list-style-image: url(images/sina.png);*/
+
+			/*list-style简写属性,可以同时设置list-style-type,list-style-position,list-style-image,属性值之间使用"空格"隔开,非常好用,可以省略任意一个或者多个,没有顺序要求*/
+			/*list-style:circle inside url(images/sina.png);*/
+			/*list-style:circle inside;*/
+			/*list-style:circle;*/
+
+			/*list-style:inside circle url(images/sina.png);*/
+
+	
+			/*列表样式属性需要大家记忆就两个,都是用于去掉项目符号
+			list-style-type: none;
+			或者
+			list-style:none;
+			*/
+		
+			list-style:none;
+		}
+	</style>
+</head>
+<body>
+	<ul>
+		<li>张三</li>
+		<li>李四</li>
+		<li>王五</li>
+		<li>赵六</li>
+		<li>孙七</li>
+	</ul>
+</body>
+</html>

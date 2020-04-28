@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /* 3、进阶题 (Date) 制作一个函数,getDayNum( 年,月,日 ),可以返回指定日期是当前年的第几天
+        说明:   
+        闰年一年有366天   平年一年有365天  如果闰年,2月份有29天;如果平年,2月份只有28天
+        
+        判断闰年的条件是  
+        1.能被4整除并且不能被100整除的年份       
+        2.能被400整除的年份
+        ​比如：  getDayNum( 2019,1,2)    返回值为：2 */
+
+        // 先写一个函数判断是否为闰年
+        function isLeapYear(year){
+            if( (year%4==0 && year%100 != 0) || year%400 ==0 ){
+                return true;
+            }
+
+            return false;
+        }
+        
+        function getDayNum( year,month,day ){
+            // 如果是1月,直接返回day的天数即可
+            if(month == 1){
+                return day;
+            }
+
+            // 如果是其他月份呢,就是大于1月的月份, 2 3 4....12月份
+            // 如果闰年,2月份有29天;如果平年,2月份只有28天
+            // 先假设是平年
+            var arrDays = [31,28,31,30,31,30,31,31,30,31,30];
+
+            // 如果现在的月份是2月,那么就需要加上整个1月的天数
+            // 31+5 = 36
+
+            // 如果现在的月份是2月,那么就需要加上整个1月的天数,再加上整个2月的天数
+            // 31+28+5=64
+
+            // 把大于2月份之前的月份整月天数累加起来
+            var days = 0;
+            for(var i = 0; i < month-1;i++){
+                days = days + arrDays[i];
+            }
+            days = days + day;
+
+            // 如果传进来的月份大于2月,因为大于2月才需要加上整个2月的天数
+            if( month >2 ){
+                // 判断年份是否为闰年
+                if( isLeapYear(year) ){
+                    days++;
+                }
+            }
+            
+            return days;
+        }
+        console.log( getDayNum(2020,2,5) );
+        console.log( getDayNum(2020,3,5) );
+        console.log( getDayNum(2020,12,5) );
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body,
+        ul,
+        li {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+
+        .big {
+            width: 200px;
+            height: 200px;
+            position: absolute;
+        }
+
+        .small {
+            width: 400px;
+            height: 400px;
+            position: absolute;
+        }
+
+        .big>img {
+            width: 200px;
+            height: 200px;
+        }
+
+        .small {
+            left: 410px;
+            top: 0;
+            overflow: hidden;
+            display: none;
+        }
+
+        .slide {
+            width: 50px;
+            height: 50px;
+            background: rgba(37, 37, 37, 0.3);
+            position: absolute;
+            left: 500px;
+            top: 0;
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="big">
+        <img src="images/v2-4f106140a36b6da370cf0f4035657ec3_1200x500.jpg" width="400">
+        <div class="slide"></div>
+    </div>
+
+    <div class="small">
+        <img src="images/v2-4f106140a36b6da370cf0f4035657ec3_1200x500.jpg" style="position: absolute;" width="400">
+    </div>
+    <script src="./js/jquery-3.4.1.js"></script>
+    <script>
+        // 鼠标移上
+        $('.big').mouseover(function (e) {
+            $('.small').css('display', 'block');
+            $('.slide').css('display', 'block');
+        })
+        // 鼠标移动
+        $('.big').mousemove(function (e) {
+            var pageX = e.pageX;
+            var pageY = e.pageY;
+            console.log({
+                pageX:pageX,
+                pageY:pageY
+            });
+
+            var offsetX = $('.big').offset().left;
+            var offsetY = $('.big').offset().top;
+            // 移动的距离
+            var relativeX = pageX - offsetX;
+            var relativeY = pageY - offsetY;
+
+            var imageOffsetX = $('.slide').width() / 2;
+            var imageOffsetY = $('.slide').height() / 2;
+
+            $('.slide').css({
+                left: relativeX - imageOffsetX + 'px',
+                top: relativeY - imageOffsetY + 'px'
+            });
+
+            var magX = $('.slide').position().left;
+            var magY = $('.slide').position().top;
+
+            var maxX = $('.big').width() - $('.slide').width();
+            var maxY = $('.big').height() - $('.slide').height();
+
+            if (magX <= 0) {
+                $('.slide').css('left', '0px');
+            }
+            if (magX >= maxX) {
+                $('.slide').css('left', maxX + 'px');
+            }
+            if (magY <= 0) {
+                $('.slide').css('top', '0px');
+            }
+            if (magY >= maxY) {
+                $('.slide').css('top', maxY + 'px');
+            }
+
+            var originX = magX * 3;
+            var originY = magY * 3;
+
+            $('.small img').css({ left: -originX + 'px', top: -originY + 'px' });
+        })
+
+        // 鼠标移出
+        $('.big').mouseout(function () {
+            $('.small').css('display', 'none');
+            $('.slide').css('display', 'none');
+        })
+
+    </script>
+</body>
+
+</html>

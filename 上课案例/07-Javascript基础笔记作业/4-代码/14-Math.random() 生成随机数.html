@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript">
+		// Math.random() 生成介于0和1之间(含 0，不含 1)所有小数
+		// [0,1)  左闭区间,右开区间
+		// 开区间指的是区间边界的两个值不包括在内；(a,b)
+		// 闭区间指的是区间边界的两个值包括在内。[a,b]
+		// 半开半闭区间:开区间一边的边界值不包括在内，而闭区间一边的边界值包括在内。[a,b)、(a,b]
+
+		// console.log( Math.random() );
+
+		// 如果我们想随机得到10~20之间的所有整数,包括10跟20
+		/*
+			Math.random()       =>  [0,1)
+			Math.random()*10    =>  [0,10)
+			Math.random()*10+10 =>  [10,20)
+
+			Math.random()*11       =>  [0,11)
+			Math.random()*11+10    =>  [10,21)
+			
+			但是我们要的是整数,不是小数  Math.floor()向下取整,得到比自己小的整数
+			Math.floor( Math.random()*11+10 ) => 得到10~20之间所有整数
+		*/
+
+		// console.log( Math.random()*10+10 );
+		// console.log( Math.floor(19.8789) );// 19
+
+		// console.log( Math.floor( Math.random()*11+10 )  );
+
+
+		// 我们可以使用以下代码测试
+		/*while(true){
+			var num = Math.floor( Math.random()*11+10 );
+			console.log( num );
+			if(num == 10 || num == 20){
+				break;
+			}
+		}*/
+
+		// 公式,要求记住
+		// Math.floor( Math.random()*(最大值-最小值)+最小值 ) 包含最小值但不包含最大值
+		// Math.floor( Math.random()*(最大值-最小值+1)+最小值 ) 包含最小值也包含最大值
+
+		console.log( Math.floor(Math.random()*(20-10+1)+10) );
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

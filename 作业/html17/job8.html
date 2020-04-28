@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript">
+		// 判断一个字符串 'abcoefoxyozzopp' 中出现次数最多的字符，并统计其次数
+		
+		var str = "abcoefoxyozzopp";
+        var obj = {};
+        for (var i = 0; i < str.length; i++){
+        	var char1 = str.charAt(i);
+            if (obj[char1]) {
+                obj[char1]++;
+            } else {
+                obj[char1] = 1;
+            }
+        }
+        console.log(obj);
+        var max = 0;
+        var charmax;
+        for (var key in obj) {
+            if (obj[key] > max) {
+                max = obj[key];
+                charmax = key;
+            }
+        }
+        console.log("出现最多的字符是" + charmax + ",出现了" + max + "次");
+
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

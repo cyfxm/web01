@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<!-- 3、(字符，偏难)利用var s1 = prompt(“请输入任意字符”,””)可以获取用户输入的字符(存到变量s1中了)，要求将用户输入的字符“反转顺序”后,再首尾字母转为大写，其他字母转为小写,最后把结果输出在页面上 -->
+	
+	<script type="text/javascript">
+		var s1 = prompt("请输入任意英文单词","");
+		s1=s1.toLocaleLowerCase();
+		var str=s1.split("");
+		for(var i=0;i<str.length;i++){
+			str[0]=str[0].toUpperCase();
+			str[str.length-1]=str[str.length-1].toUpperCase();
+			console.log(str[i]);
+		}	
+		var arr=str.reverse();
+		
+		var str=arr.join("");
+		document.write(str);
+	</script>
+
+</head>
+<body>
+	
+</body>
+</html>

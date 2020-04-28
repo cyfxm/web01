@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript">
+		function getRandom(min,max){
+			return Math.floor( Math.random()*(max-min+1)+min );
+		}
+
+		// 随机生成16进制的颜色,并输出在控制台中,每次刷新,输出的16进制颜色值都不相同
+		// 十六进制的颜色由#开头,0~9 A~F或者a~f一共6位组成
+		var str = "0123456789ABCDEF";
+		
+		// 分割字符串变成一个数组
+		var arr = str.split("");
+
+		// 定义一个新字符串
+		var color = "#";
+
+		for(var i=1;i<=6;i++){
+			// 得到数组随机下标
+			var index = getRandom(0,arr.length-1);
+			color += arr[index] ;
+		}
+		console.log( color );
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

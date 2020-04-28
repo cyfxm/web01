@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        span {
+            width: 100px;
+            height: 50px;
+            border: 1px solid #ccc;
+            display: block;
+            float: left;
+            margin: 10px;
+            text-align: center;
+            line-height: 50px;
+        }
+
+        input {
+            display: block;
+            width: 100px;
+            height: 50px;
+            float: left;
+            margin: 10px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="add">
+        <input id="num1" type="text" />
+        <input id="num2" type="text">
+        <span>+</span>
+        <span id= "add1"></span>
+    </div>
+
+    <script src="./js/ajaxV0.0.2.js"></script>
+    <script>
+        var spans = document.querySelector("span");
+        var num1 = document.getElementById("num1");
+        var num2 = document.getElementById("num2");
+        var add1 = document.getElementById("add1");
+        
+        spans.onclick = function () {
+            var num1Value = num1.value;
+            var num2Value = num2.value;
+            $.ajax({
+                url: "http://127.0.0.1:3005/add",
+                type: "get",
+                data: {
+                    num1: num1Value,
+                    num2: num2Value,
+                    // total:total
+                },
+                
+                async: true,
+                success: function (res) {
+                    console.log(res);
+                    console.log(res.data.total);
+                    add1.innerHTML = res.data.total;
+                },
+                error: function (err) {
+                    console.log(err);
+                }
+            })
+        }
+    </script>
+</body>
+
+</html>

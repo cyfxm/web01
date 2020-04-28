@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<button>按钮</button>
+
+	<script type="text/javascript">
+		// 可以还可以把匿名函数赋值给事件
+		// 事件相关知识会在后续中讲解,现在这个事件看不懂,没有关系
+
+		// 获取dom对象
+		var objBtn = document.querySelector("button");
+		// 给对象绑定事件,事件驱动程序一般就是匿名函数
+		// 这个时候,匿名函数什么时候触发,事件被触发的时候,匿名函数就会被触发
+		
+		// onclick代表鼠标单击
+		objBtn.onclick = function(){
+			alert("点击了我~");
+		}
+	</script>
+</body>
+</html>

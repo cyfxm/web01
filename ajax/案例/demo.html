@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <script src="./ajax.js"></script>
+    <script>
+        $.ajax({
+            url: "http://127.0.0.1:3005/example",
+            type: "get",
+            async: true,
+            success: function (res) {
+                console.log(res);
+            }
+        })
+    </script>
+</body>
+
+</html>

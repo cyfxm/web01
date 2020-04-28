@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript">
+		// 4.将数组  var arr = [2, 3, 6, 1, 77, 8, 52, 9, 25, 7]  大于等于 10 的 元素选出来 ，放入 新数组, 新数组结果如下 [77,52,25]
+
+		 var arr = [2, 3, 6, 1, 77, 8, 52, 9, 25, 7];
+		 // 定义一个新空数组
+		 var newArr = [];
+
+		 for( var i=0;i<arr.length; i++){
+		 	if( arr[i] >= 10 ){// 如果数组元素大于等于10
+		 		// 往数组中添加元素
+		 		newArr[ newArr.length ] =  arr[i] ;
+		 	}
+		 }
+		 console.log( newArr );
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

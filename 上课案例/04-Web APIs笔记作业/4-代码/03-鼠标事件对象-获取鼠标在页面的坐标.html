@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 设置body高度3000,背景颜色为天蓝色 */
+        body{
+            height: 3000px;
+            width: 2500px;
+            background:skyblue;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        // 给document绑定鼠标单击事件
+        // console.log( document );
+        document.onclick=function(e){
+            e = e || window.event;
+            // 鼠标事件对象 说明
+            // e.clientX 返回鼠标相对于浏览器窗口"可视区"的X坐标
+            // e.clientY 返回鼠标相对于浏览器窗口"可视区"的Y坐标
+            console.log("可视区坐标");
+            console.log( e.clientX );
+            console.log( e.clientY );
+            console.log("");
+            // // e.pageX 返回鼠标相对于"文档页面"的X坐标 IE9+支持
+            // // e.pageY 返回鼠标相对于"文档页面"的Y坐标 IE9+支持
+            console.log("文档页面坐标");
+            console.log( e.pageX );
+            console.log( e.pageY );
+            console.log("");
+
+            // e.x 返回鼠标相对于文档页面的X坐标 IE9以下使用
+            // e.y 返回鼠标相对于文档页面的X坐标 IE9以下使用
+            console.log("返回鼠标相对于文档页面的坐标 IE9以下使用");
+            console.log( e.x );
+            console.log( e.y );
+            console.log("");
+
+            console.log("获取鼠标相对与文档页面的坐标,兼容写法");
+            console.log( e.pageX || e.x );
+            console.log( e.pageY || e.y );
+            console.log("");
+
+            // e.screenX 返回鼠标相对于电脑屏幕的X坐标
+            // e.screenY 返回鼠标相对于电脑屏幕的Y坐标
+            console.log("鼠标相对于电脑屏幕坐标");
+            console.log( e.screenX );
+            console.log( e.screenY );
+        }
+    </script>
+</body>
+</html>

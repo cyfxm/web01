@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+        form{
+            width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #ffffff;
+        }
+    </style>
+</head>
+<body>
+    
+    <form action="">
+        <fieldset>
+            <legend>教师信息</legend>
+            <div><label>姓名:</label><input type="text" name="name"></div>
+            <div><label>职称:</label><input type="text" name="work"></div>
+            <div><label>性别:</label>男：<input type="radio" name="sex">女：<input type="radio" name="sex"></div>
+            <div><label>年龄:</label><input type="number" name="age"></div>
+        </fieldset>
+
+        <fieldset>
+            <div><label>姓名：</label><input type="text" name="stu_name"></div>
+            <div><label>性别：</label>男:<input type="radio" name="stu_sex"> 女:<input type="radio" name="stu_sex"></div>
+            <div><label>年龄：</label><input type="number" name="stu_age"></div>
+            <div>
+                <label>教学水平:</label>
+                <meter max="100" min="0" value="50" style="width:400px;" name="meter"></meter>
+            </div>
+
+            <div>
+                <label>学习状态:</label>
+                <progress max="100" min="10" value="20" style="width:400px;" name="progress"></progress>
+            </div>
+        </fieldset>
+    </form>
+</body>
+</html>

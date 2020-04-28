@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 使用三种方式创建同学们自己心仪未来对象  想想对象需要有什么属性  对象需要有什么方法  女朋友 girlFriend
+        
+        // 字面量{}创建对象
+        var girlFriend1 = {};
+        girlFriend1.uname = "萌";
+        girlFriend1.weight = "168kg";
+        girlFriend1.height = "168cm";
+        girlFriend1.sing = function(){
+            console.log( this.uname + "会唱歌" );
+        }
+        console.log("身高" + girlFriend1.height );
+        girlFriend1.sing();
+        console.log("");
+
+        // new Object方式创建对象
+        var girlFriend2 = new Object();
+        girlFriend2.uname = "钟无艳";
+        girlFriend2.play = function(){
+            console.log( girlFriend2.uname +"小粉锤锤你噢~");
+        }
+        console.log( "名字为:" + girlFriend2.uname );
+        girlFriend2.play();
+        console.log("");
+                
+        // 构造函数方式创建对象
+        function GirlFriend(uname,age){
+            this.uname = uname;
+            this.age = age;
+            this.dance = function(){
+                console.log( "名字"+this.uname+",年龄" +this.age+ "岁在跳舞");
+            }
+        }
+        // 通过new关键字得到实例化
+        var girlFriend3 = new GirlFriend("安琪拉",18);
+        console.log( girlFriend3.uname );
+        girlFriend3.dance();
+        console.log("");
+
+        var girlFriend4 = new GirlFriend("甄姬",20);
+        console.log( girlFriend4.uname );
+        girlFriend4.dance();
+    </script>
+</body>
+</html>

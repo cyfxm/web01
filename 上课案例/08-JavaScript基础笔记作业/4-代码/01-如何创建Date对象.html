@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript">
+		// 如何创建Date对象
+		// 1) 使用new关键字和Date()方法来创建  不写参数 就返回当前时间
+		var date1 = new Date();
+		console.log( date1 );
+
+		// 2) 使用new关键字和Date()方法来创建   写参数，就返回括号里面输入的时间
+		var date2 = new Date("1975-07-05 08:25:20");
+		console.log( date2 );
+
+		var date3 = new Date("1975/07/05 08:25:20");
+		console.log( date3 );
+
+		// 只设置日期,时间会默认使用00:00:00
+		var date5 = new Date("2008/8/8");
+		console.log( date5 );
+
+		var date6 = new Date("2008/08/08");
+		console.log( date6 );
+
+		// 3) dateObj = new Date(year, month, date[, hours[, minutes[, seconds[,ms]]]]) 
+		// 如果使用第三种方式创建,那个mouth的月份是从0开始的,0代表1月
+		var date7 = new Date(2020,3,4,10,35,56);
+		console.log( date7 );
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

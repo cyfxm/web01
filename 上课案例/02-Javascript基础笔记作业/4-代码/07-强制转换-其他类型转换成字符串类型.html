@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript">
+		// 其他类型转换成字符串类型
+		// 方法一:   变量名.toString()
+		var a = 10;
+		console.log( a );// 10
+		console.log( typeof(a) );// number
+		console.log("");
+
+		// 转过以后别忘记赋值
+		a = a.toString();
+		console.log( a );// "10"
+		console.log( typeof(a) );// string
+		console.log("");
+
+		var b = true;
+		console.log( typeof(b) );// boolean
+		b = b.toString();
+		console.log( typeof(b) );// string
+		console.log("");
+
+
+		// 有些数据类型是没有toString()方法的
+		/*var c = undefined;
+		console.log( typeof(c) );
+		c = c.toString();
+
+		var d = null;
+		console.log( typeof(d) );
+		d = d.toString();*/
+
+		// 方法二:    String(要转换的变量名)
+        // String()函数存在的意义:有些值没有toString()，这个时候可以使用String()。比如:undefined和null
+
+        var c = undefined;
+		console.log( typeof(c) );// undefined
+        c = String(c);
+		console.log( typeof(c) );// string
+		console.log("");
+
+
+		var d = null;
+		console.log( typeof(d) );// object
+        d = String(d);
+		console.log( typeof(d) );// string
+		console.log( "" );
+
+
+
+        // 方法三:   拼接字符串方式  +号两边的运算数有一个是字符串类型,+号就会变成字符串连接符
+        var e =　"123" + 1;
+        console.log( e );// 1231
+        console.log( typeof(e) );// string
+        console.log( "" );
+
+        // 方法四:   还可以在其它的数据类型的外面包裹一个引号 
+        var f = 10;
+        console.log( typeof(f) );// number
+
+        var g = "10";
+        console.log( typeof(g) );// string
+
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

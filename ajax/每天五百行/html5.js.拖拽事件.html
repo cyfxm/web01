@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            margin: 0;
+        }
+
+        .box{
+            width: 150px;
+            height: 150px;
+            background-color: red;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+
+        img{
+            width: 150px;
+            height: 150px;
+            background-color: red;
+            position: absolute;
+            left: 0;
+            top: 180px;
+        }
+    </style>
+</head>
+<body>
+    <div class="box" draggable="true"></div>
+
+    <img src="./images/1.jpg" alt="默认行为">
+
+    <script>
+        // 获取元素
+        // document.getElementById()
+        var box = document.querySelector('.box');
+        var img = document.querySelector('img');
+    
+        // 事件绑定
+        // 
+        box.ondragstart = function(){
+            console.log("ondragstart")
+        }
+        box.ondragover = function(){
+            console.log("ondragover")
+        }
+        box.ondragend= function(){
+            console.log("ondragend")
+        }
+    
+        // 研究事件对象的每个属性。（时间）
+        var startX = 0;
+        var startY = 0;
+        img.ondragstart = function(event){
+            console.log("ondragstart img")
+            // 计算鼠标在img的位置
+            startX = event.pageX - this.offsetLeft;
+            startY = event.pageY - this.offsetTop;
+        }
+        img.ondragover = function(){
+            console.log("ondragover img")
+        }
+        img.ondragend= function(event){ // event  事件对象 （数据集合）
+            console.log("ondragend img")
+            console.log(event);
+            // 记录鼠标结束拖拽的位置
+            var x = event.pageX;
+            var y = event.pageY;
+            // 把当前的元素（事件源）
+            this.style.left = ( x-startX) +"px";
+            this.style.top = (y - startY) +"px";
+            }
+    </script>
+</body>
+</html>

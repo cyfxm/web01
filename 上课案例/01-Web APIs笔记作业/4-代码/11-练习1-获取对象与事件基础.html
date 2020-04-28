@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul>
+        <li>苹果</li>
+        <li>香蕉</li>
+        <li>葡萄</li>
+    </ul>
+
+    <script>
+        /* var lis = document.querySelectorAll("ul li");
+        var first = lis[0];
+        var last = lis[lis.length - 1];
+        console.log( first );
+        console.log( last ); */
+        
+        var ul = document.getElementsByTagName("ul")[0];
+        var lis = ul.getElementsByTagName("li");
+        var first = lis[0];
+        var last = lis[lis.length - 1];
+        console.log( first );
+        console.log( last ); 
+
+    </script>
+</body>
+</html>

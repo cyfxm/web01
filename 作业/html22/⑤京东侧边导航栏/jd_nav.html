@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		/*初始化样式开始*/
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		a{
+			text-decoration: none;
+			color:#636363;
+		}
+		a:hover{
+			color:#c1131b;
+		}
+		li{
+			list-style: none;
+		}
+		img{
+			vertical-align: bottom;
+		}
+		body{
+			font-size:12px;
+			background: #f4f4f4;
+		}
+		/*版心类*/
+		.w{
+			width: 1200px;
+			margin:0 auto;
+		}
+		/*初始化样式结束*/
+		/*轮播层样式开始*/
+		.banner{
+			height: 465px;
+			position: relative;
+			margin-top: 100px;
+		}
+		.banner .category{
+			width: 209px;
+			position: absolute;
+			top: -47px;
+			left: 0px;
+		}
+		.banner .category .title{
+			height: 45px;
+			line-height: 45px;
+			text-align: center;
+			font-size:16px;
+			color:#ffffff;
+			background: #b1191a;
+		}
+		.banner .category .content ul{
+			background: #c81623;
+			padding-left: 1px;
+			padding-top: 2px;
+		}
+		.banner .category .content ul li{
+			height: 31px;
+			line-height: 31px;
+			padding: 0 10px;
+		}
+		.banner .category .content ul li:hover{
+			background: #ffffff;
+		}
+		.banner .category .content ul li:hover a{
+			color:#c81623;
+		}
+		.banner .category .content ul li a{
+			color:#ffffff;
+			display: block;
+		}
+		.banner .category .content ul li a .iconfont{
+			float: right;
+			font-size:12px;
+		}
+		.banner .category .content .cate_detail{
+			background: #ffffff;
+			width: 969px;
+			height: 445px;
+			position: absolute;
+			left: 209px;
+			top: 45px;
+			z-index:2;
+			padding-top:20px;
+			padding-left: 20px;
+			border: 1px solid #f7f7f7;
+			box-shadow: 2px 0 5px rgba(0,0,0,0.3);
+			display: none;
+		}
+		.banner .category .content .cate_detail .cate_menu_item{
+			display: none;
+		}
+	</style>
+</head>
+<body>
+	<div class="banner w">
+		<div class="category fl">
+			<div class="title">全部商品分类</div>
+			<div class="content">
+				<ul>
+					<li><a href="#">家用电器</a></li>
+					<li><a href="#">手机、数码、通信</a></li>
+					<li><a href="#">电脑、办公</a></li>
+					<li><a href="#">家居、家具、家装、厨具</a></li>
+					<li><a href="#">男装、女装、童装、内衣</a></li>
+					<li><a href="#">个户化妆、清洁用品、宠物</a></li>
+					<li><a href="#">鞋靴、箱包、珠宝、奢侈品</a></li>
+					<li><a href="#">运动户外、钟表</a></li>
+					<li><a href="#">汽车、汽车用品</a></li>
+					<li><a href="#">母婴、玩具乐器</a></li>
+					<li><a href="#">食品、酒类、生鲜、特产</a></li>
+					<li><a href="#">医药保健</a></li>
+					<li><a href="#">图书、音像、电子书</a></li>
+					<li><a href="#">彩票、旅行、充值、票务</a></li>
+					<li><a href="#">理财、众筹、白条、保险</a></li>
+				</ul>
+				<div class="cate_detail" style="display: none;">
+					<div class="cate_menu_item" style="display: none;"><a href="#"><img src="images/category01.png"></a></div>
+					<div class="cate_menu_item" style="display: none;"><a href="#"><img src="images/category02.png"></a></div>
+					<div class="cate_menu_item" style="display: none;"><a href="#"><img src="images/category03.png"></a></div>
+					<div class="cate_menu_item" style="display: block;"><a href="#"><img src="images/category04.png"></a></div>
+					<div class="cate_menu_item" style="display: none;"><a href="#"><img src="images/category05.png"></a></div>
+					<div class="cate_menu_item" style="display: none;"><a href="#"><img src="images/category06.png"></a></div>
+					<div class="cate_menu_item" style="display: none;"><a href="#"><img src="images/category07.png"></a></div>
+					<div class="cate_menu_item" style="display: none;"><a href="#"><img src="images/category08.png"></a></div>
+					<div class="cate_menu_item" style="display: none;"><a href="#"><img src="images/category09.png"></a></div>
+					<div class="cate_menu_item" style="display: none;"><a href="#"><img src="images/category10.png"></a></div>
+					<div class="cate_menu_item" style="display: none;"><a href="#"><img src="images/category11.png"></a></div>
+					<div class="cate_menu_item" style="display: none;"><a href="#"><img src="images/category12.png"></a></div>
+					<div class="cate_menu_item" style="display: none;"><a href="#"><img src="images/category13.png"></a></div>
+					<div class="cate_menu_item" style="display: none;"><a href="#"><img src="images/category14.png"></a></div>
+					<div class="cate_menu_item" style="display: none;"><a href="#"><img src="images/category15.png"></a></div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script>
+		var ul = document.getElementsByTagName("ul")[0];
+		var lis = document.querySelectorAll("ul>li");
+		var cate_detail = document.getElementsByClassName("cate_detail")[0];
+		var a = document.getElementsByTagName("a");
+		var cate_menu_item = document.getElementsByClassName("cate_menu_item");
+		for(var i=0;i<a.length;i++){
+			a[i].setAttribute("data-index",i);
+		}
+		ul.onmouseover = function(e){
+			e = e || window.event;
+			// console.log(e.target);
+			//获取当前元素的data-index序列号
+			var index = e.target.getAttribute("data-index");
+
+			cate_detail.style.display = "block";
+			//对应序列号的内容block
+			cate_menu_item[index].style.display="block";
+		}
+		ul.onmouseout = function(e){
+			e = e || window.event;
+			var index = e.target.getAttribute("data-index");
+			// console.log(e.target);
+			cate_detail.style.display = "none";
+			cate_menu_item[index].style.display="none";
+		}
+	</script>
+</body>
+</html>

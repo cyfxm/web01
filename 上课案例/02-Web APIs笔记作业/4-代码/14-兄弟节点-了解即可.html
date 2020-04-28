@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>我是p</p>
+    <div>我是div</div>
+    <span>我是span</span>
+
+    <script>
+        // 兄弟节点   了解,比较少用到
+        var div = document.getElementsByTagName("div")[0];
+        // console.log( div );
+
+        /* 下一个兄弟节点
+        当前元素.nextSibling   返回当前元素的下一个兄弟节点,找不到返回null 包含元素节点或者 文本节点等等 */
+        console.log( div.nextSibling );
+
+        /* 上一个兄弟节点
+        当前元素.previousSibling   返回当前元素的上一个兄弟节点,找不到返回null   包含元素节点或者 文本节点等等 */
+        console.log( div.previousSibling );
+        console.log("");
+
+        /* 下一个兄弟元素节点（有兼容性问题）    IE9以上才支持
+        当前元素.nextElementSibling   返回当前元素的下一个兄弟元素节点,找不到返回null */
+        console.log( div.nextElementSibling );
+        
+        /* 上一个兄弟元素节点（有兼容性问题）    IE9以上才支持
+        当前元素.previousElementSibling   返回当前元素上一个兄弟元素节点,找不到返回null */
+        console.log( div.previousElementSibling );
+    </script>
+</body>
+</html>

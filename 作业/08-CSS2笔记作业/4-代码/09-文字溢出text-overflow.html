@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		/*text-overflow : clip | ellipsis*/
+
+		/*设置或检索是否使用一个省略标记(...)标示对象内文本的溢出*/
+		
+		/*clip : 　不显示省略标记(...)，而是简单的裁切 */
+
+		/*ellipsis : 　当对象内文本溢出时显示省略标记(...)*/
+
+		/*注意:一定要首先强制一行内显示，再次和overflow属性  搭配使用,再结合text-overflow属性就可以实现省略号*/
+
+		.div1{
+			width: 300px;
+			background: red;
+			/*第一步:让文字一行显示*/
+			white-space: nowrap;
+			/*第二步:溢出隐藏*/
+			overflow: hidden;
+			/*第三步:设置超出文本使用省略号*/
+			text-overflow: ellipsis;
+
+			/*注意:实现省略需要三步一起写,缺一不可,没有顺序要求*/
+		}
+	</style>
+</head>
+<body>
+	<div class="div1">我爱学习,学习使我快乐我爱学习,学习使我快乐我爱学习,学习使我快乐我爱学习,学习使我快乐我爱学习,学习使我快乐我爱学习,学习使我快乐我爱学习,学习使我快乐</div>
+</body>
+</html>

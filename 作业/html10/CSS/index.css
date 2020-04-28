@@ -1,0 +1,365 @@
+/* 头部开始 */
+.nav{
+	width: 100%;
+	height: 58px;
+	background: #191d3a;
+}
+.nav .left{
+	height: 38px;
+	width: 160px;
+	margin-top: 10px;
+	/* margin-left: 21px; */
+}
+.nav .center{
+	width: 635px;
+	margin-left: 47px;
+}
+.nav .center ul li a{
+	float: left;
+	width: 87px;
+	line-height: 58px;
+	border-right: 1px solid #252947;
+	text-align: center;
+	font-size: 14px;
+}
+.nav .center ul li:first-child a{
+	background: #252947;
+	color: #e2e4ed;
+}
+.nav .center ul li:last-child a{
+	background: #38b774;
+	border-radius: 3px;
+	color: #e2e4ed;
+	height: 35px;
+	width: 100px;
+	line-height: 35px;
+	margin-top: 12px;
+	margin-left: 7px;
+	border-right: 0px;
+	display:inline-block;
+}
+.nav .right ul li{
+	float: left;
+	line-height: 58px;
+	margin-left: 15px;
+}
+.nav .right ul li a{
+	font-size: 14px;
+}
+.nav .right ul li:first-child a{
+	color: #38b76b;
+}
+/* 头部完成 */
+/*轮播层开始*/
+.banner {
+	background: url(../images/banner.jpg) no-repeat center center #191d3a;
+	height: 460px;
+}
+.banner .w{
+	position: relative;
+	height: 100%;
+}
+.banner .circle{
+	position: absolute;
+	left: 50%;
+	bottom: 25px;
+	transform: translateX(-50%);
+}
+.banner .circle li{
+	float: left;
+	width: 12px;
+	height: 12px;
+	border-radius: 50%;
+	background: rgba(255,255,255,0.5);
+	margin-right: 15px;
+	cursor: pointer;
+}
+.banner .circle li:last-child{
+	margin-right: 0;
+}
+.banner .circle li.active{
+	background: #fff;
+}
+.banner .onlineGame{
+	width: 115px;
+	background: #feffff;
+	border-radius: 15px;
+	position: absolute;
+	right: 0;
+	top: 82px;
+}
+.banner .onlineGame .title{
+	width: 115px;
+	height: 38px;
+	background: url(../images/online.png);
+	cursor: pointer;
+	line-height: 38px;
+	text-indent: 16px;
+}
+.banner .onlineGame:hover .title{
+	background: url(../images/online.png) -120px 0;
+}
+.banner .onlineGame:hover .content{
+	display: block;
+	border-radius: 10px;
+}
+.banner .onlineGame .content{
+	text-align: center;
+	font-size: 0;
+	display: none;
+	padding-bottom: 12px;
+	height: 20px;
+}
+.banner .onlineGame .content a{
+	display: inline-block;
+	width: 24px;
+	height: 24px;
+	background: url(../images/online.png) no-repeat -3px -48px;
+	margin-right: 8px;
+	border-radius: 50%;
+}
+.banner .onlineGame .content a:last-child{
+	margin-right: 0;
+}
+.banner .onlineGame .content a:nth-child(2){
+	background-position:-52px -48px;
+}
+.banner .onlineGame .content a:nth-child(3){
+	background-position:-102px -48px;
+}
+.banner .right{
+	width: 447px;
+	position: absolute;
+	top: 167px;
+	right: 13px;
+	overflow: hidden;
+	z-index: 999;
+}
+.banner .right p{
+	margin-bottom: 36px;
+}
+.banner .right .download {
+	overflow: hidden;
+}
+.banner .right .download h2{
+	font-size:18px;
+	padding-left: 30px;
+	background: url(../images/download.png) no-repeat 6px 5px;
+	margin-bottom: 16px;
+}
+.banner .right .download ul li{
+	float: left;
+	width: 83px;
+	height: 106px;
+	background: rgba(255,255,255,0.7);
+	margin-right: 1px;
+	text-align: center;
+}
+.banner .right .download ul li:hover{
+	background: #fff;
+}
+.banner .right .download ul li a{
+	display: block;
+	width: 100%;
+	padding-top: 75px;
+	height: 31px;
+	background: url(../images/pad.png) no-repeat 30px -169px;
+	color:#444866;
+}
+.banner .right .download ul li:nth-child(2) a{
+	background-position: 30px 30px;
+}
+.banner .right .download ul li:nth-child(3) a{
+	background-position: 22px -68px;
+}
+.banner .right .download ul li:nth-child(4) a{
+	background-position: 22px -476px;
+}
+.banner .right .ewm{
+	background: rgba(255,255,255,0.7);
+	width: 111px;
+	height: 93px;
+	text-align: center;
+	padding-top: 13px;
+}
+/*轮播层结束*/
+/* 介绍 */
+.introduce {
+	margin-top: 50px;
+	margin-bottom: 38px;
+	overflow: hidden;
+}
+.introduce ul li{
+	width: 217px;
+	margin-right: 43px;
+	text-align: center;
+	float: left;
+}
+.introduce ul li img{
+	width: 100%;
+	display: block;
+}
+.introduce ul li:last-child{
+	margin-right: 0;
+}
+.introduce ul li h2{
+	font-size:14px;
+	color:#444866;
+	padding-top: 9px;
+	padding-bottom: 19px;
+}
+.introduce ul li p{
+	color:#38b774;
+	font-size:12px;
+}
+.introduce ul li p span{
+	padding-right: 12px;
+	background: url(../images/arrow.png) no-repeat right center;
+}
+.introduce ul li:hover h2{
+	background: #45bc7d;
+	color:#fff;
+}
+.introduce ul li:hover p{
+	background: #45bc7d;
+	color:#fff;
+}
+.introduce ul li:hover p span{
+	background: url(../images/arrow_hover.png) no-repeat right center;
+}
+
+/* 圆点 */
+.cri{
+	/* margin-top: 20px; */
+	border-top:1px solid #dbe1e7;
+	margin-bottom: 53px;
+}
+.cri ul {
+	background: #fff;
+	width: 50px;
+	padding-left: 17px;
+	margin:-6px auto 0;
+}
+.cri ul li{
+	float: left;
+	width: 11px;
+	height: 11px;
+	border-radius: 50%;
+	background: #b5c0cb;
+	cursor: pointer;
+	margin-right: 14px;
+}
+.cri ul li.active{
+	background: #2fbc71;
+}
+
+/*内容层开始*/
+.content{
+	height: 364px;
+	background: url(../images/indexmainbg.jpg);
+	overflow: hidden;
+}
+.content .boya_news{
+	width: 500px;
+	height: 310px;
+	background: url(../images/bynewsbg.jpg);
+	position: relative;
+}
+.content .more{
+	width: 64px;
+	height: 26px;
+	display: block;
+	text-align: center;
+	border-radius: 5px;
+	font-size:12px;
+	position: absolute;
+	left: 218px;
+	top: 40px;
+}
+.content .boya_news .more{
+	border:1px solid #33b972;
+	color:#33b972;
+}
+.content .boya_news .more:hover{
+	background:#33b972;
+	color:#fff
+}
+.content .boya_news .content{
+	margin-top: 118px;
+	padding: 0 20px;
+}
+.content .boya_news .content ul li{
+	height: 47px;
+	line-height: 47px;
+	border-bottom: 1px solid #dbe1e7;
+}
+.content .boya_news .content ul li a{
+	width: 395px;
+	display: inline-block;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	color:#444866;
+}
+.content .boya_news .content ul li a:hover{
+	color:#33b972;
+}
+.content .boya_news .content ul li span{
+	float: right;
+	color:#afbecf;
+}
+.content .jobs{
+	width: 500px;
+	height: 310px;
+	background: url(../images/byshzpbg.jpg);
+	position: relative;
+}
+.content .jobs .more{
+	border:1px solid #fff;
+	color:#fff;
+}
+.content .jobs .more:hover{
+	background:#fff;
+	color:#33b972;
+}
+.content .jobs .title{
+	color:#fff;
+	position: absolute;
+	left: 80px;
+	top: 44px;
+}
+.content .jobs .recruit{
+	margin-top: 114px;
+	margin-left: 20px;
+	width: 305px;
+}
+.content .jobs .recruit h2{
+	color:#fff;
+	font-size:14px;
+}
+.content .jobs .recruit ul li{
+	height: 37px;
+	line-height: 37px;
+	border-bottom: 1px solid #6fdea3;
+}
+.content .jobs .recruit ul li a{
+	color:#fff;
+}
+/*内容层结束*/
+
+/*底部开始*/
+.footer{
+	height: 172px;
+	background: #191d3a;
+	padding-top: 20px;
+	font-size:12px;
+}
+.footer p{
+	height: 52px;
+	line-height: 52px;
+	color:#6c6e7e;
+}
+.footer img{
+	height: 52px;
+	vertical-align: middle;
+}

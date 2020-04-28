@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        
+        .wrap {
+            width: 300px;
+            margin: 100px auto 0;
+        }
+        
+        table {
+            border-collapse: collapse;
+            border-spacing: 0;
+            border: 1px solid #c0c0c0;
+            width: 300px;
+        }
+        
+        th,
+        td {
+            border: 1px solid #d0d0d0;
+            color: #404060;
+            padding: 10px;
+        }
+        
+        th {
+            background-color: #09c;
+            font: bold 16px "微软雅黑";
+            color: #fff;
+        }
+        
+        td {
+            font: 14px "微软雅黑";
+        }
+        
+        tbody tr {
+            background-color: #f0f0f0;
+        }
+        
+        tbody tr:hover {
+            cursor: pointer;
+            background-color: #fafafa;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="wrap">
+        <table>
+            <thead>
+                <tr>
+                    <th>
+                        <input type="checkbox" id="j_cbAll" />
+                    </th>
+                    <th>商品</th>
+                    <th>价钱</th>
+                </tr>
+            </thead>
+            <tbody id="j_tb">
+                <tr>
+                    <td>
+                        <input type="checkbox" />
+                    </td>
+                    <td>iPhone8</td>
+                    <td>8000</td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="checkbox" />
+                    </td>
+                    <td>iPad Pro</td>
+                    <td>5000</td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="checkbox" />
+                    </td>
+                    <td>iPad Air</td>
+                    <td>2000</td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="checkbox" />
+                    </td>
+                    <td>Apple Watch</td>
+                    <td>2000</td>
+                </tr>
+
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        // 获取全选复选框
+        var j_cbAll = document.getElementById("j_cbAll");
+        
+        // 获取下面的4个复选框
+        var j_tb = document.getElementById("j_tb");
+        var checkboxs = j_tb.getElementsByTagName("input");
+
+        // console.log( j_cbAll );
+        // console.log( checkboxs );
+
+        // 让下面4个复选框的选中状态跟随全选复选框
+        // console.log( j_cbAll.checked );
+        
+        // 给全选复选框绑定单击事件
+        j_cbAll.onclick=function(){
+            // 全选复选框的选中状态
+            // console.log( this.checked );
+
+            /* if( this.checked == true){ // 如果全选复选框是选中状态
+                for(var i=0;i<checkboxs.length;i++){
+                    checkboxs[i].checked = true;
+                }
+            }else{ // 如果全选复选框是未选中状态
+                for(var i=0;i<checkboxs.length;i++){
+                    checkboxs[i].checked = false;
+                }
+            } */
+
+
+            /* if( this.checked ){ // 如果全选复选框是选中状态
+                for(var i=0;i<checkboxs.length;i++){
+                    checkboxs[i].checked = this.checked;
+                }
+            }else{ // 如果全选复选框是未选中状态
+                for(var i=0;i<checkboxs.length;i++){
+                    checkboxs[i].checked = this.checked;
+                }
+            } */
+
+            for(var i=0;i<checkboxs.length;i++){
+                checkboxs[i].checked = this.checked;
+            }
+        }
+
+        // 方法一
+        // 给下面4个复选框都需要绑定单击事件  只有4个复选框同时被选中以后,全选按钮才会被选中
+        /* for(var j=0;j<checkboxs.length;j++){
+            // 给下面4个复选框分别绑定单击事件
+            checkboxs[j].onclick=function(){
+
+                // 保存4个复选框中选中状态的个数
+                var count = 0;
+
+                // 不管你点了4个复选框中的哪个复选框,都需要判断4个有没有被同时选中
+                for(var k=0;k<checkboxs.length;k++){
+                    // 输出4个复选框的选中状态
+                    // console.log( checkboxs[k].checked );
+
+                    if( checkboxs[k].checked ){
+                        count++;
+                    }
+                }
+
+                // console.log( count );
+
+                if(count == checkboxs.length){
+                    j_cbAll.checked = true;
+                }else{
+                    j_cbAll.checked = false;
+                }
+            }
+        } */
+
+        // 方法二 给下面4个复选框都需要绑定单击事件  只有4个复选框同时被选中以后,全选按钮才会被选中
+        for(var j=0;j<checkboxs.length;j++){
+            checkboxs[j].onclick=function(){
+                // 定义了一个变量flag
+                var flag = true;
+
+                for(var k=0;k<checkboxs.length;k++){
+                    // 输出4个复选框的选中状态
+                    // console.log( checkboxs[k].checked );
+
+                    if( !checkboxs[k].checked ){// 代表4个复选框中未选中的时候,才会进入这个if分支
+                        flag = false;
+                        // 跳出循环,节省循环次数
+                        break;
+                    }
+                }
+
+                j_cbAll.checked = flag;
+            }
+        }
+    </script>
+    
+</body>
+
+</html>

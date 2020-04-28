@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<form action="index.php" method="get">
+		<!-- 表单控件-select（下拉框） -->
+		<!-- 下拉框会使用select标签表示 -->
+		<!-- 下拉框中的选项我们会使用option标签表示 -->
+		<!-- 默认情况下,是选中第一个option -->
+		<!-- 我们可以使用selected="selected"设置默认选中项,这个属性给option设置的 -->
+
+		<!-- 这个下拉框控件的name属性值是设置在select标签上的,而value值是设置在option标签上的 -->
+		<select name="province">
+			<option value="hunan">湖南省</option>
+			<option selected="selected" value="guangdong">广东省</option>
+			<option value="hubei">湖北省</option>
+		</select>
+		
+		<input type="submit" value="提交数据">
+	</form>
+</body>
+</html>

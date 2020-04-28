@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        thead{
+            background: #cccccc;
+        }
+    </style>
+</head>
+<body>
+    <table cellspacing="0" border="1" width="500">
+        <thead>
+            <tr height="50">
+                <th>姓名</th>
+                <th>科目</th>
+                <th>成绩</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            
+        </tbody>
+    </table>
+
+    <script>
+        // 1.先去准备好学生的数据,这样的数组可以叫数组对象,也可以叫json数组
+        var datas = [{
+            name: '小龙女',
+            subject: 'JavaScript',
+            score: 100
+        }, {
+            name: '杨过',
+            subject: 'HTML',
+            score: 98
+        }, {
+            name: '陆无双',
+            subject: 'CSS',
+            score: 99
+        }, {
+            name: '郭靖',
+            subject: 'Java',
+            score: 88
+        }, {
+            name: '黄蓉',
+            subject: 'PHP',
+            score: 20
+        }];
+        /* console.log( datas );
+        console.log( datas[0] );
+        console.log( datas[0]["name"] );
+        console.log( datas[0]["score"] );
+        console.log( datas[0]["subject"] ); */
+
+        /* // 获取tbody标签
+        var tbody = document.querySelector("tbody");
+
+        // 创建行
+        var tr = document.createElement("tr");
+        tr.align = "center";
+
+        // 创建列
+        var td1 = document.createElement("td");
+        td1.innerHTML = datas[0]["name"];
+
+        var td2 = document.createElement("td");
+        td2.innerHTML = datas[0]["subject"];
+
+        var td3 = document.createElement("td");
+        td3.innerHTML = datas[0]["score"];
+
+        var td4 = document.createElement("td");
+        td4.innerHTML = "<a href='javascript:void(0)'>删除</a>";
+
+        // 再把列添加到行中
+        tr.appendChild(td1);
+        tr.appendChild(td2);
+        tr.appendChild(td3);
+        tr.appendChild(td4);
+        
+        // 最后把行添加到tbody中
+        tbody.appendChild(tr); */
+
+
+        /* // 获取tbody标签
+        var tbody = document.querySelector("tbody");
+
+        for(var i=0;i<datas.length;i++){
+            // 创建行
+            var tr = document.createElement("tr");
+            tr.align = "center";
+
+            for(var j in datas[i]){
+                // console.log( datas[i][j] );
+                // 创建列
+                var td1 = document.createElement("td");
+                td1.innerHTML = datas[i]["name"];
+
+                var td2 = document.createElement("td");
+                td2.innerHTML = datas[i]["subject"];
+
+                var td3 = document.createElement("td");
+                td3.innerHTML = datas[i]["score"];
+
+                var td4 = document.createElement("td");
+                td4.innerHTML = "<a href='javascript:void(0)'>删除</a>";
+            }
+
+            // 再把列添加到行中
+            tr.appendChild(td1);
+            tr.appendChild(td2);
+            tr.appendChild(td3);
+            tr.appendChild(td4);
+            
+            // 最后把行添加到tbody中
+            tbody.appendChild(tr);
+        } */
+
+        // 获取tbody标签
+        var tbody = document.querySelector("tbody");
+
+        for(var i=0;i<datas.length;i++){
+            var tr = document.createElement("tr");
+            tr.align = "center";
+            for(var j in datas[i]){
+                // console.log( datas[i][j] );
+                var td = document.createElement("td");
+                td.innerHTML = datas[i][j];
+                tr.appendChild( td );
+            }
+
+            // 创建删除a链接
+            var del = document.createElement("td");
+            // 在行内绑定时候,可以给行内绑定参数传一个this关键字,那么这个this在函数那边需要有个形参接收
+            del.innerHTML = "<a href='javascript:void(0)' onclick='deleteRow(this)'>删除<a>";
+            // 把a链接添加到tr行中
+            tr.appendChild( del );
+            
+            // 最后把tr添加到tbody中
+            tbody.appendChild( tr );
+        }
+
+        function deleteRow(obj){
+            // 默认这里的this代表 window对象
+            // console.log( this );
+
+            // obj接收行内绑定传过来的this,这个obj就是当前对象
+            // console.log( obj );
+
+            // console.log( obj.parentNode.parentNode );
+
+            // console.log( tbody );
+
+            tbody.removeChild( obj.parentNode.parentNode );
+        }
+    </script>
+</body>
+</html>

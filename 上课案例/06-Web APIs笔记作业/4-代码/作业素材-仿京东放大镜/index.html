@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 初始化样式开始 */
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        /* 去掉图片底部的缝隙 */
+        img{
+            vertical-align: bottom;
+        }
+        /* 初始化样式结束 */
+
+        /* 具体样式,从大到小,先整体后细节,先上后下,先左后右 */
+        .box{
+            width: 1200px;
+            margin:100px auto;
+            position: relative;
+        }
+        .box .smallBox{
+            width: 450px;
+            height: 450px;
+            border:1px solid #eeeeee;
+            position: relative;
+        }
+        .box .smallBox .mask{
+            width: 300px;
+            height: 300px;
+            background:rgba(254, 222, 79,0.5);
+            position: absolute;
+            left: 0;
+            top: 0;
+            /* 模拟鼠标指针样式 */
+            cursor: move;
+            display: none;
+        }
+        .box .bigBox{
+            width: 540px;
+            height: 540px;
+            border:1px solid #eeeeee;
+            /* 溢出隐藏 */
+            overflow: hidden;
+            position: absolute;
+            top: 0;
+            left: 451px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- 最外层盒子 -->
+    <div class="box">
+        <!-- 小盒子 -->
+        <div class="smallBox">
+            <!-- 小图片 -->
+            <img src="images/v30_small.jpg"/>
+            <!-- 遮罩层 -->
+            <div class="mask"></div>
+        </div>
+        <!-- 大盒子 -->
+        <div class="bigBox">
+            <!-- 大图片 -->
+            <img src="images/v30_big.jpg"/>
+        </div>
+    </div>
+
+    <script>
+        // 获取相关对象
+        // 获取最外层盒子对象
+        var box = document.querySelector(".box");
+        // 小盒子对象
+        var smallBox = document.querySelector(".smallBox");
+        // 遮罩层对象
+        var mask = document.querySelector(".mask");
+        // 大盒子对象
+        var bigBox = document.querySelector(".bigBox");
+        // 获取大盒子中图片对象
+        var bigImg = document.querySelector(".bigBox img");
+
+        // 1. 实现鼠标移上小盒子以后,显示遮罩层,显示大盒子
+        smallBox.onmouseover = function(){
+            mask.style.display = "block";
+            bigBox.style.display = "block";
+        }
+        // 2. 实现鼠标移出小盒子以后,隐藏遮罩层,隐藏大盒子
+        smallBox.onmouseout = function(){
+            mask.style.display = "none";
+            bigBox.style.display = "none";
+        }
+        // 3. 实现遮罩层跟随鼠标在小盒子移动,而且遮罩层是在小盒子里面移动的
+        smallBox.onmousemove = function(e){
+            e = e || window.event;
+            // 先找到鼠标在盒子中的位置   当前鼠标在文档中的坐标 - 小盒子的偏移量
+            var x = e.pageX || e.x;
+            var y = e.pageY || e.y;
+
+            // 获取小盒子的偏移量
+            // element.offsetTop 返回元素相对带有"非静态定位"父辈元素上方的偏移量 如果父辈都没有定位则返回相对"body"的"上方"偏移量
+            // element.offsetLeft 返回元素相对带有"非静态定位"父辈元素左方的偏移量 如果父辈都没有定位则返回相对"body"的"左"方偏移量
+            // var smallBoxLeft = smallBox.offsetLeft;
+            // var smallBoxTop = smallBox.offsetTop;
+            // console.log( smallBoxLeft,smallBoxTop ); // 0 0 
+
+            // 因为获取小盒子的偏移量有问题,但是我们发现最外层.box盒子的偏移量跟小盒子偏移量是一样的,所以我们就求.box盒子的偏移量即可
+            // console.log( box.offsetLeft , box.offsetTop);
+            var boxLeft = box.offsetLeft;
+            var boxTop  = box.offsetTop;
+
+            // 得到鼠标在小盒子中的位置, 就是遮罩层左上角的位置
+            var maskX = x - boxLeft;
+            var maskY = y - boxTop;
+            
+            // 4. 实现鼠标出现在遮罩层的中间   让 水平坐标减去遮罩层宽度的一半  让垂直坐标减去遮罩层高度的一半
+            maskX = maskX - (mask.offsetWidth/2);
+            maskY = maskY - (mask.offsetHeight/2);
+
+            // 5. 设置遮罩层可以移动的水平位置
+            if( maskX < 0){ //左边界,不能小于0,小于0就让maskX等于0
+                maskX = 0;
+            }else if(maskX > smallBox.offsetWidth - mask.offsetWidth){// 右边界, 小盒子的宽度 - 遮罩层的宽度
+                maskX = smallBox.offsetWidth - mask.offsetWidth;
+            }
+
+            // 6. 设置遮罩层可以移动的垂直位置
+            if( maskY < 0){ //上边界,不能小于0,小于0就让maskY等于0
+                maskY = 0;
+            }else if(maskY > smallBox.offsetHeight - mask.offsetHeight){// 下边界, 小盒子的高度度 - 遮罩层的高度度
+                maskY = smallBox.offsetHeight - mask.offsetHeight;
+            }
+
+            // 设置遮罩层的位置
+            mask.style.left = maskX + "px";
+            mask.style.top  = maskY + "px";
+
+            // 7. 让大盒子中的图片跟随相反方向遮罩层移动
+            // 大图片的移动距离 = 遮挡层移动距离 * 大图片最大移动距离/遮挡层的最大移动距离
+
+            // 求大图片最大移动的水平距离
+            var bigImgMoveX = bigImg.offsetWidth - bigBox.offsetWidth;
+            // 求大图片最大移动的垂直距离
+            var bigImgMoveY = bigImg.offsetHeight - bigBox.offsetHeight;
+            
+            // 求大图片移动的水平坐标
+            var bigImgX = maskX * bigImgMoveX / (smallBox.offsetWidth - mask.offsetWidth);
+            // 求大图片移动的垂直坐标
+            var bigImgY = maskY * bigImgMoveY / (smallBox.offsetHeight - mask.offsetHeight);
+            console.log( bigImgX, bigImgY);
+            // 设置大图片的位置
+            // 注意:因为我们需要通过给大图片设置偏移量移动图片,所以大图片不能是静态定位
+            bigImg.style.position = "absolute";
+            // 因为我们的大图片需要跟遮罩层相反的方向移动,所以需要取负
+            bigImg.style.left = -bigImgX + "px";
+            bigImg.style.top  = -bigImgY + "px";
+        }
+    </script>
+</body>
+</html>

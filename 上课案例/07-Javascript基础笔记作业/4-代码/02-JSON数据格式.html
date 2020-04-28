@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript">
+		// 什么是JSON数据格式
+		// JSON(JavaScript Object Notation) 是一种轻量级的数据交换格式。由于其利于阅读和编写、同时也方便机器进行解析和生成。这使得JSON成为最理想的数据交换语言。
+
+		// 重点:JSON格式的数据，其属性名必须使用"双引号"引起来
+		// 重点:JSON格式的数据，"不能出现方法，只能是属性"
+
+		// 而我们的对象的属性名是可以不使用引号包裹,对象中是可以出现方法的
+
+		// 定义JSON格式对象
+		var jsonObj = {
+			"name":"Mark",
+			"age":18,
+			"mobile":"13586007445",
+		};
+
+		// 访问JSON对象的属性
+		// 语法
+		/*JSON对象.属性名
+		或者
+		JSON对象["属性名"]*/
+		console.log( jsonObj.name );
+		console.log( jsonObj["age"] );
+		console.log("");
+
+		// 遍历JSON对象的属性
+		// 语法,也是使用for...in
+		/*for(var k in json对象){
+			具体代码
+		}
+		*/
+
+		for(var k in jsonObj){
+			// 这里k代表属性名
+			// console.log( k );
+			// jsonObj就是json对象
+			// console.log( jsonObj );
+
+			// console.log( jsonObj.k ); // undefined
+			
+			console.log( jsonObj[k] ); 
+		}
+
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

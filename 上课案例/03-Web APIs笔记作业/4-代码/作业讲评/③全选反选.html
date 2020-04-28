@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 一组复选框 要求name属性值要一样的  -->
+   爱好:篮球 <input type="checkbox" name="hobby"> 
+         足球 <input type="checkbox" name="hobby">
+         台球 <input type="checkbox" name="hobby">
+         羽毛球 <input type="checkbox" name="hobby">
+         保龄球 <input type="checkbox" name="hobby">
+         <br/>
+    <input type="button" value="全选" onclick="quanxuan()">
+    <input type="button" value="取消" onclick="quxiao()">
+    <input type="button" value="反选" onclick="fanxuan()">
+
+    <script>
+        // 第一种 通过name属性值获取标签对象 document.getElementsByName("name属性值") 得到也是一个集合,也就是伪数组
+        // var checkboxs = document.getElementsByName("hobby");
+        // console.log( checkboxs );
+
+        // 第二种 使用css3中的属性选择器(想了解的话,可以百度)
+        // var checkboxs = document.querySelectorAll("input[name='hobby']");
+        // console.log( checkboxs );
+
+        // 获取所有name为hobby的input标签
+        var checkboxs = document.getElementsByName("hobby");
+
+        function quanxuan(){
+            for(var i=0;i<checkboxs.length;i++){
+                checkboxs[i].checked = true;
+            }
+        }
+        function quxiao(){
+            for(var i=0;i<checkboxs.length;i++){
+                checkboxs[i].checked = false;
+            }
+        }
+        function fanxuan(){
+            for(var i=0;i<checkboxs.length;i++){
+                // 先获取原来的选中状态,接着取反,赋值赋回给 复选框的选中状态
+                checkboxs[i].checked =  !checkboxs[i].checked ;
+            }
+        }
+        
+    </script>
+</body>
+</html>

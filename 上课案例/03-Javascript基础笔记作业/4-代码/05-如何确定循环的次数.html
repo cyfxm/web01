@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript">
+		// 我们在写循环的时候,需要确定循环的次数
+
+		// i += 4; 等同于 i = i+4
+		/*for(var i = 3;i < 10; i += 4 ){
+			document.write("hello<br/>");
+		}*/
+
+		// 如何确定的呢?
+		// 第一步:根据初始化变量得到开始循环的初始值
+		// 第二步:看循环条件表达式,到什么时候结束
+		// 第三步:看变量更新,看看变量是如何变化的
+		// i = 3;     i = 7   i < 10
+		// 最后只有i=3和i=7能够进入循环体
+
+
+		for(var i = 5;i > 1 ; i--){
+			document.write(i+"<br/>");
+		}
+
+		// i = 5 4 3 2    i > 1
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

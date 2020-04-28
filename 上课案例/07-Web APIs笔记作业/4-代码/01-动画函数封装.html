@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        div{
+            width: 100px;
+            height: 100px;
+            background:pink;
+            /* 设置绝对定位 */
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+        button{
+            margin-top: 150px;
+        }
+    </style>
+</head>
+<body>
+    <div>下冰雹</div>
+
+    <button>点击移动到500</button>
+    <button>点击移动到800</button>
+
+    <script>
+        // 封装动画函数
+        // obj是需要做动画的对象
+        // target是需要移动到哪里,也就是目标值
+        // callback回调函数,做完动画以后执行的函数  可选参数
+        function animate(obj,target,callback){
+            // 先清除原有的定时器
+            clearInterval( obj.timer );
+            
+            // 开启定时器
+            obj.timer = setInterval(function(){
+                // 利用公式得到缓慢动画的步长值
+                var step = (target - obj.offsetLeft) / 10;
+                // 如果步长值大于0,则向上取整;小于0,则向下取整
+                step = step > 0 ? Math.ceil( step) : Math.floor( step );
+                // 判断是否达到目标值
+                if( obj.offsetLeft == target ){
+                    // 清除定时器
+                    clearInterval( obj.timer );
+                    // 清除定时器以后就代表动画执行完毕,调用回调函数
+                    if( callback ){
+                        callback();
+                    }
+                }else{
+                    obj.style.left = obj.offsetLeft + step + "px"
+                }
+            },15)
+        }
+
+        // 获取div对象
+        var div = document.querySelector("div");
+        // 获取按钮对象
+        var btns = document.querySelectorAll("button");
+        btns[0].onclick = function(){
+            animate(div,500,function(){
+                div.style.backgroundColor = "red";
+            })
+        }
+
+        btns[1].onclick = function(){
+            animate(div,800,function(){
+                div.style.backgroundColor = "green";
+            })
+        }
+    </script>
+</body>
+</html>

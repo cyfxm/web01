@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript">
+		// 什么是变量?变量就是会变化的量
+		// 变量的作用是什么? 保存数据使用的,变量可以让我们读取数据更加方便
+
+		// document.write可以解析HTML标签
+		// document.write("早上好,zhangsan");
+		// document.write("<br/>");
+
+		// document.write("中午好,zhangsan<br/>");
+		// document.write("下午好,zhangsan<hr/>");
+		// document.write("晚上好,zhangsan");
+
+		// 如果用变量实现
+		// var studentName = "徐老师";
+		// document.write("早上好,"+studentName);
+		// document.write("<br/>");
+
+		// document.write("中午好,"+studentName+"<br/>");
+		// document.write("下午好,"+studentName+"<hr/>");
+		// document.write("晚上好,"+studentName);
+
+
+		// 如何声明变量(定义变量)? 需要通过一个var的关键字声明变量
+		
+		// 声明一个变量
+		// 声明变量,不赋值,相当于有一个空的变量,但是没有值
+		// 语法一:   var 变量名;
+		var age;
+		// 使用变量,直接变量名即可,不需要加引号
+		console.log(age);// 得到undefined,代表未定义值的意思
+		
+		// 声明变量,并且赋值,可以理解为这个变量保存了这个值
+		// 语法二:   var 变量名 = 变量值;
+		var sex = "帅哥";
+		console.log(sex);// 帅哥
+		console.log(sex);// 帅哥
+		console.log(sex);// 帅哥
+
+		// 变量的赋值  就是将等于号右边的值赋值给等于号左边的变量名！
+		var subject = "H5从头发多到头发更多"; 
+		console.log(subject);
+
+
+		// 我们还可以同时声明多个变量
+		// 方式一:声明多个变量,不赋值
+		var a,b,c;
+
+		// console.log除了可以同时输出多个值,还可以同时输出多个变量,语法如下
+		// console.log(变量名1,变量名2,变量名3...)
+		console.log(a,b,c);// undefined undefined undefined
+
+		// 方式二:声明多个变量,并赋值
+		var num1 = 10,num2 = 20,num3 = 30;
+		console.log(num1,num2,num3);// 10 20 30
+
+		// 修改变量的值  变量总是"喜新厌旧"的,变量里面只能存放"最后给的值" 类似css层叠性
+		var girlFirend  = "小丽";
+		console.log( girlFirend );// 小丽,js代码执行默认顺序是从上到下的
+
+		// 如何修改变量的值  语法: 变量名 = 新值;  不需要再加var
+		girlFirend = "小美";
+		console.log( girlFirend );// 小美
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

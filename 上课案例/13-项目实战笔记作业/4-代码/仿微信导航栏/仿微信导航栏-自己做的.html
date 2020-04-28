@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		a{
+			text-decoration: none;
+			color:white;
+		}
+		a:hover{
+			color:white;
+		}
+		li{
+			list-style: none;
+		}
+		.w{
+			width: 1000px;
+			margin:0 auto;
+		}
+
+		.header{
+			height: 77px;
+			background: url(images/header_bg.jpg);
+		}
+		.header .logo{
+			float: left;
+			margin-top: 16px;
+			margin-right: 78px;
+		}
+		.header .nav{
+			float:left;
+		}
+		.header .nav ul li{
+			float: left;
+			font-size:14px;
+			margin-right: 5px;
+		}
+
+		/*以下部分开始为难点*/
+		.header .nav ul li a{
+			padding-left: 15px;
+			height: 33px;
+			line-height: 33px;
+			display: block;
+			margin-top: 22px;
+		}
+		.header .nav ul li a span{
+			padding-right: 15px;
+			display: block;
+			height: 33px;
+		}
+
+		/*我们让背景图片移上以后li以后才显示*/
+		.header .nav ul li:hover a{
+			background: url(images/ao.png);
+		}
+		.header .nav ul li:hover a span{
+			background: url(images/ao.png) right top;
+		}
+
+		.header .nav ul li:first-child a{
+			padding-left: 15px;
+			background: url(images/to.png);
+			height: 33px;
+			line-height: 33px;
+			display: block;
+			margin-top: 22px;
+		}
+
+		.header .nav ul li:first-child a span{
+			background: url(images/to.png) right top;
+			padding-right: 15px;
+			display: block;
+			height: 33px;
+		}
+	</style>
+</head>
+<body>
+	<div class="header">
+		<div class="w">
+			<!-- logo部分 -->
+			<div class="logo"><a href="#"><img src="images/wx_logo.png"></a></div>
+			
+			<!-- 导航部分 -->
+			<div class="nav">
+				<ul>
+					<li><a href="#"><span>首页</span></a></li>
+					<li><a href="#"><span>帮助与反馈</span></a></li>
+					<li><a href="#"><span>公众平台</span></a></li>
+					<li><a href="#"><span>开发平台</span></a></li>
+					<li><a href="#"><span>微信支付</span></a></li>
+					<li><a href="#"><span>微信网页版</span></a></li>
+					<li><a href="#"><span>表情开发平台</span></a></li>
+					<li><a href="#"><span>微信广告</span></a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,5 @@
+[
+    {"color":"yellow"},
+    {"color":"pink"},
+    {"color":"orange"}
+]

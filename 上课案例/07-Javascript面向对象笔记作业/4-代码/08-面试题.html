@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 我们之前学过的盒子模型 是  IE盒子模型  内容+内填充+边框 */
+        /* 真实宽度 = width + padding + border */
+        .div1{
+            width: 100px;
+            height: 100px;
+            background: pink;
+            padding:5px;
+            border:2px solid blue;
+            /* 此事.div1盒子的真实宽度高度都是114 */
+        }
+        /* 还有一种盒子模型是 W3C盒子模型   内容 不包括内填充和边框 */
+        /* 真实宽度 = width  */
+        .div2{
+            width: 100px;
+            height: 100px;
+            background: skyblue;
+            padding:5px;
+            border:2px solid red;
+            /* css3中有一个CSS3 box-sizing 属性可以改变盒子模型 */
+            /* box-sizing: border-box; 内减模式,border和padding的大小包含在width和height中 */
+            /* box-sizing: border-box; */
+            
+            /* box-sizing: content-box; 外增模式, border和padding的大小不算在width和height里面 */
+            box-sizing:content-box;
+        }
+    </style>
+</head>
+<body>
+    <div class="div1">div1</div>
+    <div class="div2">div2</div>
+</body>
+</html>

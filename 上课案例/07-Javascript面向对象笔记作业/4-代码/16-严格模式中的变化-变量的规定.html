@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 开启严格模式
+        "use strict";
+
+        // 变量规定
+        // 在正常模式中，如果一个变量没有声明就赋值，默认是全局变量。
+        // 严格模式禁止这种用法，变量都必须先用var声明，然后再使用变量。
+        // a = 10;
+        // console.log( a );// a is not defined
+
+        // 严禁删除已经声明变量。例如，delete x; 语法是错误的。
+        var obj = {
+            uname : "张三",
+            age : 23
+        }
+        console.log( obj );
+
+        // 使用delete删除obj中的uname属性
+        // delete用法可以自行百度,https://www.cnblogs.com/SRH151219/p/10420819.html
+        // delete一般只用于删除对象的属性,很少用于删除变量
+        delete obj.uname;
+        
+        console.log( obj );
+        console.log("");
+
+        // delete还可以删除没有使用var声明的全局变量,但是严格模式下,会报错
+        b = 20;
+        console.log( b );// b is not defined
+        delete b;// 报错  Delete of an unqualified identifier in strict mode.
+        console.log( b );
+    </script>
+</body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button>按钮</button>
+    <script>
+        // 这些 this 的指向，是当我们调用函数的时候确定的。调用方式的不同决定了this 的指向不同
+        // this一般指向我们的调用者
+
+        // 普通函数调用 this指向window
+        function fn(){
+            console.log("普通函数里面的this");
+            console.log( this );
+            console.log( "" );
+        }
+        fn();
+
+        // 构造函数调用 this指向实例对象, 另外原型对象里面的方法也指向实例对象
+        function Star(uname,age){
+            this.uname = uname;
+            this.age = age;
+            console.log("构造函数里面的this");
+            console.log( this );
+            console.log( "" );
+        }
+        Star.prototype.sing = function(){
+            console.log("原型对象里面的this");
+            console.log( this );
+            console.log( "" );
+        }
+        var ldh = new Star("刘德华",18);
+        ldh.sing();
+
+        // 对象方法调用 this指向该方法所属对象
+        var obj = {
+            uname:"张三",
+            age:23,
+            sayHello:function(){
+                console.log("调用对象中的方法,方法里面的this");
+                console.log( this );
+                console.log( "" );
+            }
+        }
+        obj.sayHello();
+
+        // 事件绑定方法 this指向绑定事件的对象
+        var btn = document.querySelector("button");
+        btn.onclick = function(){
+            // 绑定事件的函数不会马上调用,触发的时候才会调用
+            console.log("事件绑定方法中的this");
+            console.log( this );
+            console.log( "" );
+        }
+
+        // 定时器和延时器函数 this指向window
+        window.setInterval(function(){
+            console.log("定时器里面的this");
+            console.log( this );
+            console.log( "" );
+        },1000);
+
+        window.setTimeout(function(){
+            console.log("延时器里面的this");
+            console.log( this );
+            console.log( "" );
+        },3000);
+
+        // 立即执行函数 this指向window
+        (function(){
+            console.log("立即调用函数里面的this");
+            console.log( this );
+            console.log( "" );
+        })()
+    </script>
+</body>
+</html>

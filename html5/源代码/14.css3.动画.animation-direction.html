@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>动画的方向(顺序)</title>
+    <link rel="stylesheet" href="./base.css">
+    <style>
+        /* 1.0 定义动画 */
+        @keyframes foo2 {
+            /* 开始的动画 */
+            from {
+                width: 100px;
+                height: 100px;
+            }
+            /* 结束的动画 */
+            to {
+                width: 500px;
+                height: 500px;
+            }
+        }
+
+        /* 2.0 使用动画 */
+        .box {
+            animation-name: foo2;
+            animation-duration: 5s;
+            /* 动画的方向 */
+            /* 正常的执行动画 开始 ------ > 结束*/
+             /* animation-direction: normal; */
+             /* 反向执行动画  结束 ----- > 开始*/
+            /* animation-direction: reverse; */
+
+            /*正常的执行动画 */
+            /* animation-direction:alternate; */
+            /*反向执行动画  */
+            /* animation-direction:alternate-reverse; */
+           
+        }
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+</body>
+</html>

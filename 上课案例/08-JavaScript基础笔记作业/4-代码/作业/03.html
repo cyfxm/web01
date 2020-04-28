@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript">
+		/*// 关于js中字符串赋值的问题
+		var str = "abc";
+		// 把字符串中的第一个字符改成大写字母,再赋回给自己
+		str[0] = str[0].toUpperCase() ;
+		// 字符串有部分像数组一样的特性,但它不是数组
+		console.log( str[0] );// a
+
+		console.log("");
+
+		var arr = ["a","b","c"];
+		// 数组第一个元素转成大写字母,再赋回给自己
+		arr[0] = arr[0].toUpperCase() ;
+		console.log( arr[0] );// A*/
+
+
+		// 3、(字符，偏难)利用var s1 = prompt("请输入任意字符","")可以获取用户输入的字符(存到变量s1中了)，要求将用户输入的字符“反转顺序”后,再首尾字母转为大写，其他字母转为小写,最后把结果输出在页面上
+		
+		var s1 = prompt("请输入任意字符","");
+		var arr = s1.split("");
+		var str = "";
+		for(var i = arr.length-1; i>=0; i--){
+			if( i == 0 || i == arr.length-1){// 首尾转成大写
+				arr[i] = arr[i].toUpperCase();
+			}else{// 其他转成小写
+				arr[i] = arr[i].toLowerCase();
+			}
+			str += arr[i] ;
+		}
+		document.write("翻转之前是:" +s1 + " 翻转以后是:"+str );
+		
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

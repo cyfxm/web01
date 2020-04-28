@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 面向对象
+        // 面向对象编程 OOP(Object Oriented Programming)
+        // 面向对象是把事务分解成为一个个对象，然后由对象之间分工与合作。
+        // 也就是一句话,所以的功能都将由对象来完成
+       /*  举例:将大象装进冰箱,面向对象做法
+        先找出对象,并写出这些对象的功能:
+        1. 大象对象
+        进去
+        ​
+        2. 冰箱对象
+        打开冰箱门
+        关闭冰箱门
+        ​
+        3. 使用大象和冰箱的功能 */
+
+        // 创建一个大象的构造函数
+        function Elephant( uname ){
+            // 大象的名字  属性
+            this.uname = uname;
+            // 大象的方法
+            this.goin = function(){
+                console.log(this.uname + "进去冰箱了");
+            }
+        }
+
+        // 创建一个冰箱的构造函数
+        function Refrigerator( brand ){
+            // 冰箱的品牌  属性
+            this.brand = brand ;
+            // 冰箱的功能  打开冰箱门
+            this.openDoor = function(){
+                console.log( this.brand +"冰箱打开了冰箱门" );
+            }
+            // 冰箱的功能  关闭冰箱门
+            this.closeDoor = function(){
+                console.log( this.brand +"冰箱关闭了冰箱门" );
+            }
+            
+        }
+
+        // 怎么从构造函数中得到具体的对象? 通过new关键字实例化构造函数,得到对象
+        // 语法  var obj = new 构造函数名(实参);
+        // 为什么要创建对象,因为对象才可以使用构造函数里面的方法和属性
+        var daxiang1 = new Elephant("粉色大象");
+        var bingxiang1 = new Refrigerator("海尔");
+        // 面向对象的做法就是功能让对象来完成
+        bingxiang1.openDoor();
+        daxiang1.goin();
+        bingxiang1.closeDoor();
+
+        console.log("");
+
+        var daxiang2 = new Elephant("天空蓝大象");
+        var bingxiang2 = new Refrigerator("美的");
+        // 面向对象的做法就是功能让对象来完成
+        bingxiang2.openDoor();
+        daxiang2.goin();
+        bingxiang2.closeDoor();
+    </script>
+</body>
+</html>

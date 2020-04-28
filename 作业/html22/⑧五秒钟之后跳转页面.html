@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <button>立即跳转到小米官网</button>
+    <div></div>
+</body>
+    <script>
+        var button = document.querySelector("button");
+        var div = document.querySelector("div");
+        button.onclick = function(){
+            location.href="https://www.mi.com/";
+        }
+        var count = 6;
+        timer=setInterval(function(){            
+            count--;
+            div.innerHTML = count+ "秒后跳转";
+            if(count == 0){
+                location.href="https://www.mi.com/";
+            }
+         }, 1000);
+         
+    </script>
+</html>

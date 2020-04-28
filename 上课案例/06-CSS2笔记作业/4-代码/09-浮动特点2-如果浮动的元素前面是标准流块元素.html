@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.one{
+			width: 100px;
+			height: 100px;
+			background: pink;
+		}
+		.two{
+			width: 200px;
+			height: 200px;
+			background: skyblue;
+			/*如果浮动的元素前面是标准流块元素*/
+			/*我们给第二个盒子右浮动*/
+			float:right;
+		}
+	</style>
+</head>
+<body>
+	<div class="one">one</div>
+	<div class="two">two</div>
+</body>
+</html>

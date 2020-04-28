@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 行内绑定事件,在标签中写事件属性 -->
+    <button onclick="fn()">行内绑定-传统注册事件</button>
+    <button>动态绑定-传统注册事件</button>
+    <button>方法监听注册事件</button>
+    <button>ie9 attachEvent</button>
+
+    <script>
+        function fn(){
+            alert( "我是行内绑定的" );
+        }
+        // 给一个元素绑定事件,我们也可以称之为注册事件
+        // 注册事件有两种方式,一种是传统方式,另一种是事件监听的方式
+        var btns = document.getElementsByTagName("button");
+        
+        /* 1. 传统方式注册事件
+        (1) 注册事件的唯一性
+        (2) 同一个元素 同一个事件只能设置一个处理函数,最后注册的处理函数将会覆盖前面注册的处理函数 */
+        btns[1].onclick = function(){
+            alert("我是行内绑定的111111");
+        }
+        btns[1].onclick = function(){
+            alert("我是行内绑定的2222222");
+        }
+        btns[1].onclick = function(){
+            alert("我是行内绑定的333333333");
+        }
+            
+        /* 2. 事件侦听注册事件 addEventListener  IE9以及IE9才可以用addEventListener方法绑定事件
+        (1) 里面的事件类型是字符串 必定加引号 而且不带on
+        (2) 同一个元素 同一个事件可以添加多个侦听器（事件处理程序）,按注册顺序依次执行 */
+
+        // 语法: 对象.addEventListener("事件类型,不带on",匿名函数或者函数名 )
+        btns[2].addEventListener("click",function(){
+            alert("我是事件监听绑定的按钮11111");
+        })
+        btns[2].addEventListener("click",function(){
+            alert("我是事件监听绑定的按钮22222");
+        })
+        btns[2].addEventListener("click",function(){
+            alert("我是事件监听绑定的按钮333333");
+        })
+
+        // 如果是写函数名的话,不需要使用引号包裹,也不需要写括号
+        btns[2].addEventListener("click", fn2 );
+
+        function fn2(){
+            alert("我是有名函数fn2");
+        }
+            
+       /*  3. attachEvent ie9以前的版本支持   ie9以下如果要需要使用监听的方式,需要使用
+        (1) 里面的事件类型是字符串 必定加引号 要带on
+        (2) 同一个元素 同一个事件可以添加多个侦听器（事件处理程序）,按注册顺序倒序执行 */
+        // 语法 对象.attachEvent("事件类型,带on",匿名函数或者函数名 )
+        /* btns[3].attachEvent("onclick",function(){
+            alert("我是IE9以下浏览器专用的绑定方式11111");
+        });
+
+        btns[3].attachEvent("onclick",function(){
+            alert("我是IE9以下浏览器专用的绑定方式22222");
+        });
+
+        btns[3].attachEvent("onclick", fn3 );
+
+        function fn3(){
+            alert("我是有名函数fn3,我用于测试attachEvent监听方式");
+        } */
+    </script>
+</body>
+</html>

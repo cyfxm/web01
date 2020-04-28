@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript">
+		// 先输出9到1,每行一个数字
+		/*for(var i = 9;i>=1; i--){
+			document.write(i+"<br/>");
+		}*/
+
+		// 输出9个9,9个8,9个7...
+		/*for(var i = 9;i>=1; i--){
+			for(var j=1;j<=9;j++){
+				document.write(i);
+			}
+			document.write("<br/>");
+		}*/
+
+		// 输出第一行9个9,第二行8个8,第三行7个7...
+		/*for(var i = 9;i>=1; i--){// 控制行数
+			for(var j=1;j <= i;j++){// 控制数字的个数
+				document.write(i);
+			}
+			document.write("<br/>");
+		}*/
+
+		// 最后我们拼接上下部分
+		for(var i = 9;i>=1; i--){// 控制行数
+			for(var j=1;j <= i;j++){// 控制数字的个数
+				document.write(i);
+			}
+			document.write("<br/>");
+		}
+
+		for(var i = 2;i<= 9; i++){// 控制行数
+			for(var j=1;j <= i;j++){// 控制数字的个数
+				document.write(i);
+			}
+			document.write("<br/>");
+		}
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

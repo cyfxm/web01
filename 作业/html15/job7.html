@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript">
+		// 进阶题,也要做 封装计算一个数字的n次幂的函数,m是任何数字(小数,负整数,正整数)
+		// 	 function pow(m,n){
+		// 		// m:底数
+		// 		// n:幂
+		// 	 }
+		// 	比如:pow(5,-2)返回0.04
+		// 	比如:pow(5,4)返回625
+		// 	比如:pow(3,0)返回1
+		// 	比如:pow(1,5)返回1
+
+	 	function pow(m,n){
+	        if(n<0){
+	        	var num = 1;
+	        	for(var i=-1;i>=n;i--){
+	        		num *=1/m;
+	        	}
+	        	return num;
+	        }else if(n==0){
+	        	var num = 1;
+	        }else if(n>0){
+	        	var num = 1;
+	        for(var i = 1; i <= n; i ++){	        	
+	            	num *= m; 	    
+	        	// return num;
+				     }
+	        }
+	        document.write(m+"的" + n + "次幂是" + " " + num + "<br>");
+	 	}
+	 	// pow(2,3);
+	 	 var get = pow(5,-2);
+	 	 document.write(get.toFixed(2));
+	 	 document.write("</br>")
+	 	 pow(5,4);
+	 	 pow(3,0);
+	 	 pow(1,5);
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

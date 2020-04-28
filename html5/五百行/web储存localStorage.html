@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1></h1>
+
+    <button id="btn_01">设置web储存的数据</button>
+
+    <button id="btn_02">清除web储存的数据</button>
+    <script>
+        var btn_01 = document.querySelector("#btn_01");
+        var btn_02 = document.querySelector("#btn_02");
+
+        btn_01.onclick = function(){
+            var data = "hello world";
+            var res = window.localStorage.setItem('data',data);
+            console.log(res);
+            
+        }
+
+        btn_02.onclick = function(){
+            window.localStorage.clear('data');
+        }
+
+        var text = window.localStorage.getItem('data');
+        console.log(text);
+        
+        document.querySelector("h1").innerHTML = text;
+    </script>
+</body>
+</html>

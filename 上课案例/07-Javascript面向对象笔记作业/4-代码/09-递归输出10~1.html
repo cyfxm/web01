@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 递归输出10~1
+        // 第一步:封装一个能解决单一问题的函数(类似循环体)
+
+        /* var num = 10;
+        function fn(){
+            console.log( num );
+        }
+        fn(); */
+
+        // 第二步:在这个函数中调用当前函数 调整问题的规模(类似循环中的变量更新) 
+        var num = 10;
+        function fn(){
+            // 第三步:在函数中设置递归出口 如果没有递归出口 递归调用无法结束(类似循环中的判断条件) 
+            if(num == 0){
+                return ;
+            }
+
+            console.log( num );
+            // 调整规模
+            num--;
+            fn();
+        }
+
+        fn();
+    </script>
+</body>
+</html>

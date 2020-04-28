@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>曲线图</title>
+    <style>
+        .wrapper {
+            position: relative;
+        }
+        .wrapper ul {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+            position: absolute;
+            top: 700px;
+            left: 100px;
+        }
+        .wrapper ul li {
+            float: left;
+            width: 100px;
+            text-align: right;
+        }
+    </style>
+</head>
+
+<body>
+
+   <div class="wrapper">
+        <canvas id="canvas">当前浏览器不支持canvas!</canvas>
+        <ul>
+            <li>一月份</li>
+            <li>二月份</li>
+            <li>三月份</li>
+            <li>四月份</li>
+            <li>五月份</li>
+        </ul>
+    </div>
+
+
+</body>
+
+</html>
+
+
+<script>
+    // 1.0 假数据
+    var data = [
+        { "money": "", "persent": "0.3" },
+        { "money": "", "persent": "0.2" },
+        { "money": "", "persent": "0.05" },
+        { "money": "", "persent": "0.35" },
+        { "money": "", "persent": "0.1" }
+    ]
+
+    // 2.0 获取canvas标签
+    var canvas =  document.querySelector("#canvas");
+    // 3.0 设置画布的大小
+    canvas.width  = 800;
+    canvas.height = 800;
+    // 4.0 获取canvas上下文对象
+    var ctx = canvas.getContext("2d");
+    // 5.0 绘制画布的背景色
+    ctx.fillStyle = "lightgreen";
+    ctx.fillRect(0,0,800,800);
+
+    // 6.0 定义坐标点
+    var point  = {
+        x:100,
+        y:700
+    }
+    // 描边的颜色
+    ctx.strokeStyle="red";
+    // 7.0 绘制Y轴
+    ctx.beginPath()
+    ctx.moveTo(point.x , point.y);
+    ctx.lineTo(point.x , point.y-600);
+    ctx.closePath();
+    ctx.stroke();
+    // Y 箭头
+    ctx.beginPath()
+    ctx.moveTo(point.x , point.y-600);
+    ctx.lineTo(point.x-10 , point.y-580);
+    ctx.closePath();
+    ctx.stroke();
+    // 
+    ctx.beginPath()
+    ctx.moveTo(point.x , point.y-600);
+    ctx.lineTo(point.x+10 , point.y-580);
+    ctx.closePath();
+    ctx.stroke();
+
+    // X 轴
+    ctx.beginPath()
+    ctx.moveTo(point.x , point.y);
+    ctx.lineTo(point.x+600 , point.y);
+    ctx.closePath();
+    ctx.stroke();
+
+    // X 箭头
+    ctx.beginPath()
+    ctx.moveTo(point.x+600 , point.y);
+    ctx.lineTo(point.x+580, point.y-10);
+    ctx.closePath();
+    ctx.stroke();
+    // 
+    ctx.beginPath()
+    ctx.moveTo(point.x+600 , point.y);
+    ctx.lineTo(point.x+580, point.y+10);
+    ctx.closePath();
+    ctx.stroke();
+
+    //中收入的位置
+    ctx.beginPath()
+    ctx.moveTo(point.x-80 , point.y-600);
+    ctx.lineTo(point.x+80, point.y-600);
+    ctx.closePath();
+    ctx.stroke();
+
+    // 一月份
+    ctx.strokeStyle="red";
+    ctx.lineWidth =  50;
+    ctx.beginPath()
+    ctx.moveTo(point.x+100 , point.y);
+    ctx.lineTo(point.x+100, point.y-(data[0].persent * 600));
+    ctx.closePath();
+    ctx.stroke();
+
+    // 二月份
+    ctx.beginPath()
+    ctx.moveTo(point.x+200 , point.y);
+    ctx.lineTo(point.x+200, point.y-(data[1].persent * 600));
+    ctx.closePath();
+    ctx.stroke();
+
+    // 三月份
+    ctx.beginPath()
+    ctx.moveTo(point.x+300 , point.y);
+    ctx.lineTo(point.x+300, point.y-(data[2].persent * 600));
+    ctx.closePath();
+    ctx.stroke();
+
+
+    // 四月份
+    ctx.beginPath()
+    ctx.moveTo(point.x+400 , point.y);
+    ctx.lineTo(point.x+400, point.y-(data[3].persent * 600));
+    ctx.closePath();
+    ctx.stroke();
+
+    // 五月份
+    ctx.beginPath()
+    ctx.moveTo(point.x+500 , point.y);
+    ctx.lineTo(point.x+500, point.y-(data[4].persent * 600));
+    ctx.closePath();
+    ctx.stroke();
+
+    // 曲线图
+    ctx.strokeStyle="orange";
+    ctx.lineWidth =  1;
+    ctx.beginPath()
+    ctx.moveTo(point.x+100, point.y-(data[0].persent * 600));
+    ctx.lineTo(point.x+200, point.y-(data[1].persent * 600));
+    ctx.lineTo(point.x+300, point.y-(data[2].persent * 600));
+    ctx.lineTo(point.x+400, point.y-(data[3].persent * 600));
+    ctx.lineTo(point.x+500, point.y-(data[4].persent * 600));
+    ctx.stroke();
+    // ctx.closePath();
+    
+
+
+
+
+</script>

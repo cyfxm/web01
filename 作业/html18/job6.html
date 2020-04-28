@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript">
+		var newArr = [];
+		function getRandom(arr){
+			arr.sort(function(a,b){
+				var num = Math.random() - 0.5; 
+				num = Math.floor(num);
+				newArr.push(arr[num]);
+				 arr.splice(num,1);
+				return num;
+			});
+			return arr;
+		}
+	
+		var arr1 = ["鹿晗","王俊凯","蔡徐坤","彭于晏","周杰伦","刘德华","赵本山"];
+		console.log(getRandom(arr1));
+
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

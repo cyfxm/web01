@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		/*结构伪类选择器 CSS3*/
+		/*这里E=>element元素的意思*/
+		ul li{
+			color:red;
+		}
+		/*E:first-child找到第一个子元素*/
+		ul li:first-child{
+			color:pink;
+		}
+		/*E:last-child找到最后一个子元素*/
+		ul li:last-child{
+			color:green;
+		}
+		/*E:nth-child(n)找到第n个子元素,n从1开始,比如n=1,就是找到第一个子元素*/
+		ul li:nth-child(3){
+			color:purple;
+		}
+
+		/*E:nth-last-child(n)找到倒数第n个子元素,n从1开始,比如n=1,就是找到倒数第一个子元素*/
+		ul li:nth-last-child(3){
+			color:orange;
+		}
+	</style>
+</head>
+<body>
+	<ul>
+		<li>香蕉</li>
+		<li>苹果</li>
+		<li>葡萄</li>
+		<li>奇异果</li>
+		<li>火龙果</li>
+		<li>桔子</li>
+		<li>橙子</li>
+		<li>木瓜</li>
+		<li>哈密瓜</li>
+		<li>西瓜</li>
+	</ul>
+</body>
+</html>

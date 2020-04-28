@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<!-- table标签表示表格 -->
+	<!-- tr标签表示表格的行  table row -->
+	<!-- td标签或者th标签都可以表示表格的单元格;但是th包裹的内容会加粗并且在单元格水平方向上居中显示 -->
+
+	<!-- 先有表格,才有行,再有单元格 -->
+	
+	<!-- 我们可以通过table的border属性设置整个表格的边框线 -->
+	<!-- 我们可以通过table的width属性设置整个表格的宽度 -->
+
+	<!-- 浏览器会默认把所有table里面的行都放在一个tbody标签里面 -->
+	<!-- tbody以及thead还有tfoot标签,这三个都是表格给我们提供的结构化标签,主要用于划分结构使用的,我们一般不写,就让浏览器帮我们自己把内容放在一个tbody里面中 -->
+
+	<!-- 我们可以通过table的align属性设置整个表格的水平对齐方式 -->
+	<table border="1" width="500" align="center">
+		<!-- caption标签是设置表格的标题,这个标签需要放在table标签里面 -->
+		<caption>学习信息表</caption>
+		<tr>
+			<th>姓名</th>
+			<th>性别</th>
+			<th>年龄</th>
+		</tr>
+		<tr>
+			<td>张三</td>
+			<td>男</td>
+			<td>23</td>
+		</tr>
+		<tr>
+			<td>李四</td>
+			<td>女</td>
+			<td>24</td>
+		</tr>
+		<tr>
+			<td>王五</td>
+			<td>男</td>
+			<td>25</td>
+		</tr>
+	</table>
+</body>
+</html>

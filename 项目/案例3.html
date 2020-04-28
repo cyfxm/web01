@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		a{
+			text-decoration: none;
+			color: white;
+		}
+		li{
+			list-style: none;
+		}
+		.top{
+			height: 75px;
+			width: 100%;
+			background: url(../sql/仿微信导航栏/images/header_bg.jpg);
+		}
+		.w{
+			width: 1000px;
+			margin: 0 auto;
+		}
+		.top .left{
+			float: left;
+		}
+		
+		.top .left img{
+			margin-bottom: -20px;
+			margin-left: 10px;
+		}
+
+		.top .right{
+			float: right;
+			/* margin-bottom: -10px; */
+			margin-left: 75px;
+			height: 33px;
+			margin-top: 20px;
+		}
+		.top .right ul li{
+			float: left;
+			margin: 0 2px;
+		}
+		.top .right ul li a{
+			font-size:14px;
+			color:#ffffff;
+			display: block;
+			float: left;
+			padding-left:16px;
+			height: 33px;
+			line-height: 33px;
+		}
+		
+		.top .right ul li a span{
+			float: left;
+			padding-right: 16px;
+			height: 33px;
+		}
+		.top .right ul li:hover a span{
+			background: url(../sql/仿微信导航栏/images/ao.png) right top;
+		}
+		.top .right ul li:hover a{
+			background: url(../sql/仿微信导航栏/images/ao.png) left top;
+		}
+
+		.top .right ul li:first-child a{
+			font-size:14px;
+			color:#ffffff;
+			display: block;
+			float: left;
+			background: url(../sql/仿微信导航栏/images/to.png) left top;
+			padding-left:16px;
+			height: 33px;
+			line-height: 33px;
+		}
+		
+		.top .right ul li:first-child a span{
+			float: left;
+			background: url(../sql/仿微信导航栏/images/to.png) right top;
+			padding-right: 16px;
+			height: 33px;
+		}
+	</style>
+</head>
+<body>
+	<div class="top">
+		<div class="w">
+			<div class="left fl">
+				<h1>
+					<a href="#"><img src="../sql/仿微信导航栏/images/wx_logo.png"></a>
+				</h1>
+			</div>
+			<div class="right fl">
+				<ul>
+					<li><a href="#"><span>首页</span></a></li>
+					<li><a href="#"><span>帮助与反馈</span></a></li>
+					<li><a href="#"><span>公众平台</span></a></li>
+					<li><a href="#"><span>开放平台</span></a></li>
+					<li><a href="#"><span>微信支付</span></a></li>
+					<li><a href="#"><span>微信网页版</span></a></li>
+					<li><a href="#"><span>表情开发平台</span></a></li>
+					<li><a href="#"><span>微信广告</span></a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

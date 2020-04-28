@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title></title>
+</head>
+<body>
+    <!-- form 提交数据 在哪打开都可行 -->
+    <!-- action 提交数据的属性：接口 -->
+    <!-- method 请求数据的方式 ： get/post -->
+    <!-- http://127.0.0.1:3005/add -->
+    <form action="http://127.0.0.1:3005/add" method="get">
+        <!-- name ： 对应是服务端接收参数的key  ,req.query.num1 -->
+        <input type="text" name="num1" placeholder="请输入 num1">
+        <input type="text" name="num2" placeholder="请输入 num2">
+        <!-- 提交按钮 -->
+        <input type="submit" value="提交表单">
+    </form>
+
+
+    <!-- get  和  post  的区别 -->
+    <!-- get  提交的参数  ，会暴露在地址栏 ， post 提交参数不会暴露在地址栏 -->
+    <!-- get  速度快 ，不安全  ，post 速度慢 ，安全 -->
+    <!-- get  有大小限制  ，post 没有大小限制 -->
+    <!-- get  存在明显的缓存  ，post 没有明显的缓存 -->
+    <!-- <form action="http://127.0.0.1:3005/sub" method="post"> -->
+        <!-- name ： 对应是服务端接收参数的key  ,req.query.num1 -->
+        <input type="text" name="num1" placeholder="请输入 num1">
+        <input type="text" name="num2" placeholder="请输入 num2">
+        <!-- 提交按钮 -->
+        <input type="submit" value="提交表单">
+    <!-- </form> -->
+
+    <!-- a.表单提交和b. ajax提交 -->
+    <!-- a. 页面跳转   b.局部刷新，不会整个页面跳转 -->
+    <!-- a. 用户体验低  b.用户体验高度  -->
+</body>
+</html>

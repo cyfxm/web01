@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        canvas{
+            border: 1px solid #ccc;
+            background-color: skyblue;
+        }
+    </style>
+</head>
+<body>
+    
+
+    <canvas id="canvas">不支持canvas标签</canvas>
+
+    <script>
+        var canvas = document.querySelector("#canvas");
+        
+        canvas.width = 400;
+        canvas.height = 500;
+
+        var ctx = canvas.getContext("2d");
+        ctx.fillStyle = "green";
+        ctx.fillRect(0,0,200,100);
+        ctx.clearRect(100,50,100,50);
+    </script>
+</body>
+</html>

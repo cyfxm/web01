@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		/*padding与margin设置负值问题*/
+		/*padding设置负值"无效",而margin设置负值"有效"*/
+		.one{
+			width: 200px;
+			height: 200px;
+			background: red;
+			padding-left:-100px;
+			padding-top: -50px;
+			margin-left: -15px;
+			margin-top: -16px;
+		}
+	</style>
+</head>
+<body>
+	<div class="one">one</div>
+</body>
+</html>

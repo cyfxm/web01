@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		.one{
+			width: 500px;
+			height: 200px;
+			background: pink;
+			text-align:center;
+		}
+
+		.two{
+			/*三个条件*/
+			/*1.块元素*/
+			/*2.设置一个小于100%的宽度*/
+			width:500px;
+			height: 200px;
+			background: skyblue;
+			/*3.设置左右外边距为auto*/
+			margin-left:auto;
+			margin-right: auto;
+
+			/*margin:0 auto;*/
+
+			/*上下外边距设置auto无效*/
+			/*margin:auto;*/
+		}
+		.three{
+			width: 500px;
+			height: 300px;
+			background: lightgreen;
+			text-align:center;
+		}
+
+		.four{
+			/*width: 500px;*/
+			width:310px;
+			height: 300px;
+			background: deeppink;
+			padding-left: 190px;
+		}
+
+		.five{
+			width: 500px;
+			height: 300px;
+			background: orange;
+		}
+		.five img{
+			margin-left: 190px;
+		}
+
+		.six{
+			width: 500px;
+			height: 300px;
+			background: purple url(images/1.jpg) no-repeat center top;
+		}
+	</style>
+</head>
+<body>
+	<h2>文字水平居中 text-align:center</h2>
+	<div class="one">我是one盒子中的文字</div>
+
+	<h2>盒子水平居中 使用margin</h2>
+	<div class="two">two盒子</div>
+
+	<h2>图片在盒子里面水平居中 text-align:center;因为img标签是行内块元素,text-align可以生效</h2>
+	<div class="three">
+		<img src="images/1.jpg"/>
+	</div>
+
+	<h2>图片在盒子里面水平居中 使用父元素的padding-left</h2>
+	<div class="four">
+		<img src="images/1.jpg"/>
+	</div>
+
+	<h2>图片在盒子里面水平居中 使用img标签的左外边距</h2>
+	<div class="five">
+		<img src="images/1.jpg"/>
+	</div>
+
+	<h2>背景图片水平居中 使用背景定位属性</h2>
+	<div class="six"></div>
+</body>
+</html>

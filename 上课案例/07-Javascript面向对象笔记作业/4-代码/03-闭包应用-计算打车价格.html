@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 闭包应用-计算打车价格   
+        // 打车起步价13(3公里内), 之后每多一公里增加 5块钱. 用户输入公里数就可以计算打车价格   如果有拥堵情况,总价格多收取10块钱拥堵费
+        
+        var cars = (function(){
+            // 起步价
+            var start = 13;
+            // 总价
+            var total = 0;
+
+            // 返回了一个对象
+            return {
+                price:function(num){// num表示用户输入的公里数
+                    if(num <= 3){
+                        // 3公里内,总价就是起步价
+                        total = start;
+                        return total;
+                    }else{
+                        // 打车起步价13(3公里内), 之后每多一公里增加 5块钱
+                        total = start + (num - 3)*5;
+                        return total;
+                    }
+                },
+                yd:function(flag){// flag的值如果是true就表示拥堵,需要额外加10块拥堵费
+                    if( flag ){
+                        total = total + 10;
+                        return total;
+                    }else{
+                        return total;
+                    }
+                }
+            }
+        })();
+
+        console.log( cars );// cars是一个对象,因为cars的值是一个立即调用函数,函数里面返回了一个对象
+        console.log( cars.price(1) );// 13
+        console.log( cars.price(2) );// 13
+        console.log( cars.price(3) );// 13
+        console.log( cars.price(5) );// 23
+        console.log( cars.yd(true) );// 33
+    </script>
+</body>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .wrapper{
+            width: 1200px;
+            height: 60px;
+            background-color: skyblue;
+            margin: 0 auto 20px auto;
+            display: flex;
+        }
+
+        .wrapper .box{
+            width: 100px;
+            height: 50px;
+            background-color: red;
+            border: 1px solid #fff;
+        }
+
+        .wrapper_1{
+            justify-content: center;
+        }
+
+        .wrapper_2{
+            justify-content: flex-start;
+        }
+
+        .wrapper_3{
+            justify-content: flex-end;
+        }
+
+        .wrapper_4{
+            justify-content: space-between;
+        }
+
+        .wrapper_5{
+            justify-content: space-around;
+        }
+
+        .wrapper_6{
+            justify-content: baseline;
+        }
+    </style>
+</head>
+
+<body>
+    <h3>justify-content:center</h3>
+    <div class="wrapper wrapper_1">
+        <div class="box">1</div>
+        <div class="box">2</div>
+        <div class="box">3</div>
+    </div>
+    <h3>justify-content:flex-start</h3>
+    <div class="wrapper wrapper_2">
+        <div class="box">1</div>
+        <div class="box">2</div>
+        <div class="box">3</div>
+    </div>
+
+    <h3>justify-content:flex-end</h3>
+    <div class="wrapper wrapper_3">
+        <div class="box">1</div>
+        <div class="box">2</div>
+        <div class="box">3</div>
+    </div>
+
+
+    <h3>justify-content:space-between</h3>
+    <div class="wrapper wrapper_4">
+        <div class="box">1</div>
+        <div class="box">2</div>
+        <div class="box">3</div>
+    </div>
+
+    <h3>justify-content:space-around</h3>
+    <div class="wrapper wrapper_5">
+        <div class="box">1</div>
+        <div class="box">2</div>
+        <div class="box">3</div>
+    </div>
+
+    <h3>justify-content:baseline</h3>
+    <div class="wrapper wrapper_6">
+        <div class="box">1</div>
+        <div class="box">2</div>
+        <div class="box">3</div>
+    </div>
+</body>
+
+</html>

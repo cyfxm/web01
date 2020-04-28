@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 1.  使用构造函数的方式,创建一个汽车Cars类,里面有color,brand属性,需要通过原型对象方式给个构造函数一个run的方法    要求大家   把原型对象输出  把对象原型输出  调用run方法
+        function Cars(color,brand){
+            this.color = color;
+            this.brand = brand;
+        }
+
+        Cars.prototype.run = function(){
+            console.log("小汽车行驶中...");
+        }
+
+        console.log( Cars.prototype );
+        // 实例化对象
+        var car = new Cars("粉色","兰博基尼");
+        console.log( car.__proto__ );
+        car.run();
+
+        // 2.  给数组内置对象扩展一个方法:  求数组中是3的倍数的元素的和  再创建几个对象,调用这个方法
+        Array.prototype.getThreeSum = function(){
+            var sum = 0;
+            for(var i=0;i<this.length;i++){
+                if(this[i]%3 == 0){
+                    sum += 0;
+                }
+            }
+            return sum;
+        }
+        var arr1 = [3,10,5,6,7,9];
+        console.log( arr1.getThreeSum );
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,966 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>仿美丽说</title>
+	<!-- 引入外链式base.css文件,注意css文件所在路径 -->
+	<link rel="stylesheet" href="css/base.css">
+	<!-- 引入网站图标,如果需要生成ico图标,可以用一张图片,百度搜索比特虫可以在线转换图标 -->
+	<!-- link:favicon再按tab键 -->
+	<link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
+	<style>
+		/*header头部样式开始*/
+		.header{
+			height: 30px;
+			background: #f8f8f8;
+		}
+		/*子元素选择器*/
+		.header .w>ul>li{
+			float: left;
+		}
+		/*子元素选择器*/
+		.header .w>ul>li>a{
+			padding:0 20px;
+			/*border-right:1px dotted #cccccc ;*/
+			border-right:1px dotted red ;
+			/*为了解决帮助中心右边的边框消失问题,把a标签转为行内块或者块级元素*/
+			display: inline-block;
+			/*设置高度是为了a的右边框线高度不铺满整个li*/
+			height: 20px;
+			line-height: 20px;
+			margin-top: 5px;
+		}
+		/*找到最后一个li里面的a标签*/
+		.header ul li:last-child a{
+			border-right: none;
+		}
+		.header ul li a span{
+			height: 16px;
+			width: 19px;
+			background:url(images/top_nav.png) no-repeat;
+			display: inline-block;
+			margin-right: 10px;
+			/*行内或者行内块元素可以使用vertical-align属性*/
+			vertical-align: -2px;
+		}
+		/*并集选择器*/
+		.header ul li a span.weixin{
+			background-position:-25px 0px;
+		}
+		.header ul li a span.qq{
+			background-position:-50px 0px;
+		}
+		.header ul li a span.shoucang{
+			background-position:-75px 0px;
+		}
+		.header ul li a span.cart{
+			background-position:-100px 0px;
+		}
+		.header ul li a span.orderlist{
+			background-position:-125px 0px;
+		}
+		.header ul li a span.help_center{
+			background-position:-180px 0px;
+			margin-right: 0;
+			width: 8px;
+			margin-left: 11px;
+		}
+
+		/*下拉框代码开始*/
+		.header ul .drop {
+			/*父相*/
+			position: relative;
+			/*解决li高度没有撑满整个.header,导致鼠标移上.drop的时候有显示.down的问题*/
+			padding-bottom: 5px;
+		}
+		.header ul .drop .down{
+			background: #f8f8f8;
+			/*设置行高*/
+			line-height: 20px;
+			width: 85px;
+			/*子绝*/
+			position: absolute;
+			left: 0;
+			top: 30px;
+			border:1px solid #f1f1f1;
+			padding-top: 6px;
+			padding-bottom: 6px;
+			/*隐藏元素*/
+			display: none;
+		}
+		/*鼠标移上.drop以后,.drop里面的.down对应的样式*/
+		.header ul .drop:hover .down{
+			/*显示元素*/
+			display: block;
+		}
+		.header ul .drop .down a{
+			/*把a标签转换为块元素,让a标签宽度铺满整个li*/
+			display: block;
+			text-align: center;
+		}
+		/*下拉框代码结束*/
+
+		/*header头部样式结束*/
+	</style>
+</head>
+<body>
+	<!-- header头部开始 -->
+	<div class="header">
+		<div class="w">
+			<ul class="fr">
+				<li><a href="#"><span class="weixin"></span>微信登录</a></li>
+				<li><a href="#"><span class="qq"></span>QQ登录</a></li>
+				<li><a href="#">登录</a></li>
+				<li><a href="#">注册</a></li>
+				<li class="drop">
+					<a href="#"><span class="shoucang"></span>我的收藏</a>
+					<!-- 列表的嵌套 -->
+					<ul class="down">
+						<li><a href="#">收藏宝贝</a></li>
+						<li><a href="#">收藏店铺</a></li>
+					</ul>
+				</li>
+				<li><a href="#"><span class="cart"></span>我的购物车</a></li>
+				<li><a href="#"><span class="orderlist"></span>我的订单</a></li>
+				<li class="drop">
+					<a href="#">帮助中心<span class="help_center"></span></a>
+					<!-- 列表的嵌套 -->
+					<ul class="down">
+						<li><a href="#">买家服务</a></li>
+						<li><a href="#">商家服务</a></li>
+						<li><a href="#">规则中心</a></li>
+					</ul>
+				</li>
+				<li><a href="#">商家后台</a></li>
+			</ul>
+		</div>
+	</div>
+	<!-- header头部结束 -->
+	
+	<style>
+		/*logo层样式开始*/
+		.logo{
+			height: 157px;
+		}
+		.logo .logo_img{
+			width: 204px;
+			height: 52px;
+			margin-top: 40px;
+		}
+		.logo .logo_img a img{
+			height: 52px;
+		}
+		.logo .search{
+			width: 520px;
+			height: 81px;
+			margin-left: 156px;
+			margin-top: 21px;
+		}
+		.logo .search .baobei{
+			height: 24px;
+		}
+		.logo .search .baobei span{
+			width: 56px;
+			height: 24px;
+			background: #f2f2f2;
+			color:#666666;
+			float:left;
+			text-align: center;
+			line-height: 24px;
+			/*鼠标模拟小手样式*/
+			cursor: pointer;
+		}
+		.logo .search .baobei span:first-child{
+			background: #f36;
+			color:white;
+		}
+		.logo .search .search_box{
+			height: 32px;
+			background: blue;
+		}
+		.logo .search .search_box input{
+			width: 445px;
+			height: 28px;
+			border:2px solid #f36;
+		}
+		.logo .search .search_box .fangdajing{
+			width: 71px;
+			height: 32px;
+			background: url(images/fangdajing.png) no-repeat center center #f36;
+			cursor: pointer;
+		}
+		.logo .search .hot_words{
+			overflow: hidden;
+			margin-top: 13px;
+		}
+		.logo .search .hot_words ul li{
+			float: left;
+		}
+		.logo .search .hot_words ul li a{
+			padding-right: 10px;
+		}
+		.logo .search .hot_words ul li:last-child a{
+			padding-right: 0;
+		}
+		.logo .search .hot_words ul li a:hover{
+			color:#666666;
+		}
+		/*交集选择器*/
+		/*.active是一个自定义类名,active活动的意思*/
+		.logo .search .hot_words ul li a.active{
+			color:#f36;
+		}
+		.logo .search .hot_words ul li a.active:hover{
+			color:#f36;
+		}
+		/*logo层样式结束*/
+	</style>
+	<!-- logo层开始 -->
+	<div class="logo w">
+		<!-- logo图片 -->
+		<div class="logo_img fl">
+			<a href="#"><img src="images/logo.png"/></a>
+		</div>
+		
+		<!-- 搜索层 -->
+		<div class="search fl">
+			<!-- 上部分:宝贝,店铺 -->
+			<div class="baobei">
+				<span>宝贝</span><span>店铺</span>
+			</div>
+
+			<!-- 中部分:搜索框和搜索按钮 -->
+			<div class="search_box">
+				<!-- 文本输入框 -->
+				<input type="text" class="fl"/>
+				<!-- 放大镜 -->
+				<span class="fangdajing fl"></span>
+			</div>
+
+			<!-- 热门搜索词条 -->
+			<div class="hot_words">
+				<ul>
+					<li><a href="#" class="active">连衣裙</a></li>
+					<li><a href="#">运动鞋</a></li>
+					<li><a href="#" class="active">雪纺衫</a></li>
+					<li><a href="#" class="active">衬衫</a></li>
+					<li><a href="#">薄外套</a></li>
+					<li><a href="#">T恤</a></li>
+					<li><a href="#">套装</a></li>
+					<li><a href="#">牛仔裤</a></li>
+					<li><a href="#" class="active">小白鞋</a></li>
+					<li><a href="#">风衣</a></li>
+					<li><a href="#" class="active">绑带凉鞋</a></li>
+					<li><a href="#">粗跟单鞋</a></li>
+				</ul>
+			</div>
+		</div>
+		
+		<!-- 扫我下载 -->
+		<div class="download_app fr">
+			<img src="images/meilishuo_app.gif"/>
+		</div>
+	</div>
+	<!-- logo层结束 -->
+	
+	<style>
+		/*主导航栏样式开始*/
+		.main_nav{
+			height: 43px;
+			border-bottom: 1px solid #dedede;
+			font-size:16px;
+			font-weight: bold;
+		}
+		.main_nav ul li {
+			float: left;
+			margin-right: 75px;
+			line-height: 43px;
+		}
+		.main_nav ul li a{
+			color:#333333;
+		}
+		.main_nav ul li:first-child a{
+			color:#f36;
+			border-bottom: 2px solid #f36;
+			padding-bottom: 10px;
+		}
+		.main_nav ul li a:hover{
+			color:#f36;
+			border-bottom: 2px solid #f36;
+			padding-bottom: 10px;
+		}
+		/*主导航栏样式结束*/
+	</style>
+	<!-- 主导航栏开始 -->
+	<div class="main_nav">
+		<div class="w">
+			<ul>
+				<li><a href="#">首页</a></li>
+				<li><a href="#">上衣</a></li>
+				<li><a href="#">裙子</a></li>
+				<li><a href="#">裤子</a></li>
+				<li><a href="#">女鞋</a></li>
+				<li><a href="#">包包</a></li>
+				<li><a href="#">配饰</a></li>
+				<li><a href="#">美妆</a></li>
+				<li><a href="#">男友</a></li>
+				<li><a href="#">童装</a></li>
+				<li><a href="#">家居</a></li>
+			</ul>
+		</div>
+	</div>
+	<!-- 主导航栏结束 -->
+	
+	<style>
+		/*banner轮播图层样式开始*/
+		.banner{
+			margin-top: 10px;
+			width: 1200px;
+			height: 400px;
+			background: url(images/banner03.jpg);
+			position: relative;
+		}
+		.banner .left_btn{
+			width: 36px;
+			height: 44px;
+			/*子绝*/
+			position: absolute;
+			left: 0;
+			top: 50%;
+			margin-top: -22px;
+			cursor: pointer;
+		}
+		.banner .right_btn{
+			width: 36px;
+			height: 44px;
+			/*子绝*/
+			position: absolute;
+			right: 0;
+			top: 50%;
+			margin-top: -22px;
+			cursor: pointer;
+		}
+		.banner ul{
+			position: absolute;
+			bottom: 20px;
+			left: 50%;
+			width: 122px;
+			margin-left: -61px;
+		}
+		.banner ul li{
+			float: left;
+			width: 10px;
+			height: 10px;
+			border-radius: 50%;
+			background: rgba(255,255,255,0.9);
+			margin-right: 10px;
+			cursor: pointer;
+		}
+		.banner ul li:nth-child(3){
+			width: 20px;
+			border-radius: 10px;
+		}
+		.banner ul li:last-child{
+			margin-right: 0;
+		}
+		/*banner轮播图层样式结束*/
+	</style>
+	<!-- 轮播图层开始 -->
+	<div class="banner w">
+		<!-- 左按钮 -->
+		<div class="left_btn"><img src="images/prev.png"></div>
+		<!-- 右按钮 -->
+		<div class="right_btn"><img src="images/next.png"/></div>
+		<ul>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+	</div>
+	<!-- 轮播图层结束 -->
+	
+	<style>
+		/*今日新品样式开始*/
+		.today_new{
+			height: 170px;
+			margin-top: 20px;
+			overflow: hidden;	
+		}
+		.today_new a{
+			float: left;
+		}
+		.today_new a img{
+			width: 300px;
+			height: 170px;
+		}
+		/*今日新品样式结束*/
+	</style>
+	<!-- 今日新品开始 -->
+	<div class="today_new w">
+		<!-- 行内块以及行内元素,如果HTML结构有换行就会出现左右的小缝隙 -->
+		<!-- HTML通用属性style,class,id,title -->
+		<a href="#"><img src="images/kinds01.png" title="今日新品"></a>
+		<a href="#"><img src="images/kinds02.png" title="热销单品"></a>
+		<a href="#"><img src="images/kinds03.png" title="每日特价"></a>
+		<a href="#"><img src="images/kinds04.png" title="好物专题"></a>
+	</div>
+	<!-- 今日新品结束 -->
+	
+	<style>
+		/*侧边栏样式开始*/
+		.sidebar{
+			width: 38px;
+			background: #f6f6f6;
+			position: fixed;
+			right: 0;
+			top: 0;
+			height: 100%;
+			border-left:1px solid #dddddd;
+		}
+		.sidebar ul li a{
+			width: 14px;
+			font-size:14px;
+			/*转成块元素*/
+			display: block;
+			/*为了让a可以填充整个父元素,所以我们给a设置左右填充*/
+			padding-left: 12px;
+			padding-right: 12px;
+			padding-top: 13px;
+			padding-bottom: 20px;
+			border-bottom: 1px solid #dddddd;
+		}
+		.sidebar ul li:first-child a{
+			margin-top: 62px;
+			border-top:1px solid #dddddd;
+			position: relative;
+		}
+		.sidebar ul li a .app{
+			transform: rotate(90deg);
+			display: block;
+		}
+		.sidebar ul li a .iconfont{
+			color:#ff3366;
+			font-size:18px;
+			margin-left: -2px;
+		}
+		.sidebar ul li:first-child a .iconfont{
+			font-size:24px;
+			margin-left: -5px;
+		}
+		.sidebar ul li a:hover{
+			background: #ff3366;
+			color:white;
+		}
+		/*鼠标移上a以后,a里面.iconfont*/
+		.sidebar ul li a:hover .iconfont{
+			color:white;
+		}
+		.sidebar ul li {
+			position: relative;
+		}
+		.sidebar ul li a .qrcode{
+			width: 140px;
+			height: 140px;
+			background: white;
+			position: absolute;
+			left: -168px;
+			top: 0;
+			border:1px solid #dddddd;
+			padding:13px;
+			/*隐藏元素*/
+			display: none;
+		}
+		.sidebar ul li a:hover .qrcode{
+			/*显示元素*/
+			display: block;
+		}
+		/*伪元素选择符*/
+		.sidebar ul li a .qrcode::before{
+			content:"";
+			width: 0;
+			height: 0;
+			border:11px solid transparent;
+			border-left: 11px solid #dddddd;
+			position: absolute;
+			right: -23px;
+			top: 58px;
+		}
+		.sidebar ul li a .qrcode::after{
+			content:"";
+			width: 0;
+			height: 0;
+			border: 13px solid transparent;
+		    border-left: 13px solid white;
+		    position: absolute;
+		    right: -23px;
+		    top: 56px;
+		}
+		/*侧边栏样式结束*/
+	</style>
+	<!-- 侧边栏开始 -->
+	<div class="sidebar">
+		<ul>
+			<li>
+				<a href="#">
+					<span class="iconfont">&#xe692;</span>下载<span class="app">APP</span>
+					<!-- a链接里面是可以包裹div的,但是a链接是不能再出现a链接 -->
+					<div class="qrcode">
+						<img src="images/meili-app-qrcode140X140.png"/>
+					</div>
+				</a>
+			</li>
+
+			<li><a href="#"><span class="iconfont">&#xe638;</span>购物车</a></li>
+			<li><a href="#"><span class="iconfont">&#xe623;</span>消息</a></li>
+			<li><a href="#"><span class="iconfont">&#xe62a;</span>优惠券</a></li>
+			<li><a href="#"><span class="iconfont">&#xe631;</span>收藏</a></li>
+			<li><a href="#"><span class="iconfont">&#xe61c;</span>足迹</a></li>
+		</ul>
+	</div>	
+	<!-- 侧边栏结束 -->
+	
+	<style>
+		/*今日新品样式开始*/
+		.today_new_goods{
+			height: 870px;
+			margin-top: 54px;
+		}
+		.today_new_goods .title{
+			height: 34px;
+			line-height: 34px;
+		}
+		.today_new_goods .title ul{
+			text-align:center;
+			/*如何去除行内块元素缝隙*/
+			/*需要给行内块的父元素设置一个字体大小为0;*/
+			font-size:0px;
+			height: 34px;
+			line-height: 27px;
+		}
+		.today_new_goods .title ul li{
+			/*讲ul里面li转换为行内块元素,但是li水平有细微的缝隙*/
+			/*因为父元素设置了字体大小为0,所以子元素字体也为0,我们单独给子元素设置字体大小*/
+			font-size:20px;
+			display: inline-block;
+		}
+		.today_new_goods .title ul li a{
+			color:#000000;
+		}
+		.today_new_goods .title ul li:first-child{
+			margin-right: 37px;
+		}
+		.today_new_goods .title ul li:first-child a{
+			color:#f36;
+		}
+		.today_new_goods .title ul li:first-child a span{
+			border-bottom: 2px solid #f36;
+			padding-bottom: 6px;
+		}
+
+		.today_new_goods .title ul li a:hover{
+			color:#f36;
+		}
+		.today_new_goods .title ul li a:hover span{
+			border-bottom: 2px solid #f36;
+			padding-bottom: 6px;
+		}
+		.today_new_goods .content{
+			margin-top: 17px;
+			height: 819px;
+		}
+		.today_new_goods .content ul li{
+			width: 224px;
+			height: 396px;
+			float:left;
+			margin-right: 20px;
+			margin-bottom: 27px;
+		}
+		/*5倍数的元素怎么表示,  如果是2n就代表2的倍数,如果是5n就代表5的倍数*/
+		.today_new_goods .content ul li:nth-child(5n){
+			margin-right: 0;
+		}
+		/*找到从第6个开始之后的子元素,包括第6个*/
+		/*li:nth-child(n+6) 选中从第6个开始的子元素*/
+		.today_new_goods .content ul li:nth-child(n+6){
+			margin-bottom: 0;
+		}
+		/*因为图片是行内块元素,默认宽度由内容决定,会撑开父盒子,父盒子如果设置比较小的宽度高度是约束不了img图片大小的,所以需要单独给图片设置大小*/
+		.today_new_goods .content ul li a img{
+			width: 224px;
+			height: 340px;
+		}
+		.today_new_goods .content ul li .info{
+			overflow: hidden;
+			margin-top: 10px;
+			margin-bottom: 8px;
+		}
+		.today_new_goods .content ul li .info .price{
+			color:#ff3366;
+			font-size:14px;
+		}
+		.today_new_goods .content ul li .info .price::before{
+			content:"¥";
+			margin-right: 6px;
+		}
+		.today_new_goods .content ul li .info .collect{
+			color:#999999;
+			font-size:14px;
+		}
+		.today_new_goods .content ul li .info .collect::before{
+			content:"";
+			background:url(images/wjx.png);
+			width: 16px;
+			height: 15px;
+			display: inline-block;
+			/*background-size可以设置背景图片大小*/
+			background-size:100% 100%;
+			/*vertical-align属性可以设置行内元素或者行内块元素周围文字的垂直对齐方式*/
+			vertical-align: -2px;
+			margin-right: 5px;
+		}
+		.today_new_goods .content ul li .desc{
+			/*实现文字省略号*/
+			/*第一步:强制文字一行显示*/
+			white-space: nowrap; 
+			/*第二步:超出内容隐藏*/
+			overflow: hidden;
+			/*第三步:超出内容使用省略号代替*/
+			text-overflow: ellipsis;
+			font-size:14px;
+		}
+		.today_new_goods .content ul li .desc::before{
+			content:"";
+			display: inline-block;
+			width: 38px;
+			height: 17px;
+			background:url(images/youxuan.png);
+			background-size:100% 100%;
+			vertical-align: -4px;
+			margin-right: 3px;
+		}
+		/*今日新品样式结束*/
+	</style>
+	<!-- 今日新品开始 -->
+	<div class="today_new_goods w">
+		<!-- 上部分 标题 -->
+		<div class="title">
+			<a href="#" class="fr">查看更多></a>
+
+			<ul>
+				<li><a href="#">今<span>日新</span>品</a></li>
+				<li><a href="#">一<span>周热</span>销</a></li>
+			</ul>
+		</div>
+		<!-- 下部分 内容 -->
+		<div class="content">
+			<ul>
+				<li>
+					<!-- 图片部分 -->
+					<a href="#"><img src="images/goods01.png"/></a>
+
+					<!-- 价格与收藏数目部分 -->
+					<div class="info">
+						<span class="price fl">93.75</span>
+						<span class="collect fr">250</span>
+					</div>
+
+					<!-- 商品描述部分 -->
+					<p class="desc">小清新新款韩版气质收腰显瘦百搭蕾丝边V领木耳边镂空休闲连衣裙</p>
+
+				</li>
+
+				<li>
+					<!-- 图片部分 -->
+					<a href="#"><img src="images/goods02.png"/></a>
+
+					<!-- 价格与收藏数目部分 -->
+					<div class="info">
+						<span class="price fl">93.75</span>
+						<span class="collect fr">250</span>
+					</div>
+
+					<!-- 商品描述部分 -->
+					<p class="desc">小清新新款韩版气质收腰显瘦百搭蕾丝边V领木耳边镂空休闲连衣裙</p>
+
+				</li>
+
+				<li>
+					<!-- 图片部分 -->
+					<a href="#"><img src="images/goods03.png"/></a>
+
+					<!-- 价格与收藏数目部分 -->
+					<div class="info">
+						<span class="price fl">93.75</span>
+						<span class="collect fr">250</span>
+					</div>
+
+					<!-- 商品描述部分 -->
+					<p class="desc">小清新新款韩版气质收腰显瘦百搭蕾丝边V领木耳边镂空休闲连衣裙</p>
+
+				</li>
+
+				<li>
+					<!-- 图片部分 -->
+					<a href="#"><img src="images/goods04.png"/></a>
+
+					<!-- 价格与收藏数目部分 -->
+					<div class="info">
+						<span class="price fl">93.75</span>
+						<span class="collect fr">250</span>
+					</div>
+
+					<!-- 商品描述部分 -->
+					<p class="desc">小清新新款韩版气质收腰显瘦百搭蕾丝边V领木耳边镂空休闲连衣裙</p>
+
+				</li>
+
+				<li>
+					<!-- 图片部分 -->
+					<a href="#"><img src="images/goods05.png"/></a>
+
+					<!-- 价格与收藏数目部分 -->
+					<div class="info">
+						<span class="price fl">93.75</span>
+						<span class="collect fr">250</span>
+					</div>
+
+					<!-- 商品描述部分 -->
+					<p class="desc">小清新新款韩版气质收腰显瘦百搭蕾丝边V领木耳边镂空休闲连衣裙</p>
+
+				</li>
+
+				<li>
+					<!-- 图片部分 -->
+					<a href="#"><img src="images/goods06.png"/></a>
+
+					<!-- 价格与收藏数目部分 -->
+					<div class="info">
+						<span class="price fl">93.75</span>
+						<span class="collect fr">250</span>
+					</div>
+
+					<!-- 商品描述部分 -->
+					<p class="desc">小清新新款韩版气质收腰显瘦百搭蕾丝边V领木耳边镂空休闲连衣裙</p>
+
+				</li>
+
+				<li>
+					<!-- 图片部分 -->
+					<a href="#"><img src="images/goods07.png"/></a>
+
+					<!-- 价格与收藏数目部分 -->
+					<div class="info">
+						<span class="price fl">93.75</span>
+						<span class="collect fr">250</span>
+					</div>
+
+					<!-- 商品描述部分 -->
+					<p class="desc">小清新新款韩版气质收腰显瘦百搭蕾丝边V领木耳边镂空休闲连衣裙</p>
+
+				</li>
+
+				<li>
+					<!-- 图片部分 -->
+					<a href="#"><img src="images/goods08.png"/></a>
+
+					<!-- 价格与收藏数目部分 -->
+					<div class="info">
+						<span class="price fl">93.75</span>
+						<span class="collect fr">250</span>
+					</div>
+
+					<!-- 商品描述部分 -->
+					<p class="desc">小清新新款韩版气质收腰显瘦百搭蕾丝边V领木耳边镂空休闲连衣裙</p>
+
+				</li>
+
+				<li>
+					<!-- 图片部分 -->
+					<a href="#"><img src="images/goods09.png"/></a>
+
+					<!-- 价格与收藏数目部分 -->
+					<div class="info">
+						<span class="price fl">93.75</span>
+						<span class="collect fr">250</span>
+					</div>
+
+					<!-- 商品描述部分 -->
+					<p class="desc">小清新新款韩版气质收腰显瘦百搭蕾丝边V领木耳边镂空休闲连衣裙</p>
+
+				</li>
+
+				<li>
+					<!-- 图片部分 -->
+					<a href="#"><img src="images/goods10.png"/></a>
+
+					<!-- 价格与收藏数目部分 -->
+					<div class="info">
+						<span class="price fl">93.75</span>
+						<span class="collect fr">250</span>
+					</div>
+
+					<!-- 商品描述部分 -->
+					<p class="desc">小清新新款韩版气质收腰显瘦百搭蕾丝边V领木耳边镂空休闲连衣裙</p>
+
+				</li>
+			</ul>
+		</div>
+	</div>
+	<!-- 今日新品结束 -->
+
+	
+	<style>
+		/*好物组货样式开始*/
+		.good_set{
+			margin-top: 62px;
+			height: 448px;
+		}
+		.good_set .title{
+			height: 20px;
+			line-height: 20px;
+			margin-bottom: 28px;
+		}
+		.good_set .title h2{
+			color:#666666;
+			font-size:20px;
+		}
+		.good_set .content{
+			height: 400px;
+		}
+		.good_set .content .item{
+			width: 390px;
+			height: 400px;
+			border:1px solid #eeeeee;
+			float: left;
+		}
+		.good_set .content .item:nth-child(2){
+			margin-left: 12px;
+			margin-right: 12px;
+		}
+
+		.good_set .content .item .bigImg{
+			width: 390px;
+			height: 210px;
+		}
+		.good_set .content .item .bigImg a{
+			position: relative;
+			height: 210px;
+			display: block;
+		}
+		.good_set .content .item .bigImg a img{
+			width: 100%;
+			height: 100%;
+		}
+		.good_set .content .item .bigImg a .mask{
+			width: 390px;
+			height: 54px;
+			background:url(images/shadow.png);
+			position: absolute;
+			left: 0;
+			top: 0;
+			font-size:18px;
+			color:white;
+			text-align: center;
+			padding-top: 156px;
+		}
+		.good_set .content .item .bigImg a .mask::after{
+			content:"";
+			display: inline-block;
+			width: 0;
+			height: 0;
+			border:5px solid transparent;
+			border-left:5px solid white;
+			margin-left: 11px; 
+		}
+		.good_set .content .item .threeSmallImg{
+			width: 390px;
+			height: 174px;
+			margin-top: 16px;
+		}
+		.good_set .content .item .threeSmallImg a{
+			float: left;
+			width: 114px;
+			height: 157px;
+			margin-left: 8px;
+			margin-right: 8px;
+			text-align: center;
+		}
+		.good_set .content .item .threeSmallImg a img{
+			width: 114px;
+			height: 130px;
+			margin-bottom: 16px;
+		}
+		/*好物组货样式结束*/
+	</style>
+	<!-- 好物组货开始 -->
+	<div class="good_set w">
+		<!-- 上部分	标题 -->
+		<div class="title">
+			<a href="#" class="fr">查看更多></a>
+			<h2>好物组货</h2>
+		</div>
+		<!-- 下部分	内容 -->
+		<div class="content">
+			<!-- item是项目的意思,代表每一项 -->
+			<div class="item">
+				<!-- 上部分大图 -->
+				<div class="bigImg">
+					<a href="#">
+						<img src="images/newProduct01.png"/>
+						<div class="mask">50款商品</div>
+					</a>
+				</div>
+
+				<!-- 下部分三个小图 -->
+				<div class="threeSmallImg">
+					<a href="#"><img src="images/dress01.png"/>¥ 100.00</a>
+					<a href="#"><img src="images/dress02.png"/>¥ 100.00</a>
+					<a href="#"><img src="images/dress03.png"/>¥ 100.00</a>
+				</div>
+			</div>
+
+			<!-- item是项目的意思,代表每一项 -->
+			<div class="item">
+				<!-- 上部分大图 -->
+				<div class="bigImg">
+					<a href="#">
+						<img src="images/newProduct02.png"/>
+						<div class="mask">86款商品</div>
+					</a>
+				</div>
+
+				<!-- 下部分三个小图 -->
+				<div class="threeSmallImg">
+					<a href="#"><img src="images/pants01.png"/>¥ 100.00</a>
+					<a href="#"><img src="images/pants02.png"/>¥ 100.00</a>
+					<a href="#"><img src="images/pants03.png"/>¥ 100.00</a>
+				</div>
+			</div>
+
+			<!-- item是项目的意思,代表每一项 -->
+			<div class="item">
+				<!-- 上部分大图 -->
+				<div class="bigImg">
+					<a href="#">
+						<img src="images/newProduct03.png"/>
+						<div class="mask">60款商品</div>
+					</a>
+				</div>
+
+				<!-- 下部分三个小图 -->
+				<div class="threeSmallImg">
+					<a href="#"><img src="images/shoes01.png"/>¥ 100.00</a>
+					<a href="#"><img src="images/shoes02.png"/>¥ 100.00</a>
+					<a href="#"><img src="images/shoes03.png"/>¥ 100.00</a>
+				</div>
+			</div>
+
+		</div>
+	</div>
+	<!-- 好物组货结束 -->
+</body>
+</html>

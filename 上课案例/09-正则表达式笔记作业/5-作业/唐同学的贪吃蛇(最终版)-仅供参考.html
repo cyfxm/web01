@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>贪吃蛇</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    //封装地图类 
+    function Map() {
+        this.width = "800px";
+        this.height = "600px";
+        this.backgroundColor = "#ccc";
+        this.position = "relative";
+
+        //给Map类定义一个属性,用来保存地图的dom节点(因为后续需要把食物dom节点添加到地图dom节点中)
+        this._map = null;
+    }
+
+    Map.prototype.showMap = function () {
+        //创建地图对象
+        this._map = document.createElement("div");
+
+        //设置地图的css样式
+        this._map.style.width = this.width;
+        this._map.style.height = this.height;
+        this._map.style.backgroundColor = this.backgroundColor;
+        this._map.style.position = this.position;
+
+        //把地图div添加到body标签中
+        document.body.appendChild(this._map);
+    }
+
+    //=================================================
+
+    //封装食物类 
+    function Food() {
+        this.width = "20px";
+        this.height = "20px";
+        this.backgroundColor = "orange";
+        this.borderRadius = "50%";
+        this.position = "absolute";
+
+        //使用定位,设置元素left和top,需要水平坐标和垂直坐标来确定食物在地图的位置
+        this.x = 0;
+        this.y = 0;
+
+        //定义一个保存食物的dom节点,用来判断食物被吃后的状态
+        this._food = null;
+
+    }
+
+    Food.prototype.showFood = function () {
+        //判断食物是否有被蛇吃掉
+        if (this._food == null) {
+            //创建食物对象
+            this._food = document.createElement("div");
+
+            //设置食物的css样式
+            this._food.style.width = this.width;
+            this._food.style.height = this.height;
+            this._food.style.backgroundColor = this.backgroundColor;
+            this._food.style.borderRadius = this.borderRadius;
+            this._food.style.position = this.position;
+
+            //把食物div添加到地图标签中
+            //使用地图的dom节点,要通过地图Map的实例对象map的_map属性
+            map._map.appendChild(this._food);
+        }
+
+        //在计算食物的left和top属性之前 , 我们就可以调用这个方法得到随机位置
+        this.randPos();
+
+        //设置食物的位置(要乘以食物的宽高大小)
+        this._food.style.left = this.x * 20 + "px";
+        this._food.style.top = this.y * 20 + "px";
+
+
+    }
+
+    //实现食物 随机改变位置
+    Food.prototype.randPos = function () {
+        //随机改变食物的水平坐标x和垂直坐标y
+        //水平坐标x：800/20=40(不能等于40,等于40会超出地图边界,因此是0~39的随机整数)
+        this.x = Math.floor(Math.random() * 40);
+
+        //垂直坐标y：600/20=30(不能等于30,等于30会超出地图边界,因此是0~29的随机整数)
+        this.y = Math.floor(Math.random() * 30);
+    }
+
+    //=================================================
+
+    //封装蛇类
+    function Snake() {
+        //蛇类属性
+        this.body = [
+            //蛇头
+            [2, 1, "red", null],
+            //蛇节
+            [1, 1, "green", null],
+            [1, 0, "green", null],
+            [0, 0, "green", null]
+        ]
+
+        //蛇节的宽度高度和定位方式
+        this.width = "20px";
+        this.height = "20px";
+        this.position = "absolute";
+
+        //蛇移动的方向(默认向右移动)
+        this.direct = "right";
+
+        //
+        this.foodNum = 0;
+
+    }
+
+    Snake.prototype.showSnake = function () {
+        //蛇类显示方法 
+        this.body.forEach(function (item) {
+            //item是蛇身体数组的每一个蛇节元素的数据
+
+
+            //先根据蛇节的第四个数组元素,判断是否为null,如果为null就代表这个蛇节没有被创建过
+            if (item[3] == null) {
+                //创建蛇节对象
+                item[3] = document.createElement("div");
+
+                //把每个蛇节追加到地图中
+                map._map.appendChild(item[3]);
+            }
+
+            //设置每个蛇节的样式(宽度,高度,定位方式,背景颜色)
+            item[3].style.width = snake.width;
+            item[3].style.height = snake.height;
+            item[3].style.position = snake.position;
+            item[3].style.backgroundColor = item[2];
+
+            //设置每个设计的坐标(根据蛇节数据中的x坐标和y坐标)
+            item[3].style.left = item[0] * 20 + "px";
+            item[3].style.top = item[1] * 20 + "px";
+        })
+    }
+
+    //封装蛇类运动方法
+    Snake.prototype.moveSnake = function () {
+        for (var i = this.body.length - 1; i >= 1; i--) {
+            //设置x坐标和y坐标
+            this.body[i][0] = this.body[i - 1][0];
+            this.body[i][1] = this.body[i - 1][1];
+        }
+
+        //蛇头坐标的变化和蛇移动的方向有关,因此需要定义一个属性保存蛇移动的方向direct
+        switch (this.direct) {
+            //上下动,y坐标变化;左右动,x坐标变化
+            case "up":
+                this.body[0][1]--;
+                break;
+            case "down":
+                this.body[0][1]++;
+                break;
+            case "left":
+                this.body[0][0]--;
+                break;
+            case "right":
+                this.body[0][0]++;
+                break;
+        }
+        //修改蛇数据后,需要重新渲染蛇(也就是重新显示蛇)
+        this.showSnake();
+    }
+
+    //=================================================
+
+    //封装用户操作面板
+    document.onkeydown = function (e) {
+        //兼容
+        e = e || window.event;
+
+        //e.key获取按下的键名
+        //按下什么键,就改变蛇的方向属性值this.direct
+        switch (e.key) {
+            case "w":
+            case "ArrowUp":
+                if (snake.direct != "down") {
+                    snake.direct = "up";
+                }
+                break;
+            case "s":
+            case "ArrowDown":
+                if (snake.direct != "up") {
+                    snake.direct = "down";
+                }
+                break;
+            case "a":
+            case "ArrowLeft":
+                if (snake.direct != "right") {
+                    snake.direct = "left";
+                }
+                break;
+            case "d":
+            case "ArrowRight":
+                if (snake.direct != "left") {
+                    snake.direct = "right";
+                }
+                break;
+        }
+    }
+
+    //=================================================
+
+    //封装各种游戏检查方法
+
+    //1.检测是否吃到食物
+    var speed = 200; //定时器的初始速度
+    Snake.prototype.isEat = function () {
+        //判定蛇是否吃到食物 --> 蛇头坐标和食物坐标重合
+        if (this.body[0][0] == food.x && this.body[0][1] == food.y) {
+            //吃到食物以后,原来的食物删掉,新的食物要重新出现在随机位置,蛇要变长
+            food.showFood();
+
+            //蛇吃到的食物数量加一(即分数加一)
+            score._score.value++;
+
+            //定时器的速度变快
+            speed = speed - (speed * 0.1);
+            clearInterval(that.timer);
+            new getTimer(speed);
+
+            //蛇身新增的数据坐标是多少都没关系,因为蛇在移动的时候,蛇节会沿用上一个蛇节的坐标
+            this.body.push([-1, -1, "green", null]);
+        }
+    }
+
+    //2.检测是否出界
+    Snake.prototype.isOutside = function () {
+        //判断蛇头的坐标是否超出了地图的最大坐标
+        if (this.body[0][0] < 0 || this.body[0][0] >= 40 || this.body[0][1] < 0 || this.body[0][1] >= 30) {
+            alert("游戏结束!");
+
+            //清除定时器
+            clearInterval(that.timer);
+        }
+    }
+
+    //3.检测是否自残
+    Snake.prototype.isSuicide = function () {
+        //蛇只有在自身长度大于4时,才会吃到自己
+        //判定是否吃到自己,看蛇头是否有跟某个蛇节的坐标重合
+        for (var i = 4; i < this.body.length; i++) {
+            if (this.body[i][0] == this.body[0][0] && this.body[i][1] == this.body[0][1]) {
+                alert("游戏结束!");
+
+                //清除定时器
+                clearInterval(that.timer);
+            }
+        }
+    }
+
+    //=================================================
+
+    //封装分数类
+    function Score() {
+        //定义一个保存分数的dom节点
+        this._score = null;
+
+        //记分牌
+        this.width = "60px";
+        this.paddingLeft = "50px";
+        this.position = "absolute";
+        this.left = "850px";
+        this.top = "10px";
+        this.disabled = "disabled";
+        this.value = 0;
+    }
+
+    Score.prototype.showScore = function () {
+        //创建记分牌
+        this._score = document.createElement("input");
+
+        //设置记分牌css样式
+        this._score.style.width = this.width;
+        this._score.style.paddingLeft = this.paddingLeft;
+        this._score.style.position = this.position;
+        this._score.style.left = this.left;
+        this._score.style.top = this.top;
+        this._score.disabled = this.disabled;
+        this._score.value = this.value;
+
+        //将记分牌添加到body中
+        document.body.appendChild(this._score);
+    }
+
+    //=================================================
+
+    //封装定时器类
+    function getTimer(speed) {
+        //缓存this
+        that = this;
+
+        //使用定时器,不断调用蛇的移动方法
+        this.timer = setInterval(function () {
+            //蛇的移动方法
+            snake.moveSnake();
+
+            //蛇在移动的过程中,判断蛇是否有吃到食物
+            snake.isEat();
+
+            //蛇在移动的过程中,判断蛇是否出界
+            snake.isOutside();
+
+            //蛇在移动的过程中,判断蛇是否有吃到自己
+            snake.isSuicide();
+        }, speed)
+    }
+
+    //=================================================
+
+    //实例化对象
+    var map = new Map();
+    map.showMap();
+
+    var food = new Food();
+    food.showFood();
+
+    var snake = new Snake();
+    snake.showSnake();
+
+    var score = new Score();
+    score.showScore();
+
+    new getTimer(200);
+</script>
+
+</html>

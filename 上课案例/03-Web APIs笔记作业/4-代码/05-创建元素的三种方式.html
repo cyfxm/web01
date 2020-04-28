@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button>点击</button>
+    <p>abc</p>
+    <div class="inner"></div>
+    <div class="create"></div>
+
+    <script>
+        /* 创建元素的三种方式
+        1. document.write()
+        2. element.innerHTML
+        3. document.createElement() */
+
+        // 区别:
+        // document.write是直接将内容写入页面的内容流,但是文档流执行完毕,则它会导致页面全部重绘
+        // innerHTML是将内容写入某个DOM节点,不会导致页面全部重绘
+        // innerHTML创建多个元素效率更好(可以拼接字符串,也可以采取数组形式拼接),结构稍微复杂
+        // createElement()创建多个元素效率稍低一点点,但是结构更清晰
+
+        // 1. 给按钮绑定单击事件,点击以后,在网页中输出一个div标签
+        var btn = document.querySelector("button");
+        btn.onclick=function(){
+            document.write("<div>我是div标签内容</div>");
+        }
+
+        // 2. 字符串拼接的方式拼接100个a链接内容到.inner层中的内容
+        /* var inner = document.querySelector(".inner");
+        
+        var str = "";
+        for(var i=1;i<=100;i++){
+            str += "<a href='https://www.baidu.com'>百度</a>";
+        }
+        inner.innerHTML = str; */
+
+
+        // 3. 定义一个空数组,给数组添加100个元素,每个元素的内容都是<a href="#">百度</a>,最后,把数组通过arr.join拼接成字符串赋值给.inner层中的内容
+        var inner = document.querySelector(".inner");
+
+        var arr = [];
+        for(var i=1;i<=100;i++){
+            arr.push("<a href='https://www.jd.com'>京东</a>");
+        }
+        // console.log( arr );
+
+        // 数组转成字符串
+        var str = arr.join("");
+        // console.log( str );
+        inner.innerHTML = str;
+
+        // 4. 使用for循环配合document.createElement以及父节点.appendChild添加一百个a链到.create层中
+        var create = document.querySelector(".create");
+        
+        for(var j=1;j<=100;j++){
+            var a = document.createElement("a");
+            a.href = "https://www.qq.com";
+            a.innerHTML = "腾讯";
+            create.appendChild( a );
+        }
+    </script>
+</body>
+</html>

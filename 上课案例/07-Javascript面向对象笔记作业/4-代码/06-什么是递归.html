@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 递归：如果一个函数在内部可以调用其本身，那么这个函数就是递归函数。
+        // 递归就是函数在函数体中再次调用自身
+        // 递归容易发生栈溢出,因为每次调用函数都需要开启一个空间,最后空间不够用的时候,就会发现栈溢出  可以使用return关键字来结束递归
+        
+        // 目标:利用递归输出6句hello
+
+        // 定义一个变量保存现在输出了多少次
+        var count = 1;
+        function fn(){
+            if( count > 6 ){
+                // 终止递归 return可以结束函数的执行
+                return ;
+            }
+            console.log( "hello" );
+            // 输出一次hello,就让count变量自加1一次
+            count++;
+
+            fn();
+        }
+
+        // 分析
+        // 第一次输出hello以后  count = 2
+        // 第二次输出hello以后  count = 3
+        // 第三次输出hello以后  count = 4
+        // 第四次输出hello以后  count = 5
+        // 第五次输出hello以后  count = 6
+        // 第六次输出hello以后  count = 7
+
+        fn();
+    </script>
+</body>
+</html>

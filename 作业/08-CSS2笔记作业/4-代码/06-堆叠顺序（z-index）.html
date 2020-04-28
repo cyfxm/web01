@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		/*堆叠顺序（z-index）指的就是定位的元素的层级(z-index属性只对非静态定位元素有效)*/
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		div{
+			width: 100px;
+			height: 100px;
+		}
+		.one{
+			background: red;
+			position: absolute;
+			left: 0;
+			top: 0;
+			z-index:1;
+		}
+		.two{
+			background: green;
+			position: absolute;
+			left: 50px;
+			top: 50px;
+			z-index:0;
+		}
+		.three{
+			background: blue;
+			position: absolute;
+			left: 100px;
+			top: 100px;
+			z-index:-1;
+		}
+		/*当我们没有给这些非静态定位设置z-index的时候,z-index会有一个默认值,默认值都相同,那么就会跟HTML结构有关系,HTML结构越在后面,越能显示在上面*/
+
+		/*z-index 的特性如下:*/
+		/*属性取值:正整数、负整数或 0，默认值是 0，数值越大，盒子越靠上；*/
+
+		/*如果属性值相同，则按照HTML结构书写顺序，后来居上；*/
+
+		/*取值的时候,数字后面不能加单位px*/
+
+		/*注意:z-index 只能应用于相对定位、绝对定位和固定定位的元素，其他标准流、浮动和静态定位无效。*/
+	</style>
+</head>
+<body>
+	<div class="one">one</div>
+	<div class="two">two</div>
+	<div class="three">three</div>
+</body>
+</html>

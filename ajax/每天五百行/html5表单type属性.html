@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <form action="index.php">
+        <div>
+            <input type="color">
+        </div>
+
+        <div>
+            <input type="week">
+        </div>
+        
+        <div>
+            <input type="number">
+        </div>
+
+        <div>
+            <input type="date">
+        </div>
+
+        <div>
+            <input type="hidden">
+        </div>
+
+        <button id="btn-save">保存</button>
+    </form>
+
+    <script>
+        var input_elements = document.getElementsByTagName('input');
+        var button_elements = document.getElementsByTagName("button")[0];
+
+        button_elements.onclick = function(){
+            var color = input_elements[0].value;
+            var week =  input_elements[1].value;
+            var number = input_elements[2].value;
+            var date = input_elements[3].value;
+
+            console.log({
+                color:color,
+                week:week,
+                number:number,
+                date:date
+            });
+            return false;
+        }
+    </script>
+</body>
+</html>

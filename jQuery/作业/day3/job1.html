@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .box {
+            margin: 50px auto;
+            width: 600px;
+            height: 600px;
+            background-color: hotpink;
+            position: relative;
+        }
+
+        .name {
+            position: absolute;
+            width: 80px;
+            height: 50px;
+            top: 50%;
+            left: 50%;
+            background-color: ivory;
+            text-align: center;
+            line-height: 50px;
+        }
+
+        button {
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <div class="name">点我抽奖</div>
+        <button>点击换色</button>
+    </div>
+
+    <script src="./jquery-3.4.1.js"></script>
+    <script>
+        var json = [
+            { "name": "张三" },
+            { "name": "李四" },
+            { "name": "王五" },
+            { "name": "张飞" },
+            { "name": "李白" },
+            { "name": "老王" },
+            { "name": "不知火舞" },
+            { "name": "露娜" },
+            { "name": "锤石" },
+            { "name": "黄忠" }
+        ];
+        $(function () {
+            $("button").click(function () {
+                $(".box").css("backgroundColor", '#' + ('00000' + (Math.random() * 1000000).toString(16)).slice(-6));
+                var x = json.length - 1;
+                var y = 0;
+                var rand = parseInt(Math.random() * (x - y + 1) + y);
+                console.log(rand);
+                for (var i = 0, l = json.length; i < l; i++) {
+                    for (var key in json[i]) {
+                        // alert(key + ':' + json[rand][key]);
+                    }
+                }
+                console.log(json[rand][key]);
+                $(".name").text(json[rand][key]);
+            })
+        });
+
+    </script>
+</body>
+
+</html>

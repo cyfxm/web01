@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript">
+	/*	
+	将数组  var arr = [2, 3, 6, 1, 77, 8, 52, 9, 25, 7]  
+	找到大于等于 10 的 元素选出来 ，放入 新数组
+	思路： 
+	1. 声明一个新的数组 用于存放  新数据
+	2. 遍历原来的数组 找出 大于等于10的元素
+	3. 依次追加给新数组
+	*/
+
+	// 原数组
+	var arr = [2, 3, 6, 1, 77, 8, 52, 9, 25, 7];
+
+	// 声明一个新的空数组
+	var newArr = [];
+
+	// var count = 0;
+	for(var i=0;i<arr.length;i++){
+		if(arr[i]>=10){
+			// newArr[count] = arr[i];
+			// count++;
+
+			// newArr.length会随着元素增加而改变数组的长度  
+			// 默认空数组的长度是0
+			newArr[newArr.length] = arr[i];
+		}
+	}
+
+	console.log(newArr);
+
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

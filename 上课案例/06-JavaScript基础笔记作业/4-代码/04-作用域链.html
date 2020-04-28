@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript">
+		/*作用域链 难点 (变量的提升)
+		只要是代码在一个作用域中，写在函数内部的局部作用域，未写在任何函数内部即在全局作用域中；
+		如果函数中还有函数，那么在这个作用域中就又可以诞生一个作用域；
+		根据在"内部函数可以访问外部函数变量"的这种机制，用链式查找决定哪些数据能被内部函数访问，就称为"作用域链"*/
+
+		// 其实就是函数里面再套函数,内层函数可以用外存函数定义的变量;当然函数里面也是使用全局变量的,因为全局变量在哪里都可以使用
+
+		// 作用域链：采取"就近原则"的方式来查找变量最终的值。
+
+		function f1() {
+		   var num = 123;
+		   function f2() {
+		       console.log( num );// 123
+		  }
+		   f2();
+		}
+
+		var num = 456;
+		f1();
+		console.log( num );// 456
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

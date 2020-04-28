@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript">
+		// 前导0,当值小于10的时候,在值前面补个0,因为这个功能需要重复使用,所以做成函数
+		function zero( num ){
+			return num < 10 ? "0"+num  : num;
+		}
+
+		// 练习:  请把当前时间写成这个格式    2018年12月02日 16:05:07 星期天 
+		var date = new Date();
+		var year =  date.getFullYear() ;
+		var month = zero( date.getMonth()+1 );
+		var day = zero( date.getDate());
+		var hours = zero( date.getHours());
+		var minutes = zero( date.getMinutes());
+		var seconds = zero( date.getSeconds());
+		var week = date.getDay();
+		var arrWeek = ["天","一","二","三","四","五","六"];
+
+		document.write( year+"年"+month+"月"+day+"日 "+hours+":"+minutes+":"+seconds+" 星期"+arrWeek[week]);
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

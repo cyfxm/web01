@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title> 课间练习 jsonp 获取跨域的数据 </title>
+    <style>
+        .map {
+            width: 300px;
+            height: 300px;
+            background-color: #ccc;
+        }
+        .map ul {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+            height: 100px;
+        }
+        .map ul li {
+            width: 98px;
+            height: 98px;
+            border: 1px solid transparent;
+            float: left;
+            text-align: center;
+            line-height: 98px;
+            
+        }
+        .map ul li.green {
+            border: 1px solid green;
+            background-color: #f0f0f0;
+            cursor: pointer;
+        }
+        .map ul li.blue {
+            border: 1px solid blue;
+            background-color: #f0f0f0;
+            cursor: pointer;
+        }
+        .map ul li.purple {
+            border: 1px solid purple;
+            background-color: #f0f0f0;
+            cursor: pointer;
+        }
+        .map ul li.orange {
+            border: 1px solid orange;
+            background-color: #f0f0f0;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="map">
+        <ul>
+            <li></li>
+            <li class="green" id="up">上</li>
+            <li></li>
+        </ul>
+        <ul>
+            <li class="orange" id="left">左</li>
+            <li></li>
+            <li class="blue" id="right">右</li>
+        </ul>
+        <ul>
+            <li></li>
+            <li class="purple" id="down">下</li>
+            <li></li>
+        </ul>
+    </div>
+    <div id="message"></div>
+
+</body>
+</html>
+
+
+
+<script src="./ajaxV0.0.3.js"></script>
+<script>
+    // 接口地址
+    // http://127.0.0.1:3005/direction
+    // dataType ： jsonp 
+    // 提交的参数：
+    // 属性名称           数据类型     是否必须填写
+    // num                number          是
+    // 返回值
+    // 例如：
+    // {
+    //     code:0,
+    //     message:"向上",
+    //     direction:"up"
+    // }
+
+    // 1.0 获取相关元素 shift + alt + 向下按键
+    var up_element =  document.getElementById("up");
+    var right_element =  document.getElementById("right");
+    var down_element =  document.getElementById("down");
+    var left_element =  document.getElementById("left");
+    var message_element =  document.getElementById("message");
+
+
+    // 2.0 获取数据
+    function getData(res_number , cb){ // cb 因为当点击了不同的按钮（方向），希望执行对应的逻辑 所以用到回调函数
+        //  请求服务端获取数据的逻辑
+        $.ajax({
+            url:" http://127.0.0.1:3005/direction",
+            // type:"get",
+            dataType:"jsonp",
+            // 响应的脚本中函数的名字
+            jsonpCallback:"foo",//查看服务端怎么定义
+            data:{
+                num:res_number
+            },
+            success:function(res){ //res 形参
+                if(cb){
+                    cb(res)
+                }
+            }
+        })
+    }
+
+    // 3.0 事件的绑定
+    up_element.onclick = function(){
+        // 上 
+        getData(38,function(res){
+            // 4.0.1 书写处理逻辑
+            console.log(res);
+            message_element.innerHTML = res.message;
+        })
+    }
+    right_element.onclick = function(){
+        // 右
+        getData(39,function(res){
+            // 4.0.1 书写处理逻辑
+            console.log(res);
+            message_element.innerHTML = res.message;
+        })
+    }
+    down_element.onclick = function(){
+        // 下
+        getData(40,function(res){
+            // 4.0.1 书写处理逻辑
+            console.log(res);
+            message_element.innerHTML = res.message;
+        })
+    }
+    left_element.onclick = function(){
+        // 左
+        getData(37,function(res){
+            // 4.0.1 书写处理逻辑
+            console.log(res);
+            message_element.innerHTML = res.message;
+        })
+    }
+</script>

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript">
+		// document.write输出的内容会显示在body中,所以可以解析HTML标签
+		// document.write("HTML标签");
+
+		// document.write("<h3 style='color:red;'>我是标题3</h3>");
+
+
+		// 最简单输出表格方法
+		// document.write('<table border="1" rules="all" width="500">');
+		// document.write('<tr>');
+		// document.write('<td colspan="4" align="center">');
+		// document.write('<h3 style="color:red;">张三疯的个人简历</h3>');
+		// document.write('</td>');
+		// document.write('</tr>');
+		// document.write('<tr>');
+		// document.write('<td align="right"><b>姓名:</b></td>');
+		// document.write('<td>张三疯</td>');
+		// document.write('<td align="right"><b>性别:</b></td>');
+		// document.write('<td>男</td>');
+		// document.write('</tr>');
+		// document.write('<tr>');
+		// document.write('<td align="right"><b>年龄:</b></td>');
+		// document.write('<td>34岁</td>');
+		// document.write('<td align="right"><b>学历:</b></td>');
+		// document.write('<td>大专</td>');
+		// document.write('</tr>');
+		// document.write('<tr>');
+		// document.write('<td align="right"><b>毕业时间:</b></td>');
+		// document.write('<td>2005年7月</td>');
+		// document.write('<td align="right"><b>毕业学校:</b></td>');
+		// document.write('<td>北京科技大学</td>');
+		// document.write('</tr>');
+		// document.write('</table>');
+
+		// 进阶版一
+		// var str = "abc";
+		// str = str + "zhangsan";//  str = "abc" + "zhangsan";  str = "abczhangsan"
+		// str = str + "李四";// str = "abczhangsan" + "李四";  str = "abczhangsan李四"
+		// str = str + "王五"// str = "abczhangsan李四" + "王五"; str = "abczhangsan李四王五"
+		// console.log( str );
+
+
+		/*var str = "早上好,";
+			// += 是赋值运算符
+			// 等同于 str = str+"同学们";  str = "早上好,"+"同学们"; str="早上好,同学们"
+			str += "同学们";
+
+			// 等同于 str = str+",今天也要加油鸭~"; str = "早上好,同学们"+",今天也要加油鸭~"; str="早上好,同学们,,今天也要加油鸭~"
+			str += ",今天也要加油鸭~";
+		console.log( str );*/
+
+
+		/*var str = '<table border="1" rules="all" width="500">';
+			str += '<tr>';
+			str += '<td colspan="4" align="center">';
+			str += '<h3 style="color:red;">张三疯的个人简历</h3>';
+			str += '</td>';
+			str += '</tr>';
+			str += '<tr>';
+			str += '<td align="right"><b>姓名:</b></td>';
+			str += '<td>张三疯</td>';
+			str += '<td align="right"><b>性别:</b></td>';
+			str += '<td>男</td>';
+			str += '</tr>';
+			str += '<tr>';
+			str += '<td align="right"><b>年龄:</b></td>';
+			str += '<td>34岁</td>';
+			str += '<td align="right"><b>学历:</b></td>';
+			str += '<td>大专</td>';
+			str += '</tr>';
+			str += '<tr>';
+			str += '<td align="right"><b>毕业时间:</b></td>';
+			str += '<td>2005年7月</td>';
+			str += '<td align="right"><b>毕业学校:</b></td>';
+			str += '<td>北京科技大学</td>';
+			str += '</tr>';
+			str += "</table>";
+			// str = '</table>';// 因为=号是赋值运算符,把右边的值赋给左边的变量
+			// console.log( str );
+			// 刷新页面能否看到表格?不能,为什么看不到呢,因为str只是一个变量,这个变量没有被输出
+			// document.write( "str" );// 这样输出正确吗?不正确,因为str被加了引号,就是一个普通字符串,如果想得到变量值,直接使用变量名即可,不需要加引号
+			document.write( str );*/
+
+		// 进阶版二 个人的信息使用变量保存
+		var username = "张三疯";
+		var sex = "男";
+		var age = 34;
+		var xueli = "大专";
+		var biyeshijian = "2005年7月";
+		var school = "北京科技大学";
+
+		var str = '<table border="1" rules="all" width="500">';
+			str += '<tr>';
+			str += '<td colspan="4" align="center">';
+			str += '<h3 style="color:red;">'+username+'的个人简历</h3>';
+			str += '</td>';
+			str += '</tr>';
+			str += '<tr>';
+			str += '<td align="right"><b>姓名:</b></td>';
+			str += '<td>'+username+'</td>';
+			str += '<td align="right"><b>性别:</b></td>';
+			str += '<td>'+sex+'</td>';
+			str += '</tr>';
+			str += '<tr>';
+			str += '<td align="right"><b>年龄:</b></td>';
+			str += '<td>'+age+'岁</td>';
+			str += '<td align="right"><b>学历:</b></td>';
+			str += '<td>'+xueli+'</td>';
+			str += '</tr>';
+			str += '<tr>';
+			str += '<td align="right"><b>毕业时间:</b></td>';
+			str += '<td>'+biyeshijian+'</td>';
+			str += '<td align="right"><b>毕业学校:</b></td>';
+			str += '<td>'+school+'</td>';
+			str += '</tr>';
+			str += "</table>";
+			document.write( str );
+	</script>
+</head>
+<body>
+	<!-- HTML的表格标签在HTML第二天学的 -->
+	<!-- table标签代表最大的表格,tr代表行,td,th代表列 -->
+	<!-- colspan是左右合并单元格 -->
+	<!-- <table border="1" rules="all" width="500">
+		<tr>
+			<td colspan="4" align="center">
+				<h3 style="color:red;">张三疯的个人简历</h3>
+			</td>
+		</tr>
+		<tr>
+			<td align="right"><b>姓名:</b></td>
+			<td>张三疯</td>
+			<td align="right"><b>性别:</b></td>
+			<td>男</td>
+		</tr>
+		<tr>
+			<td align="right"><b>年龄:</b></td>
+			<td>34岁</td>
+			<td align="right"><b>学历:</b></td>
+			<td>大专</td>
+		</tr>
+		<tr>
+			<td align="right"><b>毕业时间:</b></td>
+			<td>2005年7月</td>
+			<td align="right"><b>毕业学校:</b></td>
+			<td>北京科技大学</td>
+		</tr>
+	</table> -->
+</body>
+</html>

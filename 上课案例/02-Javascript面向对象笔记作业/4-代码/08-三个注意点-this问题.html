@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button>按钮</button>
+
+    <script>
+        /* 
+            this指向问题
+                constructor中的this指向的是new出来的实例对象 
+                类中自定义的方法,一般也指向的new出来的实例对象
+                绑定事件之后this指向的就是触发事件的事件源
+        */
+
+        // 解决方法:我们可以把this缓存起来,因为在constructor()里面一直都是指向实例化对象
+        // 定义一个变量that  大家喜欢使用这个变量来保存this
+        var that = null;
+        
+        class Star{
+            constructor(uname,song){
+                console.log("constructor方法中的this");
+                console.log( this );
+                console.log("");
+
+                // 缓存this
+                that = this;
+
+                this.uname = uname;
+                this.song = song;
+                this.btn = document.querySelector("button");
+                // 当我们点击按钮,按钮去调用sing()方法,所以sing()的this指向按钮
+                this.btn.onclick = this.sing;
+            }
+            sing(){
+                console.log("类中方法里面的this");
+                console.log( this );
+                console.log("这里输出that变量");
+                console.log( that );
+                console.log( this.uname +"在唱" + this.song);
+
+                // 改成如下,就可以正常访问属性了
+                console.log( that.uname +"在唱" + that.song);
+                console.log("");
+            }
+        }
+        var ldh = new Star("刘德华","冰雨");
+        ldh.sing();
+    </script>
+</body>
+</html>

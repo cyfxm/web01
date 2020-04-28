@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		/*padding不影响块元素盒子宽度情况*/
+		.one{
+			/*不给块元素设置宽度,默认"块元素的宽度是父元素的100%"*/
+			background-color: pink;
+			/*设置左填充*/
+			padding-left: 100px;
+			/*设置右填充*/
+			padding-right: 50px;
+
+			/*小结:如果一个块级元素没有设置宽度,那么设置左右填充的时候,就不需要减去对应的左右填充距离*/
+		}
+	</style>
+</head>
+<body>
+	<div class="one">one</div>
+</body>
+</html>

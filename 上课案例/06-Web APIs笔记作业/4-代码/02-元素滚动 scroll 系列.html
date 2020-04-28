@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        div{
+            background:pink;
+            width: 200px;
+            height: 200px;
+            margin-left: 100px;
+            margin-top: 100px;
+            /* 设置溢出内容自动显示滚动条 */
+            overflow:auto;
+            /* 设置边框 */
+            border: 5px solid blue;
+            /* 设置内填充 */
+            padding: 10px;
+        }
+        p{
+            width: 200px;
+            background:skyblue;
+            margin-left: 100px;
+            margin-top: 50px;
+            /* 设置超出内容,自动显示滚动条 */
+            overflow: auto;
+        }
+    </style>
+</head>
+<body>
+    <div>盒子里面的内容可能很多,很多很多很多盒子里面的内容可能很多,很多很多很多盒子里面的内容可能很多,很多很多很多盒子里面的内容可能很多,很多很多很多盒子里面的内容可能很多,很多很多很多盒子里面的内容可能很多,很多很多很多盒子里面的内容可能很多,很多很多很多盒子里面的内容可能很多,很多很多很多盒子里面的内容可能很多,很多很多很多盒子里面的内容可能很多,很多很多很多</div>
+
+    <!-- 默认英文字母内容是不会换行的,而中文内容是会自动换行 -->
+    <p>pppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppp</p>
+    <script>
+        // scroll 翻译过来就是滚动的，我们使用 scroll 系列的相关属性可以动态的得到该元素的大小、滚动距离等。
+        // 获取div元素
+        var div = document.querySelector("div");
+
+        // element.scrollWidth 返回自身实际的宽度,不含边框,返回数值不带单位
+
+        // 因为水平内容没有超出宽度,没有显示滚动条,所以 clientWidth跟scrollWidth是一样的数值
+        console.log("div元素可视区宽度" +  div.clientWidth );
+        console.log("div元素内容宽度" +  div.scrollWidth );
+        console.log( "" );
+
+        // element.scrollHeight 返回自身实际的高度,不含边框,返回数值不带单位
+        console.log("div元素可视区高度" + div.clientHeight );
+        // 有垂直滚动条的时候, scrollHeight获取的是内容的高度,而clientHeight获取的还是盒子的高度
+        // 如果垂直没有滚动条,scrollHeight跟clientHeight得到的值也是一样
+        // 注意:   scrollHeight跟clientHeight的区别在于,文字内容超出盒子高度的时候,scrollHeight获取的是内容的高度,而clientHeight获取的还是盒子的高度
+        console.log("div元素内容高度" + div.scrollHeight );
+        console.log( "" );
+
+        // 元素滚动事件 onscroll  当元素有滚动条滚动的时候触发
+        div.onscroll = function(){
+            // element.scrollTop 返回被卷去的上侧距离,返回数值不带单位 这个scrollTop用的比较多,其实就是滚动条滚动的距离
+            console.log("被卷去的上侧距离为:" + div.scrollTop);
+            console.log("");
+        }
+
+        // 小结
+        // 最大的滚动距离 = 元素.scrollHeight - 元素.clientHeight
+        
+        var p = document.querySelector("p");
+        console.log("p段落元素可视区宽度" + p.clientWidth );
+        console.log("p段落内容宽度" + p.scrollWidth );
+        p.onscroll = function(){
+            // element.scrollLeft 返回被卷去的左侧距离,返回数值不带单位
+            console.log("被卷去的左侧距离为:" + p.scrollLeft);
+            console.log("");
+        }
+    </script>
+</body>
+</html>

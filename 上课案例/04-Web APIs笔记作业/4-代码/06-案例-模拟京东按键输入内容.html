@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text"/>
+    <script>
+        // 当我们按下 s 键， 光标就定位到搜索框（文本框获得焦点）
+        // 1. 核心思路:检测用户是否按下s键,如果按下s键,就把光标定位到搜索框里面
+        // 2. 使用键盘事件对象里面的keyCode判断用户按下的是否是s键
+        // 3. 搜索框获取焦点: 使用js里面的focus()方法
+
+        // 获取文本框对象
+        var input = document.querySelector("input");
+
+        // 给document绑定键盘事件  keydown或者keypress(不识别功能)
+        document.onkeydown=function(e){
+            e = e || window.event;
+            // 判断用户按下的键是否为s键  s的keyCode是83
+            // console.log( e.keyCode );
+            if(e.keyCode == 83 ){
+                // 搜索框获取焦点: 使用js里面的 对象.focus() 方法
+                input.focus();
+            }
+        }
+    </script>
+</body>
+</html>

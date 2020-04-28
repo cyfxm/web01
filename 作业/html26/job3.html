@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+
+<html>
+
+<head><title>别踩白块</title></head>
+<style>
+    *{
+        margin: 0px;
+        padding: 0px;
+        box-sizing: border-box;
+        } 
+
+    #gameZone{
+        width: 302px;
+        height: 602px;
+        border: 1px solid green;
+        margin: 20px auto;
+        position: relative;
+        overflow: hidden;
+        } 
+
+    .square{
+        width: 75px;
+        height: 100px;
+        float: left;
+        border: 1px solid black;
+        }
+
+    .squareBlack{
+        width: 75px;
+        height: 100px;
+        border: 1px solid black;
+        float: left;
+        background: black;
+        }
+</style>
+<body>
+
+<div id="gameZone">
+    <div id="boardb" style="position: absolute;top: 0px;"></div>
+</div>
+<script>
+    var loc=600;
+    var count=0;
+    var locArr=[];
+    var order=(function(){
+    　　　　var ord="A";
+    　　　　return function(){
+    　　　　if(ord=='boarda')ord='boardb';
+    　　　　else ord='boarda';
+    　　　　return ord;
+    }
+
+    })()
+
+    function judge(){
+
+　　　　var num=this.id.substr(3)
+
+　　　　if(num!=locArr.pop()){ 
+
+　　　　　　　　clearTimeout(timer); 
+
+　　　　　　　　alert("你的得分为："+count+"分！");
+
+　　　　　　　　return;  
+
+　　　　}else{
+
+　　　　　　　　loc+=100;  
+
+　　　　　　　　this.style.background="silver";
+
+　　　　　　　　count+=1;
+
+　　　　}
+
+　　　　if(count!=0&&count%15==0){
+
+　　　　　　　　clearTimeout(timer);
+
+　　　　　　　　newtimer=50-count/15*5;
+
+　　　　　　　　timer=setInterval('fall()',newtimer);
+
+　　　　}
+    }
+
+    function generateRand(){
+
+　　　　var numArr=[];
+
+　　　　for(var j=0;j<6;j++){
+
+　　　　　　　　var num=Math.floor(Math.random()*4)+j*4;
+
+　　　　　　　　numArr.push(num);
+
+　　　　}
+
+　　　　return numArr;
+
+    }
+
+    function drawBoard(){
+
+　　　　var temArr=generateRand();
+
+　　　　locArr=temArr.concat(locArr);
+
+　　　　var board=document.createElement('div');
+
+　　　　board.setAttribute('id',order());
+
+　　　　board.style.position="absolute";
+
+　　　　board.style.top='-600px';
+
+　　　　for(var i=0;i<24;i++){
+
+　　　　　　　　var ele=document.createElement('div');
+
+　　　　　　　　ele.setAttribute('id',"ele"+i);
+
+　　　　　　　　if(temArr.indexOf(i)>-1){   
+
+　　　　　　　　　　　　ele.setAttribute('class','squareBlack')
+
+　　　　　　　　}else{
+
+　　　　　　　　　　　　ele.setAttribute('class','square');
+
+　　　　　　　　}
+
+　　　　　　　　ele.addEventListener('click',judge,false); 
+
+　　　　　　　　board.appendChild(ele);
+
+　　　　}
+
+　　　　var gameZone=document.getElementById('gameZone');
+
+　　　　gameZone.appendChild(board);
+
+    }
+
+    function fall(){
+
+　　　　gameZone=document.getElementById('gameZone');
+
+　　　　var boarda=document.getElementById('boarda');
+
+　　　　var anowtop=parseInt(boarda.style.top);
+
+　　　　if(anowtop==595){  
+
+　　　　　　　　gameZone.removeChild(boarda);
+
+　　　　　　　　drawBoard();
+
+　　　　}
+
+　　　　anowtop+=5;
+
+　　　　boarda.style.top=anowtop+"px";
+
+　　　　var boardb=document.getElementById('boardb');
+
+　　　　var bnowtop=parseInt(boardb.style.top);
+
+　　　　if(bnowtop==595){
+
+　　　　　　　　gameZone.removeChild(boardb);
+
+　　　　　　　　drawBoard();
+
+　　　　}
+
+　　　　bnowtop+=5;
+
+　　　　boardb.style.top=bnowtop+"px";
+
+　　　　loc-=5; 
+
+　　　　if(loc==0){
+
+　　　　　　　　clearTimeout(timer);
+
+　　　　　　　　alert("你的得分为："+count+"分！");
+
+　　　　　　　　return;
+
+　　　　} 
+
+    }
+
+    window.onload=function(){
+
+　　　　drawBoard();
+
+　　　　fall();
+
+　　　　timer=setInterval('fall()',50);
+
+    }
+</script>
+</body>
+
+</html>

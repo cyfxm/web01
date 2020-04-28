@@ -1,0 +1,49 @@
+/*注意:在css文件中是不能有style标签的*/
+/*页面初始化样式开始*/
+/*清除页面上所有标签的内填充外边距*/
+*{
+	margin: 0;
+	padding: 0;
+}
+/*去掉列表项目符号*/
+li{
+	list-style:none;
+}
+/*超链接的美化*/
+a{
+	text-decoration: none;
+	color:#666666;
+}
+a:hover{
+	color:#ff3366;
+}
+/*统一设置整个页面的字体大小和字体*/
+body{
+	font-family: "微软雅黑";
+	font-size:12px;
+}
+/*去掉input标签的外轮廓线*/
+input{
+	outline:none;
+}
+/*去掉图片底部缝隙*/
+img{
+	vertical-align: bottom;
+}
+/*定义版心类*/
+.w{
+	width: 1200px;
+	margin:0 auto;
+}
+/*定义左浮动类*/
+.fl{
+	float:left;
+}
+/*定义右浮动类*/
+.fr{
+	float:right;
+}
+
+/*字体图标相关样式,后面再讲*/
+
+/*页面初始化样式结束*/

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 注意:
+        // 通过class 关键字创建类, 类名我们还是习惯性定义首字母大写
+        // 类里面有个constructor 函数,可以接受传递过来的参数,同时返回实例对象
+        // constructor 函数 只要 new 生成实例时,就会自动调用这个函数, 如果我们不写这个函数,类也会自动生成这个函数
+        // 多个函数方法之间不需要添加逗号分隔
+        // 生成实例 new 不能省略
+        // 语法规范, 创建类 类名后面不要加小括号,生成实例 类名后面加小括号, 构造函数不需要加function
+
+        // 创建一个类
+        class Car{
+            // 类 constructor 构造函数  它是一个内置方法来的,  "new实例化"以后就会"自动"调用这个constructor方法
+            // constructor 构造函数 主要用于"初始化对象属性的值",对象公共的特性我们就会放在属性里面
+            /* constructor(参数1,参数2...){
+                this.属性名1 = 参数1;
+                this.属性名2 = 参数2;
+                ...
+            } */
+            
+            // 类中添加属性和方法
+            // 1. 类中添加属性放到 constructor 里面
+            constructor(carName,carWeight){
+                // 接收实例化传递过来的参数,给属性赋值
+                this.carName   = carName;
+                this.carWeight = carWeight;
+            }
+
+            // 2. 类中添加方法是通过在类中定义函数实现的
+            // 3. 但是要注意,我们类里面所有的函数不需要写"function关键字"
+            // 4. 并且多个函数方法之间"不需要添加逗号"分隔
+            run(){
+                console.log( this.carName + "正在行驶中...");
+                console.log("");
+            }
+
+            backCar(){
+                console.log( this.carName + "倒车请注意,倒车请注意...");
+                console.log("");
+            }            
+        }
+        // 通过new关键字实例化得到对象
+        var car1 = new Car("宝马","2000kg");
+        console.log( car1 );
+        car1.run();
+        
+        var car2 = new Car("奔驰","1000kg");
+        console.log( car2 );
+        car2.run();
+    </script>
+</body>
+</html>

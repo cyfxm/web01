@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript">
+		// JSON格式的字符串与JS对象的转换
+		// JSON格式的字符串,就是把json对象的内容,全部放一个字符串里面,为什么要放字符串里面,因为数据在传输的时候,比如数据库中只能保存字符串,保存不了对象
+
+		// json对象,因为字符串不能得到我们想要的属性值,所以又要转回json对象
+
+
+		// 把JSON对象转换为JSON格式的字符串          语法如下
+		// JSON.stringify(JS对象);
+
+		// 定义了一个json对象
+		var jsonObj = {
+			"username" : "张三",
+			"age"      : 23,
+			"sex"      : "男"
+		};
+		// 我们使用document.write直接输出对象
+		// document.write( jsonObj );
+
+		// 把JSON对象转换为JSON格式的字符串          语法如下
+		var jsonStr = JSON.stringify( jsonObj );
+		// 输出JSON格式的字符串
+		document.write( jsonStr );
+
+
+
+		// 把JSON字符串转换为JSON对象         	     语法如下
+		// JSON.parse(JSON格式的字符串);
+		// JSON字符串需要用引号在最外层包裹
+		var str = '{"username":"张三","age":23,"sex":"男"}';
+		console.log( str );
+		console.log( typeof(str) );
+		console.log("");
+
+		var obj = JSON.parse( str );
+		console.log( obj );
+		console.log( typeof(obj) );
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title></title>
+    <style>
+        li {
+            width: 120px;
+            height: 40px;
+            border: 1px solid #ccc; 
+            margin: 10px ;
+        }
+    </style>
+</head>
+<body>
+
+
+    <ul>
+        <!-- 自定义属性 储存参数 -->
+        <li data-id="10010">衣服</li>
+        <li data-id="10011">笔记本</li>
+        <li data-id="10012">机器人</li>
+    </ul>
+    <script src="js/ajaxV0.0.2.js"></script>
+    <script>
+        // 第一、
+        var items = document.querySelectorAll("ul li");
+        // 第二、
+        // 事件绑定
+        for(var i = 0 ; i < items.length ; i ++){
+            
+            items[i].onclick = function(){
+                // 获取自定义属性值
+                var rid = this.getAttribute('data-id');
+               // 例如：
+                // 商品详情接口 
+                // 接口地址：http://127.0.0.1:3005/detail
+                // 请求方式 ： get 
+                //  参数 ： 
+                    //  属性    数据类型   是否必须填写
+                    //  id      string    是
+                //  返回值 ：
+                // $.ajax()
+                ajax({
+                    url:"http://127.0.0.1:3005/detail",
+                    type:"get",
+                    data:{
+                        id: rid
+                    },
+                    async:true,
+                    success:function(res){
+                        console.log(res);
+                    },
+                    error:function(err){
+                        console.log(err);
+                    }
+                })
+            }
+        }
+    </script>
+
+</body>
+</html>

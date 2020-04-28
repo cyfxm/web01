@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            width: 100px;
+            height: 100px;
+            background: pink;
+        }
+    </style>
+</head>
+<body>
+    <button>按钮</button>
+    <div>div的内容</div>
+
+    <script>
+        // 咱们以前实现网页的跳转,都需要通过a链接
+        // 使用js实现点击按钮,跳转到百度页面
+        var btn = document.querySelector("button");
+        btn.onclick = function(){
+            // location.href可以获取当前浏览器的url也可以设置当前浏览器url,url叫统一资源定位符,俗称网址
+            
+            // 获取url  但是url中的中文字符会进行url转码
+            // console.log( location.href );
+
+            // 设置url
+            location.href = "https://www.baidu.com";
+        }
+
+        var div = document.querySelector("div");
+        div.onclick = function(){
+            location.href = "https://www.qq.com";
+        }
+    </script>
+</body>
+</html>

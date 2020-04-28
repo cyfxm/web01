@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript">
+		var a = "苹果";
+		var b = "香蕉";
+		console.log(a,b);
+
+		// 借助一个临时变量  交换两个变量的位置
+		var temp = a;// temp = "苹果"
+		    a	 = b;// a = "香蕉"
+		    b    = temp;// b = "苹果"
+
+		console.log(a,b);
+
+		// 交换两个数值变量的值
+		var x = 10;
+		var y = 20;
+		console.log("");
+		console.log(x,y);
+
+		var result = x+y;// result = 10+20  = 30
+		x = result - x;// x = 30 - 10 = 20
+		y = result - y;// y = 30 - 20 = 10
+		console.log(x,y);
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

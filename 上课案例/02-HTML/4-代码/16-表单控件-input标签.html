@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<!-- 表单控件-input标签,因为HTML的作者,他想到了,以后网页会需要用到收集用户数据的功能,所以设置了一个input标签可以表示多种表单控件,但是通过input标签中的一个type属性来区别表单控件的功能 -->
+	<form action="index.php" method="get">
+		<!-- 文本框跟密码框的区别:文本框内容可见可复制,密码框内容不可见,不可复制 -->
+		<p>文本框:<input type="text"/></p>
+		<p>密码框:<input type="password"/></p>
+
+		<p>单选按钮:
+			<!-- 如何实现单选功能,给type="radio"的input标签设置"相同的name属性值",就可以把他们放在同一组,这样他们就只能选中其中一个 -->
+
+			<!-- 如何设置默认选中 设置checked="checked"属性即可 -->
+			<input type="radio" name="sex" checked="checked"/>小哥哥
+			<input type="radio" name="sex"/>小姐姐
+		</p>
+
+		<p>
+			复选框(多选按钮)
+			<!-- 如何设置默认选中 设置checked="checked"属性即可 -->
+			<input type="checkbox" name="hobby"/>看书
+			<input type="checkbox" name="hobby"/>吃饭
+			<input type="checkbox" name="hobby" checked="checked"/>睡觉
+			<input type="checkbox" name="hobby" checked="checked"/>看徐老师直播上课
+		</p>
+
+		<p>
+			普通按钮,没有提交数据的功能,一般用于后期js触发事件使用
+			<!-- 我们可以通过value属性,设置按钮上显示的文字信息 -->
+			<input type="button" value="开始游戏"/>
+		</p>
+
+		<p>
+			提交按钮,可以提交整个表单域的数据
+			<!-- 我们可以通过value属性,设置按钮上显示的文字信息 -->
+			<input type="submit" value="立即注册"/>
+		</p>
+
+		<p>
+			重置按钮,可以还原表单控件的状态(可以理解为恢复出厂设置)
+			<!-- 我们可以通过value属性,设置按钮上显示的文字信息 -->
+			<input type="reset" value="重新开始"/>
+		</p>
+
+		<p>
+			图片按钮,需要通过src指定图片的路径,也是可以提交表单数据的
+			<input type="image" src="images/btn_baidu.png"/>
+		</p>
+
+		<p>
+			隐藏域,在页面上是看不到的,这个隐藏域不是用来给用户填写信息的,一般是用于传输一些后台想要的数据,但是又不想显示出来让用户看到的
+			<input type="hidden" name="id" value="123">
+		</p>
+
+		<p>
+			上传框,一般用于上传文件使用
+			<input type="file">
+		</p>
+
+	</form>
+</body>
+</html>

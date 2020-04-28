@@ -1,0 +1,387 @@
+/*头部开始*/
+.header{
+	height: 58px;
+	line-height: 58px;
+	background: #191d3a;
+	overflow: hidden;
+}
+.header h1{
+	width: 157px;
+	height: 35px;
+	margin-top: 11px;
+	margin-right: 48px;
+	float: left;
+}
+.header h1 a{
+	display: block;
+	width: 100%;
+	height: 100%;
+	background: url(../images/logo.png);
+	text-indent: -9999px;
+}
+.header .nav ul li{
+	float: left;
+	width: 87px;
+	height: 58px;
+	text-align: center;
+	border-right: 1px solid #252947;
+}
+.header .nav ul li:first-child{
+	background: #252947;
+}
+.header .nav ul li:first-child a{
+	color: #e2e4ed;
+}
+.header .nav ul li a{
+	display: block;
+}
+.header .jrwm{
+	width: 100px;
+	height: 34px;
+	line-height: 34px;
+	background: #38b774;
+	text-align: center;
+	margin-top: 12px;
+	margin-left: 9px;
+	border-radius: 3px;
+	margin-right: 89px;
+}
+.header .jrwm a{
+	color:#fff;
+	display: block;
+}
+.header .language ul li{
+	float: left;
+}
+.header .language ul li a{
+	color:#44485f;
+}
+.header .language ul li a:hover{
+	color:#38b774;
+}
+.header .language ul li:first-child{
+	margin-right: 15px;
+}
+.header .language ul li:first-child a{
+	color:#38b774;
+}
+/*头部结束*/
+
+/*轮播层开始*/
+.banner {
+	background: url(../images/banner.jpg) no-repeat center center #191d3a;
+	height: 460px;
+}
+.banner .w{
+	position: relative;
+	height: 100%;
+}
+.banner .circle{
+	position: absolute;
+	left: 50%;
+	bottom: 25px;
+	transform: translateX(-50%);
+}
+.banner .circle li{
+	float: left;
+	width: 12px;
+	height: 12px;
+	border-radius: 50%;
+	background: rgba(255,255,255,0.5);
+	margin-right: 15px;
+	cursor: pointer;
+}
+.banner .circle li:last-child{
+	margin-right: 0;
+}
+.banner .circle li.active{
+	background: #fff;
+}
+.banner .onlineGame{
+	width: 115px;
+	background: #feffff;
+	border-radius: 15px;
+	position: absolute;
+	right: 0;
+	top: 82px;
+}
+.banner .onlineGame .title{
+	width: 115px;
+	height: 38px;
+	background: url(../images/online.png);
+	cursor: pointer;
+	line-height: 38px;
+	text-indent: 16px;
+}
+.banner .onlineGame:hover .title{
+	background: url(../images/online.png) -120px 0;
+}
+.banner .onlineGame:hover .content{
+	display: block;
+}
+.banner .onlineGame .content{
+	text-align: center;
+	font-size: 0;
+	display: none;
+	padding-bottom: 12px;
+}
+.banner .onlineGame .content a{
+	display: inline-block;
+	width: 24px;
+	height: 24px;
+	background: url(../images/online.png) no-repeat -3px -48px;
+	margin-right: 8px;
+	border-radius: 50%;
+}
+.banner .onlineGame .content a:last-child{
+	margin-right: 0;
+}
+.banner .onlineGame .content a:nth-child(2){
+	background-position:-52px -48px;
+}
+.banner .onlineGame .content a:nth-child(3){
+	background-position:-102px -48px;
+}
+.banner .intro{
+	width: 447px;
+	position: absolute;
+	top: 167px;
+	right: 13px;
+}
+.banner .intro p{
+	margin-bottom: 36px;
+}
+.banner .intro .download {
+	overflow: hidden;
+}
+.banner .intro .download h2{
+	font-size:18px;
+	padding-left: 30px;
+	background: url(../images/download.png) no-repeat 6px 5px;
+	margin-bottom: 16px;
+}
+.banner .intro .download ul li{
+	float: left;
+	width: 83px;
+	height: 106px;
+	background: rgba(255,255,255,0.7);
+	margin-right: 1px;
+	text-align: center;
+	/*transition: all 0.2s;*/
+}
+.banner .intro .download ul li:hover{
+	background: #fff;
+}
+.banner .intro .download ul li a{
+	display: block;
+	width: 100%;
+	padding-top: 75px;
+	height: 31px;
+	background: url(../images/pad.png) no-repeat 30px -169px;
+	color:#444866;
+}
+.banner .intro .download ul li:nth-child(2) a{
+	background-position: 30px 30px;
+}
+.banner .intro .download ul li:nth-child(3) a{
+	background-position: 22px -68px;
+}
+.banner .intro .download ul li:nth-child(4) a{
+	background-position: 22px -476px;
+}
+.banner .intro .ewm{
+	background: rgba(255,255,255,0.7);
+	width: 111px;
+	height: 93px;
+	text-align: center;
+	padding-top: 13px;
+}
+/*轮播层结束*/
+
+/*广告层开始*/
+.bd {
+	margin-top: 50px;
+	margin-bottom: 38px;
+}
+.bd ul li{
+	width: 217px;
+	margin-right: 43px;
+	text-align: center;
+	float: left;
+}
+.bd ul li img{
+	width: 100%;
+	display: block;
+}
+.bd ul li:last-child{
+	margin-right: 0;
+}
+.bd ul li h2{
+	font-size:14px;
+	color:#444866;
+	padding-top: 9px;
+	padding-bottom: 19px;
+	/*transition: all 0.2s;*/
+}
+.bd ul li p{
+	color:#38b774;
+	font-size:12px;
+	/*transition: all 0.2s;*/
+}
+.bd ul li p span{
+	padding-right: 12px;
+	background: url(../images/arrow.png) no-repeat right center;
+}
+/*.bd ul li:hover img{
+	opacity: 0.8;
+}*/
+.bd ul li:hover h2{
+	background: #45bc7d;
+	color:#fff;
+}
+.bd ul li:hover p{
+	background: #45bc7d;
+	color:#fff;
+}
+.bd ul li:hover p span{
+	background: url(../images/arrow_hover.png) no-repeat right center;
+}
+/*广告层结束*/
+
+
+/*两个小圆点层开始*/
+.hd{
+	border-top:1px solid #dbe1e7;
+	margin-bottom: 53px;
+}
+.hd ul {
+	background: #fff;
+	width: 50px;
+	padding-left: 17px;
+	margin:-6px auto 0;
+}
+.hd ul li{
+	float: left;
+	width: 11px;
+	height: 11px;
+	border-radius: 50%;
+	background: #b5c0cb;
+	cursor: pointer;
+	margin-right: 14px;
+}
+.hd ul li.active{
+	background: #2fbc71;
+}
+/*两个小圆点层结束*/
+
+/*内容层开始*/
+.indexmain{
+	height: 364px;
+	background: url(../images/indexmainbg.jpg);
+}
+.indexmain .boya_news{
+	width: 500px;
+	height: 310px;
+	background: url(../images/bynewsbg.jpg);
+	position: relative;
+}
+.indexmain .more{
+	width: 64px;
+	height: 26px;
+	display: block;
+	text-align: center;
+	border-radius: 5px;
+	font-size:12px;
+	position: absolute;
+	left: 218px;
+	top: 40px;
+	/*transition: 0.2s all;*/
+}
+.indexmain .boya_news .more{
+	border:1px solid #33b972;
+	color:#33b972;
+}
+.indexmain .boya_news .more:hover{
+	background:#33b972;
+	color:#fff
+}
+.indexmain .boya_news .content{
+	margin-top: 118px;
+	padding: 0 20px;
+}
+.indexmain .boya_news .content ul li{
+	height: 47px;
+	line-height: 47px;
+	border-bottom: 1px solid #dbe1e7;
+}
+.indexmain .boya_news .content ul li a{
+	width: 395px;
+	display: inline-block;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	color:#444866;
+}
+.indexmain .boya_news .content ul li a:hover{
+	color:#33b972;
+}
+.indexmain .boya_news .content ul li span{
+	float: right;
+	color:#afbecf;
+}
+.indexmain .jobs{
+	width: 500px;
+	height: 310px;
+	background: url(../images/byshzpbg.jpg);
+	position: relative;
+}
+.indexmain .jobs .more{
+	border:1px solid #fff;
+	color:#fff;
+}
+.indexmain .jobs .more:hover{
+	background:#fff;
+	color:#33b972;
+}
+.indexmain .jobs .title{
+	color:#fff;
+	position: absolute;
+	left: 80px;
+	top: 44px;
+}
+.indexmain .jobs .recruit{
+	margin-top: 114px;
+	margin-left: 20px;
+	width: 305px;
+}
+.indexmain .jobs .recruit h2{
+	color:#fff;
+	font-size:14px;
+}
+.indexmain .jobs .recruit ul li{
+	height: 37px;
+	line-height: 37px;
+	border-bottom: 1px solid #6fdea3;
+}
+.indexmain .jobs .recruit ul li a{
+	color:#fff;
+}
+/*内容层结束*/
+
+/*底部开始*/
+.footer{
+	height: 172px;
+	background: #191d3a;
+	padding-top: 20px;
+	font-size:12px;
+}
+.footer p{
+	height: 52px;
+	line-height: 52px;
+	color:#6c6e7e;
+}
+.footer img{
+	height: 52px;
+	vertical-align: middle;
+}
+/*底部结束*/

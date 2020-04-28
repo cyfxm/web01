@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button>赞(1)</button>
+    <button>赞(1)</button>
+    <button>赞(1)</button>
+    <button>赞(1)</button>
+
+    <script>
+        // 获取所有按钮对象
+        var btns = document.querySelectorAll("button");
+
+        // 定义闭包函数
+        function zan(){
+            var num = 1;
+            return function(){
+                num++;
+                // console.log( this ); 因为这个zan函数后面会给每个按钮使用,所以点击了哪个按钮,这个this就代表哪个按钮
+                this.innerHTML = "赞("+num+")";
+            }
+        }
+
+        // 定义点赞数初始化的值
+        for(var i=0;i<btns.length;i++){
+            // btns[i].onclick = zan;  // 无效
+
+            // 返回值是调用函数以后,return后面返回内容
+            btns[i].onclick = zan();
+        }
+    </script>
+</body>
+</html>

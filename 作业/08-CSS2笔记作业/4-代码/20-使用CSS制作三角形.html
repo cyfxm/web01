@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		/*使用CSS制作三角形,原理是使用border边框属性*/
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		/*body{
+			background: skyblue;
+		}*/
+		.div1{
+			
+			margin:100px auto;
+			
+			/*透明色:transparent*/
+
+			/*第一步:设置4个方向的边框*/
+
+			/*第三步:保留某个边框,其他边框设置为透明色*/
+			border-top:10px solid transparent;
+			border-bottom:10px solid transparent;
+			border-left:10px solid transparent;
+			border-right:10px solid purple;
+
+			/*只设置一边，不设置透明色可以吗?不可以*/
+			
+			/*第二步:宽度高度设置为0*/
+			width: 100px;
+			height: 100px;
+		}
+	</style>
+</head>
+<body>
+	<div class="div1"></div>
+</body>
+</html>

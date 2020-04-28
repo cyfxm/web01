@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript">
+		// 变量主要用于保存数据
+		/*var str = "猴赛雷";
+		document.write(str + "<br/>");
+		document.write(str + "<br/>");
+		document.write(str + "<br/>");
+		document.write(str + "<br/>");
+		document.write(str + "<br/>");*/
+
+		// 先定义变量才能使用变量
+
+		// 定义单个变量语法
+		// 定义变量不赋值  如果定义了,没有赋值,默认会使用undefined
+		/*
+			var 变量名;
+			变量名 = 值;  其中 = 是赋值符  把等号右边的值赋给左边的变量
+		*/
+		var a;
+		a = 10;
+		console.log(a);
+
+		// 定义变量并赋值
+		/*var 变量 = 值;*/
+		var b = 20;
+		console.log(b);
+
+		// 可以同时定义多个变量
+		/*
+			定义多个变量不赋值
+			var 变量名1,变量名2,变量名3...;
+			变量名1 = 值1;
+			变量名2 = 值2;
+			变量名3 = 值3;
+			......
+		*/
+		var username,userpass,sex;
+		username = "zhangsan";
+		userpass = 123456;
+		sex      = "男";
+
+		// 使用变量,直接使用变量名即可,变量名不能放在引号里面,引号的变量名不解析变量的值
+		console.log(username,userpass,sex);
+
+
+		/*
+			定义多个变量同时给他们赋值
+			var 变量名1= 值1,变量名2 = 值2,变量名3 = 值3...;
+		*/
+		var num1 = 10,num2  = 20,num3 = 30;
+		console.log(num1,num2,num3);
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

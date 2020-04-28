@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <textarea id="message" rows="10" cols="50"></textarea>
+    <button>提交</button>
+    <div></div>
+
+    <script>
+        // 获取相关对象
+        var message = document.querySelector("#message");
+        var button  = document.querySelector("button");
+        var div     = document.querySelector("div");
+
+        // 定义敏感词汇的正则表达式
+        var reg = /你妹|你大爷|大大/g;
+
+        // 给按钮绑定事件
+        button.onclick = function(){
+            // 获取文本域中的内容
+            // console.log( message.value );
+            var newStr = message.value.replace(reg,"*");
+            div.innerHTML = newStr;
+        }
+    </script>
+</body>
+</html>

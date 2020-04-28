@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 从字符串str里面找到所有生日  生日 xxxx-xx-xx
+        var str = "生日是:19901-10-10 生日是:1998-11-12 生日是2003-05-03 生日是3003-06-07 生日是2008-08-08";
+        
+        // var reg = /[12]\d{3}-\d{2}-\d{2}/;
+        // regObj.test(str) ：判断字符串中是否具有指定模式的子串，返回结果是一个布尔类型的值;
+        // console.log( reg.test(str) );// true
+        
+        // regObj.exec(str) ：返回字符串中指定模式的子串，一次只能获取一个与之匹配的结果;
+        // 格式:
+        // 返回值 = 正则.exec(目标字符串)
+        /* var result =  reg.exec( str ) ;
+        console.log( result );
+
+        var result =  reg.exec( str ) ;
+        console.log( result ); */
+        // ​功能:  匹配。在目标字符串中，找出符合正则表达式要求的子串。
+        // 返回值:​
+        // 如果能够匹配某个子串，则返回值是一个"数组"。其中:​
+        // 第一个元素是匹配成功的子串；​
+        // 第二个元素index，表示在哪里匹配到的。​
+        // 第三个元素input，表示目标字符串
+
+        // ​如果不能匹配，则返回值是 null
+
+        // 子串的概念
+        // 如果有一个目标字符串是"abcd"，它的子串有:
+        // （1）长度为1的子串:a,b ,c d,
+        // （2）长度为2的子串:ab ,bc,cd ( “bd”不是子串，因为它们不相邻)
+        // （3）长度为3的子串:abc,bcd
+        // （4）长度为4的子串:abcd
+
+        // 一次exec只能得到一个匹配成功的结果 ，如果要全部匹配出来，则需要调用多次exec
+        // 注意一下:g不可少!
+        /* var reg = /[12]\d{3}-\d{2}-\d{2}/g;
+        var result =  reg.exec( str ) ;
+        console.log( result );
+
+        var result =  reg.exec( str ) ;
+        console.log( result );
+
+        var result =  reg.exec( str ) ;
+        console.log( result );
+
+        var result =  reg.exec( str ) ;
+        console.log( result );
+
+        var result =  reg.exec( str ) ;
+        console.log( result );
+
+        var result =  reg.exec( str ) ;
+        console.log( result );
+
+        var result =  reg.exec( str ) ;
+        console.log( result );
+
+        var result =  reg.exec( str ) ;
+        console.log( result );
+
+        var result =  reg.exec( str ) ;
+        console.log( result ); */
+
+        // 有一个问题，我们事先并不知道，这个匹配会成功多少次？所以我不能用for循环去执行匹配。
+        // 要使用while循环配合exec方法把所有满足条件的内容输出
+        var reg = /[12]\d{3}-\d{2}-\d{2}/g;
+        while( result =  reg.exec( str ) ){
+            console.log( result );
+        }
+    </script>    
+</body>
+</html>

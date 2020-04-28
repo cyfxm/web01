@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <canvas id="canvas" height="600" width="600"></canvas>
+    <script>
+        var canvas = document.querySelector('#canvas');
+        var ctx = canvas.getContext('2d');
+        var progress = 0;
+        function drawProgress() {
+            ctx.clearRect(0, 0, 600, 600);
+            drawBackground();
+            ctx.beginPath();
+            ctx.lineWidth = 12;
+            ctx.strokeStyle = 'green';
+            ctx.lineTo(300, 300);
+            ctx.lineTo(300 + progress, 300);
+            ctx.stroke();
+            ctx.closePath();
+            ctx.beginPath();
+            ctx.lineWidth = 1;
+            ctx.fillStyle = '#4a4a4a';
+            ctx.font = '14px';
+            ctx.fillText(parseInt(progress / 2) + '%', 504, 305);
+            ctx.fill();
+            ctx.closePath();
+            progress++;
+            if (progress <= 200) {
+                setTimeout( "drawProgress()",50)
+            }
+        }
+        drawProgress();
+
+        function drawBackground() {
+            ctx.beginPath();
+            ctx.lineWidth = 12;
+            ctx.strokeStyle = '#ccc';
+            ctx.lineTo(300, 300);
+            ctx.lineTo(500, 300);
+            ctx.stroke();
+            ctx.closePath();
+        }
+
+    </script>
+
+</body>
+
+</html>

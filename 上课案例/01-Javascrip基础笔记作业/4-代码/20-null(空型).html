@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript">
+		// null(空型)
+		// 得到null的情况一般两种
+		// 第一种:声明了变量,这个变量的值为null
+		var a = null;
+		console.log( a );// null
+
+		// 同学们也许会问，为什么 typeof 运算符对于 null 值会返回 "Object"。这实际上是 因为JavaScript 最初实现中的一个错误，然后被 ECMAScript 沿用了。
+		console.log( typeof(a) );// object
+
+		// 第二种情况:后续课程学习dom以后,获取对象如果获取不到对象,得到变量的值也会null
+
+		// document.getElementById表示通过id获取对象
+		var obj = document.getElementById("myDiv");
+		console.log( obj );
+		console.log( typeof(obj) );
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

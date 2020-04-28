@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		/*去除图片底部缝隙*/
+		img{
+			vertical-align: bottom;
+		}
+		.box{
+			width: 222px;
+			height: 220px;
+			margin:100px auto;
+			/*父元素相对定位*/
+			position: relative;
+		}
+		.box .mask{
+			width: 100%;
+			height: 100%;
+			background: rgba(0,0,0,0.3) url(images/arr.png) no-repeat center center;
+			/*子元素绝对定位*/
+			position: absolute;
+			left: 0;
+			top: 0;
+			/*隐藏元素*/
+			display: none;
+			/*鼠标样式小手*/
+			cursor: pointer;
+		}
+		/*鼠标移上.box以后,里面的.mask对应的样式*/
+		.box:hover .mask{
+			/*显示元素*/
+			display: block;
+		}
+	</style>
+</head>
+<body>
+	<!-- 如果有鼠标移上的样式,我们优先做鼠标移上的样式写好,最后再隐藏某个元素 -->
+
+	<div class="box">
+		<!-- 图片 -->
+		<img src="images/3.jpg"/>
+		<!-- 遮罩层 -->
+		<div class="mask"></div>
+	</div>
+</body>
+</html>

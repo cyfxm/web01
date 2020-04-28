@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript">
+		// 如果你想使用String对象的方法,你首先要有String
+		// 如何创建String对象
+		// 方法一:通过字面量  "" 或者 ''  字面量就是编程语言提供给程序员一种比较方便的写法
+		var str1 = "abc";
+		var str2 = '456789';
+
+		// 方法二:通过new String("字符串") 构造函数得到实例化对象
+		var str3 = new String();
+		var str4 = new String("你好,hello");
+
+		console.log( str1, str2, str3, str4);
+		document.write( str1 +"<br/>" );
+		document.write( str2 +"<br/>" );
+		document.write( str3 +"<br/>" );
+		document.write( str4 +"<br/>" );
+
+		// String对象的属性  
+		// 字符串长度  String对象.length 注意:指的是字符个数的长度
+
+		console.log( str1.length );// 3
+		console.log( str4.length );// 8
+		console.log("");
+
+		// 1) 根据位置获取字符
+		// charAt(index) 返回指定位置的字符(index 字符串的索引号) index是从0开始的,0代表取第一个字符串, 比如:str.charAt(0) 
+		var str5 = "我爱我的祖国";
+		console.log( str5.charAt(0) );// 我
+		console.log( str5.charAt(3) );// 的
+
+		// 更常用  str[index] 获取指定位置处字符 HTML5，IE8+支持 和charAt()等效
+		console.log( str5[5] );// 国
+		console.log( str5[ str5.length-1 ] );// 国
+		console.log("");
+
+
+		// charCodeAt(index) 获取指定位置处字符的ASCII码 (index索引号) str.charCodeAt(0)
+		var str6 = "abc123";
+		console.log( str6.charCodeAt(0) );// 97
+		console.log( str6.charCodeAt(3) );// 49
+		
+
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

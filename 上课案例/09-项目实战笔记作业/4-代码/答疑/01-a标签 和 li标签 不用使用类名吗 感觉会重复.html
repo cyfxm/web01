@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		/*标签选择器,会选中所有的同名标签*/
+		/* a{
+			color:red;
+		} */
+		
+		/*找到.bat下面的a标签*/
+		.bat a{
+			color:red;
+		}
+
+		.fruit ul li{
+			color:orange;
+		}
+	</style>
+</head>
+<body>
+	<!-- a标签 和 li标签 不用使用类名吗 感觉会重复 -->
+	<!-- 答:可以不使用类名,只要他们有不同的父元素,配合我们的后代选择器就可以区分 -->
+	
+	<span class="bat">
+		<a href="#">百度</a>
+		<a href="#">京东</a>
+		<a href="#">淘宝</a>
+	</span>
+
+	<a href="#">腾讯</a>
+	<a href="#">阿里</a>
+	<a href="#">爱奇艺</a>
+	
+	<div class="fruit">
+		<ul>
+			<li>苹果</li>
+			<li>西瓜</li>
+			<li>香蕉</li>
+			<li>葡萄</li>
+			<li>木瓜</li>
+		</ul>
+	</div>
+
+	<ul>
+		<li>张三</li>
+		<li>李四</li>
+		<li>王五</li>
+	</ul>
+</body>
+</html>

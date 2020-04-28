@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <img src="../20200305下午练习素材/images/swh.gif">
+    <p></p>
+    <script>
+       var img = document.querySelector("img"); 
+       var p = document.querySelector("p");
+       var date = new Date();
+       var hours = date.getHours();
+
+       if(hours>6 && hours<12){
+           img.src = "../20200305下午练习素材/images/swh.gif";
+           p.innerHTML = "亲！上午好";
+       }else if(hours>12&& hours<19){
+            img.src = "../20200305下午练习素材/images/xwh.gif";
+            p.innerHTML = "亲！下午好";
+       }else{
+            img.src = "../20200305下午练习素材/images/wsh.gif";
+            p.innerHTML = "亲！晚上好";
+       }
+
+    </script>
+</body>
+</html>

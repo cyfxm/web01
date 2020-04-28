@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+	/*注意：*/
+	/*子元素可以继承父元素的样式（text-，font-，line-这些元素开头的都可以继承，以及color属性） 文字类的*/
+	.father{
+		background-color:pink;
+		height: 200px;
+		text-align:center;
+		text-decoration: underline;
+		font-size:50px;
+		font-style:italic;
+		font-weight: bold;
+		border:5px solid red;
+	}
+	/*a标签设置了"href属性"以后,"不能"继承"颜色"*/
+	.box{
+		color:red;
+	}
+	/*h系列标签不继承font-size和font-weight,因为h系列的标签使用的font-size设置字体大小单位是em,em是相对单位,1em等于一个父元素字体的大小*/
+	.box2{
+		/*因为标题标签自带加粗,所以font-weight属性不会继承过去,而标题标签不自带倾斜,所以可以继承font-style属性*/
+		font-weight: normal;
+		font-style:italic;
+		font-size:50px;
+	}
+	/*一句话: 如果子元素自己有的样式,就不用从父元素那边继承相应的样式*/
+	</style>
+</head>
+<body>
+	<div class="father">
+		父亲
+		<div class="son">儿子</div>
+	</div>
+
+	<div class="box">
+		<a>我是box里面的a标签</a>
+		<a href="#">我也是box里面的a标签,但是我有href属性</a>
+	</div>
+
+	<div class="box2">
+		<h1>标题1标签</h1>
+		我是box2的文字内容
+	</div>
+</body>
+</html>

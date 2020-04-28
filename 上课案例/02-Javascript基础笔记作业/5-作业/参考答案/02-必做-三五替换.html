@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript">
+		// 写一个程序输出1到100这些数字。但是遇到数字为3的倍数的时候，输出“三”替代数字，为5的倍数用“五”代替，既是3的倍数又是5的倍数则输出“三五”
+
+		// 第一步:先使用for循环输出1~100的数
+		/*for(var i=1;i<=100;i++){
+			document.write(i);
+		}*/
+
+		// 第二步:从1~100找到能被3整除的数 使用if以及%取余判断是否为3的倍数
+		/*for(var i=1;i<=100;i++){
+			if(i%3==0){
+				document.write(i);
+			}
+		}*/
+
+		// 第三步:从1~100找到能被3整除的数用"三"替换,其他数照常输出  if...else
+		/*for(var i=1;i<=100;i++){
+			if(i%3==0){
+				document.write("三<br/>");
+			}else{
+				document.write(i+"<br/>");
+			}
+		}*/
+
+		// 第四步,接着继续找能被5整除的数,用"五"替换,其他数照常输出  if...else if(){}..else
+		/*for(var i=1;i<=100;i++){
+			if(i%3==0){
+				document.write("三<br/>");
+			}else if(i%5==0){
+				document.write("五<br/>");
+			}else{
+				document.write(i+"<br/>");
+			}
+		}*/
+		//最后一步,找到能被3整除又能被5整除的数  用"三五"替换   但是会发现能被3跟被5整除的数没被替换成三五
+		/*for(var i=1;i<=100;i++){
+			if(i%3==0){
+				document.write("三<br/>");
+			}else if(i%5==0){
+				document.write("五<br/>");
+			}else if(i%3==0 && i%5==0){
+				document.write("三五<br/>");
+			}else{
+				document.write(i+"<br/>");
+			}
+		}*/
+
+		// 因为我们代码是从上到下判断的,所以
+		for(var i=1;i<=100;i++){
+			if(i%3==0 && i%5==0){
+				document.write("三五 ");
+			}else if(i%5==0){
+				document.write("五 ");
+			}else if(i%3==0){
+				document.write("三 ");
+			}else{
+				document.write(i+" ");
+			}
+		}
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

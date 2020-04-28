@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		/*white-space设置或检索对象内文本显示方式。通常我们使用于"强制一行"显示内容 */
+		/*normal  : 　 默认处理方式
+		nowrap :  　强制在同一行内显示所有文本，直到文本结束或者遭遇br标签对象才换行。*/
+
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.div1{
+			width: 100px;
+			height: 200px;
+			background: red;
+			margin-bottom: 20px;
+			/*让内容一行显示,不要换行*/
+			white-space: nowrap;
+		}
+		.div2{
+			width: 100px;
+			height: 200px;
+			background: blue;
+		}
+	</style>
+</head>
+<body>
+	<!-- 中文会自己换行 -->
+	<div class="div1">中文中文中文中文中文中文中文中文中文中文中文中文中文中文中文中文中文</div>
+	
+	<!-- 英文不会自己换行 -->
+	<div class="div2">aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</div>
+</body>
+</html>

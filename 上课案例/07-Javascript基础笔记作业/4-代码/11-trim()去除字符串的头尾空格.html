@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript">
+		// trim()  去除字符串的"头尾"空格
+		var str = "   a b c   ";
+		console.log( str );
+		console.log( str.length );
+		console.log("");
+
+		// 去除字符串头尾空格
+		console.log( str.trim() );
+		console.log( str.trim().length );
+		console.log("");
+
+		// 如果想取出字符串中间的空格,又需要用正则表达式了
+		// 正则表达式后续课程会学
+		var str2 = "   a b c   ";
+		var reg = /\s/gi;
+		console.log( str2.replace(reg,"") );
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

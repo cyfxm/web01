@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>转换-变形</title>
+    <style>
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: #ccc;
+            margin: 50px;
+        }
+
+        .box1 {
+            /* 变形  */
+            /* 单位：角度 */
+            /* 默认值X */
+            transform: skew(45deg);
+
+           
+        }
+
+        .box2 {
+            /* 变形  */
+            /* 单位：角度 */
+            transform: skewX(45deg);
+        }
+
+        .box3 {
+            /* 变形  */
+            /* 单位：角度 */
+            transform: skewY(45deg);
+        }
+    </style>
+</head>
+<body>
+
+
+    <div class="box box1">1</div>
+    <div class="box box2">2</div>
+    <div class="box box3">3</div>
+</body>
+</html>

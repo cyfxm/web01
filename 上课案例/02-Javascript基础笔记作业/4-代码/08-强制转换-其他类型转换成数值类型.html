@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript">
+		// 其他类型转成数值类型,有以下方法
+		// 第一种: Number(变量名)可以把任意类型转换成数值型，如果要转换的字符串中有一个不是数值的字符，会返回NaN
+
+		// NaN => Not a number 不是一个数字
+
+		var v1 = "123";
+		var v2 = "456abc";
+		var v3 = "abc789";
+		var v4 = "abc";
+		var v5 = "";
+		var v6 = " ";
+		var v7 = true;
+		var v8 = false;
+
+		// 使用 Number(变量名)将其他类型转成数值型
+		// 结论:只要是在字符串中含有非数字的都会转换为NaN;
+		console.log( Number(v1) );// 123
+		console.log( Number(v2) );// NaN
+		console.log( Number(v3) );// NaN
+		console.log( Number(v4) );// NaN
+		console.log( Number(v5) );// 0
+		console.log( Number(v6) );// 0
+		console.log( Number(v7) );// 1
+		console.log( Number(v8) );// 0
+		console.log("");
+
+		// 第二种方法:  parseInt(要转换的变量)  
+		//从其它类型中提取整数  
+		// parse 解析的意思
+		// Int 整数的意思  
+		// parseInt() 从字符串中提取整数   将字符串转换为number类型
+
+		// parseInt()转换规则如下:
+		// 如果该字符串的第一个字符不是数字 就会得到 NaN
+		// 如果该字符串的第一个字符是数字 接下来从它里面将整数提取出来 遇到了非数字的以后就停止提取
+
+		var str1 = "123abc";
+		var str2 = "abc456";
+		var str3 = "789abc123";
+		var str4 = "123.456";
+		console.log( parseInt(str1) );// 123
+		console.log( parseInt(str2) );// NaN
+		console.log( parseInt(str3) );// 789
+		console.log( parseInt(str4) );// 123
+		console.log("");
+
+		// 第三种方法:  parseFloat(要转换的变量)  
+		// parseFloat() 从字符串中提取小数 将字符串转换为number类型
+		// parseFloat() 从一个字符串提取小数 如果第一个字符不是数字会得到NaN 如果是会进行提取
+		// 提取规则 如果遇到了除了第一个.以外的非数字 就会停止提取
+		var str5 = "123.456.789";
+		var str6 = "abc123.45";
+		var str7 = "123.45abc789.2";
+		console.log( parseFloat(str5) );// 123.456
+		console.log( parseFloat(str6) );// NaN
+		console.log( parseFloat(str7) );// 123.45
+		console.log( "" );
+
+		// 第四种方法:在JavaScript中，如果想让某一个类型的数据自动转化为数字类型，可以结合加号+、减号-、或者-0操作。
+		var str8 = "10";
+		console.log( str8 );// "10"
+		console.log( typeof( str8) );// string
+
+		console.log( +str8 );// 10
+		console.log( typeof( +str8) );// number
+		console.log("");
+
+		var str9 = "45";
+		console.log( str9 );// "45"
+		console.log( typeof( str9) );// string
+
+		console.log( -str9 );// -45
+		console.log( typeof( -str9) );// number 
+		console.log("");
+
+		var str10 = "78";
+		console.log( str10 );// "78"
+		console.log( typeof( str10) );// string
+
+		console.log( str10-0 );// 78
+		console.log( typeof( str10-0 ) );// number 
+
+		// 注意: +0容易出问题
+		console.log( str10+0 );// "780"
+		console.log( typeof( str10+0 ) );// string
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

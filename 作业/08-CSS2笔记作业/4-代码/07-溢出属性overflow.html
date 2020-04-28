@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		/*检索或设置当对象的内容超过其指定高度或者宽度时如何管理内容。*/
+		/*visible : 　不剪切内容也不添加滚动条(默认取值)*/
+		/*auto : 　 超出自动显示滚动条，不超出不显示滚动条*/
+		/*hidden : 　不显示超过对象尺寸的内容，超出的部分隐藏掉*/
+		/*scroll : 　不管超出内容否，总是显示滚动条*/
+
+		/*四个取值,我们用的最多的是overflow:hidden;超出元素之外的内容会被隐藏*/
+		
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		div{
+			margin-bottom: 100px;
+		}
+		.div1{
+			width: 100px;
+			height: 100px;
+			background: red;
+			overflow: hidden;
+		}
+
+		.div2{
+			width: 100px;
+			background: blue;
+			/*不隐藏内容也不显示滚动条*/
+			/*overflow: visible;*/
+
+			/*超出内容显示滚动条*/
+			overflow: auto;
+			
+			/*超出宽度之外的内容将被隐藏*/
+			/*overflow: hidden;*/
+			
+			/*不管超出内容否，总是显示滚动条*/
+			/*overflow: scroll;*/
+		}
+
+		.div3{
+			width: 100px;
+			background: orange;
+		}
+		.div4{
+			width: 100px;
+			background: pink;
+		}
+	</style>
+</head>
+<body>
+	<!-- 如果宽度一行放不下所有的"中文"内容,中文内容会自动换行 -->
+	<div class="div1">我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容</div>
+	
+	<!-- 如果宽度一行放不下所有的英文字母内容,并且这些英文字母内容没有其他符号,那么这个英文字母内容不会自动换行 -->
+	<div class="div2">LoremLoremLoremLoremLoremLoremLoremLoremLoremLoremLoremLoremLoremLorem</div>
+	
+	<!-- 如果全是数字的内容,也不会自动换行 -->
+	<div class="div3">1234567891234567894512315645612313212312315664567894165465</div>
+
+	<div class="div4">abxxcv123789756432123asdf%$%^#$%$^%*^</div>
+</body>
+</html>

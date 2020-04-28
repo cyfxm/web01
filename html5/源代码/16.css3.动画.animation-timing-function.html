@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>动画的速度</title>
+    <link rel="stylesheet" href="./base.css">
+    <style>
+        /* 1.0 定义动画 */
+        @keyframes foo4{
+            from {
+                height: 100px;
+            }
+            to {
+                height: 500px;
+            }
+        }
+
+        /* 2.0 使用动画 */
+        .box {
+            animation-name: foo4;
+            animation-duration: 5s;
+
+            /* 动画的速度 */
+            /* 匀速 */
+            /* animation-timing-function: linear; */
+            /* 由快到慢 开始动画快  结束动画慢 (默认值) */
+            /* animation-timing-function: ease; */
+            /* 由慢到快 开始动画慢 结束动画快*/
+            /* animation-timing-function: ease-in; */
+            /* 由慢到快 再由快到慢 */
+            /* animation-timing-function: ease-in-out; */
+            /* 由快到慢 开始动画快  结束动画慢 */
+            /* animation-timing-function: ease-out; */
+
+            /* 贝塞尔曲线 */
+            /* 辅助工具获取曲线的控制点  */
+            /* https://cubic-bezier.com/#.08,.99,.94,.33 */
+            /* animation-timing-function: cubic-bezier(.08,.99,.94,.33); */
+
+             /* 按照步骤执行 */
+             animation-timing-function: steps(5);
+
+        }
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+</body>
+</html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        li{
+            list-style: none;
+        }
+        .banner {
+            width: 1200px;
+            margin: 100px auto;
+            height: 100%;
+        }
+
+        .banner .silde ul {
+            width: 600%;
+            height: 100%;
+            float: left;
+        }
+
+        .banner .silde ul li {
+            /* width: 100%; */
+            height: 100%;
+            font-size: 0;
+            float: left;
+            display: none;
+        }
+        /* .crile{
+            width: 100px;
+            height: 15px;
+            position: absolute;
+            /* bottom: 10px; */
+            /* background-color: red; */
+        
+        .crile{
+            float: left;
+            width: 100px;
+            height: 15px;
+        }
+        .crile li{
+            width: 15px;
+            height: 15px;
+            background-color: rgba(255, 255, 255, .5);
+            border-radius: 50%;
+            margin-left: 10px;
+            float: left;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="banner">
+        <div class="silde">
+            <ul>
+                <li class="photo"><img src="./images/banner01.jpg" alt=""></li>
+                <li class="photo"><img src="./images/banner02.jpg" alt=""></li>
+                <li class="photo"><img src="./images/banner03.jpg" alt=""></li>
+                <li class="photo"><img src="./images/banner04.jpg" alt=""></li>
+                <li class="photo"><img src="./images/banner05.jpg" alt=""></li>
+            </ul>
+        </div>
+     
+            <ul class="crile">
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+        
+    </div>
+    <script src="./js/jquery-3.4.1.js"></script>
+    <script>
+        var i = 0;
+        $(function () {
+            $('.photo').eq(0).show().siblings('li').hide();
+            showTime();
+        })
+        function showTime() {
+            timer = setInterval(function () {
+                Show();
+                i++;
+                if (i == 5) {
+                    i = 0;
+                }
+            }, 3000);
+        }
+        function Show() {
+            $('.photo').eq(i).fadeIn(200).siblings('li').fadeOut(200);
+        }
+    </script>
+</body>
+
+</html>

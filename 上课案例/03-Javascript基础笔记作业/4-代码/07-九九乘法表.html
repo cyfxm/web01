@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript">
+		// 输出九九乘法表所用表格
+		// 第一行一个单元格
+		// 第二行两个单元格
+		// 第三行三个单元格
+		// ......
+		// 第九行九个单元格
+
+		// rules="all"合并边框线
+		var str = '<table border="1" width="800" rules="all">';
+			for(var j=1;j<=9;j++){// j控制行数
+				str += '<tr>';
+				for(var i=1;i<=j;i++){// i控制列数
+					// 小技巧:先写固定,再写会变化的,先死后活
+
+					// &times;是HTML中字符实体,代表乘号
+					str += '<td>'+i+' &times; '+j+' = '+i*j+'</td>';
+
+				}
+				str += '</tr>';
+			}
+		 	str += '</table>';
+
+		 document.write( str );
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

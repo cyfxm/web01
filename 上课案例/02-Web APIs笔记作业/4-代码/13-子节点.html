@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul>
+        <li>我是li1</li>
+        <li>我是li2</li>
+        <li>我是li3</li>
+        <li>我是li4</li>
+    </ul>
+
+    
+    <script>
+        // 先获取ul对象
+        // var ul = document.querySelector("ul");
+        var ul = document.getElementsByTagName("ul")[0];
+
+        // console.log( ul );
+
+        /* 获取所有子节点
+        父节点.childNodes        返回包含指定节点的子节点的集合
+        注意:
+        返回值里面包含了所有的子节点,包含元素节点,文本节点等
+        如果只想要获得里面的元素节点,则需要专门处理. 所以我们一般不提倡使用childNodes */
+        console.log( ul.childNodes );
+        console.log("");
+
+        /* 获取所有子元素节点  要求记住
+        父节点.children     是一个只读属性,返回所有的子元素节点.它只返回子元素节点,其他节点不返回(这个需要我们重点掌握)    特别需要注意的是, 父节点.children获取的是动态节点 */
+        console.log( ul.children );
+        console.log( ul.children[0].innerHTML );
+        console.log( ul.children[3].innerHTML );
+        console.log( ul.children[ ul.children.length-1 ].innerHTML );
+        console.log("");
+
+        /* 获取第1个子节点
+        父节点.firstChild 返回第一个子节点,找不到则返回null  
+        包含所有的节点,不管是文本节点还是元素节点 */
+        console.log( ul.firstChild );
+
+        /* 获取最后1个子节点
+        父节点.lastChild 返回最后一个子节点,找不到则返回null  
+        包含所有的节点,不管是文本节点还是元素节点 */
+        console.log( ul.lastChild );
+        console.log("");
+
+        /* 获取第1个子元素节点
+        父节点.firstElementChild 返回第一个子元素节点,找不到则返回null */
+        console.log( ul.firstElementChild );
+        
+        /* 获取最后1个子元素节点
+        父节点.lastElementChild 返回最后一个子元素节点,找不到则返回null */
+        console.log( ul.lastElementChild );
+        console.log("");
+
+        // 注意:firstElementChild 跟 lastElementChild 这两个有兼容性问题,IE9以上才支持
+
+        // 实际开发中，firstChild 和 lastChild 包含其他节点，操作不方便，而 firstElementChild 和 lastElementChild 又有兼容性问题，那么我们如何获取第一个子元素节点或最后一个子元素节点呢？
+
+        // 解决方法:
+        // 如果想要第一个子元素节点,可以使用        父节点.children[0]
+        // 如果想要最后一个子元素节点,可以使用    父节点.children[父节点.children.length-1]
+        console.log( ul.children );
+        console.log( ul.children[0] );
+        console.log( ul.children[ ul.children.length-1 ] );
+    </script>
+</body>
+</html>

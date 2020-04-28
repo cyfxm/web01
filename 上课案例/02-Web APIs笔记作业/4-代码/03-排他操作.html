@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        button{
+            border:none;
+            width: 80px;
+            height: 50px;
+            line-height: 50px;
+            text-align: center;
+            outline:none;
+        }
+    </style>
+</head>
+<body>
+    <button>按钮1</button>
+    <button>按钮2</button>
+    <button>按钮3</button>
+    <button>按钮4</button>
+    <button>按钮5</button>
+
+    <script>
+        // 什么是排他操作?
+        // 也可以理解为排他思想,如果有同一组元素,我们想要某一个元素实现某种样式,需要用到循环的排他思想算法:
+        // 所有元素全部清除样式（干掉其他人）
+        // 给当前元素设置样式 （留下我自己）
+        // 注意顺序不能颠倒，"首先干掉其他人，再设置自己"
+
+        // 我们要实现的功能是:点击哪个按钮,哪个按钮背景颜色就变色粉色
+        var btns = document.querySelectorAll("button");
+        for(var i=0;i<btns.length;i++){
+            btns[i].onclick=function(){
+                // 谁触发事件,this就代表谁
+                // console.log( this );
+
+                // 干掉其他按钮的背景颜色
+                for(var j=0;j<btns.length;j++){
+                    // 遍历所有的按钮对象
+                    // console.log( btns[j] );
+                    btns[j].style.backgroundColor = "";
+                }
+
+                // 再单独设置自己的背景颜色
+                this.style.backgroundColor = "pink";
+            }
+        }
+    </script>
+</body>
+</html>

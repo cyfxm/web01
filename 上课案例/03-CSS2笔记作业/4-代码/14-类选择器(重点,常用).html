@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		/*标签选择器可以选中所有同名标签,这个导致同名标签不能差异化选择*/
+		/* div{
+			color:red;
+		} */
+
+		/*那么这个时候,我们就可以使用类选择器来差异化选择标签*/
+
+		/*类选择器是通过类名选择"具有"这个"类名"的"一个"或者"多个"标签*/
+
+		/*谁具有这个类名,谁就会用上这个类选择器对应的样式*/
+		
+		/*类名就是标签的class属性值*/
+
+		/*类名可以自定义,有一定的规范,待会讲*/
+		
+		/*
+			类选择器名
+			
+			.class属性值{
+				css属性名1:css属性值1;
+				css属性名2:css属性值2;
+				...
+			}
+		*/
+		
+		.redFont{
+			color:red;
+		}
+
+		.biankuang{
+			border:1px solid blue;
+		}
+	</style>
+</head>
+<body>
+	<div>div1</div>
+	<div class="redFont">div2</div>
+	<div>div3</div>
+	<p class="biankuang">p段落</p>
+	<p>p段落</p>
+	<p class="redFont">p段落</p>
+</body>
+</html>

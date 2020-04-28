@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        canvas {
+            background-color: skyblue;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="canvas">不支持canvas标签！</canvas>
+    <script>
+        var canvas = document.querySelector("#canvas");
+        canvas.width = 800;
+        canvas.height = 800;
+        var ctx = canvas.getContext('2d');
+        ctx.font="30px Microsoft Yahei";
+        ctx.textAlign = "center";
+        ctx.textBaseline = "middle";
+        ctx.fillText("hello",100,100);
+        ctx.strokeText("你好",100,200);
+
+        ctx.beginPath();
+        ctx.moveTo(100,0);
+        ctx.lineTo(100,600);
+        ctx.closePath();
+        ctx.stroke();
+        ctx.beginPath();
+        ctx.moveTo(0,100);
+        ctx.lineTo(600,100);
+        ctx.closePath();
+        ctx.stroke();
+    </script>
+</body>
+</html>

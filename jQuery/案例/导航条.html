@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        li{
+            list-style: none;
+        }
+        .w{
+            margin: 0 auto;
+            width: 1200px;
+        }
+
+        .box{
+            height: 50px;
+        }
+        .box ul{
+            background-color: grey;
+            height: 50px;
+            position: relative;
+        }
+        .box ul .one{
+            float: left;
+            margin-right: 100px;
+            line-height: 50px;
+            width: 100px;
+            text-align: center;
+        }
+        .current{
+            border: 1px solid red;
+            position: absolute;
+            width: 100px;
+            height: 50px;
+            /* top: 20px;
+            left: 100px; */
+            z-index: 99;
+        }
+    </style>
+</head>
+<body>   
+    <div class="box">
+        <div class="w">
+            <ul>
+                <div class="one">
+                    <div class="current"></div>
+                    <li>首页</li>
+                </div>
+                <div class="one">
+                    <li>搜索</li>
+                </div>
+                <div class="one">
+                    <li>授权</li>
+                </div>
+                <div class="one">
+                    <li>聊天</li>
+                </div>
+                <div class="one">
+                    <li>关于</li>
+                </div>
+            </ul>
+        </div>
+    </div>
+
+    <script src="../js/jquery-3.4.1.js"></script>
+    <script>
+        $(function(){
+            $(".one").click(function(){
+                var index = $(this).index();
+                $(".current").stop().animate({
+                    marginLeft:index*200
+                },500)
+                // $(this).addClass('current').siblings().removeClass("current");
+            })
+        })
+    </script>
+</body>
+</html>

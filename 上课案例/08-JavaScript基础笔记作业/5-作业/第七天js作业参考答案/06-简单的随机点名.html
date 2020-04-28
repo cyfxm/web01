@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript">
+		// 简单的随机点名，刷新页面随机出现一个人的名字 (思路 把所有名字放到一个数组里面， 随机找出来)
+
+		function getRandom(min,max){
+			return Math.floor(Math.random()*(max-min+1)+min);
+		}
+
+		var arr = [
+			"张三",
+			"李四",
+			"王五",
+			"赵六",
+			"孙七",
+			"王八",
+			"李狗蛋",
+			"关羽",
+			"吕布",
+			"安琪拉",
+			"亚瑟",
+			"妲己",
+		];
+		var index = getRandom(0,arr.length-1);
+		document.write(arr[index]);
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

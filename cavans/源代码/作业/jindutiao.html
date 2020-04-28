@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>进度条</title>
+    <style>
+        body {
+            margin: 0;
+        }
+        canvas {
+            background-color: skyblue;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+
+    <canvas id="canvas">不支持canvas标签！</canvas>
+
+    <script>
+        // 1.0 获取canvas标签
+        var canvas = document.getElementById("canvas");
+        // 2.0 设置画布的大小
+        // 记录屏幕的宽度高度
+        var winWidth = window.innerWidth;
+        var winHeight = window.innerHeight;
+        canvas.width = winWidth;
+        canvas.height = winHeight;
+        // 3.0 获取canvas上下文对象
+        var ctx = canvas.getContext('2d');
+
+        // 4.0 编写函数 绘制内部矩形
+        function drawInnerRect(x,y,w,h,color){
+            ctx.beginPath();
+            // 默认参数
+            var color = color || "red";
+            ctx.fillStyle=color;
+            ctx.rect(x , y , w , h);
+            ctx.closePath();
+            ctx.fill();
+        }
+        // 5.0 编写函数 绘制外部矩形
+        function drawOuterRect(x,y,w,h,color){
+            ctx.beginPath();
+            // 默认参数
+            var color = color || "red";
+            ctx.strokeStyle=color;
+            ctx.lineWidth=3;
+            ctx.rect(x , y , w , h);
+            ctx.closePath();
+            ctx.stroke();
+        }
+        // *.0 编写函数 绘制文本
+        function drawText(str , x , y ,color){
+            ctx.beginPath();
+            ctx.font="20px Microsoft YaHei";
+            // 默认值
+            var color = color || "black";
+            ctx.fillStyle = color 
+            ctx.fillText(str,x ,y);
+            ctx.closePath();
+        }
+
+        // 6.0 绘制外部的矩形
+        var width = canvas.width * (9/10);
+        var height = canvas.height *(1/20);
+        var point = {
+            x:canvas.width*(1/10)/2,
+            y:canvas.height *(19/20)/2
+        }
+        // 7.0 绘制外部的矩形
+        drawOuterRect(point.x , point.y,width,height,"orange");
+        //8.0 绘制内部的矩形    
+        // drawInnerRect(point.x , point.y,width*(60/100) , height,"red");
+        // 9.0 定义一个计数器变量
+        // var countWidth = 0;
+
+        var count = 0;
+
+        // 10.0 定义定时器
+        // var timer = setInterval(function(){
+        //     countWidth +=10;
+        //     if(countWidth >= width){
+        //         clearInterval(timer);
+        //         return;
+        //     }
+        //     drawInnerRect(point.x , point.y,width*(60/100) , height,"red");
+        // },100)
+
+        // 11.0 执行定时器
+        var timer = setInterval(function(){
+            // 清空画布
+            ctx.clearRect(0,0,canvas.width,canvas.height);
+            // 改变计数器变量的值
+            count ++;
+            // 判断 达到百分之一百
+            if(count >= 100){
+                // 停止定时器
+                clearInterval(timer);
+                // return;
+            }
+            // 绘制外部的矩形
+            drawOuterRect(point.x , point.y,width,height,"orange");
+            // 绘制内部矩形
+            drawInnerRect(point.x , point.y,width*(count/100) , height,"red");
+             // 绘制文本
+            //  var text = (count/100)+"%";
+             var text = count == 100 ? "100%":count+"%";
+             //  文本的x坐标
+             var x0 = width*(count/100)+point.x;
+             drawText(text, x0 , point.y-20,"white");
+        },100)
+    </script>
+</body>
+</html>

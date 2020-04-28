@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>仿美丽说</title>
+	<!-- 引入外链式base.css文件,注意css文件所在路径 -->
+	<link rel="stylesheet" href="css/base.css">
+	<!-- 引入网站图标,如果需要生成ico图标,可以用一张图片,百度搜索比特虫可以在线转换图标 -->
+	<!-- link:favicon再按tab键 -->
+	<link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
+	<!-- 通过link标签的href属性引入外部css文件 -->
+	<!-- <link rel="stylesheet" href="css/index.css"> -->
+
+	<!-- 引入压缩过的css文件,体积更小 -->
+	<link rel="stylesheet" href="css/index.min.css">
+</head>
+<body>
+	<!-- header头部开始 -->
+	<div class="header">
+		<div class="w">
+			<ul class="fr">
+				<li><a href="#"><span class="weixin"></span>微信登录</a></li>
+				<li><a href="#"><span class="qq"></span>QQ登录</a></li>
+				<li><a href="#">登录</a></li>
+				<li><a href="#">注册</a></li>
+				<li class="drop">
+					<a href="#"><span class="shoucang"></span>我的收藏</a>
+					<!-- 列表的嵌套 -->
+					<ul class="down">
+						<li><a href="#">收藏宝贝</a></li>
+						<li><a href="#">收藏店铺</a></li>
+					</ul>
+				</li>
+				<li><a href="#"><span class="cart"></span>我的购物车</a></li>
+				<li><a href="#"><span class="orderlist"></span>我的订单</a></li>
+				<li class="drop">
+					<a href="#">帮助中心<span class="help_center"></span></a>
+					<!-- 列表的嵌套 -->
+					<ul class="down">
+						<li><a href="#">买家服务</a></li>
+						<li><a href="#">商家服务</a></li>
+						<li><a href="#">规则中心</a></li>
+					</ul>
+				</li>
+				<li><a href="#">商家后台</a></li>
+			</ul>
+		</div>
+	</div>
+	<!-- header头部结束 -->
+	
+	<style>
+		/*logo层样式开始*/
+		.logo{
+			height: 157px;
+		}
+		.logo .logo_img{
+			width: 204px;
+			height: 52px;
+			margin-top: 40px;
+		}
+		.logo .logo_img a img{
+			height: 52px;
+		}
+		.logo .search{
+			width: 520px;
+			height: 81px;
+			margin-left: 156px;
+			margin-top: 21px;
+		}
+		.logo .search .baobei{
+			height: 24px;
+		}
+		.logo .search .baobei span{
+			width: 56px;
+			height: 24px;
+			background: #f2f2f2;
+			color:#666666;
+			float:left;
+			text-align: center;
+			line-height: 24px;
+			/*鼠标模拟小手样式*/
+			cursor: pointer;
+		}
+		.logo .search .baobei span:first-child{
+			background: #f36;
+			color:white;
+		}
+		.logo .search .search_box{
+			height: 32px;
+			background: blue;
+		}
+		.logo .search .search_box input{
+			width: 445px;
+			height: 28px;
+			border:2px solid #f36;
+		}
+		.logo .search .search_box .fangdajing{
+			width: 71px;
+			height: 32px;
+			background: url(images/fangdajing.png) no-repeat center center #f36;
+			cursor: pointer;
+		}
+		.logo .search .hot_words{
+			overflow: hidden;
+			margin-top: 13px;
+		}
+		.logo .search .hot_words ul li{
+			float: left;
+		}
+		.logo .search .hot_words ul li a{
+			padding-right: 10px;
+		}
+		.logo .search .hot_words ul li:last-child a{
+			padding-right: 0;
+		}
+		.logo .search .hot_words ul li a:hover{
+			color:#666666;
+		}
+		/*交集选择器*/
+		/*.active是一个自定义类名,active活动的意思*/
+		.logo .search .hot_words ul li a.active{
+			color:#f36;
+		}
+		.logo .search .hot_words ul li a.active:hover{
+			color:#f36;
+		}
+		/*logo层样式结束*/
+	</style>
+	<!-- logo层开始 -->
+	<div class="logo w">
+		<!-- logo图片 -->
+		<div class="logo_img fl">
+			<a href="#"><img src="images/logo.png"/></a>
+		</div>
+		
+		<!-- 搜索层 -->
+		<div class="search fl">
+			<!-- 上部分:宝贝,店铺 -->
+			<div class="baobei">
+				<span>宝贝</span><span>店铺</span>
+			</div>
+
+			<!-- 中部分:搜索框和搜索按钮 -->
+			<div class="search_box">
+				<!-- 文本输入框 -->
+				<input type="text" class="fl"/>
+				<!-- 放大镜 -->
+				<span class="fangdajing fl"></span>
+			</div>
+
+			<!-- 热门搜索词条 -->
+			<div class="hot_words">
+				<ul>
+					<li><a href="#" class="active">连衣裙</a></li>
+					<li><a href="#">运动鞋</a></li>
+					<li><a href="#" class="active">雪纺衫</a></li>
+					<li><a href="#" class="active">衬衫</a></li>
+					<li><a href="#">薄外套</a></li>
+					<li><a href="#">T恤</a></li>
+					<li><a href="#">套装</a></li>
+					<li><a href="#">牛仔裤</a></li>
+					<li><a href="#" class="active">小白鞋</a></li>
+					<li><a href="#">风衣</a></li>
+					<li><a href="#" class="active">绑带凉鞋</a></li>
+					<li><a href="#">粗跟单鞋</a></li>
+				</ul>
+			</div>
+		</div>
+		
+		<!-- 扫我下载 -->
+		<div class="download_app fr">
+			<img src="images/meilishuo_app.gif"/>
+		</div>
+	</div>
+	<!-- logo层结束 -->
+	
+	<!-- 主导航栏开始 -->
+	<div class="main_nav">
+		<div class="w">
+			<ul>
+				<li><a href="#">首页</a></li>
+				<li><a href="#">上衣</a></li>
+				<li><a href="#">裙子</a></li>
+				<li><a href="#">裤子</a></li>
+				<li><a href="#">女鞋</a></li>
+				<li><a href="#">包包</a></li>
+				<li><a href="#">配饰</a></li>
+				<li><a href="#">美妆</a></li>
+				<li><a href="#">男友</a></li>
+				<li><a href="#">童装</a></li>
+				<li><a href="#">家居</a></li>
+			</ul>
+		</div>
+	</div>
+	<!-- 主导航栏结束 -->
+	
+	
+	<!-- 轮播图层开始 -->
+	<div class="banner w">
+		<!-- 左按钮 -->
+		<div class="left_btn"><img src="images/prev.png"></div>
+		<!-- 右按钮 -->
+		<div class="right_btn"><img src="images/next.png"/></div>
+		<ul>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+	</div>
+	<!-- 轮播图层结束 -->
+	
+	
+	<!-- 今日新品开始 -->
+	<div class="today_new w">
+		<!-- 行内块以及行内元素,如果HTML结构有换行就会出现左右的小缝隙 -->
+		<!-- HTML通用属性style,class,id,title -->
+		<a href="#"><img src="images/kinds01.png" title="今日新品"></a>
+		<a href="#"><img src="images/kinds02.png" title="热销单品"></a>
+		<a href="#"><img src="images/kinds03.png" title="每日特价"></a>
+		<a href="#"><img src="images/kinds04.png" title="好物专题"></a>
+	</div>
+	<!-- 今日新品结束 -->
+	
+	
+	<!-- 侧边栏开始 -->
+	<div class="sidebar">
+		<ul>
+			<li>
+				<a href="#">
+					<span class="iconfont">&#xe692;</span>下载<span class="app">APP</span>
+					<!-- a链接里面是可以包裹div的,但是a链接是不能再出现a链接 -->
+					<div class="qrcode">
+						<img src="images/meili-app-qrcode140X140.png"/>
+					</div>
+				</a>
+			</li>
+
+			<li><a href="#"><span class="iconfont">&#xe638;</span>购物车</a></li>
+			<li><a href="#"><span class="iconfont">&#xe623;</span>消息</a></li>
+			<li><a href="#"><span class="iconfont">&#xe62a;</span>优惠券</a></li>
+			<li><a href="#"><span class="iconfont">&#xe631;</span>收藏</a></li>
+			<li><a href="#"><span class="iconfont">&#xe61c;</span>足迹</a></li>
+		</ul>
+	</div>	
+	<!-- 侧边栏结束 -->
+	
+	
+	<!-- 今日新品开始 -->
+	<div class="today_new_goods w">
+		<!-- 上部分 标题 -->
+		<div class="title">
+			<a href="#" class="fr">查看更多></a>
+
+			<ul>
+				<li><a href="#">今<span>日新</span>品</a></li>
+				<li><a href="#">一<span>周热</span>销</a></li>
+			</ul>
+		</div>
+		<!-- 下部分 内容 -->
+		<div class="content">
+			<ul>
+				<li>
+					<!-- 图片部分 -->
+					<a href="#"><img src="images/goods01.png"/></a>
+
+					<!-- 价格与收藏数目部分 -->
+					<div class="info">
+						<span class="price fl">93.75</span>
+						<span class="collect fr">250</span>
+					</div>
+
+					<!-- 商品描述部分 -->
+					<p class="desc">小清新新款韩版气质收腰显瘦百搭蕾丝边V领木耳边镂空休闲连衣裙</p>
+
+				</li>
+
+				<li>
+					<!-- 图片部分 -->
+					<a href="#"><img src="images/goods02.png"/></a>
+
+					<!-- 价格与收藏数目部分 -->
+					<div class="info">
+						<span class="price fl">93.75</span>
+						<span class="collect fr">250</span>
+					</div>
+
+					<!-- 商品描述部分 -->
+					<p class="desc">小清新新款韩版气质收腰显瘦百搭蕾丝边V领木耳边镂空休闲连衣裙</p>
+
+				</li>
+
+				<li>
+					<!-- 图片部分 -->
+					<a href="#"><img src="images/goods03.png"/></a>
+
+					<!-- 价格与收藏数目部分 -->
+					<div class="info">
+						<span class="price fl">93.75</span>
+						<span class="collect fr">250</span>
+					</div>
+
+					<!-- 商品描述部分 -->
+					<p class="desc">小清新新款韩版气质收腰显瘦百搭蕾丝边V领木耳边镂空休闲连衣裙</p>
+
+				</li>
+
+				<li>
+					<!-- 图片部分 -->
+					<a href="#"><img src="images/goods04.png"/></a>
+
+					<!-- 价格与收藏数目部分 -->
+					<div class="info">
+						<span class="price fl">93.75</span>
+						<span class="collect fr">250</span>
+					</div>
+
+					<!-- 商品描述部分 -->
+					<p class="desc">小清新新款韩版气质收腰显瘦百搭蕾丝边V领木耳边镂空休闲连衣裙</p>
+
+				</li>
+
+				<li>
+					<!-- 图片部分 -->
+					<a href="#"><img src="images/goods05.png"/></a>
+
+					<!-- 价格与收藏数目部分 -->
+					<div class="info">
+						<span class="price fl">93.75</span>
+						<span class="collect fr">250</span>
+					</div>
+
+					<!-- 商品描述部分 -->
+					<p class="desc">小清新新款韩版气质收腰显瘦百搭蕾丝边V领木耳边镂空休闲连衣裙</p>
+
+				</li>
+
+				<li>
+					<!-- 图片部分 -->
+					<a href="#"><img src="images/goods06.png"/></a>
+
+					<!-- 价格与收藏数目部分 -->
+					<div class="info">
+						<span class="price fl">93.75</span>
+						<span class="collect fr">250</span>
+					</div>
+
+					<!-- 商品描述部分 -->
+					<p class="desc">小清新新款韩版气质收腰显瘦百搭蕾丝边V领木耳边镂空休闲连衣裙</p>
+
+				</li>
+
+				<li>
+					<!-- 图片部分 -->
+					<a href="#"><img src="images/goods07.png"/></a>
+
+					<!-- 价格与收藏数目部分 -->
+					<div class="info">
+						<span class="price fl">93.75</span>
+						<span class="collect fr">250</span>
+					</div>
+
+					<!-- 商品描述部分 -->
+					<p class="desc">小清新新款韩版气质收腰显瘦百搭蕾丝边V领木耳边镂空休闲连衣裙</p>
+
+				</li>
+
+				<li>
+					<!-- 图片部分 -->
+					<a href="#"><img src="images/goods08.png"/></a>
+
+					<!-- 价格与收藏数目部分 -->
+					<div class="info">
+						<span class="price fl">93.75</span>
+						<span class="collect fr">250</span>
+					</div>
+
+					<!-- 商品描述部分 -->
+					<p class="desc">小清新新款韩版气质收腰显瘦百搭蕾丝边V领木耳边镂空休闲连衣裙</p>
+
+				</li>
+
+				<li>
+					<!-- 图片部分 -->
+					<a href="#"><img src="images/goods09.png"/></a>
+
+					<!-- 价格与收藏数目部分 -->
+					<div class="info">
+						<span class="price fl">93.75</span>
+						<span class="collect fr">250</span>
+					</div>
+
+					<!-- 商品描述部分 -->
+					<p class="desc">小清新新款韩版气质收腰显瘦百搭蕾丝边V领木耳边镂空休闲连衣裙</p>
+
+				</li>
+
+				<li>
+					<!-- 图片部分 -->
+					<a href="#"><img src="images/goods10.png"/></a>
+
+					<!-- 价格与收藏数目部分 -->
+					<div class="info">
+						<span class="price fl">93.75</span>
+						<span class="collect fr">250</span>
+					</div>
+
+					<!-- 商品描述部分 -->
+					<p class="desc">小清新新款韩版气质收腰显瘦百搭蕾丝边V领木耳边镂空休闲连衣裙</p>
+
+				</li>
+			</ul>
+		</div>
+	</div>
+	<!-- 今日新品结束 -->
+
+	
+	
+	<!-- 好物组货开始 -->
+	<div class="good_set w">
+		<!-- 上部分	标题 -->
+		<div class="title">
+			<a href="#" class="fr">查看更多></a>
+			<h2>好物组货</h2>
+		</div>
+		<!-- 下部分	内容 -->
+		<div class="content">
+			<!-- item是项目的意思,代表每一项 -->
+			<div class="item">
+				<!-- 上部分大图 -->
+				<div class="bigImg">
+					<a href="#">
+						<img src="images/newProduct01.png"/>
+						<div class="mask">50款商品</div>
+					</a>
+				</div>
+
+				<!-- 下部分三个小图 -->
+				<div class="threeSmallImg">
+					<a href="#"><img src="images/dress01.png"/>¥ 100.00</a>
+					<a href="#"><img src="images/dress02.png"/>¥ 100.00</a>
+					<a href="#"><img src="images/dress03.png"/>¥ 100.00</a>
+				</div>
+			</div>
+
+			<!-- item是项目的意思,代表每一项 -->
+			<div class="item">
+				<!-- 上部分大图 -->
+				<div class="bigImg">
+					<a href="#">
+						<img src="images/newProduct02.png"/>
+						<div class="mask">86款商品</div>
+					</a>
+				</div>
+
+				<!-- 下部分三个小图 -->
+				<div class="threeSmallImg">
+					<a href="#"><img src="images/pants01.png"/>¥ 100.00</a>
+					<a href="#"><img src="images/pants02.png"/>¥ 100.00</a>
+					<a href="#"><img src="images/pants03.png"/>¥ 100.00</a>
+				</div>
+			</div>
+
+			<!-- item是项目的意思,代表每一项 -->
+			<div class="item">
+				<!-- 上部分大图 -->
+				<div class="bigImg">
+					<a href="#">
+						<img src="images/newProduct03.png"/>
+						<div class="mask">60款商品</div>
+					</a>
+				</div>
+
+				<!-- 下部分三个小图 -->
+				<div class="threeSmallImg">
+					<a href="#"><img src="images/shoes01.png"/>¥ 100.00</a>
+					<a href="#"><img src="images/shoes02.png"/>¥ 100.00</a>
+					<a href="#"><img src="images/shoes03.png"/>¥ 100.00</a>
+				</div>
+			</div>
+
+		</div>
+	</div>
+	<!-- 好物组货结束 -->
+	
+	
+	<!-- 底部开始 -->
+	<div class="footer">
+		<div class="w">
+			<!-- 上部分 -->
+			<div class="top">
+				<!-- 上部分左边 -->
+				<div class="top_left fl">
+					<!-- 我们使用自定义列表做这个效果,第一个跟其他不一样的时候,就可以考虑使用自定义列表;如果每个几乎都一样,那么选用无序列表 -->
+					<dl>
+						<dt>买家帮助</dt>
+						<dd><a href="#">新手指南</a></dd>
+						<dd><a href="#">服务保障</a></dd>
+						<dd><a href="#">常见问题</a></dd>
+						<dd><a href="#">风险监测</a></dd>
+					</dl>
+
+					<dl>
+						<dt>商家帮助</dt>
+						<dd><a href="#">供货商招募</a></dd>
+						<dd><a href="#">商家后台</a></dd>
+					</dl>
+
+
+					<dl>
+						<dt>关于我们</dt>
+						<dd><a href="#">关于美丽说</a></dd>
+						<dd><a href="#">联系我们</a></dd>
+					</dl>
+
+					<dl>
+						<dt>关注我们</dt>
+						<dd><a href="#"><span class="sina"></span>新浪微博</a></dd>
+						<dd><a href="#"><span class="qq_zone"></span>QQ空间</a></dd>
+						<dd><a href="#"><span class="weibo"></span>腾讯微博</a></dd>
+					</dl>
+
+				</div>
+				<!-- 上部分右边 -->
+				<div class="top_right fr">
+					
+					<div class="weixin_server fl">
+						<p>美丽说微信服务号</p>
+						<img src="images/weixin-server-qrcode.jpg"/>
+					</div>
+
+					<div class="download fr">
+						<p>美丽说客户端下载</p>
+						<img src="images/meili-app-qrcode.png"/>
+					</div>
+
+				</div>
+			</div>
+			<!-- 下部分 -->
+			<div class="bottom">
+				<p>Copyright ©2017 xxxxxxxx.com 电信与信息服务业务经营许可证xxxxxx号 经营性网站备案信息</p>
+				<p>京ICP备xxxxxxxx号 京公网安备xxxxxxxx 客服电话：xxxx-xxx-xxx 文明办网文明上网举报电话：xxx-xxxxxxxx 违法不良信息举报中心</p>
+			</div>
+		</div>
+	</div>
+	<!-- 底部结束 -->
+</body>
+</html>

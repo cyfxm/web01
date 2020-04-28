@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>柱状图</title>
+    <style>
+        #canvas {
+            background-color: skyblue;
+        }
+    </style>
+</head>
+<body>
+
+    <canvas id="canvas"></canvas>
+
+
+
+
+
+</body>
+</html>
+<script>
+    var canvas = document.querySelector("#canvas");
+    canvas.width = 1000;
+    canvas.height = 800;
+    var ctx = canvas.getContext('2d');
+    var point = {
+        x:100,
+        y:700
+    }
+     //假数据
+     var data = [
+        { "date": "一月份", "persent": "0.3", "color": "red" },
+        { "date": "二月份", "persent": "0.2", "color": "green" },
+        { "date": "三月份", "persent": "0.05", "color": "blue" },
+        { "date": "四月份", "persent": "0.35", "color": "orange" },
+        { "date": "五月份", "persent": "0.1", "color": "purple" }
+    ]
+
+    // 线
+    function drawLine(x,y,x0,y0,color){
+        var color = color || 'red';
+        ctx.beginPath();
+        ctx.strokeStyle =color;
+        ctx.moveTo(x,y);
+        ctx.lineTo(x0,y0);
+        ctx.closePath();
+        ctx.stroke();
+    }
+    function drawRect(x,y,x0,y0,color){
+        var color = color || 'red';
+        ctx.beginPath();
+        ctx.fillStyle =color;
+        ctx.rect(x,y,x0,y0);
+        ctx.closePath();
+        ctx.fill();
+    }
+    function drawText(str,x,y,color){
+        ctx.font="30px Microsoft Yahei";
+        var color = color || 'blue';
+        ctx.strokeStyle=color;
+        ctx.beginPath();
+        ctx.textAlign="center";
+        ctx.textBaseline="middle";
+        ctx.closePath();
+        ctx.strokeText(str,x,y);
+    }
+
+    drawLine(point.x ,point.y,point.x,point.y-600);
+    drawLine(point.x ,point.y,point.x+800,point.y);
+    // x , y  , w , h 
+    // drawRect(point.x+50, point.y-600*data[0].persent,100,600*data[0].persent);
+    // drawRect(point.x+200,point.y-600*data[1].persent,100,600*data[1].persent);
+    // drawRect(point.x+350,point.y-600*data[2].persent,100,600*data[2].persent);
+    // drawRect(point.x+500,point.y-600*data[3].persent,100,600*data[3].persent);
+    // drawRect(point.x+650,point.y-600*data[4].persent,100,600*data[4].persent);
+    
+    // var v1 =  600*data[0].persent;
+    // var v2 =  point.y - v1;
+    // drawRect(point.x+50, v2, 100,v1);
+
+    var distance = 0;
+    var timer = setInterval(function(){
+        ctx.clearRect(0,0,1000,800);
+        drawLine(point.x ,point.y,point.x,point.y-600);
+        drawLine(point.x ,point.y,point.x+800,point.y);
+        distance +=10 ;
+        if(distance > 600){
+            clearInterval(timer);
+        }
+        // var v1 =  distance*data[0].persent;
+        // var v2 =  point.y - v1;
+        // drawRect(point.x+50, v2, 100,v1);
+        for(var i = 0 ; i < 5 ; i ++){
+            var v1 =  distance*data[i].persent;
+            var v2 =  point.y - v1;
+            drawRect(point.x+50+(i * 150), v2, 100,v1);
+            // 绘制文本
+            drawText(data[i].date,point.x+100+(i * 150), v2-30)
+        }
+    },10)
+
+</script>

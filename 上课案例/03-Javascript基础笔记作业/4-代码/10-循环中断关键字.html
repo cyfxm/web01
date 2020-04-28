@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript">
+		// 默认情况下,循环体会一直执行,直到不满足循环条件才结束
+		// 但是,我们可以使用循环中断关键字,让循环提前结束
+		// 循环中断关键字有两个
+		// 第一个:  break打断的意思,break会直接结束"整个循环"
+		// 第二个:  continue继续的意思,continue会"结束本次循环",继续"下一次新的循环"
+
+		// 举例: 小明吃5个包子，吃到第3个发现里面有半个虫子，其余的不吃了
+		/*for(var i = 1; i<= 5 ;i++){
+			document.write("小明吃第"+i+"个包子<br/>");
+
+			if(i == 3){
+				document.write("OMG,有半个虫子~<br/>");
+				// 直接结束整个循环,后续循环体就不用执行了
+				break;
+			}
+		}*/
+
+		// 举例:  小明吃5个包子，第3个有虫子，就扔掉第3个，继续吃第4个第5个包子
+		for(var i = 1; i<= 5 ;i++){
+
+			if(i == 3){
+				document.write("小明吃第3个包子,发现有虫子,扔掉<br/>");
+				continue;
+				// 结束本次循环,continue后面的代码,就不执行了,进入下一次循环
+			}
+
+			document.write("小明吃第"+i+"个包子<br/>");
+		}
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

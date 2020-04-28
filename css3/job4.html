@@ -1,0 +1,64 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+        <title></title>
+        <style>
+            canvas{
+                display: block;
+                margin: 50px auto;
+            }
+        </style>
+	</head>
+	<body style="background-color:skyblue"> 
+		<canvas id="canvas" width=1000 height=650></canvas>
+		<script>
+			var canvas = document.getElementById("canvas");
+			var startX = 100;
+			var startY = 400;
+			var ctx = canvas.getContext('2d');
+			var arr = [[100,0.3],[150,0.2],[200,0.05],[250,0.35],[300,0.1]];
+			function creat(){
+				ctx.beginPath();
+				ctx.moveTo(startX,40);
+				ctx.lineTo(startX,startY);
+				ctx.moveTo(startX,startY);
+				ctx.lineTo(500,startY);
+				ctx.closePath();
+				ctx.stroke();
+ 
+			}
+			function resect(){
+				var x = 100;
+                var y = 400;
+				x = 100;
+				y = 600;
+			}
+			var num = 0;
+			var timer = setInterval(function(){
+				if(num == 0)
+					ctx.beginPath();
+				if(num == 4){
+					clearInterval(timer);
+                }
+                
+                var x = arr[num][0];
+                console.log(x)
+                var y = arr[num][1]*600;
+                console.log(y)
+				x += 100;
+				y = startY - y;
+				ctx.arc(x,y, 2, 0, 2*Math.PI);
+				if(num != 0)
+					ctx.lineTo(x,y);
+				num++;
+				ctx.moveTo(x,y);
+				ctx.strokeStyle = "#3FA7DC";
+				ctx.stroke();
+				console.log(num);
+			}, 400);
+			creat();
+			resect();
+		</script>
+	</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // (Array)把下面数组的首尾两个元素互换
+        // var arr = ["鹿晗","王俊凯","蔡徐坤","彭于晏","周杰伦","刘德华","赵本山"];
+        var arr = ["鹿晗","王俊凯","蔡徐坤","彭于晏","周杰伦","刘德华","赵本山"];
+
+        // 从头部取出第一个元素
+        var first = arr.shift();
+        // 从尾部取出最后一个元素
+        var last = arr.pop();
+        // console.log( first ,last );
+        // console.log( arr );
+
+        // 在头部添加刚取出来的最后一个元素
+        arr.unshift( last );
+
+        // 在尾部添加刚取出来的第一个元素
+        arr.push( first );
+        
+        console.log( arr );
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

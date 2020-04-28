@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		/*font连写,可以同时设置字体大小,字体加粗,字体倾斜,字体名称以及行高,但是有一定的顺序,如果不按顺序写,会出错;  不建议大家使用,容易出错 */
+		
+		
+		div{
+			background-color:pink;
+			height: 200px;
+			/*设置行高跟高度一样,可以实现单行文字成垂直居中*/
+			/*line-height: 200px;
+			font-size:50px;
+			font-weight: bold;
+			font-style:italic;
+			font-family: "楷体";*/
+
+			/*
+				font: font-style font-weight   font-size/line-height font-family
+				font: 是否斜体   是否加粗     字体大小/行高         何种字体
+			*/
+			/*font:italic bold 50px/200px "楷体";*/
+			/*font:bold italic  50px/200px "楷体";*/
+			/*font: italic  50px/200px "楷体";*/
+			/*font: bold  50px/200px "楷体";*/
+			
+			/*出错*/
+			/*font:italic bold "楷体" 50px/200px ;*/
+			
+			/*出错*/
+			/*font:italic bold 50px/200px;*/
+
+
+			font:italic bold 50px "楷体";
+			/*注意:*/
+			/*font： [font-style <=> font-weight]   font-size[/line-height] !<=> font-family*/
+			/*1. font-style 和 font-weight 可以省略，可以font-style跟font-weight可以互换顺序*/
+			/*2. font-size 和font-family都不可以省略，也不可以颠倒顺序*/
+			/*3.   line-height可以省略,只有一个数值px的时候就是font-size*/
+			/*4.   所以使用font连写的时候,最少要有font-size , font-family并且顺序不能颠倒*/
+		}
+	</style>
+</head>
+<body>
+	<div>
+		最后一节课,大家辛苦了
+	</div>
+</body>
+</html>

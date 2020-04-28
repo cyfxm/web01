@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript">
+		// 练习: 写一个函数计算1~100之间所有数的和
+
+		// 定义函数的步骤:重点
+		// 第一步:确定需要重复使用代码(如果有不确定值的时候,就需要使用形参),这个就是函数体
+		// 第二步:定义函数,用function把函数体包起来
+		// 第三步:确定是否需要返回值
+
+		// 定义函数,定义函数的时候,函数体不会被执行
+		function getSum(){
+			var sum = 0;
+			for(var i=1;i<=100;i++){
+				sum += i;
+			}
+			document.write( sum );
+		}
+
+		// 调用函数
+		getSum();
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

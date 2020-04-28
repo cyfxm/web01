@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>滚动加载</title>
+    <style>
+        ul {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+
+        ul li a {
+            display: block;
+            min-height: 150px;
+            border: 1px solid #ccc;
+            margin: 10px 0;
+            overflow: hidden;
+        }
+        ul li a img {
+            width: 100px;
+            float: left;
+        }
+        ul li a div {
+            float: left;
+        }
+        ul li a p {
+            padding: 0;
+        }
+        .loading {
+            width: 80px;
+            height: 80px;
+            margin: 50px auto;
+            display: none;
+        }
+        /* .loading img {} */
+
+        .header h1 {
+            padding: 0;
+            margin: 0;
+            height: 80px;
+            text-align: center;
+            line-height: 80px;
+            background-color: #333;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="wrapper">
+        <div class="header"><h1>滚动加载案例</h1></div>
+        <div class="main">
+            <ul id="list_box">
+                <!-- <li>
+                    <a href="javascript:;">
+                        <img src="http://127.0.0.1:3005/images/1.jpg" alt="">
+                        <div>
+                            <p>标题描述文字</p>
+                            <p>内容描述文字</p>
+                        </div>
+                    </a>
+                </li> -->
+               
+            </ul>
+        </div>
+        <div class="loading" data-page="0">
+            <img src="./loading/loading.gif" alt="">
+        </div>
+    </div>
+
+
+
+</body>
+</html>
+<script src="./libs/jquery/jquery.js"></script>
+<script>
+    $(function(){
+            // 接口地址
+            // http://127.0.0.1:3005/list
+            // 请求方式 ： get
+            // 参数：
+            //  属性名     数据类型   是否必须填写
+            //  page        number     是
+            //  pageSize    number     是
+            //  返回值 ：
+            // 
+            var isLoading = true;
+            // 1.0 初始化的函数
+            function init(){
+                //1.0.1 获取第一页 5条数据
+                getData(0,5,function(res){
+                    console.log(res);
+                    // 1.0.2 渲染页面
+                    render(res);
+                    // 1.0.3 隐藏正在加载的图标
+                    $(".loading").hide();
+                    // 1.0.4 给loading标签添加自定义属性值
+                    $(".loading").attr('data-page',res.page);
+                    // 1.0.5 布尔值设置true 就允许加载数据
+                    isLoading = true;
+                });
+            }
+            // 1.0.
+            init();
+
+
+            // 2.0 获取数据的函数
+            function getData(page,pageSize,callback){
+                $.ajax({
+                    url:"http://127.0.0.1:3005/list",
+                    type:"get",
+                    async:true,
+                    data:{
+                        page:page,
+                        pageSize:pageSize
+                    },
+                    // jquery 的ajax beforeSend
+                    // 请求之前执行的回调函数
+                    beforeSend:function(){
+                        $(".loading").show(); //显示加载图标
+                        isLoading = false; // 比如：数据正在加载
+                    },
+                    success:function(res){
+                        if(callback){
+                            callback(res);
+                        }
+                    },
+                    error:function(err){
+                        console.log(err);
+                    }
+                })
+
+            }
+
+
+            // 3.0 渲染数据的函数
+            function render(res){
+                // 3.0.1
+                var html = "";
+                // 3.0.2 循环
+                var arr = res.result;
+                // 3.0.3
+                for(var i = 0 ; i < arr.length ; i++){
+
+                    html += '<li>'
+                    html += '    <a href="javascript:;">'
+                    html += '        <img src="'+arr[i].src+'" alt="">'
+                    html += '        <div>'
+                    html += '            <p>'+arr[i].title+'</p>'
+                    html += '            <p>'+arr[i].content+'</p>'
+                    html += '        </div>'
+                    html += '    </a>'
+                    html += '</li>'
+
+                }
+                // 3.0.4 渲染字符串
+                $("#list_box").append(html);
+                // 
+                // isLoading = true;
+            }
+
+
+            // 4.0 滚动加载
+            $(window).scroll(function(){
+                ///超出浏览器的高度
+                var tt = $(document).scrollTop(); 
+                //页面的高度
+                var pageHeight = document.documentElement.offsetHeight;
+                // 可视区的高度
+                var winHeight = window.innerHeight;
+                console.log(tt,pageHeight,winHeight)
+
+                // 页面剩余的高度
+                var  height = pageHeight - (tt + winHeight) ;
+                // 判断 这里的条件有两个 
+                // 剩余高度  ， 是否正在加载数据
+                // console.log(height , (height < 100))
+                if((height < 100) && isLoading){
+                    // console.log("test ")
+                    // 加载数据
+                    var page = $(".loading").attr("data-page");
+                    // 滚动页面，满足条件获取数据
+                    getData(page,5,function(res){
+                            console.log(res,'test')
+                            if(!res){ return ;}
+                            // 渲染页面
+                            render(res);
+                            // 隐藏正在加载的图标
+                            $(".loading").hide();
+                            // 给loading标签添加自定义属性值
+                            $(".loading").attr('data-page',res.page);
+                            // 
+                            isLoading = true;
+                    })
+                }
+            })
+    })
+
+</script>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>边框阴影</title>
+    <style>
+        body {
+            background-color: #f0f0f0;
+        }
+       .nav {
+            height: 200px;
+            margin: 50px 0;
+        }
+        .container {
+            width: 1200px;
+            margin: 0 auto;
+        }
+        .nav h1 {
+            font-size: 50px;
+            color: white;
+        }
+
+      
+        .nav1 {
+            /* box-shadow: 1px 1px 3px 10px（可选） blue; */
+            box-shadow: 5px 1px 3px  blue;
+        }
+        .nav2 {
+            /* 注意：边框有没添加了Inset这个值 */
+            /* 如有inset这个值，那么 */
+            /* 水平偏移量，如果负数是往右，正数往左边 */
+            /* 垂直偏移量，如果负数是往下，正数往上边 */
+            box-shadow: -5px -1px 3px  blue inset;
+        }
+    </style>
+</head>
+<body>
+
+ 
+
+    <div class="nav nav1">
+        <div class="container">
+            <h1> 你好，世界！ </h1>
+        </div>
+    </div>
+
+    <div class="nav nav2">
+        <div class="container">
+            <h1> 你好，世界！ </h1>
+        </div>
+    </div>
+
+
+
+</body>
+</html>

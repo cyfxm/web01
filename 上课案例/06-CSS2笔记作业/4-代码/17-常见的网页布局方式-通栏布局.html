@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		/*常见的网页布局方式有三种:版心布局,通栏布局,分栏布局*/
+		/*通栏布局:高度不到页面的一半,宽度和页面一样,也就是宽度是页面的100%*/
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.header{
+			background: red;
+			height: 50px;
+		}
+		.banner{
+			background: green;
+			height: 100px;
+		}
+		.nav{
+			background: blue;
+			height: 100px;
+		}
+		.main{
+			background: pink;
+			height: 200px;
+		}
+		.footer{
+			background: skyblue;
+			height: 100px;
+		}
+
+		.w{
+			width: 1000px;
+			margin:0 auto;
+			/*为了让大家看到版心的位置,我们给版心设置了边框颜色*/
+			border:3px solid orange;
+		}
+	</style>
+</head>
+<body>
+	<!-- 通栏布局,宽度是页面的100%,内容从版心层开始显示 -->
+	<div class="header">
+		<!-- 把版心类加到.header层里面去 -->
+		<div class="w">
+			头部
+		</div>
+	</div>
+
+	<div class="banner w">轮播图层</div>
+	<div class="nav w">导航栏</div>
+	<div class="main w">主要内容层</div>
+	<div class="footer">
+		<div class="w">
+			底部
+		</div>
+	</div>
+</body>
+</html>

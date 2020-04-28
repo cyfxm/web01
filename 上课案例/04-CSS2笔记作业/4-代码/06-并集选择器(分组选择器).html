@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		/*并集选择器也可以叫分组选择器,主要用于提取公共样式*/
+		
+
+		/*选择器名
+		选择器1,选择器2,选择器3...{
+
+		}*/
+
+		/*只要满足选择器1,选择器2,选择器3...其中一个选择器,都是应用上对应的样式*/
+		div{
+			/*color:red;*/
+		}
+		p{
+			/*color:red;*/
+			font-style: italic;
+		}
+		.redFont{
+			/*color:red;*/
+			font-size:50px;
+		}
+
+		/*分组选择器 一般用于提取公共样式*/
+		div,p,.redFont{
+			color:blue;
+		}
+	</style>
+</head>
+<body>
+	<div>div的内容</div>
+	<p>p的内容</p>
+	<h1>标题内容</h1>
+	<div class="redFont">div的内容</div>
+</body>
+</html>

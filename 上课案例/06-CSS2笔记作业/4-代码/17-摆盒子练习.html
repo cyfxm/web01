@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		li{
+			list-style:none;
+		}
+
+		.box{
+			width: 1226px;
+			height: 615px;
+			background: lightgreen;
+			margin:0 auto;
+			margin-top: 50px;
+		}
+		.box .left{
+			width: 234px;
+			height: 100%;
+			background: purple;
+			float: left;
+		}
+		.box .right{
+			width: 992px;
+			background: skyblue;
+			height: 100%;
+			float:left;
+		}
+		.box .right ul li{
+			width: 234px;
+			height: 300px;
+			background: pink;
+			/*左浮动*/
+			float: left;
+			margin-left: 14px;
+		}
+		/*.box .right ul li:nth-child(1){
+			margin-bottom: 14px;
+		}
+		.box .right ul li:nth-child(2){
+			margin-bottom: 14px;
+		}
+		.box .right ul li:nth-child(3){
+			margin-bottom: 14px;
+		}
+		.box .right ul li:nth-child(4){
+			margin-bottom: 14px;
+		}*/
+
+		/*负方向范围 :nth-child(-n+9)*/
+		/*选中从第1个到第9个子元素。使用 :nth-child(-n+9) ，就相当让你选中第9个和其之前的所有子元素*/
+
+		/*:nth-child(-n+4)代表选中第1个到第4个子元素*/
+		.box .right ul li:nth-child(-n+4){
+			margin-bottom: 14px;
+		}
+
+	</style>
+</head>
+<body>
+	<div class="box">
+		<!-- 左部分 -->
+		<div class="left"></div>
+		<!-- 右部分 -->
+		<div class="right">
+			<ul>
+				<li>1</li>
+				<li>2</li>
+				<li>3</li>
+				<li>4</li>
+				<li>5</li>
+				<li>6</li>
+				<li>7</li>
+				<li>8</li>
+			</ul>
+		</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            height: 2000px;
+            background:skyblue;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        // 新方法 window.pageYOffset和 window.pageXOffset，IE9 开始支持
+        window.onscroll = function(){
+            //  window.pageYOffset不管有没声明DTD,都可以获取到页面被卷去的距离 IE9 开始支持
+            console.log( window.pageYOffset );
+        }
+    </script>
+</body>
+</html>

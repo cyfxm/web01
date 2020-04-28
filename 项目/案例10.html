@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+
+</head>
+<body>
+	
+</body>
+	<script type="text/javascript">
+		function getRandom(min,max){
+			return Math.floor( Math.random()*(max-min+1) + min )
+		}
+		var r = getRandom(0,255);
+		var g = getRandom(0,255);
+		var b = getRandom(0,255);
+
+		document.body.style.backgroundColor = "rgb("+r+","+g+","+b+")";
+	</script>
+</html>

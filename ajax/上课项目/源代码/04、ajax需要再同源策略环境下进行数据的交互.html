@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title></title>
+</head>
+<body>
+
+
+    <script>
+        // 同源策略：
+            // 协议，域名(ip), 端口 
+            // 提供的数据接口是符合 协议、域名(ip)、端口号一致
+            // XMLHttpRequest 仅在同源策略环境下可以执行
+
+            // 例如：
+            // 服务环境
+            // http://127.0.0.1:8000  
+
+
+            // 注意接口地址：
+            // http://127.0.0.1:5500/login    这是跨域，不是同源策略环境
+            // https://127.0.0.1:8000/login   这是跨域 ，不是同源策略环境
+            // http://47.106.96.132:8000/login      这是跨域 ，不是同源策略环境
+            // http://127.0.0.1:8000/login      这是是同源策略环境 这才可以使用ajax      XMLHttpRequest() 
+
+    </script>
+</body>
+</html>

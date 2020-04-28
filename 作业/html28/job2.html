@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="one">
+        <button>点击按钮，大小变为20px</button>
+        <button>点击按钮，大小变为40px</button>
+        <button>点击按钮，大小变为60px</button>
+    </div>
+    <div>
+        <p>我是段落内容</p>
+    </div>
+    <script>
+        var btn = document.querySelectorAll("button");
+        var p = document.querySelector("p");
+        for( var i = 0; i < btn.length; i++){
+            (function(index){
+                btn[i].onclick = function(){ 
+                   p.style.fontSize = index*20 + 20 + "px";
+                }
+            })(i)
+        };
+
+    </script>
+</body>
+</html>

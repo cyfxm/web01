@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript">
+		// 如何在函数外面 访问函数里面定义的变量   重点,掌握
+		// 方法一:只需要将函数里面定义的变量的var关键字给去掉就可以实现将局部变量的作用域提升至全局作用域。(不推荐大家使用)
+
+		function fn1(){
+			// 此时函数里面有var定义的变量是局部变量,在函数外是使用不了的
+			// var a = 10;
+
+			// 去掉var关键字,就可以将局部作用域提升成全局作用域
+			a = 10;
+			console.log( a );
+		}
+		// 调用函数,执行函数体代码
+		fn1();
+
+		console.log( a );
+		console.log("");
+		console.log("");
+		console.log("");
+
+		// 方法二:我们并不建议直接就var 关键字给省略，我们建议在"函数的外面定义一个同名"的全局变量。
+
+		// 在函数外定义一个同名全局变量,定义变量,但是不赋值
+		var b;
+
+		function fn2(){
+			// 给全局变量b赋值
+			b = 20;
+			console.log( b );
+		}
+		// 调用函数,才会执行函数体中的代码
+		fn2();
+		console.log( b );
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

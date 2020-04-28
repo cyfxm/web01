@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript">
+		// 可以先使用HTML把表格做出来,然后慢慢得使用js输出表格
+		
+		// 表格的开始标签
+		var str =  "<table border='1' rules='all' width='500'>";
+			
+			// 第一行
+			str += "<tr>";
+			str += "<td colspan='4'><h3 align='center'><font color='red'>张三疯的个人简历<font></h3></td>"
+			str += "</tr>";
+
+			// 第二行
+			str += "<tr>";
+			str += "<td align='right'><b>姓名:</b></td>";
+			str += "<td>张三疯</td>";
+			str += "<td align='right'><b>性别:</b></td>";
+			str += "<td>男</td>";
+			str += "</tr>";
+
+			// 第三行
+			str += "<tr>";
+			str += "<td align='right'><b>年龄:</b></td>";
+			str += "<td>34岁</td>";
+			str += "<td align='right'><b>学历:</b></td>";
+			str += "<td>大专</td>";
+			str += "</tr>";
+
+
+			// 第四行
+			str += "<tr>";
+			str += "<td align='right'><b>毕业时间:</b></td>";
+			str += "<td>2005年7月</td>";
+			str += "<td align='right'><b>毕业学校:</b></td>";
+			str += "<td>北京科技大学</td>";
+			str += "</tr>";
+
+			// 表格的结束标签
+			str += "</table>";
+
+			// 使用document.write输出整个str字符串,html标签会浏览器会帮我解析
+			document.write(str);
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

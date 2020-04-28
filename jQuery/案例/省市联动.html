@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <select id="provinceId">
+        <option value="1">请选择你的城市—————</option>
+    </select>
+    <select id="cityId">
+        <option value="1">广州市</option>
+    </select>
+
+    <script src="../js/jquery-3.4.1.js"></script>
+    <script>
+        $(function(){
+            var data = [
+                {
+                    "province_name":"广东省",
+                    "province_id":"1",
+                    "citys":[
+                        {"name":"广州市"},
+                        {"name":"深圳市"},
+                        {"name":"惠州市"},
+                    ]
+                },
+                {
+                    "province_name":"广西省",
+                    "province_id":"2",
+                    "citys":[
+                        {"name":"南宁市"},
+                        {"name":"桂林市"},
+                        {"name":"百色市"},
+                    ]
+                },
+                {
+                    "province_name":"浙江省",
+                    "province_id":"3",
+                    "citys":[
+                        {"name":"温州市"},
+                        {"name":"深圳市"},
+                        {"name":"惠州市"},
+                    ]
+                }
+            ]
+
+        var html_province = '';
+        $.each(data,function(i,o){
+            html_province += '<option value="'+o.province_id+'">'+o.province_name+'</option>';
+        })
+
+        $("#provinceId").html(html_province);
+        $("#provinceId").change(function(){
+            var id = $(this).val();
+            var html_city = '';
+            var arr = [];
+            $.each(data,function(i,item){
+                if(item.province_id == id){
+                    arr = item.citys;
+                }
+            })
+        })
+        $.each(arr,function(i,item){
+            html_city +='<option value="">'+item.name+'</option>';
+        })
+        $("#cityId").html(html_city)
+    })
+    </script>
+</body>
+</html>

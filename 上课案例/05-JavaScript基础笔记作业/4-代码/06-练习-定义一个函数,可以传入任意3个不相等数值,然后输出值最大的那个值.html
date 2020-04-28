@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript">
+		// 第一种方法
+		function getMax1(a,b,c){
+			var arr = [a,b,c];
+			var maxValue = a;
+			for(var i=1;i<arr.length;i++){
+				if(maxValue < arr[i] ){
+					maxValue = arr[i];
+				}
+			}
+			document.write( maxValue );
+		}
+
+		getMax1( 10,50,20 );
+
+		document.write("<hr/>");
+		
+		// 第二种方法
+		function getMax2(a,b,c){
+			// 基本上可以使用if...else双分支结构的,都可以使用三目运算符
+
+			// 三目运算符的语法
+			// 条件表达式 ? 成立时的代码 : 失败时的代码;
+
+			// 先找到a和b中大的那个值
+			var max = a > b ? a : b;
+			// 再拿a和b中大的那个值跟另一个比
+				max = max > c ? max : c;
+			document.write( max );
+		}
+		getMax2(5,1,75);
+
+		document.write("<hr/>");
+
+		// 第三种方法
+		function getMax3(a,b,c){
+			var max = (a > b ? a : b) > c ? (a > b ? a : b) : c;
+			document.write( max );
+		}
+		getMax3(5,1,75);
+		document.write("<hr/>");
+
+		// 第四种方法
+		function getMax4(a,b,c){
+			var max = a > b ? (a>c ? a:c) : (b > c ? b:c);
+			document.write( max );
+		}
+		getMax4(5,1,75);
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

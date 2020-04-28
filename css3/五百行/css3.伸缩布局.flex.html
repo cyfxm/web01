@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .section {
+            margin: 10px 0;
+        }
+
+        .wrapper {
+            width: 500px;
+            background-color: skyblue;
+            padding: 10px;
+            display: flex;
+        }
+
+        .wrapper div[class^='box'] {
+            height: 80px;
+            border: 1px solid #fff;
+
+        }
+
+        .wrapper div.box1,
+        .wrapper div.box2,
+        .wrapper div.box3 {
+            width: 100px;
+            background-color: #ccc;
+        }
+
+        .wrapper .box4 {
+            flex: 1;
+            background-color: red;
+        }
+
+        .wrapper .box5 {
+            flex: 1;
+            background-color: green;
+        }
+
+        .wrapper .box6 {
+            flex: 1;
+            background-color: blue;
+        }
+
+        .wrapper .box7 {
+            width: 100px;
+            background-color: pink;
+        }
+
+        .wrapper .box8 {
+            flex: 1;
+            background-color: lightyellow;
+        }
+
+        .wrapper .box9 {
+            flex: 2;
+            background-color: lightgreen;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="section">
+        <div class="wrapper">
+            <!-- 有设置宽度的子元素 -->
+            <div class="box1">1</div>
+            <div class="box2">2</div>
+            <div class="box3">3</div>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="wrapper">
+            <!-- 不设置宽度的子元素 -->
+            <div class="box4">4</div>
+            <div class="box5">5</div>
+            <div class="box6">6</div>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="wrapper">
+            <!-- 有的子元素设置固定宽度 ，有的子元素不设置固定宽度 -->
+            <div class="box7">7</div>
+            <div class="box8">8</div>
+            <div class="box9">9</div>
+        </div>
+    </div>
+</body>
+
+</html>

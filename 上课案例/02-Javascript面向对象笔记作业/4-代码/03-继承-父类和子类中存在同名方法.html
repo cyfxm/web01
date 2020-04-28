@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class Father{
+            // 如果不需要对属性进行初始化赋值操作,可以不写constructor构造器
+
+            // 父类有一个say方法
+            say(){
+                console.log("我是小头爸爸");
+            }
+        }
+
+        class Son extends Father{
+            // 子类中也有一个say方法
+            say(){
+                console.log("我是大头儿子");
+            }
+        }
+
+        var son = new Son();
+        console.log( son )
+        // 继承中,如果实例化子类调用一个方法,先看子类有没有这个方法,如果有就先执行子类的
+        son.say();
+    </script>
+</body>
+</html>

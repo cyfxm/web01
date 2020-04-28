@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript">
+		// 输出1~100之间所有的数,3的倍数就输出三,5的倍数就输出五,又是3又是5的倍数就输出三五,输出三,五,三五以后,不输出对应的3,5,15,30等些数字了
+
+		// 第一步:先输出1~100
+		for(var i = 1; i <= 100; i++){
+			// 第二步:使用分支结构对结果进行筛选
+			if(i%3 == 0 && i%5 == 0){// 即是3的倍数,又是5的倍数
+				document.write("三五 ");
+			}else if(i%5 == 0){// 如果是5的倍数
+				document.write("五 ");
+			}else if(i%3 == 0){// 如果是3的倍数
+				document.write("三 ");
+			}else{// 输出数字
+				document.write(i+" ");
+			}
+		}
+
+		// 原因是因为多分支结构的时候,多个条件表达式,会从上向下依次判断,满足条件就执行,结束if结构
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

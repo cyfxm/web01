@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class Father{
+            constructor(x,y){
+                this.x = x;
+                this.y = y;
+            }
+
+            getSum(){
+                console.log("两个数相加得到" + (this.x + this.y) );
+            }
+        }
+
+        class Son extends Father{
+            // 如果需要初始化属性值,就必须写在constructor构造器里面
+
+            // 子类添加独有的属性
+            constructor(x,y,z){
+                // 如果子类中有构造器,必须通过super调用一次父类的构造器,否则会报错
+                super(x,y);
+                
+                // 如果子类想要继承父类的方法,同时在自己内部扩展自己的方法;子类也可以有自己独特的属性;不过利用super 调用父类的构造函数,但是"super 必须在子类this之前调用"
+                this.z = z;
+            }
+
+            // 子类添加独有的方法
+            subtract(){
+                console.log("三个数相减得到" + (this.x - this.y - this.z) );
+            }
+        }
+
+        var son = new Son(10,20,80);
+        console.log( son );
+        son.getSum();
+        son.subtract();
+    </script>
+</body>
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript">
+		// (Math，逻辑)写一段程序，要求每次刷新页面，就会在页面中显示6个两位数的随机整数
+		
+    	for (var i = 0; i < 6; i++) {
+        	var num = Math.floor( Math.random() * 90 +10 );
+        	if(i>0)document.write("&nbsp;")
+   			document.write(num);
+    	}
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

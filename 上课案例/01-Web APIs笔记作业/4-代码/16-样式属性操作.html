@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>div的内容</div>
+    <button>设置style属性值</button>
+    <button>获取style属性值</button>
+
+    <script>
+        // 样式属性操作
+        // 我们可以通过 JS 修改元素的大小、颜色、位置等样式。
+        
+        // 常用方式
+        // 样式属性 功能
+        // 元素.style 其实通过js操作标签的行内样式
+        // 元素.className 类名样式操作
+        
+        // 方式1:通过操作style属性
+        // 元素对象的style属性也是一个对象！
+        // 元素对象.style.样式属性 = 值;
+
+        // 要求点击按钮以后,改变div的宽度高度和背景颜色
+        // 获取所需对象
+        var btns = document.querySelectorAll("button");
+        var div = document.querySelector("div");
+        
+        btns[0].onclick=function(){
+            // 通过操作标签的style属性,从而改变标签的CSS样式
+            div.style.width = "100px";
+            div.style.height="200px";
+            div.style.backgroundColor = "pink";
+            div.style.fontSize = "30px";
+        }
+
+        /* 注意:
+        JS修改style样式操作,操作的是行内样式,CSS优先级比较高
+        JS里面的样式采取驼峰法命名, 如果CSS属性中有中划线要去掉 并且将中划线后面的单词首字母大写  驼峰法     比如:background-color   =>   backgroundColor  */
+
+        btns[1].onclick=function(){
+            // 如果使用的是div.style得到的是所有的css属性
+            console.log( div.style );
+            // 可以使用div.style.css属性名得到具体某个属性值
+            console.log( div.style.backgroundColor );
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		
+		/*后代选择器*/
+		/* div strong{
+			color:red;
+		} */
+		
+		/*子元素选择器*/
+		/* div>strong{
+			color:blue;
+		} */
+
+
+		/*能不能 爸爸>儿子>孙子 这种格式,可以的*/
+		div>p>strong{
+			color:orange;
+		}
+	</style>
+</head>
+<body>
+	<div>
+		<p>儿子</p>
+
+		<strong>女儿</strong>
+
+		<p>
+			<strong>女孙子</strong>
+		</p>
+	</div>
+</body>
+</html>

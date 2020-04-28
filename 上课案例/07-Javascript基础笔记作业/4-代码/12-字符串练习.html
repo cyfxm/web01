@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript">
+		// 练习:  截取字符串"我爱中华人民共和国"，中的"中华"
+		var str1 = "我爱中华人民共和国";
+		console.log( str1.substr(2,2) );
+		console.log("");
+
+
+		// 练习:  把字符串"abcd123456"每个字符倒过来输出变成6 5 4 3 2 1 d c b a
+		var str2 = "abcd123456";
+		for(var i=str2.length-1;i>=0;i--){
+			console.log( str2[i] );
+			// console.log( str2.charAt(i) );
+		}
+
+		console.log("");
+
+		// 练习:  获取文件的扩展名 "C:/Users/Administrator/Desktop/images/dog.png"
+		var str3 = "C:/Users/Administrator/Desktop/images/dog.png";
+		// 目标是获取png
+
+		// 根据/正斜杠分割字符串
+		var arr = str3.split("/");
+
+		// 获取文件名
+		var filename = arr[ arr.length-1 ];// dog.png 
+		
+		// 获取.的位置
+		var pos = filename.indexOf(".");// 3
+
+		// console.log( filename );
+
+		// 最后截取文件名
+		console.log( filename.substr( pos+1 ) );
+		console.log("");
+
+		// 练习:  把字符串"abcoefoxyozzopp"中所有的o替换成*
+		var str4 = "abcoefoxyozzopp";
+		var reg = /o/gi;
+		console.log( str4.replace( reg ,"*") );
+		console.log("");
+
+		// 练习:  给定一个字符串如:"abcdfgaaa123411156"问题如下: 
+		var str5 = "abcdfgaaa123411156";
+		// 1、 求该字符串的长度 
+		console.log( str5.length );
+
+		// 2、 取出指定位置对应的字符,  0,3,5,9 
+		console.log( str5[0] );
+		console.log( str5[3] );
+		console.log( str5[5] );
+		console.log( str5[9] );
+		console.log("");
+
+		// 3、 查找指定字符是否在以上字符串中存在   i,c,b 
+		console.log( str5.indexOf("i") );
+		console.log( str5.indexOf("c") );
+		console.log( str5.indexOf("b") );
+		
+		// 4、 替换指定的字符		所有a替换为A,所有1替换为一 
+		var reg1 = /a/gi;
+		var newStr = str5.replace( reg1, "A") ;
+
+		var reg2 = /1/gi;
+		console.log( newStr.replace( reg2,"一") );
+		console.log("");
+		
+		// 5、 截取指定开始位置到结束位置的字符串如:取得下标从1到5之间的所有字符串 
+		// substring(start,end)
+		console.log( str5.substring(1,5) );
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

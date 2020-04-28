@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.father{
+			width: 500px;
+			height: 500px;
+			background: skyblue;
+			margin: 50px auto;
+		}
+		.father .son1{
+			width: 100px;
+			height: 100px;
+			background: red;
+			/*还有另一个隐藏元素的方式 visibility:hidden*/
+			/*特点： 隐藏之后，继续保留原有位置。（停职留薪）*/
+			visibility: hidden;
+		}
+		
+		/*当鼠标移上.father以后,.father下面的.son1的样式*/
+		.father:hover .son1{
+			/*显示元素 visibility:visible*/
+			visibility: visible;
+		}
+
+
+		.father .son2{
+			width: 150px;
+			height: 150px;
+			background: blue;
+		}
+	</style>
+</head>
+<body>
+	<div class="father">
+		<div class="son1">大娃</div>
+		<div class="son2">喷火娃</div>
+	</div>
+</body>
+</html>

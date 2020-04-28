@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 一个构造函数Father中有money cars house company 属性,
+    有管理的方法,另一个构造函数Son要继承构造函数Father的属性和方法 
+    构造函数Son中有自己独特的score分数属性以及study学习方法 -->
+
+    <script>
+        function Father(money,cars,house,company){
+            this.money = money;
+            this.cars = cars;
+            this.house = house;
+            this.company = company;
+
+        }
+
+        Father.prototype.manage = function(){
+            console.log("你好");
+        }
+
+        function Son(money,cars,house,company,score){
+            Father.call(this, money,cars,house,company)
+            this.score = score;
+        }
+
+        Son.prototype = new Father();
+        Son.prototype.constructor = Son;
+        Son.prototype.study = function(){
+            console.log("学习很好");
+        }
+
+        var son = new Son("1亿","法拉利","别墅","恒大");
+        son.study();
+        son.manage();
+    </script>
+</body>
+</html>

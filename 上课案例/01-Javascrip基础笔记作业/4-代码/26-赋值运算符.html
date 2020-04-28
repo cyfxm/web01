@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript">
+		// 赋值运算符 += -= *= /= %=  先执行算术运算符的结果,再赋值给自己
+		// 记忆方法 自己干嘛右边的值,再把最后的结果赋回给自己; 比如自己加上右边的值,再把最后的结果赋回给自己
+
+		// var x = 10;
+		// x = x+5;// x加了5以后,又把加5以后的值赋回给自己,这样情况,我们是可以使用赋值运算符来实现
+		// console.log(x);// 15
+
+		var y = 20;
+			y += 10;// 等同于 y = y+10 = 20+10 = 30 
+			console.log(y);// 30
+
+		var z = 30;
+			z  -= 5;
+			console.log(z);// 25
+
+		// 注意:我们在使用复赋值运算符的时候注意事项
+		// 如果我们使用赋值运算符,在变量前面是没有var关键字的 
+		// 这些赋值运算符号必须紧密相连,比如  +=   不要写成了+ = 
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

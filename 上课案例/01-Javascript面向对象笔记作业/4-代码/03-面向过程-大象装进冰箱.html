@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 面向过程
+        // 面向过程变成 POP (Process-oriented programming)
+        // 面向过程就是分析出解决问题所需要的步骤，然后用函数把这些步骤一步一步实现，使用的时候再一个一个的依次调用就可以了。
+        // 打开冰箱门=> 大象装进去 => 关上冰箱门
+
+        // 把每个步骤封装到函数中
+        function Elephant(){
+            console.log("大象装进冰箱中");
+        }
+        function openDoor(){
+            console.log("打开冰箱门了~");
+        }
+        function closeDoor(){
+            console.log("关闭冰箱门了~");
+        }
+        // 按步骤调用函数即可
+        openDoor();
+        Elephant();
+        closeDoor();
+    </script>
+</body>
+</html>

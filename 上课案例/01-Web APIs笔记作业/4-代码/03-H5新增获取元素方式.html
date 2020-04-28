@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .redFont{
+            color:red;
+        }
+        #myDiv{
+            background: skyblue;
+        }
+    </style>
+</head>
+<body>
+    <div class="redFont">one</div>
+    <div class="redFont">one</div>
+    <div>div的内容</div>
+    <div id="myDiv">div的内容</div>
+    <div>div的内容</div>
+
+    <script>
+        // document.getElementsByClassName("类名") 通过标签的class属性值来获取元素 它返回是一个伪数组 如果要访问其中的某一个标签对象 要使用下标来进行访问！ 就算这个数组里面的元素只有一个 那么也是要使用数组下标的方式来进行访问！类似css中的类选择器
+
+        // 通过类名获取标签
+        var redFonts = document.getElementsByClassName("redFont");
+        console.log( redFonts );
+        console.log("");
+
+        // document.querySelector("css选择器") html5新增,该方法返回满足CSS选择器的单个元素。如果找到多个满足的元素，则返回第一个满足条件的元素。
+
+        // 通过CSS选择器获取"第一个"满足条件的元素
+        // 注意:document.querySelector()里面的字符串需要加上css选择器符号,比如# .
+        var myDiv = document.querySelector("#myDiv");
+        console.log( myDiv );
+        console.log("");
+
+        var divs = document.querySelector(".redFont");
+        console.log( divs );
+        console.log("");
+
+        // document.querySelectorAll("css选择器") html5新增,该方法返回满足CSS选择器的所有元素，结果是一个"数组集合" 如果要访问其中的某一个标签对象 要使用下标来进行访问！ 就算这个数组里面的元素只有一个 那么也是要使用数组下标的方式来进行访问！
+        var objDivs = document.querySelectorAll(".redFont");
+        console.log( objDivs );
+    </script>
+
+</body>
+</html>

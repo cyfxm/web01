@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 延时器一般是多久以后,只执行一次代码
+
+        /* 
+        延时器语法 window.setTimeout(回调函数,时间 )
+        延时器语法 window.setTimeout(第一个参数,第二个参数 )
+        第一个参数可以放 匿名函数 或者 有名函数名 或者 "函数名()" 代码要执行的代码块
+        第二个参数时间 单位是毫秒数  1000毫秒等于1秒 
+
+        window.setTimeout()中的window可以省略,写成setTimeout()
+        */
+
+        // 实现3秒以后 才会在浏览器中弹出一个hello
+        // 1.回调函数写的是匿名函数
+        window.setTimeout(function(){
+            alert("hello");
+        },3000);
+        
+        // 2.回调函数写的是函数名
+        /* function fn(){
+            alert("hello222222");
+        }
+        window.setTimeout(fn,3000); */
+        
+        // 3.回调函数写的是字符串"函数名()"  不推荐这样写
+        /* function fn2(){
+            alert("33333333333");
+        }
+        window.setTimeout( "fn2()", 3000); */
+    </script>
+</body>
+</html>

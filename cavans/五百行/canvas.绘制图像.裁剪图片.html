@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>绘制图像.裁剪图片</title>
+    <style>
+        #canvas_01 {
+            background-color: skyblue;
+            float: left;
+            cursor:crosshair;
+        }
+        #canvas_02 {
+            background-color: pink;
+            float: left;
+            margin-left: 50px;
+        }
+        .clip {
+            width: 0px;
+            height: 0px;
+            border: 2px solid red;
+            box-sizing: border-box;
+            position: absolute;
+            left: 8px;
+            top: 8px;
+           
+            background-color: rgba(255,255,255,0.1);
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="clip" id="clip"></div>
+
+    <canvas id="canvas_01">不支持canvas标签！</canvas>
+    <canvas id="canvas_02">不支持canvas标签！</canvas>
+
+    <script>
+        // 1.0 获取canvas标签
+        var canvas_01 = document.getElementById("canvas_01");
+        var canvas_02 = document.getElementById("canvas_02");
+        var clip_element = document.getElementById("clip");
+        // 2.0 设置画布的大小
+        // canvas_01.width = 800;
+        // canvas_01.height = 800;
+        // 3.0 获取canvas上下文对象
+        var ctx_01 = canvas_01.getContext('2d');
+        var ctx_02 = canvas_02.getContext('2d');
+        // 4.0 绘制图像的方法
+        function drawImage(ctx, img , sx,sy,sw,sh,x,y,w,h){
+            ctx.drawImage(
+                img,
+                sx,
+                sy,
+                sw,
+                sh,
+                x,
+                y,
+                w,
+                h
+            )
+        }
+        //5.0 创建图片
+        var img = new Image();
+        //6.0  设置图片的路径
+        img.src="./animal.jpg";
+        //7.0  加载图片
+        img.onload = function(){
+            // 记录图片的尺寸
+            var imageWidth = img.width*(2/3);
+            var imageHeight = img.height*(2/3);
+            // 设置画布的大小
+            canvas_01.width = imageWidth;
+            canvas_01.height = imageHeight;
+            // 绘制图片
+            drawImage(
+                ctx_01,
+                img , 
+                0,
+                0,
+                img.width,
+                img.height,
+                0,
+                0,
+                imageWidth,
+                imageHeight)
+        }
+        // 8.0 定义全局变量
+        var startX ,startY,distX, distY , bool=false;
+        // 9.0 鼠标按下画布
+        canvas_01.onmousedown = function(e){
+            // 记录鼠标按下了
+            bool = true;
+            // 记录鼠标按下的坐标
+            startX = e.pageX;
+            startY = e.pageY;
+            // 显示div标签
+            clip_element.style.display ="block";
+            // 设置div的位置
+            clip_element.style.left =startX+"px";
+            clip_element.style.top =+startY+"px";
+        }
+        // 10.0 鼠标移动
+        document.onmousemove = function(e){
+            if(bool){
+                // 记录鼠标滑动的距离
+                distX = e.pageX - startX;
+                distY = e.pageY - startY;
+                // 设置div的大小
+                clip_element.style.width =distX+"px";
+                clip_element.style.height =distY+"px";
+                // 设置第二个画布的大小
+                canvas_02.width = distX;
+                canvas_02.height = distY;
+
+                // 绘制图片(裁剪的内容)
+                drawImage(
+
+                    ctx_02, //第二canvas的上下文对象
+
+                    canvas_01 , //图片资源
+
+                    startX,   //开始裁剪的x坐标  canvas_01
+                    startY,   //开始裁剪的Y坐标  canvas_01
+
+                    distX,  //开始裁剪的宽度  canvas_01
+                    distY,  //开始裁剪的高度  canvas_01
+                    0,      //放在canvas_02的 x位置
+                    0,       //放在canvas_02的 Y位置
+                    distX,  //放在canvas_02的 宽度
+                    distY  //放在canvas_02的 高度
+                    )
+            }
+        }
+        document.onmouseup = function(){
+            bool = false;
+            clip_element.style.display="none";
+            clip_element.style.width ="0px";
+            clip_element.style.height ="0px";
+        }
+        
+    </script>
+</body>
+</html>

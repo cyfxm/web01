@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		/*怎么选择中间几个*/
+
+		/*前后限制范围*/
+		/*:nth-child(n+4):nth-child(-n+8)*/
+		/*选中第4-8个子元素。使用 nth-child(n+4):nth-child(-n+8) 我们可以选中某一范围内子元素，上面的例子里是从第4个到第8个子元素*/
+		
+		/*找到第3个到第8个的元素*/
+		/* ul li:nth-child(n+3):nth-child(-n+8){
+			color:red;
+		} */
+
+		/*正方向范围  li:nth-child(n+6)   选中从第6个开始的子元素*/
+		ul li:nth-child(n+3){
+			color:red;
+		}
+	</style>
+</head>
+<body>
+	<!-- 参考网址:https://blog.csdn.net/forest_fire/article/details/79279537 -->
+
+	<ul>
+		<li>张三</li>
+		<li>李四</li>
+		<li>王五</li>
+		<li>赵六</li>
+		<li>孙七</li>
+		<li>王八</li>
+		<li>李狗蛋</li>
+		<li>李二狗</li>
+		<li>旺财</li>
+		<li>猫咪</li>
+	</ul>
+</body>
+</html>

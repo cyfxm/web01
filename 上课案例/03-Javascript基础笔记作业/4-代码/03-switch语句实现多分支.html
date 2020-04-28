@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript">
+		/*先回顾一下,if的多分支结构语句
+
+		if(条件表达式1){
+			条件表达式1成立时,执行的代码块;
+		}else if(条件表达式2){
+			条件表达式1不成立,但是条件表达式2成立时,执行的代码块;
+		}else if(条件表达式3){
+			条件表达式1,2不成立,但是条件表达式3成立时,执行的代码块;
+		}else{
+			以上条件表达式都不成立,执行的默认代码块
+		}*/
+
+		// switch也可以实现多分支,语法如下
+		// 英文翻译 switch开关  case情况 break打断
+
+		/*switch(变量名){
+			case 值1:
+				代码块1;
+			break;
+
+			case 值2:
+				代码块2;
+			break;
+
+			case 值3:
+				代码块3;
+			break;
+
+			case 值4:
+				代码块4;
+			break;
+
+			...
+
+			default:
+				默认代码块
+
+		}*/
+
+		/*结构说明:
+		switch语句它是拿小括号中变量的值去与每一个case后面的值进行"全等"比较 
+
+		如果比较成功(得到布尔true) 就会执行对应的代码块 还要去查找是否有break关键字 
+		
+		如果有break关键字 那么switch语句就会结束
+		
+		但是如果没有break关键字  就会先执行下面的代码块 然后再判断是否有break关键字 它要找到break关键字才会结束执行。
+		
+		如果说变量的值与case中每一个值都不相等 那么它就会执行默认的代码块 
+		
+		break可以省略，如果省略，代码会继续执行下一个case
+		switch 语句在比较值时使用的是全等操作符, 因此不会发生类型转换(例如，字符串'10' 不等于数值 10)*/
+
+ 		/*
+	 		举例:先定义一个变量保存今天星期几,然后判断星期几应该干什么
+			星期一打篮球
+			星期二打乒乓球
+			星期三唱歌
+			星期四打桌球
+			星期五游泳
+			星期六打代码
+			星期天睡觉
+		*/
+	
+		// if多分支实现
+		/*var week = 10;
+		if(week == 1){
+			document.write("星期一打篮球");
+		}else if(week == 2){
+			document.write("星期二打乒乓球");
+		}else if(week == 3){
+			document.write("星期三唱歌");
+		}else if(week == 4){
+			document.write("星期四打桌球");
+		}else if(week == 5){
+			document.write("星期五游泳");
+		}else if(week == 6){
+			document.write("星期六打代码");
+		}else if(week == 7){
+			document.write("星期天睡觉");
+		}else{
+			document.write("请确保week的值是1~7");
+		}*/
+
+		var week = 3;
+		switch(week){
+			case 1:
+				document.write("星期一打篮球");
+			break;
+
+			case 2:
+				document.write("星期二打乒乓球");
+			break;
+
+			case 3:
+				document.write("星期三唱歌");
+			break;
+
+			case 4:
+				document.write("星期四打桌球");
+			break;
+
+			case 5:
+				document.write("星期五游泳");
+			break;
+
+			case 6:
+				document.write("星期六打代码");
+			break;
+
+			case 7:
+				document.write("星期天睡觉");
+			break;
+
+			default:
+				document.write("请确保week的值是1~7");
+		}
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

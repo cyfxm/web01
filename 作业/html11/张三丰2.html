@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript">
+	var name = "张三丰";
+	var sex = "男";
+	var age = "34岁";
+	var educational = "大专";
+	var time = "2005年7月";
+	var school = "北京科技大学";
+
+	var str =  "<table border='1' rules='all' width='500'>";
+
+		str += "<tr>";
+		str += "<td colspan='4'><h3 align='center'><font color='red'>张三疯的个人简历<font></h3></td>"
+		str += "</tr>";
+
+		str += "<tr>";
+		str += "<td align='right'><b>姓名:</b></td>";
+		str += "<td>" +name+ "</td>";
+		str += "<td align='right'><b>性别:</b></td>";
+		str += "<td>"+sex+"</td>";
+		str += "</tr>";
+
+		str += "<td align='right'><b>年龄:</b></td>";
+		str += "<td>" +age+ "</td>";
+		str += "<td align='right'><b>学历:</b></td>";
+		str += "<td>"+educational+"</td>";
+		str += "</tr>";
+
+		str += "<td align='right'><b>毕业时间:</b></td>";
+		str += "<td>"+time+"</td>";
+		str += "<td align='right'><b>毕业学校:</b></td>";
+		str += "<td>"+school+"</td>";
+		str += "</tr>";
+
+		str += "</table>";	
+
+		document.write(str);	
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    // this的指向在函数定义的时候是确定不了的，只有函数执行的时候才能确定this到底指向谁，一般情况下this的最终指向的是那个调用它的对象。
+    // 现阶段，我们先了解一下几个this指向
+    // 全局作用域或者普通函数中this指向全局对象window（注意延时器跟定时器里面的this指向window）
+    console.log( this );
+    console.log("");
+
+    function fn(){
+        console.log( this );
+    }
+    console.log( this );
+
+    // 延时器里面指向window
+    setTimeout(function(){
+        console.log( this );
+    },3000);
+
+    // 定时器里面this也是指向window
+    setInterval(function(){
+        console.log( this );
+    },3000);
+
+    // 对象里面的方法,谁调用, this就指向谁
+    // 构造函数中this指向构造函数的实例
+    // 在事件处理 函数中,this指向绑定事件的那个对象
+    </script>
+</body>
+</html>

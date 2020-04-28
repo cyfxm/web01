@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>封装ajax</title>
+</head>
+<body>
+
+
+    <script>
+        // 1.0 定义ajax
+        function ajax(option){
+            // 1.0.1 请求地址
+            var url = option.url;
+            //  1.0.2 请求方式
+            var type = option.type;
+            //  1.0.3 异步请求
+            var async = option.async;
+            //  1.0.4 提交给服务端的参数
+            var data = option.data;
+            //  1.0.5 处理提交的参数
+            var dataStr = "";
+            //  1.0.6循环对象
+            for(var key in data){
+                //  1.0.7 拼接字符串
+                dataStr += key +"="+data[key] +"&"
+            }
+            // 1.0.8 判断字符串长度
+            if(dataStr.length!=0){
+                dataStr = dataStr.slice(0,-1);
+            }
+
+            // 1.0.9 ajax 编程
+            // 3.0.1 创建异步对象的实例
+            var xhr =  new XMLHttpRequest();
+
+            // 3.0.2 发起请求动作
+            if(type == 'get'){
+                url = url+"?"+dataStr
+            }
+            // xhr.open(type,type=='get'?url+"?"+dataStr:url,async)
+            xhr.open(type,url,async);
+            
+            // 3.0.3 向服务端发送请求主体
+            if(type=='post'){
+                // 设置请求头
+                xhr.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
+                // 如果是post请求方式
+                xhr.send(dataStr);
+            }else{
+                xhr.send(null);
+            }
+           
+            // 3.0.4 监听请求和响应的状态
+            xhr.onreadystatechange = function(){
+                if(xhr.readyState == 4){
+                    if(xhr.status == 200){
+                        // 3.0.5 定义变量接收响应的内容
+                        var res = "";
+                        // 3.0.6 定义变量接收响应的内容文档类型
+                        var contentType =  xhr.getResponseHeader('Content-Type');
+                        //  3.0.7 判断文档类型
+                        if(contentType.indexOf('json') > -1){
+                            res = JSON.parse(xhr.responseText)
+                        }else if (contentType.indexOf('xml') > -1){
+                            res = xhr.responseXML;
+                        }else {
+                            res = xhr.responseText;
+                        }
+                        // 3.0.8 执行回调函数 成功
+                        if(option.success){
+                            option.success(res);
+                        }
+                    }else {
+                        // 3.0.9 执行回调函数 失败
+                        if(option.error){
+                            // option.error("请求失败！");
+                            option.error(xhr.responseText);
+                        }
+                    }
+                }
+            }
+
+        }
+
+
+        // 2.0 调用ajax
+        ajax({
+            url:"./data.txt",
+            type:"get",
+            async:true,
+            success:function(res){
+                console.log(res)
+            },
+            error:function(err){
+                console.log(err)
+            }
+        })
+
+
+
+    </script>
+
+</body>
+</html>

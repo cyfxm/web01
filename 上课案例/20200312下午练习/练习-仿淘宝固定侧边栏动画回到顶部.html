@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .slider-bar {
+            position: absolute;
+            left: 50%;
+            top: 300px;
+            margin-left: 600px;
+            width: 45px;
+            height: 130px;
+            background-color: pink;
+        }
+        
+        .w {
+            width: 1200px;
+            margin: 10px auto;
+        }
+        
+        .header {
+            height: 150px;
+            background-color: purple;
+        }
+        
+        .banner {
+            height: 250px;
+            background-color: skyblue;
+        }
+        
+        .main {
+            height: 1000px;
+            background-color: yellowgreen;
+        }
+        
+        .goBack {
+            display: none;
+            position: absolute;
+            bottom: 0;
+            text-decoration: none;
+            color:gray;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="slider-bar">
+        <a href="#" class="goBack">返回顶部</a>
+    </div>
+    <div class="header w">头部区域</div>
+    <div class="banner w">banner区域</div>
+    <div class="main w">主体部分</div>
+</body>
+<script>
+    function getScroll(){
+        return {
+            left : window.pageXOffset || document.body.scrollLeft || document.documentElement.scrollLeft || 0,
+            top  : window.pageYOffset || document.body.scrollTop || document.documentElement.scrollTop || 0
+        }
+    }
+
+    // 获取.header对象
+    var objHeader = document.querySelector(".header");
+    // 获取.banner对象
+    var objBanner = document.querySelector(".banner");
+    // 获取侧边栏对象
+    var sliderBar = document.querySelector(".slider-bar");
+    var sliderBarOffsetTop = sliderBar.offsetTop;
+
+    // 为了解决跳跃问题,算出侧边栏顶部距离.banner层顶部的距离
+    var sliderBarTop =  sliderBar.offsetTop - objBanner.offsetTop;
+
+    // 获取.main对象
+    var main = document.querySelector(".main");
+    var mainTop = main.offsetTop;
+
+    // 获取返回顶部对象
+    var goBack = document.querySelector(".goBack");
+
+    // 页面滚动事件
+    window.onscroll = function(){
+        // 获取页面滚动的距离
+        var pageTop =  getScroll().top ;
+        // top这个变量名最好也不要用,因为在window对象下,也有一个叫做top的属性
+        // console.log( PageTop );
+        
+        // 1. 当页面滚动到.banner层的时候,把侧边栏变成固定定位;如果在.banner层之前侧边栏都是绝对定位
+        if( pageTop > objBanner.offsetTop ){
+            sliderBar.style.position = "fixed";
+            // 为什么会跳跃,因为设置了固定定位,但是没有设置垂直方向的偏移量
+            sliderBar.style.top = sliderBarTop + "px";
+        }else{
+            sliderBar.style.position = "absolute";
+            sliderBar.style.top = sliderBarOffsetTop + "px";
+        }
+
+        // 2. 当页面滚动到主体内容部分时候,显示返回顶部a链接;当页面没有滚动到主体内容部分时候,则隐藏返回顶部a链接
+        if( pageTop > mainTop ){// 如果当前滚动的距离大于了main层的上外边距
+            goBack.style.display = "block";// 显示返回顶部链接
+        }else{
+            goBack.style.display = "none";// 隐藏返回顶部链接
+        }
+    }
+    function animate(obj,target,callback){
+            clearInterval(obj.timer);
+        
+            obj.timer = setInterval(function(){
+                var windowTop = getScroll().top;
+                var step = (target -  windowTop) / 10;
+                step = step > 0 ? Math.ceil(step):Math.floor(step);
+                if(windowTop == target){
+                    clearInterval(obj.timer);
+                    if(callback){
+                        callback();
+                    }
+                }else{
+                    window.scroll(0, windowTop + step);
+                }
+        },15)
+        }
+        goBack.onclick = function(e){
+                e.preventDefault();
+                animate(window,0,function(){
+                    console.log("nihao");
+                    
+                })
+            }
+    
+</script>
+</html>

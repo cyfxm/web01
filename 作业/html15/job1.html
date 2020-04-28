@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript">
+		// 封装一个函数求这个数组var arr=[10,4,20,15,6,9]中最小值 并且在函数中输出这个最小值
+		function min(){
+			var min = arr[0];
+			for(var i = 1;i<=arr.length;i++){
+		 		if(min>arr[i]){
+		 			min = arr[i]
+		 		}
+		 	}
+		 	document.write(min);
+		}
+		var arr=[10,4,20,15,6,9];
+		min();
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

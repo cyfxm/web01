@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        .first{
+            border:5px solid blue;
+        }
+
+        .change{
+            background: purple;
+            color:#fff;
+            font-size:25px;
+            margin-top: 100px;
+        }
+    </style>
+</head>
+<body>
+    <div class="first">文本</div>
+
+    <script>
+        // 我们可以通过 对象.className 来 设置对象的class类名属性或者  获取对象的class类名属性
+        // 因为class是js中一个关键字,所以使用className
+
+
+        // 获取.first对象
+        var first = document.querySelector(".first");
+        // console.log( first );
+        // 通过  对象.style 设置元素样式
+        // first.style.backgroundColor = "purple";
+        // first.style.color = "#fff";
+        // first.style.fontSize = "25px";
+        // first.style.marginTop = "100px";
+
+
+        // 注意:
+        // 使用 element.style 获得修改元素样式 如果样式比较少 或者 功能简单的情况下使用
+        // 如果样式修改比较多,可以采取操作类名方法更改元素样式
+        // class因为是个保留字,因此使用className来操作元素类名属性
+        // className 会直接更新元素的类名,会覆盖原先的类名
+        // 如果想要保留原先的类名，我们可以这么做 多类名选择器
+
+        // 通过 对象.className 获取对象的class属性值
+        // console.log( first.class );// undefined
+        // console.log( first.className );// first
+
+        // 通过 对象.className = "类名"  可以给对象设置class属性值
+        // 特别注意:  对象.className = "类名"会覆盖元素原有的class属性值
+        // first.className = "change";
+
+        // 如果想保留原类名
+        // 方法一:使用多类名选择器
+        // first.className = "first change";
+
+        // 方法二: 使用+=
+        // first.className =  first.className+" change";
+        first.className += " change";
+    </script>
+</body>
+</html>

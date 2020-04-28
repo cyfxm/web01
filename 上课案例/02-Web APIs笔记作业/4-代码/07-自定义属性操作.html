@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 比如以下标签,id跟class属性就是内置属性,而index是自定义属性 -->
+    <div id="demo" index="1" class="nav">div的内容</div>
+
+    <script>
+        // 在HTML标签中,我们是可以自定义的添加属性的,而标签原本自带的属性,我们可以叫,而我们程序员给标签添加的属性,我们叫自定义属性
+
+        var div = document.querySelector("div");
+
+        // 获取内置属性 对象.属性名
+        console.log( div.id );// demo
+        console.log( div.class );// undefined
+        // 如果使用  对象.属性名 这种方式获取类名 需要使用className 不能使用class
+        console.log( div.className );// nav
+
+        // 我们想获取自定义属性 能不能也使用 对象.属性名 这种方式呢 ?  不行
+        console.log( div.index );// undefined
+        console.log("");
+
+        // 如果想要获取自定义属性 需要使用  对象.getAttribute("属性名")
+        console.log( div.getAttribute("index") );// 1
+        console.log("");
+
+        // 设置内置属性  对象.属性名 = 属性值
+        // div.style.color = "red";
+        // div.style.border= "1px solid blue";
+        div.style = "color:red;border:1px solid blue";
+
+        // 设置自定义属性 用 对象.属性名 = 属性值 设置不了自定义属性
+        div.abc = "大佬带带我,原来我是个萌新";
+
+        // 设置自定义属性 需要使用  对象.setAttribute("属性名","属性值");
+        div.setAttribute("hello","你好啊,自定义属性");
+        console.log("");
+
+        // 那么我们可以使用 getAttribute获取内置属性吗?
+        console.log(  div.getAttribute("id") );
+        
+        // 那么我们可以使用 setAttribute设置内置属性吗?
+        div.setAttribute("title","我是一个div,我是一个大盒子");
+
+        // 总结:  要记
+        // getAttribute方式可以获取内置属性也可以获取自定义属性,而 对象.属性名 的方式只能获取内置属性
+        // setAttribute方式可以设置内置属性也可以设置自定义属性,而 对象.属性名="属性值" 的方式只能设置内置属性
+    </script>
+</body>
+</html>

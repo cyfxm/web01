@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>ajax 什么时候使用  get 请求方式 </title>
+</head>
+<body>
+    <h1>ajax   get  请求方式 ！</h1>
+    <script src="./js/ajaxV0.0.2.js"></script>
+    <script>
+        // 示例：
+        // 接口地址：http://127.0.0.1:3005/detail
+        // 请求方式： get 
+        // 参数 ：无
+        // 返回值 ：json 格式的数据
+        //{"message":"数据内容","code":"0"}
+        // 调用已经封装好的ajax
+        $.ajax({
+            url:"http://127.0.0.1:3005/example",
+            type:"get",
+            async:true,
+            success:function(res){
+                console.log(res);
+            }
+        })
+    </script>
+</body>
+</html>

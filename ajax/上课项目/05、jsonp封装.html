@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>jsonp封装</title>
+</head>
+<body>
+    <!-- img  src 请求图片资源  -->
+
+    <script>
+        // jsonp实现原理
+        // 1. 动态创建script标签，利用script的src属性请求数据
+        // 2. 把动态创建的script添加到head标签内
+        // 3. 当需要提交参数的时候，是拼接url地址后面  支持 get 
+        // 4. 与服务端程序员协商（地址，参数，返回值）
+        // 5. 获取数据之后，执行回调函数 success
+
+        // 步骤：
+            // 1.0 定义函数
+            function jsonp(url,data,callback,success){
+                // 2.0  动态创建script标签
+                var script = document.createElement('script');
+                // 3.0  拼接参数
+                var dataStr = "";
+                // 3.0.1 循环对象
+                for(var key in data){
+                    // 3.0.2 拼接参数
+                    dataStr += key +"="+data[key]+"&"
+                }
+                // 3.0.4 判断
+                if(dataStr.length !=0){
+                    dataStr = dataStr.slice(0,-1);
+                }
+                // 4.0 设置script标签的src属性
+                // script.src = url;
+                script.setAttribute('src',url+"?"+dataStr);
+                // 5.0 获取页面的head标签
+                var head = document.getElementsByTagName("head")[0];
+                // 6.0 添加script标签到head标签上
+                head.appendChild(script);
+                // 7.0 添加回调函数   服务端的脚本中的函数
+                window[callback] = function(res){
+                    // console.log(res);
+                    // 8.0 执行success回调函数
+                    if(success){
+                        success(res);
+                    }
+                }
+
+            }
+
+
+
+
+            // 调用jsonp函数
+            jsonp('./api/data.js',{},'foo',function(res){
+                console.log(res);
+            })
+    </script>
+
+</body>
+</html>

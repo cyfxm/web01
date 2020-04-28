@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript">
+		// 比较运算符有 < > <= >= == === != !==
+
+		// 比较运算符执行的是比较运算。每个比较运算符都返回一个布尔值,也就是结果只有两种true或者false,正确就是true,错误就是false
+
+		var x = 5;
+		var y = 10;
+		console.log( x < y );// true
+		console.log( x > y );// false
+		console.log( x <= y );// true
+		console.log( x >= y );// false
+
+		// 注意:
+		// 在js语言中,   = 是赋值符号
+		// 在js语言中,   == 才是比较两个值是否相同,如果值相等,得到true,不相等得到false,不管数据类型的
+		console.log( x == y );// false
+		console.log("");
+
+		// === 是全等的意思,需要变量的值跟变量的类型都相同才能得到true,其他情况得到的都是false
+		var a = 10;
+		var b = 10;
+		var c = "10";
+		console.log( a == b);// true
+		console.log( a === b);// true
+		console.log( a == c);// true
+		console.log( a === c);// false
+		console.log("");
+
+		// != 判断值是否不相等,如果不相等,得到true;如果相等得到false
+		console.log( a != b );// false
+		console.log( a != c );// false
+
+		// !== 判断值跟类型是否都不相等,值或者类型有一个不相等,就可以得到true
+		console.log( a!== b);// false
+		console.log( a!== c);// a跟c值相等,但是类型不相等,得到true
+		console.log("");
+
+		var i = 5;
+		var j = 10;
+		console.log( i != j);// true
+		console.log( i !== j);// true 
+
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

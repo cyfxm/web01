@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 构造函数中的this和原型对象的this,都指向我们new出来的实例对象
+        var that;
+        var another;
+        function Star(uname,age){
+            this.uname = uname;
+            this.age = age;
+            
+            that = this;
+
+            console.log( "构造函数中的this" );
+            console.log( this ); 
+            console.log( "" );
+        }
+        Star.prototype.sing = function(){
+            another = this;
+
+            console.log( "我会唱歌" );
+            console.log( "原型对象中的this" );
+            console.log( this ); 
+            console.log( "" );
+        }
+
+        var ldh = new Star("刘德华",18);
+        ldh.sing();
+
+        console.log("输出实例对象ldh");
+        console.log( ldh );
+        console.log("");
+
+        console.log( ldh === that );
+        console.log( ldh === another );
+        console.log( that === another );
+    </script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 创建父类
+        class Father{
+            constructor(x,y){
+                this.x = x;
+                this.y = y;
+            }
+
+            sum(){
+                console.log( this.x + this.y );
+            }
+        }
+
+        // 创建子类
+        class Son extends Father{
+            // 如果子类有继承父类的话,子类调用自己的构造方法,"会报错",因为父类里面的函数必须使用父类中constructor的属性才行
+            /* constructor(x,y){
+                this.x = x;
+                this.y = y;
+            } */
+            
+            // 如果子类的构造函数跟父类完全一样的时候,可以不写构造函数
+            constructor(x,y){
+                // 调用父类中的构造方法,这样子类就可以像父类中传递参数了 super是超级的意思
+                super(x,y);
+            }
+        }
+
+        var son1 = new Son(5,8);
+        console.log( son1 );
+        son1.sum();
+    </script>
+</body>
+</html>

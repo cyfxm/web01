@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		div{
+			width: 400px;
+			height: 400px;
+			border:1px solid blue;
+			float: left;
+			margin:10px;
+		}
+		/*我们有一个banner.jpg的图片,它的宽度是1920,高度是1026*/
+		/*background-size可以设置背景图片的大小,取值有数值带px,有百分比,有cover取值还有contain取值*/
+		.div1{
+			background:url(images/banner.jpg);
+		}
+		.div2{
+			background:url(images/banner.jpg);
+			/*background-size: 背景图片宽度  背景图片高度;*/
+			/*取值可以是数值带px单位*/
+			background-size:300px 200px;
+			background-repeat: no-repeat;
+		}
+		.div3{
+			background:url(images/banner.jpg);
+			/*还可以使用百分比取值,百分比取值是相对元素*/
+			background-size:100% 50%;
+
+			/*还有一个特殊的取值,叫auto,自动的意思,可以实现背景图片只设置宽度或者高度一个的时候,另一个等比例缩放*/
+			/*auto可以搭配百分比也可以搭配数值使用*/
+
+			/*background-size:50% auto;*/
+
+			/*background-size:auto 50%;*/
+		}
+		.div4{
+			background:url(images/banner.jpg);
+			/*把背景图片放大到适合元素容器的尺寸，图片比例不变，但是要注意，超出容器的部分可能会裁掉*/
+			background-size: cover;
+		}
+		.div5{
+			background:url(images/banner.jpg);
+			/*尽可能让背景图片整张显示在元素中*/
+			background-size: contain;
+		}
+	</style>
+</head>
+<body>
+	<div class="div1">默认</div>
+	<div class="div2">长度值</div>
+	<div class="div3">百分比</div>
+	<div class="div4">cover取值</div>
+	<div class="div5">contain取值</div>
+</body>
+</html>

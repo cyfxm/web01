@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript">
+		var str="<table border='1' style='border-collapse:collapse;'>";
+		for(var i=9;i>=1;i--){
+			str+='<tr>';
+			for(var j=1;j<=i;j++){
+				str+='<td>'+'<font size="5" color="blue">'+j+'</font>'+'&times;'+'<font size="5" color="red">'+i+"</font>"+'='+i*j+'</td>';
+			}
+			str+='</tr>';
+		}
+		str+="<table>";
+		document.write(str);
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

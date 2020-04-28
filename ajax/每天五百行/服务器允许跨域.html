@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script src="./ajaxV0.0.3.js"></script>
+    <script>
+        // 接口地址
+        // http://127.0.0.1:3005/demo
+        // 请求方式 ： get
+        // 参数：无
+        // 返回值 {message:"xxx"}
+        $.ajax({
+            url:"http://127.0.0.1:3005/demo",
+            type:"get",
+            async:true,
+            success:function(res){
+                console.log(res);
+            },
+            error:function(err){
+                console.log(err);
+            }
+        })
+    </script>
+</body>
+</html>

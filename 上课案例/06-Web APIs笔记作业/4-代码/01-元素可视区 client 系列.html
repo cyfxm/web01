@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        div {
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+            border-top:10px solid red;
+            border-bottom:20px solid red;
+            border-left:30px solid red;
+            border-right:40px solid red;
+
+            padding-top:10px;
+            padding-bottom:20px;
+            padding-left:30px;
+            padding-right:40px;
+        }
+    </style>
+</head>
+<body>
+    <div>div的内容</div>
+    <script>
+        // client概述
+        // client 翻译过来就是客户端，我们使用 client 系列的相关属性来获取元素可视区的相关信息。通过 client系列的相关属性可以动态的得到该元素的边框大小、元素大小等。
+
+        // 获取div元素
+        var div = document.querySelector("div");
+
+        // element.clientTop 返回上边框的大小
+        console.log("div的上边框大小为:" + div.clientTop );
+        // element.clientLeft 返回左边框的大小
+        console.log("div的左边框大小为:" + div.clientLeft );
+
+        // element.clientWidth 返回自身包括padding、内容区宽度 ,不含边框 , 返回数值不带单位
+        console.log("div的宽度+padding左右为:" + div.clientWidth );
+        
+        // element.clientHeight 返回自身包括padding、内容区高度 ,不含边框 , 返回数值不带单位
+        console.log("div的高度+padding上下为:" + div.clientHeight );
+        
+        // 注意:clientTop可以获取上边框的大小,clientLeft可以获取左边框的大小,没有clientBottom跟clientRight
+        // 没有clientBottom跟clientRight
+        console.log( div.clientBottom );// undefined
+        console.log( div.clientRight );// undefined
+
+        // 小结: client宽度 和我们offsetWidth 最大的区别就是 不包含边框 
+        // 小结: client高度 和我们offsetHeight 最大的区别就是 不包含边框 
+    </script>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>回调函数</title>
+</head>
+<body>
+
+
+    <script>
+
+        // 铺垫一、
+        var bool = false;
+        // ajax 
+        function ajax(option){ // {key:value,success:function(res){}}
+            if(bool){ // 满足条件 bool = true
+                option.success("服务端响应的数据")
+            }else { //不满足条件  bool = false
+                option.error("请求资源失败")
+            }
+        }
+
+        ajax({
+            success:function(res){
+                console.log(res);// 服务端响应的数据
+            },
+            error:function(err){
+                console.log(err);
+            }
+        })
+
+
+        // 铺垫二、
+        // 循环对象   {k1:v1,k2:v2}   for...in....
+        // {num1:100,num2:99}   对象
+        //  num1=100&num2=99    字符串
+        var obj =  {num1:100,num2:99} ;
+        console.log(obj)
+        var str ="";
+        for(var k in obj ){
+            str+= k +"="+obj[k]+"&"
+        }
+        console.log(str)
+        str = str.slice(0,-1);
+        console.log(str)
+
+
+        // 铺垫三、
+        // 请求资源 
+        // get 请求方式
+        // 提交给服务端的参数 是拼在url后面
+        // http://127.0.0.1:3005/add?num1=100&num2=99
+
+    </script>
+</body>
+</html>

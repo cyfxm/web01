@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript"> 
+		// 打印9行一列的表格
+		/*document.write('<table border="1" width="600">');
+		document.write('<tr>');
+		document.write('<td>&nbsp;</td>');
+		document.write('</tr>');
+		document.write('<tr>');
+		document.write('<td>&nbsp;</td>');
+		document.write('</tr>');
+		document.write('<tr>');
+		document.write('<td>&nbsp;</td>');
+		document.write('</tr>');
+		document.write('<tr>');
+		document.write('<td>&nbsp;</td>');
+		document.write('</tr>');
+		document.write('<tr>');
+		document.write('<td>&nbsp;</td>');
+		document.write('</tr>');
+		document.write('<tr>');
+		document.write('<td>&nbsp;</td>');
+		document.write('</tr>');
+		document.write('<tr>');
+		document.write('<td>&nbsp;</td>');
+		document.write('</tr>');
+		document.write('<tr>');
+		document.write('<td>&nbsp;</td>');
+		document.write('</tr>');
+		document.write('<tr>');
+		document.write('<td>&nbsp;</td>');
+		document.write('</tr>');
+		document.write('</table>');*/
+
+		/*var str = '<table border="1" width="600">';
+			str += '<tr>';
+			str += '<td>&nbsp;</td>';
+			str += '</tr>';
+			str += '<tr>';
+			str += '<td>&nbsp;</td>';
+			str += '</tr>';
+			str += '<tr>';
+			str += '<td>&nbsp;</td>';
+			str += '</tr>';
+			str += '<tr>';
+			str += '<td>&nbsp;</td>';
+			str += '</tr>';
+			str += '<tr>';
+			str += '<td>&nbsp;</td>';
+			str += '</tr>';
+			str += '<tr>';
+			str += '<td>&nbsp;</td>';
+			str += '</tr>';
+			str += '<tr>';
+			str += '<td>&nbsp;</td>';
+			str += '</tr>';
+			str += '<tr>';
+			str += '<td>&nbsp;</td>';
+			str += '</tr>';
+			str += '<tr>';
+			str += '<td>&nbsp;</td>';
+			str += '</tr>';
+			str += '</table>';
+
+			// str是一个变量,是一个字符串,需要输出这个字符串
+			document.write( str );*/
+
+		// 因为我们已经学完循环,循环就是解决一些重复的事情
+		/*var str = '<table border="1" width="600">';
+
+			// 使用for循环,循环9次,输出相同的内容
+			for(var i = 1;i <= 9;i++){
+				// 什么东西需要重复做,什么东西就是循环体
+				str += '<tr>';
+				str += '<td>&nbsp;</td>';
+				str += '</tr>';
+			}
+			str += '</table>';
+
+		document.write( str );*/
+
+
+		// 打印一行9列的表格
+		// document.write('<table border="1" width="600">');
+		// document.write('<tr>');
+		// document.write('<td>&nbsp;</td>');
+		// document.write('<td>&nbsp;</td>');
+		// document.write('<td>&nbsp;</td>');
+		// document.write('<td>&nbsp;</td>');
+		// document.write('<td>&nbsp;</td>');
+		// document.write('<td>&nbsp;</td>');
+		// document.write('<td>&nbsp;</td>');
+		// document.write('<td>&nbsp;</td>');
+		// document.write('<td>&nbsp;</td>');
+		// document.write('</tr>');
+		// document.write('</table>');
+
+
+		/*var str = '<table border="1" width="600">';
+			str += '<tr>';
+			str += '<td>&nbsp;</td>';
+			str += '<td>&nbsp;</td>';
+			str += '<td>&nbsp;</td>';
+			str += '<td>&nbsp;</td>';
+			str += '<td>&nbsp;</td>';
+			str += '<td>&nbsp;</td>';
+			str += '<td>&nbsp;</td>';
+			str += '<td>&nbsp;</td>';
+			str += '<td>&nbsp;</td>';
+			str += '</tr>';
+			str += '</table>';
+		document.write( str );*/
+
+
+		/*var str = '<table border="1" width="600">';
+			str += '<tr>';
+			for(var i=1;i<=9;i++){
+				str += '<td>&nbsp;</td>';
+			}
+			str += '</tr>';
+			str += '</table>';
+		document.write( str );*/
+
+
+		// 打印9行9列的表格
+		/*var str = '<table border="1" width="600">';
+
+			// 这个时候,我们又发现了一样的代码,一样的代码又有规律,我们就可以考虑使用循环完成
+			for(var j=1;j<=9;j++){
+				str += '<tr>';
+				for(var i=1;i<=9;i++){
+					str += '<td>&nbsp;</td>';
+				}
+				str += '</tr>';
+			}
+
+			str += '</table>';
+		document.write( str );*/
+
+
+		// 打印对应行有对应列的9行表格,比如第一行,有1列;   第二行,有2列;   第三行,有3列...
+
+		// 以下代码中有两个变量,i跟就j,   i是控制行数还是列数  j是控制行数还是列数  j行,i列
+		var str = '<table border="1" width="600">';
+
+		for(var j=1;j<=9;j++){// j是控制行数,外层循环
+
+			str += '<tr>';
+
+			for(var i=1;  i<=j ; i++){// i是控制列数,内层循环
+				str += '<td>&nbsp;</td>';
+			}
+
+			str += '</tr>';
+
+		}
+		str += '</table>';
+
+		document.write( str );
+
+		// 打印9行9列的表格
+	</script>
+</head>
+<body>
+	<!-- <table border="1" width="600">
+		<tr>
+			<td>&nbsp;</td>
+			<td>&nbsp;</td>
+			<td>&nbsp;</td>
+			<td>&nbsp;</td>
+			<td>&nbsp;</td>
+			<td>&nbsp;</td>
+			<td>&nbsp;</td>
+			<td>&nbsp;</td>
+			<td>&nbsp;</td>
+		</tr>
+	</table> -->
+
+	<!-- 如果大家表格忘了,可以看HTML第二天笔记 -->
+	<!-- 如果一上来不知道js如何打印表格,先使用HTML写表格 -->
+	<!-- 如果想让表格撑开宽度高度,又没有设置宽度高度,我们可以给单元格设置&nbsp;当然也可以给table设置宽度高度 -->
+	<!-- <table border="1" width="600">
+		<tr>
+			<td>&nbsp;</td>
+		</tr>
+		<tr>
+			<td>&nbsp;</td>
+		</tr>
+		<tr>
+			<td>&nbsp;</td>
+		</tr>
+		<tr>
+			<td>&nbsp;</td>
+		</tr>
+		<tr>
+			<td>&nbsp;</td>
+		</tr>
+		<tr>
+			<td>&nbsp;</td>
+		</tr>
+		<tr>
+			<td>&nbsp;</td>
+		</tr>
+		<tr>
+			<td>&nbsp;</td>
+		</tr>
+		<tr>
+			<td>&nbsp;</td>
+		</tr>
+	</table> -->
+</body>
+</html>

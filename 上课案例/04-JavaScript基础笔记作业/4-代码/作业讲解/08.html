@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		table{
+			float:left;
+		}
+	</style>
+	<script type="text/javascript">
+		var str = "<table border='1' width='600'>";
+		for(var i=9; i>=1; i--){
+			str += "<tr>";
+			
+			/*i的变量  i-1转换 空白单元格的数量
+			9                  8
+			8                  7
+			7                  6
+			6                  5
+			5                  4
+			...
+			1                  0*/
+
+			for(var k=i-1; k>=1 ; k--){
+				str += "<td>&nbsp;</td>";
+			}
+
+			for(var j=9;j>=i;j--){
+				str += "<td bgcolor='green'>"+i+"&times;"+j+"="+i*j+"</td>";
+			}
+
+			str += "</tr>";
+
+			
+		}
+		str += "</table>";
+		document.write( str );
+
+
+		var str = "<table border='1' width='600'>";
+		for(var i=1; i<=9; i++){
+			str += "<tr>";
+			
+			for(var j=1;j<=i;j++){
+				str += "<td bgcolor='skyblue'>"+i+"&times;"+j+"="+i*j+"</td>";
+			}
+
+			// 额外再加了td
+			for(var k = 9-i ; k>=1 ; k--){
+				str += "<td>&nbsp;</td>";
+			}
+
+			str += "</tr>";
+		}
+		str += "</table>";
+		document.write( str );
+		
+
+
+		var str = "<table border='1' width='600'>";
+		for(var i=1; i<=9; i++){
+			str += "<tr>";
+
+			for(var k=i-1; k>=1 ; k--){
+				str += "<td>&nbsp;</td>";
+			}
+
+			for(var j=9;j>=i;j--){
+				str += "<td bgcolor='orange'>"+i+"&times;"+j+"="+i*j+"</td>";
+			}
+
+			str += "</tr>";
+
+			
+		}
+		str += "</table>";
+		document.write( str );
+
+
+		var str = "<table border='1' width='600'>";
+		for(var i=9; i>=1; i--){
+			str += "<tr>";
+			
+			for(var j=1;j<=i;j++){
+				str += "<td bgcolor='pink'>"+i+"&times;"+j+"="+i*j+"</td>";
+			}
+
+			// 额外再加了td
+			for(var k = 9-i ; k>=1 ; k--){
+				str += "<td>&nbsp;</td>";
+			}
+			str += "</tr>";
+		}
+		str += "</table>";
+		document.write( str );
+
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

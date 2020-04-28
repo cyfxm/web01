@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <canvas id="canvas">不支持canvas标签</canvas>
+
+    <script>
+        var canvas = document.querySelector("#canvas");
+        canvas.width = 800;
+        canvas.height = 800;
+        var ctx = canvas.getContext("2d");
+        var point = {
+            x:200,
+            y:200
+        }
+        var angle = 30;
+        ctx.beginPath();
+        ctx.moveTo(point.x,point.y);
+        ctx.arc(
+            point.x,
+            point.y,
+            200,
+            0,
+            angle*Math.PI / 180,
+        )
+        ctx.fillStyle = "red";
+        ctx.strokeStyle = "red";
+        ctx.closePath();
+        ctx.stroke();
+        // 圆
+        ctx.beginPath();
+        ctx.arc(
+            200,
+            400,
+            150,
+            0,
+            2*Math.PI
+        )
+        ctx.closePath();
+        ctx.stroke();
+        ctx.fill();
+    </script>
+</body>
+</html>

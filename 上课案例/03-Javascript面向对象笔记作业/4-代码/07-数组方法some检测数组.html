@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 数组方法some检测数组
+        /* 语法:
+        array.some(function(currentValue, index, arr){})
+        ​
+        currentValue: 数组当前项的值
+        index：可选,数组当前项的索引
+        arr：可选,数组对象本身 */
+
+        // 回调函数中要写return
+
+        // some() 方法用于检测数组中的元素是否满足指定条件. 通俗点 查找数组中是否有满足条件的元素
+        // 注意它返回值是布尔值, 如果查找到这个元素, 就返回true , 如果查找不到就返回false.
+        // 如果找到第一个满足条件的元素,则终止循环. 不在继续查找.
+
+        var arr = [10,20,30,20,50,70];
+        var result1 = arr.some(function(value){
+            console.log( value );
+            return value > 100;
+        });
+        console.log( result1 );
+        console.log( "" );
+
+        var result2 = arr.some(function(value){
+            console.log( value );
+            return value < 30;
+        });
+        console.log( result2 );
+
+        // some能做的,filter几乎都可以做,只是some找到满足条件的第一个元素,就会终止some代码的执行,返回值是一个布尔值
+    </script>
+</body>
+</html>

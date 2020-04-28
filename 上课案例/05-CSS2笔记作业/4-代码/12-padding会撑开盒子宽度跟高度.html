@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		.one{
+			width: 200px;
+			height: 200px;
+			background: pink;
+			/*padding会撑开盒子真实宽度跟高度*/
+			/*左填充*/
+			padding-left:20px;
+			/*右填充*/
+			padding-right:30px;
+			/*上填充*/
+			padding-top:40px;
+			/*下填充*/
+			padding-bottom:100px;
+			/*四个方向的边框*/
+			border:3px solid blue;
+				
+			/*算真实宽度高度很重要,因为我们明天要学习浮动,需要用到这个知识*/
+			/*结论*/
+			/*盒子的真实宽度 = 宽度 + 左填充 + 右填充 + 左边框 + 右边框*/
+			/*盒子的真实高度 = 高度 + 上填充 + 下填充 + 上边框 + 下边框*/
+
+			/*验证一下*/
+			/*one盒子的真实宽度 = 200 + 20 + 30 + 3 + 3 = 256*/
+			/*one盒子的真实宽度 = 200 + 40 + 100 + 3 + 3 = 346*/
+		}
+	</style>
+</head>
+<body>
+	<div class="one">one</div>
+</body>
+</html>

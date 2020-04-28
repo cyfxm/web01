@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>web字体</title>
+
+    <style>
+        /* 1.0 声明字体 */
+        @font-face {
+            font-family: 'wangyongguo';
+            font-display: swap;
+            src: url('./webFont/webfont.eot'); /* IE9 */
+            src: url('./webFont/webfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+            url('./webFont/webfont.woff2') format('woff2'),
+            url('./webFont/webfont.woff') format('woff'), /* chrome、firefox */
+            url('./webFont/webfont.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+            url('./webFont/webfont.svg#webfont') format('svg'); /* iOS 4.1- */
+        }
+
+        /* 2.0 定义使用 webfont 的样式 */
+        .title {
+            font-family: 'wangyongguo';
+            font-size: 20px;
+        }
+
+    </style>
+
+</head>
+<body>
+    <!-- 世界那么大，你怎么不去看看，难道因为没钱吗？就是没钱 -->
+    <div class="title">
+        世界那么大,我想去看看
+    </div>
+
+    <div class="title">
+        我们的祖国像花园
+    </div>
+
+
+
+</body>
+</html>

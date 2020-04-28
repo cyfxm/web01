@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 之前我们说过,构造方法里面没有东西,就会原型对象中找
+        function Star(uname,age){
+            this.uname = uname;
+            this.age = age;
+        }
+        Star.prototype.sing = function(){
+            console.log( "我会唱歌" );
+        }
+
+        // Star.prototype.sex = "男";
+
+        // 给Object的原型对象设置和方法
+        Object.prototype.sex = "保密";
+        
+        Object.prototype.hello = function(){
+            console.log("我是Ojbect里面hello方法~~你好,你猴,雷猴...");
+        }
+
+        // 实例化一个对象
+        var ldh = new Star("刘德华" , 18);
+        console.log( ldh.sex );
+        console.log("");
+        
+        // 再实例化一个对象
+        var dlrb = new Star("迪丽热巴",16);
+        // 对象自己身上有一个sex属性
+        dlrb.sex = "女";
+        console.log( dlrb.sex );
+        console.log("");
+
+        // Star.prototype.__proto__指向的Object的原型对象
+        // Star.prototype是原型对象,只要是对象就会有__proto__对象原型
+        console.log( Star.prototype.__proto__ );
+        console.log( Object.prototype );
+        console.log( Star.prototype.__proto__ === Object.prototype );
+        console.log( "" );
+        // 以上代码总结得到,Star构造函数的上一层是Object构造函数
+
+        var fbb = new Star("方冰冰",15);
+        console.log( fbb.sex );
+        console.log("");
+
+        // 我们之前说过强制转换字符串有一种方式是  对象.toString()
+        var arr = ["张三","男",23,"H5","头发浓密"];
+        var str = arr.toString();
+        // 输出数组构造函数的原型对象
+        console.log( Array.prototype );
+        console.log( str );
+        console.log("");
+
+        // 虽然arr和fbb对应的构造函数的原型没有hello这个方法,因为原型链的关系,Object.prototype上有hello这个方法  也可以使用
+        arr.hello();
+        fbb.hello();
+    </script>
+</body>
+</html>

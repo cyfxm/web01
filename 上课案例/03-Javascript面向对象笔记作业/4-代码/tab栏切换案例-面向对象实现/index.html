@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>面向对象 Tab</title>
+    <link rel="stylesheet" href="./styles/tab.css">
+    <link rel="stylesheet" href="./styles/style.css">
+</head>
+
+<body>
+
+    <main>
+        <h4>
+            Js 面向对象 动态添加标签页
+        </h4>
+        <div class="tabsbox" id="tab">
+            <!-- tab 标签 -->
+            <nav class="fisrstnav">
+                <ul>
+                    <li class="liactive"><span>测试1</span><span class="iconfont icon-guanbi"></span></li>
+                    <li><span>测试2</span><span class="iconfont icon-guanbi"></span></li>
+                    <li><span>测试3</span><span class="iconfont icon-guanbi"></span></li>
+                </ul>
+                <div class="tabadd">
+                    <span>+</span>
+                </div>
+            </nav>
+
+            <!-- tab 内容 -->
+            <div class="tabscon">
+                <section class="conactive">测试1</section>
+                <section>测试2</section>
+                <section>测试3</section>
+            </div>
+        </div>
+    </main>
+    
+    <script>
+        // 面向对象就是把所有的功能分配到各个对象中,功能作为对象的方法即可,指挥对象工作
+        // 类 跟 实例对象
+        // 根据效果得到我们需要一个选项卡类
+        // 选项卡类具有什么属性具有什么功能
+        // 属性: 各种HTML元素就会作为这个类的属性
+        // 功能: 选项卡可以切换选项卡,增加选项卡,删除选项卡以及编辑选项卡对应的内容
+
+        // 定义一个变量that,用于缓存this
+        var that;
+
+        // 通过es6的方法定义一个类 , 类名需要大写
+        class Tab{
+            // 构造器,初始化属性,给属性赋值
+            constructor(id){
+                // 缓存this,在实例化以后,会自动调用constructor()方法,这里面的this就是指向实例对象
+                that = this;
+
+                // 类里面的属性需要使用this
+                this.main = document.querySelector(id);
+                this.lis = this.main.querySelectorAll(".fisrstnav ul li");
+                this.sections = this.main.querySelectorAll(".tabscon section");
+                this.tabadd = this.main.querySelector(".tabadd");
+                this.ul = this.main.querySelector(".fisrstnav ul");
+                this.tabscon = this.main.querySelector(".tabscon");
+                
+                // 类里面使用类的属性和方法都要记得加上this前缀
+                this.init();
+            }
+
+            // 更新节点的方法
+            updateNode(){
+                this.lis = this.main.querySelectorAll(".fisrstnav ul li");
+                this.sections = this.main.querySelectorAll(".tabscon section");
+            }
+
+            // 初始化操作,给页面相关元素绑定事件
+            init(){
+                // 调用更新节点的方法
+                this.updateNode();
+
+                for(var i=0;i<this.lis.length;i++){
+                    // 设置自定义属性  给每个li设置data-index属性
+                    this.lis[i].setAttribute("data-index",i);
+                    // 给每个li绑定鼠标单击事件
+                    this.lis[i].onclick = this.toggleTab;
+                }
+
+                // 给+号绑定单击事件
+                this.tabadd.onclick = this.addTab;
+            }
+
+            // 清除所有li和section的类名
+            clearClass(){
+                for(var j=0; j<this.lis.length; j++){
+                    this.lis[j].removeAttribute("class");
+                    this.sections[j].removeAttribute("class");
+                }
+            }
+
+            // 切换选项卡
+            toggleTab(){
+                // console.log( that );
+                
+                // 实例化对象才可以调用类定义的属性和方法
+                // console.log( this );// this在这里代表点击的那个li
+                // this.clearClass();
+                
+                // 排他操作,清除所有样式
+                that.clearClass();
+
+                // 单独设置点击的那个选项卡的样式
+                this.className = "liactive";
+                // 设置对应的内容层样式
+                var index = this.getAttribute("data-index");
+                that.sections[index].className = "conactive";
+            }
+            
+            // 添加选项卡
+            addTab(){
+                that.clearClass();
+
+                var li = '<li class="liactive"><span>新选项卡</span><span class="iconfont icon-guanbi"></span></li>';
+                that.ul.insertAdjacentHTML("beforeend",li);
+
+                var section = '<section class="conactive">测试 '+Math.random()+'</section>';
+                that.tabscon.insertAdjacentHTML("beforeend",section);
+
+                that.init();
+            }
+            
+            // 删除选项卡
+            removeTab(){
+                console.log("删除选项卡");
+            }
+            
+            // 编辑选项卡
+            editTab(){
+                console.log("编辑选项卡");
+            }
+        }
+
+        new Tab("#tab");
+    </script>
+</body>
+
+</html>

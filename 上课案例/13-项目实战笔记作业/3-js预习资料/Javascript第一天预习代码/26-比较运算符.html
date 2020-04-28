@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript">
+		// 比较运算符有 > < >= <= == != === !==
+		// 比较运算符得到的结果是布尔类型  true或者 false
+		var x = 10;
+		var y = 5;
+		var z = 10;
+		var i = "10";
+
+		console.log(x > y);// true
+		console.log(x < y);// false
+		console.log(x >= y);// true
+		console.log(x >= z);// true
+		console.log(x <= y);// false
+		console.log(x <= z);// true
+		console.log("");
+
+		// =  代表赋值 运算符
+		// == 判断两个变量的值是否相等  如果值相等得到的结果是true 如果值不相等得到的结果是false
+		console.log(x == y);// false
+		console.log(x == z);// true
+		console.log("");
+
+		// != 不等  如果两个变量的值不相等,返回true;  如果两个变量的值相等,返回false
+		console.log(x != y);// true
+		console.log(x != z);// false
+		console.log("");
+
+		// === 全等于  两个变量的类型跟值要完成相同,得到的结果才为true; 否则就false
+		console.log(x == i);// ==只比较值是否相等
+		console.log(x === i);// === 比较值跟类型都要相等
+		console.log("");
+
+		// !== 不全等于 两个变量的类型或者值 只有类型相同或者值相同,得到就是结果就是true
+		console.log(x != i);// false
+		console.log(x !== i);// true
+		console.log(x !== z);// false
+		console.log("");
+
+		var str1 = "abc";
+		var str2 = "abc";
+		console.log(str1 == str2);// true
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

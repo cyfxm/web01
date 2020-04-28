@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button>小居佩奇</button>
+    <button>多啦A梦</button>
+
+    <br/>
+
+    <img src="images/xzpq.jpg"/>
+
+    <script>
+        // 获取所需对象
+        var btns = document.querySelectorAll("button");
+        var img = document.querySelector("img");
+
+        // console.log( btns );
+        // console.log( img );
+
+        // 给按钮绑定事件
+        btns[0].onclick=function(){
+            // 事件驱动程序  设置img标签的src属性
+            img.src = "images/xzpq.jpg";
+        }
+        btns[1].onclick=function(){
+            // 事件驱动程序  设置img标签的src属性
+            img.src = "images/dlam.jpg";
+        }
+    </script>
+</body>
+</html>

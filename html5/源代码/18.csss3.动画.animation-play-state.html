@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>animation-play-state</title>
+    <link rel="stylesheet" href="./base.css">
+    <style>
+        /* 1.0 定义动画 */
+        @keyframes foo6 {
+            from {
+                border-radius: 0;
+            }
+            to {
+                border-radius: 50px;
+            }
+        }
+
+        /* 2.0 使用动画 */
+        .box {
+            animation-name: foo6;
+            animation-duration: 3s;
+            animation-iteration-count: infinite;
+        }
+
+        .box:hover {
+            /* 停止动画 */
+            /* 默认值不会停止动画 */
+            /* animation-play-state:running; */
+            /* paused 这就停止了动画 */
+            animation-play-state:paused;
+        }
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+</body>
+</html>

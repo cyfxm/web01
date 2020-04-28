@@ -1,0 +1,93 @@
+/* a,
+a:focus,
+a:hover {
+    color:#333;
+    text-decoration: none;
+}
+/* 第一个区块 */
+/* .wjs_header {
+    height: 40px;
+    border-bottom: 1px solid #ccc;
+}
+
+.wjs_header .container .row > div {
+    border-left: 1px solid #ccc;
+    height: 40px;
+}  */
+/* .wjs_header .container .row > div:first-child {
+    /* border-left: 1px solid transparent; */
+/* } */
+/* 
+.wjs_header  .tel_app_link {
+
+}
+.wjs_header  .tel_app_link span.icon {
+
+}
+.wjs_header  .tel_app_link span.text {
+
+}
+.wjs_header  .tel_app_link img {
+    
+} */ 
+
+.wjS_news{
+    margin-top: 50px;
+}
+
+.wjS_news .container{
+    width: 70%;
+}
+
+.wjS_news .container>.row>div:first-child{
+    height: 40px;
+    border-bottom: 1px solid #ccc;
+    line-height: 40px;
+}
+
+.wjs_news .container>.row>div:nth-child(1) a{
+    color: #666;
+}
+
+.wjs_news .container>.row>div:nth-child(1) .little_cricle{
+    width: 5px;
+    height: 5px;
+    bottom: -3px;
+    right: -4px;
+    border: 1px solid #ccc;
+}
+
+.wjs_news .container>.row>div:nth-child(2) .row>div{
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.wjs_news .container>.row>div:nth-child(2) .row>div span{
+    margin: 0 auto;
+    display: block;
+    background-color:#CCC;
+    width: 60px ;
+    height: 60px;
+    line-height: 60px; 
+}
+
+.wjs_news .container>.row>div:nth-child(2) .row>div span .icon{
+    font-style: normal;
+    color:white;
+    font-size: 30px;
+}
+
+.wjs_news .container>.row>div:nth-child(2) .row>div span:focus,
+.wjs_news .container>.row>div:nth-child(2) .row>div span:hover{
+    background-color:  #e92333; 
+    cursor: pointer;
+}
+
+.wjs_news .container>.row>div:nth-child(2) .row>div span:active{
+    background-color: #e92333;
+}
+
+.wjs_news .container>.row>div:nth-child(2) .row>div .line{
+    display: block;
+    width: 50%;
+}

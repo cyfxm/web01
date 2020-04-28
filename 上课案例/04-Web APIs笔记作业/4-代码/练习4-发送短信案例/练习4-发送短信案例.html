@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    手机号码： <input type="text"> <button>获取验证码</button>
+    <script>
+        // 获取button按钮对象
+        var btn = document.querySelector("button");
+        // 定义秒数
+        var seconds = 60;
+        // 定义变量,保存定时器返回值
+        var timer = null;
+
+        btn.onclick=function(){
+            alert("发送验证码成功");
+            // 禁用按钮
+            btn.disabled = true;
+            // 开启定时器
+            timer = setInterval(function(){
+                // 注意:先判断清除定时器的情况,再执行正常的代码
+                // 当秒数为0的时候,我们就清除定时器
+                if( seconds == 0){
+                    clearInterval( timer );
+                    // 取消禁用状态
+                    btn.disabled = false;
+                    // 设置按钮内容
+                    btn.innerHTML = "获取验证码";
+                    // 设置秒数回60
+                    seconds = 60;
+                }else{
+                    btn.innerHTML = seconds + "秒重新获取";
+                    seconds--;
+                }
+
+            },1000)
+        }
+    </script>
+</body>
+
+</html>

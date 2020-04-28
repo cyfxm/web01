@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    // apply方法
+    // apply()方法调用一个对象。简单理解为  是一种调用函数的方式 ,  但是它可以改变函数的 this 指向
+    // 应用场景:  经常跟数组有关系
+    // 语法
+    // 函数.apply(thisArg, [argsArray])
+
+    // 参数说明:
+    // thisArg       ：在函数运行时指定的 this 值,如果不需要改变函数内部this指向,可以传递null
+    // argsArray     ：传递的值，必须包含在"数组"里面, 数组中的元素会一个一个对应传递给apply()前面函数的形参列表中
+
+    // 返回值就是函数的返回值，因为它就是调用函数
+    // 因此 apply 主要应该跟数组有关系，比如使用 Math.max() 求数组的最大值
+
+    function fn(x,y){
+        console.log( this );
+        console.log( x );
+        console.log( y );
+        console.log( x + y);
+        console.log( "" );
+    }
+    var obj = {
+        uname:"zhangsan"
+    };
+    // 使用apply()调用函数
+    fn.apply();
+    // 使用apply改变函数里面this的指向
+    fn.apply( obj );
+    // 如果使用的是apply调用函数,传参的话,必须把每个参数都放在一个数组里面
+    fn.apply( obj, [10,20] );
+    // 如果只想调用函数并且参数,但是又不想改变原函数中this指向,只需要第一参数传递一个null即可
+    fn.apply( null, [50,80] );
+    console.log("");
+    console.log("");
+    console.log("");
+
+    // apply 主要应该跟数组有关系，比如使用 Math.max() 求数组的最大值
+    // Math.max(数值1,数值2,数值3,数值4,数值5...)  返回多个数值中最大的那个值
+    console.log(  Math.max( 10,5,20,70,3 )  );
+    console.log("");
+
+    var arr = [30,1,20,100,7];
+    console.log( Math.max( arr ) );// NaN
+    console.log("");
+
+    // 使用apply方法,让Math.max可以求出数组中的最大值
+    // 函数名.apply(this指向 , 数组参数 )
+    console.log( Math.max.apply(null, arr ) );
+    // 使用apply方法,让Math.max可以求出数组中的最小值
+    console.log( Math.min.apply(null, arr ) );
+    </script>
+</body>
+</html>

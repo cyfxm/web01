@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript">
+		// 1.求一组数值 var arr=[10,4,20,15,6,9]  的最小值
+		var arr = [10,4,20,15,6,9];
+		// 假设数组第一个元素是最小值,放到minValue变量中
+		var minValue = arr[0];
+		for( var i=1; i<arr.length; i++){
+			if( minValue > arr[i] ){ // 如果数组元素比我假设的值更小
+				// 我们就把对应的数组元素让他成为新的最小值
+				minValue = arr[i];
+			}
+		}
+		document.write("最小值为:" + minValue);
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

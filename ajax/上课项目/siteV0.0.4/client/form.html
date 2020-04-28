@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title></title>
+</head>
+<body>
+    <!-- form 表单提交 -->
+    <form action="http://127.0.0.1:3005/login" method="post">
+        <!-- name ： 对应是服务端接收参数的key  ,req.body.username -->
+        <input type="text" name="username" placeholder="请输入 username">
+        <input type="text" name="password" placeholder="请输入 password">
+        <!-- 提交按钮 -->
+        <input type="submit" value="提交表单">
+    </form>
+
+    <!-- a.表单提交和b. ajax提交 -->
+    <!-- a. 页面跳转   b.局部刷新，不会整个页面跳转 -->
+    <!-- a. 用户体验低  b.用户体验高度  -->
+</body>
+</html>

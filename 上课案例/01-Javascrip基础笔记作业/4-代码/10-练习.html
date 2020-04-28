@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript">
+		// var str = "我叫卡卡西，我住在火影村，我今年30了我的邮箱是kakaxi@qq.com，我的工资2000.";
+		// document.write( str );
+
+		// 用变量保存以下信息,并在页面上输出下面内容,比如var username = "卡卡西";
+		// 我叫卡卡西，我住在火影村，我今年30了我的邮箱是kakaxi@qq.com，我的工资2000.
+
+		// 注意:数值的变量值需要不加引号包裹,字符串的变量值需要加引号包裹
+		var teacherName = "卡卡西";
+		var address     = "火影村";
+		var age         = 30; 
+		var email       = "kakaxi@qq.com";
+		var salary      = 2000;
+		document.write("我叫");
+		document.write(teacherName);
+		document.write(",我住在");
+		document.write(address);
+		document.write(",我今年");
+		document.write(age);
+		document.write("了我的邮箱是");
+		document.write(email);
+		document.write(",我的工资");
+		document.write(salary);
+
+		// 面试题:  交换两个变量的值,比如var a = 10; var b = 20; 交换以后变成 a = 20 , b = 10;
+		/*var a = 10;
+		var b = 20;
+		console.log("原来的值");
+		console.log(a,b);// a=10 b=20
+		a = b;// a = 20
+		b = a;// b = 20
+		console.log("交换以后的值");
+		console.log(a,b);*/
+
+		// 第一种交换方法:借助第三个变量
+		/*var a = 10;
+		var b = 20;
+		console.log("原来的值");
+		console.log(a,b);
+		var c = a;// c = 10;
+			a = b;// a = 20
+			b = c;// b = 10
+		console.log("交换以后的值");
+		console.log(a,b);*/
+
+		// 第二种交换方法:数值的变量才可以使用
+		var a = 10;
+		var b = 20;
+		console.log("原来的值");
+		console.log(a,b);
+		// 定义一个变量,保存a跟b的总和
+		var sum = a+b;// sum = 10+20 = 30
+			a = sum - a;// a = 30 - 10 = 20
+			b = sum - b;// b = 30 - 20 = 10
+		console.log("交换以后的值");
+		console.log(a,b);
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

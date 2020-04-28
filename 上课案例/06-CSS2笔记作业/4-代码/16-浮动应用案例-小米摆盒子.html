@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.box{
+			width: 980px;
+			height: 480px;
+			background: pink;
+			padding:10px;
+			margin:0 auto;
+		}
+		.box .top{
+			background: skyblue;
+			height: 290px;
+			margin-bottom: 10px;
+		}
+		.box .top .top_left{
+			background: #a19a9a;
+			height: 100%;
+			width: 270px;
+			/*左浮*/
+			float:left;
+			margin-right: 10px;
+		}
+		.box .top .top_right{
+			background: #1fc3b5;
+			height: 100%;
+			width: 700px;
+			float: left;
+		}
+
+		.box .bottom{
+			background: lightgreen;
+			height: 180px;
+		}
+		.box .bottom .one{
+			background: #5f5750;
+			height: 100%;
+			width: 235px;
+			float: left;
+			margin-right: 10px;
+		}
+		.box .bottom .two{
+			background: #26a59a;
+			height: 100%;
+			width: 235px;
+			float: left;
+			margin-right: 10px;
+		}
+		.box .bottom .three{
+			background: #ff9f00;
+			height: 100%;
+			width: 235px;
+			float: left;
+			margin-right: 10px;
+		}
+		.box .bottom .four{
+			background: #2b56b5;
+			height: 100%;
+			width: 245px;
+			float: left;
+		}
+	</style>
+</head>
+<body>
+	<!-- 大盒子开始 -->
+	<div class="box">
+		<!-- 上盒子开始 -->
+		<div class="top">
+			<div class="top_left">左边</div>
+			<div class="top_right">右边</div>
+		</div>
+		<!-- 上盒子结束 -->
+
+		<!-- 下盒子开始 -->
+		<div class="bottom">
+			<div class="one">1</div>
+			<div class="two">2</div>
+			<div class="three">3</div>
+			<div class="four">4</div>
+		</div>
+		<!-- 下盒子结束 -->
+	</div>
+	<!-- 大盒子结束 -->
+</body>
+</html>

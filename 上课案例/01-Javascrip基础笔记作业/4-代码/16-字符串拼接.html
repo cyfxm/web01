@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript">
+		// 字符串拼接就是多个小字符串变成一个大字符串
+		// 语法
+
+		console.log( 10 + 20);// 30
+		console.log( typeof( 10 + 20) );// number
+
+		console.log( "10"+20);// "1020"
+		console.log( typeof( "10"+20)) ;// string
+
+		console.log( 10+"20");// "1020"
+		console.log( typeof( 10+"20") );// string
+
+		console.log( "10"+"20");// "1020"
+		console.log( typeof( "10"+"20") );// string
+
+		// console.log输出空行
+		console.log("");
+
+		// +号的运算规则  要记
+		// 情况一:如果+号两个的值都是数值类型,那么+号就是加法运算 比如 1+1 = 2
+		// 情况二:如果+号两个的值有一个是"字符串"类型,那么这个时候+号就会变成字符串连接符,把两个的值拼接成一个大的字符串 "1"+1 = 11
+
+		var teacherName = "卡卡西";
+		console.log("我的名字叫teacherName");
+		console.log("我的名字叫"+teacherName);
+		console.log("我的名字叫"+"卡卡西");
+
+		var age = 30;
+		console.log("我的名字叫"+teacherName+",我的年龄是:"+age);
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

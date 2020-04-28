@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 函数也可以作为返回值传递回来
+        function fn(a,b){
+            // return关键字,会把return后面的内容返回给函数的调用者
+            return function(){
+                console.log( a+b );
+            };
+        }
+        var f = fn(10,20);
+        console.log( f );
+        f();
+        
+        console.log("");
+
+        // 以下方式也可以正常调用
+        fn(30,50)();
+    </script>
+</body>
+</html>

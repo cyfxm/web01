@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript">
+		var a = 10;
+		a++;// 后++
+		console.log(a);
+
+		var b = 10;
+		++b;// 前++
+		console.log(b);
+		console.log("");
+
+		// 自加加运算符分为前加加跟后加加
+		// 不管前加加还是后加加,最后的结果都会自加1
+
+		// 他们的区别在于有参与其他运算
+		// 赋值也算其他运算
+		// 后加加先把值给别人,自己再加1
+		// 前加加先自己加1,然后在把加1以后的值给别人
+
+		var x = 20;
+		var y = x++;
+		console.log(x,y);// 21 20
+
+		var i = 30;
+		var j = ++i;
+		console.log(i,j);// 31 31
+		console.log("");
+
+
+		var num1 = 100;
+		var num2 = ++num1;
+		console.log(num1,num2);// 101 101
+		console.log("");
+
+
+
+
+		var num3 = 10;
+		console.log(num3++);// 10
+		console.log(num3);// 11
+		console.log("");
+
+		var num4 = 20;
+		console.log(++num4);// 21
+		console.log(num4);// 21
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 构造函数也是函数中的一种,因为js有预解析  所以在构造函数之前实例化对象也可以正常使用
+
+        /* // 实例化对象
+        var car = new Cars("特斯拉");
+        // 调用对象里面的方法
+        car.run();
+
+        function Cars(brand){
+            this.brand = brand;
+            this.run = function(){
+                console.log( this.brand + "正在行驶");
+            }
+        } */
+
+
+        // 在 ES6 中类没有变量提升，所以必须先定义类，才能通过类实例化对象
+        
+        // 在定义类之前实例化,会报错
+        // var car = new Cars("比亚迪");
+        // car.run();
+
+        class Cars{
+            constructor(brand){
+                this.brand = brand;
+            }
+
+            run(){
+                console.log( this.brand + "正在行驶");
+            }
+        }
+
+        // 必须先定义类,再实例化对象
+        var car = new Cars("比亚迪");
+        car.run();
+    </script>
+</body>
+</html>

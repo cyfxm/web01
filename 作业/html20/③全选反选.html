@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 一组复选框 要求name属性值要一样的  -->
+   爱好:篮球 <input type="checkbox" name="hobby"> 
+         足球 <input type="checkbox" name="hobby">
+         台球 <input type="checkbox" name="hobby">
+         羽毛球 <input type="checkbox" name="hobby">
+         保龄球 <input type="checkbox" name="hobby">
+         <br/>
+    <input type="button" value="全选" onclick="quanxuan()">
+    <input type="button" value="取消" onclick="quxiao()">
+    <input type="button" value="反选" onclick="fanxuan()">
+    <script>
+        var hoddy = document.getElementsByName("hobby");
+        // console.log(hoddy);
+        
+        function quanxuan(){
+            for(var i = 0;i<hoddy.length;i++){
+                hoddy[i].checked = true;
+            }
+        }
+        function quxiao(){
+            for(var i = 0;i<hoddy.length;i++){
+                hoddy[i].checked = false;
+            }
+        }
+        function fanxuan(){
+            for(var i = 0;i<hoddy.length;i++){
+                hoddy[i].checked = !hoddy[i].checked;
+            }
+        }
+    </script>
+</body>
+</html>

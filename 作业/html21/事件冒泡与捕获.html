@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .father{
+            width: 480px;
+            height: 480px;
+            background: skyblue;
+            padding: 10px;
+            margin: 50px auto;
+        }
+        .father .son{
+            width: 100px;
+            height: 100px;
+            background:pink;
+            margin: 0 auto;
+            margin-top: 200px;
+        }
+    </style>
+</head>
+<body>
+    <div class="father">
+        <div class="son">son盒子</div>
+    </div>
+    <script>
+        // 事件冒泡
+        document.onclick = function(){
+            alert("document点击事件");
+        }
+        document.documentElement.onclick = function(){
+            alert("html点击事件");
+        }
+        document.body.onclick = function(){
+            alert("body点击事件");
+        }
+        var father = document.querySelector(".father");
+        father.onclick = function(){
+            alert("father点击事件");
+        }
+        var son = document.querySelector(".son");
+        son.onclick = function(){
+            alert("son点击事件");
+        }
+    </script>
+    <!-- 事件捕获 -->
+    <script>
+        document.addEventListener("click",function(){
+            alert("document点击事件");
+        },true);
+        document.documentElement.addEventListener("click",function(){
+            alert("document点击事件");
+        },true);
+        document.body.addEventListener("click",function(){
+            alert("document点击事件");
+        },true);
+        var father = document.querySelector(".father");
+        father.addEventListener("click",function(){
+            alert("father点击事件");
+        },true)
+        var son = document.querySelector(".son");
+        son.addEventListener("click",function(){
+            alert("son点击事件");
+        },true)
+    </script>
+    <script>
+         document.onclick = function(){
+            alert("document点击事件");
+        }
+        document.documentElement.onclick = function(){
+            alert("html点击事件");
+        }
+        document.body.onclick = function(){
+            alert("body点击事件");
+        }
+        var father = document.querySelector(".father");
+        father.onclick = function(e){
+            alert("father点击事件");
+            e = e || window.event;
+            e.cancelBubble = "true";
+        }
+        var son = document.querySelector(".son");
+        son.onclick = function(e){
+            alert("son点击事件");
+            e = e || window.event;
+            e.stopPropagation();
+        }
+    </script>
+</body>
+</html>

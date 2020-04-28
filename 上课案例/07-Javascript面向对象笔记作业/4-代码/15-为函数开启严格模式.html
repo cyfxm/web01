@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 为函数开启严格模式
+        // 要给某个函数开启严格模式，需要把"use strict"; (或 'use strict'; ) 声明放在函数体所有语句之前。
+        // 将 "use strict" 放在函数体的第一行，则整个函数以 "严格模式" 运行。
+
+        // 正常模式下,变量不加var声明也不会报错
+        // 但是严格模式下,变量不加var声明就会报错
+
+        
+        function fn1(){
+            a = 10;
+            console.log( a );
+        }
+        fn1();
+        
+        function fn2(){
+            // 为fn2开启严格模式,也就是只fn2里面的代码才会使用严格模式运行
+            "use strict";
+            b = 20;
+            console.log( b );
+        }
+        fn2();
+    </script>
+</body>
+</html>

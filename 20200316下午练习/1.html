@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{margin: 0;padding: 0;}
+        .box{
+            width: 800px;
+            height: 400px;
+            background: url(images/bg.jpg);
+            background-size: 100%;
+            left: 0;right: 0;
+            right: 0;top: 0;
+            margin:  auto ;
+            position: relative;
+            overflow: hidden;
+        }
+        div{
+            width: 800px;
+            height: 50px;
+            margin: 0 auto;
+        }
+        .info{
+           
+            width: 698px;
+            height: 30px;
+            border: 1px solid black;
+            float: left;
+            margin-top: 10px;
+        }
+        .btn{
+            display: block;
+            width: 98px;
+            height: 30px;
+            background: #00a1d6;
+            line-height: 30px;
+            font-size: 20px;
+            color: burlywood;
+            float: left;
+            border: 1px solid black;
+            text-align: center;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        p{
+            width: 1200px;
+            height: 40px;
+            font-size: 20px;
+            color: cornflowerblue;
+            line-height: 40px;
+            position: absolute;
+        }
+        .current .top{
+            width: 300px;
+            /* height: 100px; */
+            position: absolute;
+            top: -270px;
+            right: -10px;
+            display: none;
+            z-index: 999;
+
+        }
+        .current{
+            position: relative;
+            /* border: 1px solid red; */
+            height: 100px;
+        }
+        .current .biaoqing{
+            position: absolute;
+            top: -40px;
+            width: 50px;
+            right: 90px;
+        }
+    </style>
+</head>
+<body>
+   <section class="box">
+
+   </section>
+    <div>
+        <input class="info" type="text">
+        <span class="btn">发送</span>
+    </div>
+    <div class="current">
+        <div class="top">
+            <img src="images/1.gif">
+            <img src="images/2.gif">
+            <img src="images/3.gif">
+            <img src="images/4.gif">
+            <img src="images/5.gif">
+            <img src="images/6.gif">
+            <img src="images/7.gif">
+            <img src="images/8.gif">
+            <img src="images/9.gif">
+            <img src="images/10.gif">
+            <img src="images/11.gif">
+            <img src="images/12.gif">
+            <img src="images/13.gif">
+            <img src="images/14.gif">
+            <img src="images/15.gif">
+            <img src="images/16.gif">
+            <img src="images/17.gif">
+            <img src="images/18.gif">
+            <img src="images/19.gif">
+            <img src="images/20.gif">
+            <img src="images/21.gif">
+            <img src="images/22.gif">
+            <img src="images/23.gif">
+            <img src="images/24.gif">
+            <img src="images/25.gif">
+            <img src="images/26.gif">
+            <img src="images/27.gif">
+            <img src="images/28.gif">
+            <img src="images/29.gif">
+            <img src="images/30.gif">
+            <img src="images/31.gif">
+            <img src="images/32.gif">
+            <img src="images/33.gif">
+            <img src="images/34.gif">
+            <img src="images/35.gif">
+            <img src="images/36.gif">
+            <img src="images/37.gif">
+            <img src="images/38.gif">
+            <img src="images/39.gif">
+            <img src="images/40.gif">
+            <img src="images/41.gif">
+            <img src="images/42.gif">
+            <img src="images/43.gif">
+            <img src="images/44.gif">
+            <img src="images/45.gif">
+            <img src="images/46.gif">
+            <img src="images/47.gif">
+            <img src="images/48.gif">
+            <img src="images/49.gif">
+            <img src="images/50.gif">
+            <img src="images/51.gif">
+            <img src="images/52.gif">
+            <img src="images/53.gif">
+            <img src="images/54.gif">
+            <img src="images/55.gif">
+            <img src="images/56.gif">
+            <img src="images/57.gif">
+            <img src="images/58.gif">
+            <img src="images/59.gif">
+            <img src="images/60.gif">
+            <img src="images/61.gif">
+            <img src="images/62.gif">
+            <img src="images/63.gif">
+            <img src="images/64.gif">
+            <img src="images/65.gif">
+            <img src="images/66.gif">
+            <img src="images/67.gif">
+            <img src="images/68.gif">
+            <img src="images/69.gif">
+            <img src="images/70.gif">
+            <img src="images/71.gif">
+            <img src="images/72.gif">
+            <img src="images/73.gif">
+            <img src="images/74.gif">
+            <img src="images/75.gif">
+        </div>
+        <div class="biaoqing">
+            <img src="images/biaoqing.png" >
+        </div>
+    </div>
+    <script>
+        var box = document.querySelector('.box');
+        var info = document.querySelector('.info');
+        var btn = document.querySelector('.btn');
+        var speed=5;
+        btn.onclick=function(){
+            var txt=info.value;
+            if(txt !=''){
+                var p= document.createElement('p');
+                p.innerHTML=txt;
+                p.style.top=parseInt(Math.random()*361)+'px';
+                p.style.left='800px';
+                p.style.fontSize=parseInt(Math.random()*38)+'px';
+                p.style.color=yan();
+                box.appendChild(p);
+                p.innerHTML = info.value;
+                p.innerHTML = replaceBiaoqing( p.innerHTML );
+                move(p);
+            }else if(info.value == ""){
+                alert("请输入内容");
+            }
+            info.value = "";
+        }
+
+        function move(ele){
+        var timer= setInterval(function(){
+               ele.style.left=ele.offsetLeft-speed+'px';
+
+               if(ele.offsetLeft<=-1200){
+               clearInterval(timer);
+               }
+           },30)
+           
+        }
+
+
+        function yan(){
+            var r=parseInt(Math.random()*256);
+            var g=parseInt(Math.random()*256);
+            var b=parseInt(Math.random()*256);
+            return 'rgb('+r+','+g+','+b+')';
+        }
+
+        var current = document.querySelector(".current");
+        var imgTop = document.querySelector(".current .top");
+        var imgs = document.querySelectorAll(".current .top img");
+        var biaoqing = document.querySelector(".current .biaoqing");
+
+        var isHide=false;
+        current.onclick = function(){
+            if(isHide){
+                imgTop.style.display = "block";
+            }else{
+                imgTop.style.display = "none";
+            }
+            isHide = !isHide
+        }
+    
+        for(var i = 0;i<imgs.length;i++){
+            imgs[i].onclick = function(){
+                var imgSrc = this.src ;
+                // 让字符串根据某个符号分割成数组
+                var arr = imgSrc.split("/");
+                // 从数组中得到最后一个元素,就是图片名文件包括后缀的
+                var fileFullName = arr[arr.length - 1];
+                // 找到最后一个.出现的位置
+                var pos = fileFullName.lastIndexOf(".");
+                // 再从下标0开始截取到最后一个.之前
+                // 得到文件名
+                var filename =  fileFullName.substring(0,pos) ;
+                // 拼接字符串成 [em_1]
+                var str = "[em_" + filename + "]";
+                
+                // 设置input文本框的内容
+                info.value = info.value + str;
+            }        
+        }
+        function replaceBiaoqing(str){
+            // 正则表达式
+            var reg = /\[em_([0-9]*)\]/gi;
+            return str.replace(reg, "<img src='images/$1.gif'/>");
+        }
+    </script>
+</body>
+</html>

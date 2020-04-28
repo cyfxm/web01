@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		/*常见的网页布局方式有三种:版心布局,通栏布局,分栏布局*/
+		/*分栏布局,又称之为左右分栏,指得使用浮动让每个div在一个盒子里排成一行*/
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.header{
+			background: red;
+			height: 50px;
+		}
+		.banner{
+			background: green;
+			height: 100px;
+		}
+		.nav{
+			background: blue;
+			height: 100px;
+		}
+		.main{
+			background: pink;
+			height: 200px;
+		}
+		/*分栏布局就是让某个盒子下的多个div排行一行,要点,"每个div都要浮动"*/
+		.main .main_left{
+			background: #b9e8f1;
+			height: 100%;
+			width: 330px;
+			float: left;
+		}
+		.main .main_center{
+			background: #bdb5b1;
+			height: 100%;
+			width: 330px;
+			float: left;
+			margin-left: 5px;
+		}
+		.main .main_right{
+			background: #b60002;
+			height: 100%;
+			width: 330px;
+			float: right;
+		}
+		.footer{
+			background: skyblue;
+			height: 100px;
+		}
+
+		.w{
+			width: 1000px;
+			margin:0 auto;
+		}
+	</style>
+</head>
+<body>
+	<div class="header">
+		<div class="w">
+			头部
+		</div>
+	</div>
+
+	<div class="banner w">轮播图层</div>
+	<div class="nav w">导航栏</div>
+
+	<div class="main w">
+		<div class="main_left">左</div>
+		<div class="main_center">中</div>
+		<div class="main_right">右</div>
+	</div>
+
+	<div class="footer">
+		<div class="w">
+			底部
+		</div>
+	</div>
+</body>
+</html>

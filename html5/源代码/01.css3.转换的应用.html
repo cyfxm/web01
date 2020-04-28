@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>居中元素</title>
+    <style>
+        .wrapper {
+            width: 400px;
+            height: 300px;
+            border: 1px solid #ccc;
+            position: relative;
+        }
+        .wrapper .box {
+            width: 100px;
+            height: 80px;
+            background-color: red;
+        }
+
+        .wrapper .box1 {
+            /* 400 - 100 ) / 2 = 150 */
+            /* 300 - 80) / 2 = 110 */
+            transform: translateX(150px) translateY(110px);
+        }
+
+        .wrapper .box2 {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translateX(-50px) translateY(-40px);
+        }
+    </style>
+</head>
+<body>
+    <!-- 居中元素 -->
+    <div class="wrapper">
+        <div class="box box1">1</div>
+    </div>
+
+    <!-- 居中元素 -->
+    <div class="wrapper">
+        <div class="box box2">2</div>
+    </div>
+
+    <!-- ... 外边距 -->
+
+    <!-- ... 定位 -->
+
+    <!-- ... 定位 + 外边距 -->
+
+    <!-- ... 父元素  line-height:父元素高度 , text-align:center , 子元素： vertical-align:middle;-->
+
+    <!-- .... 表格  display:table-cell -->
+
+</body>
+</html>

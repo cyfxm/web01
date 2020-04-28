@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+         /* 选择类名以 icon 开头的元素  */
+        *[class^='icon'] {
+            display: inline-block;
+            width: 50px;
+            height: 56px;
+            background-image: url(./images/sprites.png);
+            background-repeat: no-repeat;
+        }
+        .icon_belt {
+            background-position: 0 0 ;
+        }
+        .icon_wifi {
+            background-position: 0 -60px;
+        }
+
+        .container {
+            width: 1200px;
+            margin: 0 auto;
+        }
+
+        .fl {
+            float: left;
+        }
+        .fr {
+            float: right;
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="container">
+        <div class="fl">
+            <span class="icon_belt"></span>
+        </div>
+
+        <div class="fr">
+            <span class="icon_wifi"></span>
+        </div>
+    </div>
+</body>
+</html>

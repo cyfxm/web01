@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title></title>
+    <style>
+        /* 注意：位移 旋转 缩放  变形要写在一起，不能分开写 */
+        .box {
+            transform: translateX(100px);
+            transform: rotate(45deg); /*这个转换把上面的转换层叠掉*/
+
+        }
+
+        .box {
+            transform: translateX(100px) rotate(45deg);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="box"></div>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript">
+		
+		/*function fn1(){
+			console.log(1111);
+			console.log(22222);
+			console.log(333333);
+		}
+
+		// 调用函数,就要执行函数体
+		console.log( fn1() );//会输出 1111 22222 333333 undefind*/
+
+
+		// return它在函数体使用有两层含义:
+		// 第一层含义: 当函数体里面遇到了return关键字以后，当前的这个函数就不会再往下进行执行了。
+		/*function fn2(){
+			console.log(1111);
+			console.log(22222);
+			return "我是函数中的返回值";
+			console.log(333333);
+		}
+
+		document.write( fn2() );*/
+
+
+		/*function fn3(){
+			console.log(1111);
+			return 666666;
+			console.log(22222);
+			return "我是函数中的返回值";
+			console.log(333333);
+		}
+		fn3();*/
+		
+		// 第二层含义:它会向函数的调用者返回数据 (重点) 返回值,也就是return了什么,函数调用者就得到什么
+		function fn4(){
+			return "abc";
+			return "456";
+			return "zhangsan";
+		}
+		console.log( fn4() );// abc
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

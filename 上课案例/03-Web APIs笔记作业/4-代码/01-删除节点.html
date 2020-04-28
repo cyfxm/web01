@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button>删除</button>
+    <ul>
+        <li>熊大</li>
+        <li>熊二</li>
+        <li>光头强</li>
+    </ul>
+
+    <script>
+        // 获取按钮对象
+        var btn = document.querySelector("button");
+        
+        // 获取ul对象
+        var ul = document.querySelector("ul");
+
+        btn.onclick=function(){
+            // 点击按钮每次删除父元素中的第一个子元素
+
+            // 获取ul的子元素
+            // console.log( ul.children );
+            // 获取ul的第一个子元素  children会动态更新
+            // console.log( ul.children[0] );
+
+            if(ul.children.length > 0){// 判断ul的子元素列表长度是否大于0
+                // 父对象.removeChild(子对象)  从父节点中删除一个子节点,返回值是被删除的节点
+                ul.removeChild( ul.children[0] );
+            }else{
+                alert("ul里面没有子元素了,删除失败");
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button>按钮</button>
+
+    <script>
+        class Star{
+            // 类里面的共有属性和方法"一定"要加this使用
+            constructor(uname,song){
+                this.uname = uname;
+                this.song = song;
+
+                // 想使用面向对象的方式,实现点击按钮调用类中的sing()方法
+                
+                // 获取按钮对象作为类中一个属性
+                this.btn = document.querySelector("button");
+                // 事件处理函数以前咱们都是写一个匿名,现在可以使用类中  方法名,但是不要加括号
+                // this.sing这个方法虽然赋值给了按钮的onclick事件,但是会马上调用吗?不会,点击按钮以后才会调用,但是点击按钮以后,this又指向了按钮,所以点击按钮以后,sing方法里面的this就变成了button对象
+                this.btn.onclick = this.sing;
+            }
+            sing(){
+                console.log("");
+                console.log("sing方法里面的this现在是");
+                console.log( this );
+
+                // 调用属性需要使用this
+                console.log( this.uname +"在唱" + this.song);
+                console.log("");
+
+                // console.log("啦啦啦啦,我是快乐是小当家");
+            }
+
+            dance(){
+                // 调用属性需要使用this
+                console.log( this.uname +"在跳舞");
+            }
+
+            show(){
+                // 调用其他方法也要使用this
+                this.sing();
+                this.dance();
+            }
+        }
+        var ldh = new Star("刘德华","冰雨");
+        console.log( ldh );
+        ldh.show();
+        console.log("");
+
+    </script>
+</body>
+</html>

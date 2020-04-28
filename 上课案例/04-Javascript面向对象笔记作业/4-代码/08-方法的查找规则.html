@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 方法的查找规则:
+        // 首先先看ldh 对象身上是否有 sing 方法,如果有就执行这个对象上的sing
+        // 如果没有sing 这个方法,因为有__proto__ 的存在,就去构造函数原型对象prototype身上去查找sing这个方法
+
+        function Star(uname,age){
+            this.uname = uname;
+            this.age = age;
+
+            /* this.sing = function(){
+                console.log("在构造函数中定义的sing方法");
+            } */
+        }
+
+        // 通过原型对象添加公共方法
+        Star.prototype.sing = function(){
+            console.log("在原型对象中定义的sing方法");
+        }
+        Star.prototype.dance = function(){
+            console.log("在原型对象中定义的dance方法");
+        }
+
+        var ldh = new Star("刘德华",23);
+        console.log( ldh );
+        // 构造函数有的,就用构造函数里面定义的;如果没有,就会去原型对象中找
+        ldh.sing();
+        ldh.dance();
+    </script>
+</body>
+</html>

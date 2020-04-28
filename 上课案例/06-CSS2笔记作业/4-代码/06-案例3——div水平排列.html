@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.one{
+			width: 100px;
+			height: 100px;
+			/*浮动的元素是脱离标准文档流,不占位置的*/
+			/*给第一个盒子浮动*/
+			float:left;
+		}
+		.two{
+			width: 150px;
+			height: 150px;
+			/*给第二个盒子设置浮动,如果有多个浮动元素,他们就会并排排列,特别注意:如果父元素的宽度放不下多个浮动元素,那么浮动元素就会换行排列*/
+			float:left;
+		}
+		.three{
+			width: 300px;
+			height: 300px;
+			/*给第三个盒子也设置浮动*/
+			float:left;
+		}
+		.four{
+			width: 600px;
+			height: 600px;
+			/*给第四个盒子也设置浮动*/
+			float:left;
+		}
+	</style>
+</head>
+<body>
+	<div class="one" style="background:rgba(255,0,0,0.5)">one</div>
+	<div class="two" style="background:rgba(0,255,0,0.5)">two</div>
+	<div class="three" style="background:blue">three</div>
+	<div class="four" style="background:pink">four</div>
+</body>
+</html>

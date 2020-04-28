@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 为脚本开启严格模式
+        // 为整个脚本文件开启严格模式，需要在所有语句之前放一个特定语句"use strict";(或'use strict';)。
+        // 我们的脚本写正在script标签中或者.js文件中;
+        // 只需要在script标签或者.js文件中所有语句之前放一个特定语句"use strict"
+        "use strict";
+        
+        a = 10;// 报错,因为严格模式下,需要使用使用关键字var或者const或者let声明变量,不能省略
+        console.log( a );
+    </script>
+</body>
+</html>

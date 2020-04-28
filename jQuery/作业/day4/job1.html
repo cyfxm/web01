@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        .wrapper {
+            width: 1200px;
+            margin: 50px auto;
+        }
+
+        .search {
+            width: 480px;
+            height: 40px;
+            border: 2px solid red;
+            line-height: 40px;
+            font-size: 0;
+        }
+
+        .search input,
+        .search span {
+            vertical-align: middle;
+
+        }
+
+        .search input {
+            border: 0;
+            outline: none;
+            width: 400px;
+            padding-left: 20px;
+            font-size: 14px;
+        }
+
+        .search span {
+            display: inline-block;
+            width: 60px;
+            height: 40px;
+            background-color: red;
+            background-image: url(1.png);
+            background-size: 20px 20px;
+            background-position: center;
+            background-repeat: no-repeat;
+            cursor: pointer;
+        }
+
+        .list {
+            display: none;
+        }
+
+        .list li {
+            height: 40px;
+            border-bottom: 1px solid #ccc;
+            width: 424px;
+            line-height: 40px;
+            font-size: 14px;
+            color: #666;
+        }
+
+        .list li.current {
+            background-color: red;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="search">
+            <input type="text" placeholder="提示"><span class="icon"></span>
+        </div>
+        <div class="list">
+            <ul>
+                <li>html5课程教材</li>
+                <li>vue课程教材</li>
+                <li>jquery课程教材</li>
+                <li>node课程教材</li>
+                <li>css课程教材</li>
+                <li>小程序课程教材</li>
+            </ul>
+        </div>
+    </div>
+
+    <script src="./jquery-3.4.1.js"></script>
+    <script>
+        $(function () {
+            $("input[type='text']").on('input', function () {
+                var v1 = $(this).val();
+                if (v1.length == 0) {
+                    $(".list").hide();
+                } else {
+                    $(".list").show();
+                }
+
+            })
+            $(document).on('keydown', function (e) {
+                e = e || window.event;
+                var keyCode = e.keyCode;
+                if (keyCode == 40) {
+                    if ($(".current").length == 0) {
+                        $(".list ul li:eq(0)").addClass("current");
+                    } else {
+                        $(".current").next().addClass("current").siblings().removeClass('current');
+                    }
+                } else if (keyCode == 38) {
+                        $(".current").prev().addClass("current").siblings().removeClass('current');
+                }
+            })
+        })
+    </script>
+</body>
+
+</html>

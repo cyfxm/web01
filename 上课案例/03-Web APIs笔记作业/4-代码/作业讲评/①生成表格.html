@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		table {
+	      width: 600px;
+	      cursor: pointer;
+	    }
+
+	    table td {
+	      text-align: center;
+	    }
+
+	    table th {
+	      background-color: blueviolet;
+	    }
+
+	    table tr {
+	      background-color: pink;
+	    }
+	</style>
+</head>
+<body>
+	<div id="dv">
+		请输入姓名:
+		<input type="text" value="" id="uname"/>
+		<br/> 请输入邮箱:
+		<input type="text" value="" id="email"/>
+	</div>
+	
+	<br/>
+	<input type="button" value="添加" id="btn" />
+	<br/>
+	<br/>
+
+	<table border="1" cellpadding="0" cellspacing="0" id="tb">
+		<thead>
+			<tr>
+				<th>姓名</th>
+				<th>邮箱</th>
+			</tr>
+		</thead>
+		<tbody id="tbd">
+			<tr>
+				<td>小黑</td>
+				<td>xiaohei@163.com</td>
+			</tr>
+		</tbody>
+	</table>
+	
+
+	<script>
+		// 获取所需对象
+		var btn = document.getElementById("btn");
+		var uname = document.getElementById("uname");
+		var email = document.getElementById("email");
+		var tbd = document.getElementById("tbd");
+
+		// 给按钮绑定单击事件
+		btn.onclick=function(){
+			// 获取姓名跟邮箱输入框的内容
+			var unameValue = uname.value;
+			var emailValue = email.value;
+			if(unameValue=="" || emailValue==""){
+				alert("请将数据填入完全");
+				return ;
+			}
+
+			// 创建td标签以及设置td中标签的内容
+			var td1 = document.createElement("td");
+			td1.innerHTML = unameValue;
+
+			var td2 = document.createElement("td");
+			td2.innerHTML = emailValue;
+
+			// 创建tr标签,把上面两个td添加tr中
+			var tr = document.createElement("tr");
+			tr.appendChild(td1);
+			tr.appendChild(td2);
+
+			// 把tr添加到tbody中
+			tbd.appendChild( tr );
+
+			uname.value = "";
+			email.value = "";
+		}
+	</script>
+</body>
+</html>

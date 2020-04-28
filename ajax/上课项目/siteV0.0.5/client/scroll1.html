@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        ul {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+
+        ul li a {
+            display: block;
+            min-height: 150px;
+            border: 1px solid #ccc;
+            margin: 10px 0;
+            overflow: hidden;
+        }
+
+        ul li a img {
+            width: 100px;
+            float: left;
+        }
+
+        ul li a div {
+            float: left;
+        }
+
+        ul li a p {
+            padding: 0;
+        }
+
+        .loading{
+            width: 80px;
+            height: 80px;
+            margin: 50px auto;
+            display: none;
+        }
+
+        h1{
+            padding: 0;
+            margin: 0;
+            height: 80px;
+            text-align: center;
+            line-height: 80px;
+            background-color: #333;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="wrapper">
+        <div class="header"><h1>滚动加载案例</h1></div>
+        <div class="main">
+            <ul id = "list_box">
+
+            </ul>
+        </div>
+        <div class="loading" data-page="0">
+            <img src="./loading/loading.gif" alt="">
+        </div>
+    </div>
+
+    <script src="./libs/jquery/jquery.js"></script>
+    <script>
+        $(function(){
+            // 接口地址
+            // http://127.0.0.1:3005/list
+            // 请求方式 ： get
+            // 参数：
+            //  属性名     数据类型   是否必须填写
+            //  page        number     是
+            //  pageSize    number     是
+            //  返回值 ：
+            
+            var isLoading = true;
+            function init(){
+                getData(0,5,function(res){
+                    console.log(res);
+                    render(res);
+                    $(".loading").attr('data-page',res.page);
+                    isLoading = true;
+                });
+            }
+
+            init();
+
+            function getData(page,pageSize,callback){
+                $.ajax({
+                    url:"http://127.0.0.1:3005/list",
+                    type:"get",
+                    async:true,
+                    data:{
+                        page:page,
+                        pageSize:pageSize
+                    },
+                    beforeSend:function(){
+                        $(".loading").show();
+                        isLoading = false;
+                    },
+
+                    success:function(res){
+                        if(callback){
+                            callback(res);
+                        }
+                    },
+
+                    error:function(err){
+                        console.log(err);
+                        
+                    }
+                })
+            }
+
+            function render(res){
+                var html = "";
+                var arr = res.result;
+                for(var i = 0 ; i < arr.length ; i++){
+
+                    html += '<li>'
+                    html += '    <a href="javascript:;">'
+                    html += '        <img src="'+arr[i].src+'" alt="">'
+                    html += '        <div>'
+                    html += '            <p>'+arr[i].title+'</p>'
+                    html += '            <p>'+arr[i].content+'</p>'
+                    html += '        </div>'
+                    html += '    </a>'
+                    html += '</li>'
+
+                }
+                $("#list_box").append(html);
+            }
+
+            $(window).scroll(function(){
+                var tt = $(document).scrollTop(); 
+                var pageHeight = document.documentElement.offsetHeight;
+                var winHeight = window.innerHeight;
+                console.log(tt,pageHeight,winHeight)
+
+                var  height = pageHeight - (tt + winHeight) ;
+                // console.log(height , (height < 100))
+                if((height < 100) && isLoading){
+                    // console.log("test ")
+                    var page = $(".loading").attr("data-page");
+                    getData(page,5,function(res){
+                            console.log(res,'test')
+                            if(!res){ return ;}
+                            render(res);
+                            $(".loading").hide();
+                            $(".loading").attr('data-page',res.page);
+                            isLoading = true;
+                    })
+                }
+            })
+        })
+    </script>
+</body>
+
+</html>

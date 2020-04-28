@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>学成在线</title>
+	<!-- 如何引入网页小图标 -->
+	<!-- 说明:ico图标一般会跟网页放在同一级目录 -->
+	<!-- <link rel="shortcut icon" type="image/x-icon" href="ico图片所在路径"> -->
+	<!-- link:favicon然后再按tab键 -->
+	<link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
+	<style>
+		/*第二步:写页面初始化样式*/
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		li{
+			list-style:none;
+		}
+		a{
+			text-decoration: none;
+			color:#2b2b2b;
+		}
+		a:hover{
+			color:#00a4f9;
+		}
+		/*定义一个版心类*/
+		.w{
+			width: 1200px;
+			margin:0 auto;
+		}
+		/*因为网页布局的时候,浮动使用的非常频繁*/
+		/*所以,我们又可以定义两个浮动类*/
+		/*左浮动类*/
+		.fl{
+			float:left;
+		}
+		/*右浮动类*/
+		.fr{
+			float: right;
+		}
+		
+		/*去掉input和textarea标签外轮廓线*/
+		input,textarea{
+			outline:none;
+		}
+
+
+		/*第三步:写具体样式 从大到小 从上到下 从左到右*/
+		.header{
+			height: 101px;
+			background: #f3f6f8;
+			/*background: pink;*/
+		}
+		.header .logo{
+			/*给元素设置背景颜色或者边框,看元素所在位置*/
+			/*border:1px solid red;*/
+			margin-top: 31px;
+			margin-right: 71px;
+		}
+		.header .nav{
+			margin-top: 43px;
+		}
+		.header .nav ul li{
+			float: left;
+			font-size:18px;
+			margin-right: 25px;
+		}
+		.header .nav ul li a{
+			padding-left:10px;
+			padding-right: 10px;
+			padding-bottom: 10px;
+		}
+		/*找到第一个li下面的a标签*/
+		.header .nav ul li:first-child a{
+			padding-left:10px;
+			padding-right: 10px;
+			padding-bottom: 10px;
+			border-bottom:2px solid #00a4f9;
+		}
+
+		.header .search{
+			margin-left: 60px;
+			background: skyblue;
+			margin-top: 31px;
+			width: 411px;
+			height: 40px;
+		}
+		.header .search input:first-child{
+			width: 360px;
+			height: 38px;
+			border:1px solid #00a4f9;
+			border-right:none;
+			background: #f3f6f8;
+			color:#d0d3d3;
+			text-indent: 19px;
+		}
+		.header .user{
+			/*background: skyblue;*/
+			margin-top: 35px;
+			margin-right: 36px;
+			height: 33px;
+			/*默认情况下,有图片img的存在,img旁边的文字默认跟img图片的底线对齐,而且使用行高调节不了*/
+			/*line-height: 33px;*/
+		
+			/*如果我们给img以及img周围的文字都设置了浮动,那么就可以实现图文混排,这个时候行高就可以生效*/
+			line-height: 33px;
+		}
+		.header .user a img{
+			border-radius: 50%;
+			margin-right: 8px;
+		}
+	</style>
+</head>
+<body>
+	<!-- 实现思路 -->
+	<!-- 第一步:根据效果分析,写出HTML结构 -->
+	
+	<!-- header头部开始 -->
+	<div class="header">
+
+		<div class="w">
+			<!-- logo网页图标层开始 -->
+			<div class="logo fl">
+				<img src="images/logo.png"/>
+			</div>
+			<!-- logo网页图标层结束 -->
+			
+			<!-- 导航栏开始 -->
+			<div class="nav fl">
+				<ul>
+					<li><a href="#">首页</a></li>
+					<li><a href="#">课程</a></li>
+					<li><a href="#">职业规划</a></li>
+				</ul>
+			</div>
+			<!-- 导航栏结束 -->
+			
+			<!-- 搜索层开始 -->
+			<div class="search fl">
+				<input type="text" value="输入关键词" class="fl"/>
+				<input type="image" src="images/btn.png" class="fl">
+			</div>
+			<!-- 搜索层结束 -->
+			
+			<!-- 用户信息层开始 -->
+			<div class="user fr">
+				<a href="#">
+					<!-- 如果我们给img以及img周围的文字都设置了浮动,那么就可以实现图文混排 -->
+					<img src="images/user.png" class="fl"/>
+					<span class="fl">qq-leishui</span>
+				</a>
+			</div>
+			<!-- 用户信息层结束 -->
+		</div>
+
+	</div>
+	<!-- header头部结束 -->
+
+	<!-- 轮播层开始 -->
+
+	<!-- style标签可以出现在HTML文档的任意位置,style标签也可以出现多次 -->
+	<style>
+		/*轮播图样式开始*/
+		.banner{
+			height: 420px;
+			background:url(images/banner2.png) no-repeat center top #1b046b;
+		}
+		.banner .w{
+			position: relative;
+			height: 420px;
+		}
+		.banner .nav{
+			width: 150px;
+			height: 420px;
+			background: rgba(21, 2, 80,0.8);
+			padding-left: 20px;
+			padding-right: 20px;
+		}
+		.banner .nav ul{
+			margin-top: 10px;
+		}
+		.banner .nav ul li{
+			/*如果想知道li的高度,但是又没有明显的边框,让我们量,我们就可以使用上行文字到下行文字的距离,上底到下底的距离;然后再设置行高垂直居中*/
+			height: 45px;
+			line-height: 45px;
+		}
+		/*如果给a设置了颜色,那么一般就需要配套设置一下a:hover的样式*/
+		.banner .nav ul li a{
+			color:white;
+			/*注意:如果想让a铺满整个父元素,我们可以把a转换成块元素*/
+			display: block;
+			font-size:12px;
+		}
+		.banner .nav ul li a:hover{
+			color:#00a4f9;
+		}
+		
+		.banner .nav ul li a span{
+			float: right;
+		}
+		.banner .nav ul li:first-child a{
+			color:#00a4f9;
+		}
+
+		.banner .class_table{
+			width: 228px;
+			height: 300px;
+			background: white;
+			margin-top: 50px;
+		}
+		.banner .class_table h2{
+			height: 48px;
+			text-align: center;
+			line-height: 48px;
+			color:white;
+			background: #9acfea;
+			font-size:20px;
+		}
+		.banner .class_table ul {
+			padding-left: 16px;
+			padding-right: 16px;
+		}
+		.banner .class_table ul li{
+			height: 48px;
+			border-bottom: 1px solid #ebebeb;
+			padding-top: 22px;
+		}
+		.banner .class_table ul li a{
+			font-size:12px;
+			color:#aeaeae;
+		}
+		.banner .class_table ul li:nth-child(2){
+			height: 47px;
+			padding-top: 10px;
+		}
+		.banner .class_table ul li:nth-child(3){
+			border-bottom: none;
+			color:#00a4f9;
+		}
+		.banner .class_table ul li:nth-child(3){
+			height: 48px;
+			border-bottom: 1px solid #ebebeb;
+			padding-top: 12px;
+		}
+		.banner .class_table ul li:nth-child(3) a{
+			color:#00a4f9;
+		}
+		.banner .class_table .all_class{
+			border:1px solid #00a4f9;
+			color:#00a4f9;
+			width: 198px;
+			height: 38px;
+			display: block;
+			text-align: center;
+			line-height: 38px;
+			margin-left: 14px;
+		}
+
+		.banner .circle{
+			width: 160px;
+			height: 12px;
+			position: absolute;
+			left: 50%;
+			bottom: 34px;
+			margin-left: -80px;
+		}
+		.banner .circle ul li{
+			width: 12px;
+			height: 12px;
+			border-radius: 50%;
+			background: rgba(255,255,255,0.5);
+			float: left;
+			margin-right: 16px;
+		}
+		.banner .circle ul li:first-child{
+			width: 20px;
+			background: white;
+			border-radius: 5px;
+		}
+		.banner .circle ul li:last-child{
+			margin-right: 0;
+		}
+		/*轮播图样式结束*/
+	</style>
+
+	<div class="banner">
+		<div class="w">
+			<!-- 左边导航栏 -->
+			<div class="nav fl">
+				<ul>
+					<li><a href="#">前端开发<span>></span></a></li>
+					<li><a href="#">后端开发<span>></span></a></li>
+					<li><a href="#">移动开发<span>></span></a></li>
+					<li><a href="#">人工智能<span>></span></a></li>
+					<li><a href="#">商业预测<span>></span></a></li>
+					<li><a href="#">云计算&大数据<span>></span></a></li>
+					<li><a href="#">运维&从测试<span>></span></a></li>
+					<li><a href="#">UI设计<span>></span></a></li>
+					<li><a href="#">产品<span>></span></a></li>
+				</ul>
+			</div>
+			
+			<!-- 右边部分课程表 -->
+			<div class="class_table fr">
+				<h2>我的课程表</h2>
+				<ul>
+					<li>
+						<p>继续学习 程序语言设计</p>
+						<a href="#">正在学习-使用对象</a>
+					</li>
+					<li>
+						<p>继续学习 程序语言设计</p>
+						<a href="#">正在学习-使用对象</a>
+					</li>
+					<li>
+						<p>继续学习 程序语言设计</p>
+						<a href="#">正在学习-使用对象</a>
+					</li>
+				</ul>
+				<a href="#" class="all_class">全部课程</a>
+			</div>
+
+
+			<!-- 6个小圆点 -->
+			<div class="circle">
+				<ul>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+				</ul>
+			</div>
+
+		</div>
+	</div>
+	<!-- 轮播层结束 -->
+
+
+</body>
+</html>

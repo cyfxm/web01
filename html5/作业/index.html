@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
+        .wrap{
+            width: 580px;
+            height: 580px;
+            background-color: gray;
+            margin: 100px auto;
+            border-radius: 50%;
+        }
+
+        .div1{
+            width: 500px;
+            height: 500px;
+            background-color: lavender;
+            position: relative;
+            top: 40px;
+            left: 40px;
+            border-radius: 50%;
+        }
+
+        .div2{
+            width: 200px;
+            height: 15px;
+            background-color: skyblue;
+            position: absolute;
+            top: 250px;
+            left: 250px;
+            border-top-right-radius: 10px;
+            border-bottom-right-radius: 10px;
+            transform-origin: left center;
+            animation: 3600s m linear infinite;
+        }
+
+        .div3{
+            width: 230px;
+            height: 10px;
+            background-color: red;
+            position: absolute;
+            top: 250px;
+            left: 250px;
+            border-top-right-radius: 10px;
+            border-bottom-right-radius: 10px;
+            transform-origin: left center;
+            animation: 60s s linear infinite;
+        }
+
+        .div5{
+            width: 230px;
+            height: 30px;
+            background-color: black;
+            position: absolute;
+            top: 250px;
+            left: 250px;
+            border-top-right-radius: 10px;
+            border-bottom-right-radius: 10px;
+            transform-origin: left center;
+            animation: 216000s h linear infinite;
+        }
+
+        .div4{
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            top: 240px;
+            left: 230px;
+            background-color: orange;
+        }
+
+        @keyframes m{
+            from{}
+            to{
+                transform: rotateZ(360deg);
+            }
+        }
+
+        @keyframes s{
+            from{}
+            to{
+                transform: rotateZ(360deg);
+            }
+        }
+
+        @keyframes h{
+            from{}
+            to{
+                transform: rotateZ(360deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <div class="div1">
+            <div class="div2"></div>
+            <div class="div3"></div>
+            <div class="div5"></div>
+            <div class="div4"></div>
+        </div>
+    </div>
+</body>
+</html>

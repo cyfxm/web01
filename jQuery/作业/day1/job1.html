@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box{
+            margin: 0 auto;
+            width: 1200px;
+            border: 1px solid black;
+        }
+        .box .w{
+            border-bottom: 1px solid red;
+        }
+        .box input{
+            width: 230px;
+        }
+
+        ul{
+            list-style: none;
+            border: 1px solid skyblue;
+        }
+        ul li:nth-child(even){
+            text-indent: 2em;
+        }
+        .content button{
+            float: right;
+            margin-top: -80px;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="w">
+            <div class="title">
+                <input type="text">
+            </div>
+            <textarea  cols="30" rows="10" style="overflow:hidden;height: 68px;" placeholder="请输入发布内容"></textarea>
+        <div class="btn">
+            <button>发布</button>
+        </div>
+        </div>
+        <div class="content"></div>
+    </div>
+
+    <script src="./jquery-3.4.1.js"></script>
+    <script>
+        var index = 0;
+        $(function(){
+            $(".btn button").click(function(){
+                var textareaValue = $('textarea').val();
+                var textValue= $("input").val();
+                if(textValue == "" || textareaValue == ""){
+                    alert("请输入内容，小笨蛋");
+                    return false;
+                }
+                // 创建ul
+                var oUl = $('<ul></ul>');
+                index++;
+                var error = '<button class = "del_'+ index +'">×</button>'
+                var str = '<li><h3>标题名:'+textValue+'</h3></li>\<li>'+textareaValue+'</li>'
+                oUl.html(str + error)
+                oUl.appendTo($('.content'))
+                $('textarea').val('');
+                $('input').val('');
+                var cName = ".del_"+index;
+                $(cName).click(function(){
+                    console.log("click",index)
+                    
+                    $(this).parent().remove();
+                })
+                })
+            })
+    </script>
+</body>
+</html>

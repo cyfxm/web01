@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 引入animate.js文件 -->
+    <script src="js/animate.js"></script>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        p{
+            width: 100px;
+            height: 100px;
+            background: skyblue;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+        button{
+            margin-top: 150px;
+        }
+    </style>
+</head>
+<body>
+    <p>今天天气还可以</p>
+    <button>按钮</button>
+    <script>
+        var btn = document.querySelector("button");
+        var p   = document.querySelector("p");
+        btn.onclick =  function(){
+            // animate函数在animate.js里面中定义了,所以只要引入了animate.js文件,就可以使用animate.js文件里面的东西了
+            animate(p,800,function(){
+                alert("动画结束了~");
+            })
+        }
+    </script>
+</body>
+</html>

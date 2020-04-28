@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul class="fruit">
+        <li>苹果</li>
+        <li>香蕉</li>
+        <li>葡萄</li>
+        <li>火龙果</li>
+        <li>桔子</li>
+    </ul>
+    <script>
+        // 3秒钟之后,打印所有li元素的标签内容
+        // 获取所有li标签
+        var lis = document.querySelectorAll("li");
+
+
+        // 第一种方法:用延时器包裹for循环
+        /* setTimeout(function(){
+            for(var i=0;i<lis.length;i++){
+                console.log( lis[i].innerHTML );
+            }
+        },3000) */
+
+        // 第二个方法:在for循环里面使用延时器  也是使用闭包
+        for(var i=0;i<lis.length;i++){
+            // 用一个立即函数包裹延时器
+            (function(index){
+                setTimeout(function(){
+                    console.log( lis[index].innerHTML );
+                },3000)
+            })(i)
+        }
+    </script>
+</body>
+</html>

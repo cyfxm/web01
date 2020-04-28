@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript">
+		// split() 切割字符串
+		// split(sep分隔符)  使用sep分隔符参数将"字符串"分隔为一个"数组"
+		
+		// sep就是代码根据什么字符来分割字符串
+		
+		var str1 = "张三-李四-王五-赵六";
+		console.log( str1 );
+		console.log( str1.split("-") );
+
+		// sep如果是""代表,分割每一个字符
+		console.log( str1.split("") );
+		
+		// 如果分割符在字符串中不存在,那么就会把整个字符串当做一个数组元素放进数组中
+		console.log( str1.split(" ") );
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

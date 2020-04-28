@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        table {
+            width: 400px;
+            border: 1px solid #000;
+            border-collapse: collapse;
+            margin: 0 auto;
+        }
+        
+        td,
+        th {
+            border: 1px solid #000;
+            text-align: center;
+        }
+        
+        .search {
+            width: 600px;
+            margin: 20px auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="search">
+        按照商品名称查询: <input type="text" class="product">
+    </div>
+    <table>
+        <thead>
+            <tr>
+                <th>id</th>
+                <th>产品名称</th>
+                <th>价格</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+    <script>
+        // 利用新增数组方法操作数据
+        var data = [{
+            id: 1,
+            pname: '小米9',
+            price: 3999
+        }, {
+            id: 2,
+            pname: 'oppo',
+            price: 999
+        }, {
+            id: 3,
+            pname: '荣耀V20',
+            price: 1699
+        }, {
+            id: 4,
+            pname: '华为',
+            price: 1999
+        }, {
+            id: 5,
+            pname: '华为nova',
+            price: 1999
+        },{
+            id: 6,
+            pname: '华为P30',
+            price: 2999
+        },{
+            id: 7,
+            pname: '华为Mate',
+            price: 5999
+        },{
+            id: 8,
+            pname: '小米10',
+            price: 4999
+        },{
+            id: 9,
+            pname: '荣耀V30',
+            price: 3599
+        },];
+
+        var tbody = document.querySelector("tbody");
+        var product = document.querySelector(".product");
+        setData(data);
+        function setData(mydata){
+            tbody.innerHTML = "";
+            mydata.forEach(function(value){
+                var tr = document.createElement("tr");
+                tr.innerHTML = "<td>" + value.id + " </td><td>"+ value.pname +  " </td><td>" + value.price+ "</td>";
+                tbody.append(tr);
+            })
+        }
+        
+        product.onkeyup = function(){
+            var productValue = product.value;
+            var newData = data.filter(function(value,index){
+                return data[index].pname.indexOf(productValue)!=-1;
+               
+            });
+            setData(newData);
+            
+        }
+    </script>
+</body>
+
+</html>

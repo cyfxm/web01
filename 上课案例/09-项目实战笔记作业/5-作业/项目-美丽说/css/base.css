@@ -1,0 +1,57 @@
+/*基本样式开始*/
+
+/*清空所有标签的内填充和外边距*/
+*{
+	margin: 0;
+	padding: 0;
+}
+ul,li{
+	list-style:none;
+}
+body{
+	font-size:12px;
+	font-family: 微软雅黑;
+	color:#666666;
+	min-width: 1200px;/*设置网页的最小宽度*/
+}
+a{
+	text-decoration: none;
+}
+a:link,a:visited{
+	color:#666666;
+}
+a:hover{
+	color:#ff3366;
+}
+img{
+	border:none;
+}
+/*设置一个版心*/
+.container{
+	width: 1200px;
+	margin: 0 auto;
+}
+input{
+	outline: none;
+}
+.lazy {
+    display: none;
+}
+/*生成的font-face*/
+@font-face {
+    font-family: 'iconfont';
+    src: url('../fonts/iconfont.eot');
+    src: url('../fonts/iconfont.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/iconfont.woff') format('woff'),
+    url('../fonts/iconfont.ttf') format('truetype'),
+    url('../fonts/iconfont.svg#iconfont') format('svg');
+}
+/*定义使用iconfont的样式*/
+.iconfont{
+    font-family:"iconfont" !important;
+    font-size:16px;font-style:normal;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-stroke-width: 0.2px;
+    -moz-osx-font-smoothing: grayscale;
+}
+/*基本样式结束*/

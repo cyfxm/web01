@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<!-- lablel标签主要目的是为了提高用户体验。 为用户提高最优质的服务。 -->
+
+	<!-- 概念
+	label 标签为 input 元素定义标注（标签）。 -->
+
+	<!-- 作用
+	用于绑定一个表单控件, 当点击label标签的时候, 被绑定的表单控件就会获得输入焦点。 -->
+
+	<!-- 如何绑定元素呢？ -->
+
+	
+	<form action="index.php" method="get">
+		<!-- 第一种用法:使用label标签包裹要设置的内容和表单控件 推荐使用这种-->
+		<p>
+			<label>用户名:<input type="text"/></label>
+		</p>
+
+		<!-- 第二种用法:使用label中的for属性  for="id名" 表单控件需要设置一个id属性 -->
+		<p>
+			<label for="mima">密　码:</label><input type="password" id="mima"/>
+		</p>
+	</form>
+</body>
+</html>

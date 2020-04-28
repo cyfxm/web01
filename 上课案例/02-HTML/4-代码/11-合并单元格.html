@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<table border="1" rules="all" width="500" height="300">
+		<caption><h2>个人简介</h2></caption>
+		<!-- rowspan跟colspan都th,td单元格的属性,才设置的时候,要么设置th上面,要么设置td上面 -->
+
+		<!-- rowspan上下方向合并单元格,取值数值,需要合并几个单元格,这个数值就写几 -->
+		
+		<!-- colspan左右方向合并单元格,取值数值,需要合并几个单元格,这个数值就写几 -->
+
+		<!-- 合并单元格的步骤
+		1.先找到你要合并的单元格,随便改成相同的内容
+		2.确定左右合并单元格,还是上下合并单元格,再决定使用对应colspan或者rowspan,要几个单元格合成1个单元格
+		3.删除多余的单元格 -->
+
+		<tr align="center">
+			<td><b>姓名:</b>刘德华</td>
+			<td>性别:男</td>
+			<td>年龄:18</td>
+			<td rowspan="2">照片</td>
+		</tr>
+		<tr align="center">
+			<td>身高:180</td>
+			<td>民族:汉</td>
+			<td>婚姻:未婚</td>
+		</tr>
+		<tr align="center">
+			<td>个人简介</td>
+			<td colspan="3">个人简介</td>
+		</tr>
+		<tr align="center">
+			<td>个人作品</td>
+			<td colspan="3">个人作品</td>
+		</tr>
+	</table>
+</body>
+</html>

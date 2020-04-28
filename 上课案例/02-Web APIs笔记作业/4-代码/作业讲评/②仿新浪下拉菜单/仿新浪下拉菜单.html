@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        
+        .tn-person-r .tn-title {
+            float: left;
+            font-size: 14px;
+            position: relative;
+            margin-left: 20px;
+            width: 80px;
+        }
+        
+        .tn-person-r .tn-title .tn-tab {
+            border: 1px solid #FCFCFC;
+            border-width: 0 1px;
+            color: #4C4C4C;
+            display: inline-block;
+            cursor: pointer;
+            position: relative;
+            z-index: 9999;
+            padding: 0 2px 0 0;
+            text-decoration: none;
+            width: 76px;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+        }
+        
+        .tn-person-r .tn-arrow {
+            display: inline-block;
+            width: 8px;
+            height: 5px;
+            margin: 0 0 0 5px;
+            overflow: hidden;
+            vertical-align: middle;
+            font-size: 12px;
+            line-height: 13px;
+            -webkit-transform: none;
+            -moz-transform: none;
+            -o-transform: none;
+            background: url(icon.png) 0 -977px no-repeat;
+        }
+        
+        .tn-person-r .tn-new {
+            margin-top: -10px;
+            position: absolute;
+            background: url(icon.png) 0 -1017px;
+            width: 14px;
+            height: 11px;
+        }
+        
+        .tn-person-r .tn-topmenulist-a-weibo,
+        .tn-topmenulist-a-other {
+            width: 77px;
+        }
+        
+        .tn-person-r .tn-topmenulist-a {
+            border: 1px solid #EBBE7A;
+            border-top: 0;
+            overflow: hidden;
+            -moz-box-shadow: 3px 3px 3px rgba(0, 0, 0, .1);
+            -webkit-box-shadow: 3px 3px 3px rgba(0, 0, 0, .1);
+            box-shadow: 3px 3px 3px rgba(0, 0, 0, .1);
+            top: 41px;
+            left: 0;
+        }
+        
+        .tn-person-r .tn-topmenulist .tn-text-list {
+            border-bottom: 1px solid #FECC5B;
+            margin: 0 0 -2px;
+            width: 80px;
+        }
+        
+        .tn-person-r .tn-topmenulist .tn-text-list li {
+            width: 50px;
+            line-height: 31px;
+            border-bottom: 1px solid #FECC5B;
+            color: #333;
+            padding: 0 15px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="top-nav">
+        <div class="tn-bg">
+            <div class="tn-header">
+                <div class="tn-person-r">
+                    <div class="tn-title " id="SI_Top_Weibo">
+                        <a target="_blank" href="javascript:;" class="tn-tab" id="weibo">
+                            <i>微博<em class="tn-new" style="display:none;"></em>
+                                <span class="tn-arrow"> </span>
+                            </i>
+                        </a>
+                        <div style="display: none;" class="tn-topmenulist tn-topmenulist-a tn-topmenulist-a-weibo" id="weibo_list">
+                            <ul class="tn-text-list">
+                                <li>私信</li>
+                                <li>评论</li>
+                                <li>@我</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // 获取大盒子对象
+        var SI_Top_Weibo = document.getElementById("SI_Top_Weibo");
+        // 获取微博对象
+        var weibo = document.getElementById("weibo");
+        // 获取微博列表
+        var weibo_list = document.getElementById("weibo_list");
+        // 鼠标移上大盒子以后
+        SI_Top_Weibo.onmouseover=function(){
+            // 改变微博背景颜色
+            weibo.style.backgroundColor = "#cccccc";
+
+            // 显示微博列表
+            weibo_list.style.display = "block";
+        }
+        // 鼠标移出大盒子以后
+        SI_Top_Weibo.onmouseout=function(){
+            // 改变微博背景颜色
+            weibo.style.backgroundColor = "white";
+
+            // 隐藏微博列表
+            weibo_list.style.display = "none";
+        }
+
+        // 鼠标移上微博以后
+        weibo.onmouseover=function(){
+            // 改变微博的样式
+            weibo.style.color = "#f3942e";
+        }
+        // 鼠标移出微博以后
+        weibo.onmouseout=function(){
+            weibo.style.color = "#4c4c4c";
+        }
+
+        // 获取.tn-text-list里面所有li标签
+        var lis = document.querySelectorAll(".tn-text-list li");
+        // console.log( lis.length );
+        for(var i=0;i<lis.length;i++){
+            // 输出i看看对不对,看看是不是咱们想要的0 1 2
+            // console.log( i );// 这里i没问题,但是马上一下就输出0 1 2
+            
+
+            // 特别注意:绑定事件跟触发事件会同时发生的,是边绑定边触发吗?  还是先绑定了事件才机会触发事件  是先绑定后触发事件   只能绑定完毕以后,才有机会触发事件
+
+            // 给每个li绑定鼠标移上事件
+            lis[i].onmouseover=function(){
+                // console.log("来也匆匆~");
+
+                // console.log( i );// 匿名函数里面代码,只有事件被触发以后才会执行
+
+                // 使用this关键字  大家暂时这样记,  "this谁触发事件,this代表谁"
+                // console.log( this );
+
+                // lis[i].style.backgroundColor = "#fff5da";
+                // lis[i].style.color = "#ff8400";
+
+                this.style.backgroundColor = "#fff5da";
+                this.style.color = "#ff8400";
+            }
+            
+            // 给每个li绑定鼠标移出事件
+            lis[i].onmouseout=function(){
+                // console.log("去也冲冲~");
+
+                // console.log( i );// 匿名函数里面代码,只有事件被触发以后才会执行
+
+                // lis[i].style.backgroundColor = "#ffffff";
+                // lis[i].style.color = "#4c4c4c";
+
+                this.style.backgroundColor = "#ffffff";
+                this.style.color = "#4c4c4c";
+            }
+        }
+
+        /* lis[0].onmouseover=function(){
+            lis[0].style.backgroundColor = "#fff5da";
+            lis[0].style.color = "#ff8400";
+        }
+        lis[0].onmouseout=function(){
+            lis[0].style.backgroundColor = "#ffffff";
+            lis[0].style.color = "#4c4c4c";
+        }
+        lis[1].onmouseover=function(){
+            lis[1].style.backgroundColor = "#fff5da";
+            lis[1].style.color = "#ff8400";
+        }
+        lis[1].onmouseout=function(){
+            lis[1].style.backgroundColor = "#ffffff";
+            lis[1].style.color = "#4c4c4c";
+        }
+        lis[2].onmouseover=function(){
+            lis[2].style.backgroundColor = "#fff5da";
+            lis[2].style.color = "#ff8400";
+        }
+        lis[2].onmouseout=function(){
+            lis[2].style.backgroundColor = "#ffffff";
+            lis[2].style.color = "#4c4c4c";
+        } */
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 顶级对象window
+        // window对象是浏览器的顶级对象,它具有双重角色.
+        // 它是JS访问浏览器窗口的一个接口.
+        // 它是一个全局对象. 定义在全局作用域中的变量、函数都会变成window对象的属性和方法
+        // 在调用的时候可以省略window, 前面学习alert(),prompt()都属于window对象的方法
+        // 注意:window下有一个特殊属性window.name
+
+        // 定义一个变量
+        var a = 10;
+        console.log( a );
+        // 因为window是一个全局对象,在全局作用域下定义的变量和函数,都会变成window对象的属性和方法
+        console.log( window.a );
+        console.log("");
+
+        // 定义函数
+        function fn(){
+            console.log("hello");
+            // 普通函数里面的this代表window对象
+            console.log( this );
+        }
+        // 调用函数
+        fn();
+        window.fn();
+
+        // 只要是window对象的方法和属性,就可以省略"window." 比如window.alert()=>alert()
+        // 弹窗
+        // window.alert("我是弹窗内容");
+        // alert("我也是弹窗内容")
+        console.log("");
+
+        // window下有一个特殊属性window.name 是window自带的属性,window.name的类型是字符串
+        console.log( window );
+        console.log( typeof( window.name ) );
+        console.log("");
+        
+        // 定义变量的时候,请谨慎使用name作为变量名,因为如果使用name变量名以后,不管值是什么,都会变成字符串类型
+        var name = 123456;
+        console.log( name );
+        console.log( typeof(name) );
+
+    </script>
+</body>
+</html>

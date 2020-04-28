@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul>
+        <li>张三</li>
+        <li>李四</li>
+        <li>王五</li>
+        <li>赵六</li>
+        <li>孙七</li>
+    </ul>
+
+    <button>按钮1,每点击一次,就删除ul里面第一个子元素</button>
+    <button>按钮2,每点击一次,就删除ul里面第一个子元素</button>
+    <script>
+        // 获取ul对象
+        var ul = document.querySelector("ul");
+
+        // 先使用以前删除节点的方式   父节点.removeChild(子节点)
+        var btns = document.querySelectorAll("button");
+        btns[0].onclick = function(){
+            // console.log( ul.children[0] );
+            // console.log( ul.firstElementChild );
+
+            ul.removeChild( ul.children[0] );
+        }
+
+        // 使用  新方法    要删除的节点.remove();
+        btns[1].onclick = function(){
+            ul.children[0].remove();
+        }
+    </script>
+</body>
+</html>

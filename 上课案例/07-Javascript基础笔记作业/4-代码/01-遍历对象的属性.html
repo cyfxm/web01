@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript">
+		var arr = ["张三",23,"男"];
+		// console.log( arr[0] );
+		// console.log( arr[1] );
+		// console.log( arr[2] );
+		/*for(var i=0;i<arr.length;i++){
+			console.log( arr[i] );
+		}
+		console.log("");
+
+		var obj = {
+			"username":"李四",
+			"age":24,
+			"sex":"女"
+		};*/
+		// 遍历对象属性就是访问对象中每个属性
+		// console.log( obj.username );
+		// console.log( obj.age );
+		// console.log( obj.sex );
+
+		// 对象的属性是不可以使用for来遍历的,首先因为对象没有length这个属性,而且属性名没有规律
+
+		// console.log( obj.length );// undefined
+		/*for(var j=0;j<obj.length;j++){
+			console.log( obj[j] );
+		}*/
+
+		// 遍历对象的属性我们需要使用for...in,为什么不使用for呢,因为for循环的东西需要有规律
+
+		// for...in这是一个新的语法结构,for...in可以遍历对象也可以遍历数组,因为数组也是对象中的一种,叫数组对象
+		// for...in语法结构
+
+		/*
+		for (var 变量名 in 对象) {
+		   在此执行代码
+		}
+
+		或者
+
+		for(var 变量名 in 数组变量名){
+		    console.log ( 数组变量名[变量名] );
+		}*/
+
+		var obj = {
+			"username":"李四",
+			"age":24,
+			"sex":"女"
+		};
+
+		// 使用for...in遍历对象属性
+		for(var i in obj){
+			// 我们在for...in输出i, 这个时候i就是属性名
+			// console.log( i );
+			// 我们在for...in输出obj,其实就是我们的那个对象
+			// console.log( obj );
+
+			// 访问对象属性有几种方法
+			// console.log( obj.i );// undefined,在for...in结构不能使用对象名.属性名访问属性
+
+			console.log( obj[i] );// 只能使用对象名["属性名"]访问属性
+		}
+
+		console.log("");
+		console.log("");
+		console.log("");
+		console.log("");
+
+		// 我们还可以使用for...in遍历数组
+		var arr = [10,20,30,40,50,60,70];
+		for(var j in arr){
+			// 这里的j变量代表"数组下标"
+			// console.log( j );
+			// 这里的arr变量代表当前数组
+			// console.log( arr );
+			// console.log( "" );
+
+			// console.log( arr.j );// undefined
+
+			console.log( arr[j] );
+		}
+
+		// for...in虽然也可以遍历数组,但是平时遍历数组,我们还是习惯用for,for...in一般留给遍历对象使用的
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

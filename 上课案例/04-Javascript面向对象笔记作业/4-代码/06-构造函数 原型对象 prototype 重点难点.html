@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 创建一个明星类
+        function Star(uname,age){
+            this.uname = uname;
+            this.age = age;
+            this.sing = function(){
+                console.log("我会唱歌");
+            }
+        }
+        
+        // 构造函数通过"原型"分配的函数是所有对象所共享的。
+        // JavaScript 规定，每一个"构造函数"都有一个prototype 属性，指向另一个对象。注意这个prototype就是一个对象，"这个对象的所有属性和方法，都会被构造函数所拥有"。
+        console.dir( Star );
+
+        // 因为prototype叫原型,然后它是值一个"对象",所以我们通常喜欢叫prototype原型对象
+        console.log( Star.prototype );// 得到一个对象
+
+        // 怎么给一个对象添加属性?怎么给一个对象添加方法?
+        // 对象.属性名 = 属性值
+        Star.prototype.sex = "男";
+        
+        // 对象.方法名 = function(){}
+        Star.prototype.dance = function(){
+            console.log("我会跳舞");
+        }
+
+        console.log( Star.prototype );// 得到一个对象
+        console.log("");
+        console.log("");
+        console.log("");
+
+        // 实例化两个对象
+        var ldh = new Star("刘德华",18);
+        var zxy = new Star("张学友",19);
+        // 这个prototype就是一个对象，"这个对象的所有属性和方法，都会被构造函数所拥有"。
+        console.log(ldh.uname);
+        // 构造函数上没有sex属性,但是构造函数原型对象上有,所以也可以访问
+        console.log(ldh.sex);
+        
+        console.log(zxy.uname);
+        // 构造函数上没有sex属性,但是构造函数原型对象上有,所以也可以访问
+        console.log(zxy.sex);
+        console.log("");
+
+        ldh.dance();// 我会跳舞
+        zxy.dance();// 我会跳舞
+        console.log( ldh.dance == zxy.dance );// true
+        console.log( ldh.dance === zxy.dance );// true
+        console.log( ldh.sing == zxy.sing );// false
+        console.log( ldh.sing === zxy.sing );// false
+
+        // 我们可以把那些不变的方法，直接定义在 prototype 对象上，这样所有对象的实例就可以共享这些方法。
+
+        // 注意:一般情况下,我们的"公共属性"定义到"构造函数"里面,"公共的方法"我们放到"原型对象"身上
+    </script>
+</body>
+</html>

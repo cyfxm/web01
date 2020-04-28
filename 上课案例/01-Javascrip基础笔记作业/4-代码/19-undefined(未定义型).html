@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript">
+		// undefined(未定义型)
+		// 什么时候会出现未定义型
+		// 第一种情况:声明了变量,但是变量没有值
+		var a;
+		console.log( typeof(a) ); // undefined
+		
+		// 第二种情况:声明了变量,变量的值是undefined
+		var b = undefined;
+		console.log( typeof(b) );// undefined
+
+		// 第三种情况:后续课程中的函数如果没有设置返回值,调用函数也会得到undefind
+
+		// 定义函数
+		function fn(){
+
+		}
+		// fn()是调用函数
+		console.log( typeof( fn() ) );
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

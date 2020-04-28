@@ -1,0 +1,590 @@
+/*在.css文件中是不能出现style标签的*/
+/*当在.css文件中引入其他文件的时候,比如引入背景图片,引入字体文件的时候,要以.css文件所在路径取找对应的文件*/
+
+/*sublime中可以按ctrl+h替换文字*/
+/*sublime中可以按ctrl+g然后输入对应的行数,跳转到指定行*/
+
+/*header头部样式开始*/
+.header{
+	height: 30px;
+	background: #f8f8f8;
+}
+/*子元素选择器*/
+.header .w>ul>li{
+	float: left;
+}
+/*子元素选择器*/
+.header .w>ul>li>a{
+	padding:0 20px;
+	/*border-right:1px dotted #cccccc ;*/
+	border-right:1px dotted red ;
+	/*为了解决帮助中心右边的边框消失问题,把a标签转为行内块或者块级元素*/
+	display: inline-block;
+	/*设置高度是为了a的右边框线高度不铺满整个li*/
+	height: 20px;
+	line-height: 20px;
+	margin-top: 5px;
+}
+/*找到最后一个li里面的a标签*/
+.header ul li:last-child a{
+	border-right: none;
+}
+.header ul li a span{
+	height: 16px;
+	width: 19px;
+	background:url(../images/top_nav.png) no-repeat;
+	display: inline-block;
+	margin-right: 10px;
+	/*行内或者行内块元素可以使用vertical-align属性*/
+	vertical-align: -2px;
+}
+/*并集选择器*/
+.header ul li a span.weixin{
+	background-position:-25px 0px;
+}
+.header ul li a span.qq{
+	background-position:-50px 0px;
+}
+.header ul li a span.shoucang{
+	background-position:-75px 0px;
+}
+.header ul li a span.cart{
+	background-position:-100px 0px;
+}
+.header ul li a span.orderlist{
+	background-position:-125px 0px;
+}
+.header ul li a span.help_center{
+	background-position:-180px 0px;
+	margin-right: 0;
+	width: 8px;
+	margin-left: 11px;
+}
+
+/*下拉框代码开始*/
+.header ul .drop {
+	/*父相*/
+	position: relative;
+	/*解决li高度没有撑满整个.header,导致鼠标移上.drop的时候有显示.down的问题*/
+	padding-bottom: 5px;
+}
+.header ul .drop .down{
+	background: #f8f8f8;
+	/*设置行高*/
+	line-height: 20px;
+	width: 85px;
+	/*子绝*/
+	position: absolute;
+	left: 0;
+	top: 30px;
+	border:1px solid #f1f1f1;
+	padding-top: 6px;
+	padding-bottom: 6px;
+	/*隐藏元素*/
+	display: none;
+}
+/*鼠标移上.drop以后,.drop里面的.down对应的样式*/
+.header ul .drop:hover .down{
+	/*显示元素*/
+	display: block;
+}
+.header ul .drop .down a{
+	/*把a标签转换为块元素,让a标签宽度铺满整个li*/
+	display: block;
+	text-align: center;
+}
+/*下拉框代码结束*/
+
+/*header头部样式结束*/
+
+
+/*主导航栏样式开始*/
+.main_nav{
+	height: 43px;
+	border-bottom: 1px solid #dedede;
+	font-size:16px;
+	font-weight: bold;
+}
+.main_nav ul li {
+	float: left;
+	margin-right: 75px;
+	line-height: 43px;
+}
+.main_nav ul li a{
+	color:#333333;
+}
+.main_nav ul li:first-child a{
+	color:#f36;
+	border-bottom: 2px solid #f36;
+	padding-bottom: 10px;
+}
+.main_nav ul li a:hover{
+	color:#f36;
+	border-bottom: 2px solid #f36;
+	padding-bottom: 10px;
+}
+/*主导航栏样式结束*/
+
+
+
+/*banner轮播图层样式开始*/
+.banner{
+	margin-top: 10px;
+	width: 1200px;
+	height: 400px;
+	background: url(../images/banner03.jpg);
+	position: relative;
+}
+.banner .left_btn{
+	width: 36px;
+	height: 44px;
+	/*子绝*/
+	position: absolute;
+	left: 0;
+	top: 50%;
+	margin-top: -22px;
+	cursor: pointer;
+}
+.banner .right_btn{
+	width: 36px;
+	height: 44px;
+	/*子绝*/
+	position: absolute;
+	right: 0;
+	top: 50%;
+	margin-top: -22px;
+	cursor: pointer;
+}
+.banner ul{
+	position: absolute;
+	bottom: 20px;
+	left: 50%;
+	width: 122px;
+	margin-left: -61px;
+}
+.banner ul li{
+	float: left;
+	width: 10px;
+	height: 10px;
+	border-radius: 50%;
+	background: rgba(255,255,255,0.9);
+	margin-right: 10px;
+	cursor: pointer;
+}
+.banner ul li:nth-child(3){
+	width: 20px;
+	border-radius: 10px;
+}
+.banner ul li:last-child{
+	margin-right: 0;
+}
+/*banner轮播图层样式结束*/
+
+
+
+/*今日新品样式开始*/
+.today_new{
+	height: 170px;
+	margin-top: 20px;
+	overflow: hidden;	
+}
+.today_new a{
+	float: left;
+}
+.today_new a img{
+	width: 300px;
+	height: 170px;
+}
+/*今日新品样式结束*/
+
+
+
+
+/*侧边栏样式开始*/
+.sidebar{
+	width: 38px;
+	background: #f6f6f6;
+	position: fixed;
+	right: 0;
+	top: 0;
+	height: 100%;
+	border-left:1px solid #dddddd;
+	/*因为发现侧边栏显示的二维码会被后面写的HTML非静态元素压住*/
+	/*设置堆叠顺序z-index*/
+	z-index:9999;
+}
+.sidebar ul li a{
+	width: 14px;
+	font-size:14px;
+	/*转成块元素*/
+	display: block;
+	/*为了让a可以填充整个父元素,所以我们给a设置左右填充*/
+	padding-left: 12px;
+	padding-right: 12px;
+	padding-top: 13px;
+	padding-bottom: 20px;
+	border-bottom: 1px solid #dddddd;
+}
+.sidebar ul li:first-child a{
+	margin-top: 62px;
+	border-top:1px solid #dddddd;
+	position: relative;
+}
+.sidebar ul li a .app{
+	transform: rotate(90deg);
+	display: block;
+}
+.sidebar ul li a .iconfont{
+	color:#ff3366;
+	font-size:18px;
+	margin-left: -2px;
+}
+.sidebar ul li:first-child a .iconfont{
+	font-size:24px;
+	margin-left: -5px;
+}
+.sidebar ul li a:hover{
+	background: #ff3366;
+	color:white;
+}
+/*鼠标移上a以后,a里面.iconfont*/
+.sidebar ul li a:hover .iconfont{
+	color:white;
+}
+.sidebar ul li {
+	position: relative;
+}
+.sidebar ul li a .qrcode{
+	width: 140px;
+	height: 140px;
+	background: white;
+	position: absolute;
+	left: -168px;
+	top: 0;
+	border:1px solid #dddddd;
+	padding:13px;
+	/*隐藏元素*/
+	display: none;
+
+	/*如果只给.qrcode设置z-index,但是没有给.sidebar设置,那么这个.qrcode还是会被非静态元素压住的*/
+	/*z-index:9999;*/
+}
+.sidebar ul li a:hover .qrcode{
+	/*显示元素*/
+	display: block;
+}
+/*伪元素选择符*/
+.sidebar ul li a .qrcode::before{
+	content:"";
+	width: 0;
+	height: 0;
+	border:11px solid transparent;
+	border-left: 11px solid #dddddd;
+	position: absolute;
+	right: -23px;
+	top: 58px;
+}
+.sidebar ul li a .qrcode::after{
+	content:"";
+	width: 0;
+	height: 0;
+	border: 13px solid transparent;
+    border-left: 13px solid white;
+    position: absolute;
+    right: -23px;
+    top: 56px;
+}
+/*侧边栏样式结束*/
+
+
+
+
+/*今日新品样式开始*/
+.today_new_goods{
+	height: 870px;
+	margin-top: 54px;
+}
+.today_new_goods .title{
+	height: 34px;
+	line-height: 34px;
+}
+.today_new_goods .title ul{
+	text-align:center;
+	/*如何去除行内块元素缝隙*/
+	/*需要给行内块的父元素设置一个字体大小为0;*/
+	font-size:0px;
+	height: 34px;
+	line-height: 27px;
+}
+.today_new_goods .title ul li{
+	/*讲ul里面li转换为行内块元素,但是li水平有细微的缝隙*/
+	/*因为父元素设置了字体大小为0,所以子元素字体也为0,我们单独给子元素设置字体大小*/
+	font-size:20px;
+	display: inline-block;
+}
+.today_new_goods .title ul li a{
+	color:#000000;
+}
+.today_new_goods .title ul li:first-child{
+	margin-right: 37px;
+}
+.today_new_goods .title ul li:first-child a{
+	color:#f36;
+}
+.today_new_goods .title ul li:first-child a span{
+	border-bottom: 2px solid #f36;
+	padding-bottom: 6px;
+}
+
+.today_new_goods .title ul li a:hover{
+	color:#f36;
+}
+.today_new_goods .title ul li a:hover span{
+	border-bottom: 2px solid #f36;
+	padding-bottom: 6px;
+}
+.today_new_goods .content{
+	margin-top: 17px;
+	height: 819px;
+}
+.today_new_goods .content ul li{
+	width: 224px;
+	height: 396px;
+	float:left;
+	margin-right: 20px;
+	margin-bottom: 27px;
+}
+/*5倍数的元素怎么表示,  如果是2n就代表2的倍数,如果是5n就代表5的倍数*/
+.today_new_goods .content ul li:nth-child(5n){
+	margin-right: 0;
+}
+/*找到从第6个开始之后的子元素,包括第6个*/
+/*li:nth-child(n+6) 选中从第6个开始的子元素*/
+.today_new_goods .content ul li:nth-child(n+6){
+	margin-bottom: 0;
+}
+/*因为图片是行内块元素,默认宽度由内容决定,会撑开父盒子,父盒子如果设置比较小的宽度高度是约束不了img图片大小的,所以需要单独给图片设置大小*/
+.today_new_goods .content ul li a img{
+	width: 224px;
+	height: 340px;
+}
+.today_new_goods .content ul li .info{
+	overflow: hidden;
+	margin-top: 10px;
+	margin-bottom: 8px;
+}
+.today_new_goods .content ul li .info .price{
+	color:#ff3366;
+	font-size:14px;
+}
+.today_new_goods .content ul li .info .price::before{
+	content:"¥";
+	margin-right: 6px;
+}
+.today_new_goods .content ul li .info .collect{
+	color:#999999;
+	font-size:14px;
+}
+.today_new_goods .content ul li .info .collect::before{
+	content:"";
+	background:url(../images/wjx.png);
+	width: 16px;
+	height: 15px;
+	display: inline-block;
+	/*background-size可以设置背景图片大小*/
+	background-size:100% 100%;
+	/*vertical-align属性可以设置行内元素或者行内块元素周围文字的垂直对齐方式*/
+	vertical-align: -2px;
+	margin-right: 5px;
+}
+.today_new_goods .content ul li .desc{
+	/*实现文字省略号*/
+	/*第一步:强制文字一行显示*/
+	white-space: nowrap; 
+	/*第二步:超出内容隐藏*/
+	overflow: hidden;
+	/*第三步:超出内容使用省略号代替*/
+	text-overflow: ellipsis;
+	font-size:14px;
+}
+.today_new_goods .content ul li .desc::before{
+	content:"";
+	display: inline-block;
+	width: 38px;
+	height: 17px;
+	background:url(../images/youxuan.png);
+	background-size:100% 100%;
+	vertical-align: -4px;
+	margin-right: 3px;
+}
+/*今日新品样式结束*/
+
+
+
+/*好物组货样式开始*/
+.good_set{
+	margin-top: 62px;
+	/*一般高度可以不写,但是得保证里面的内容可以撑开父盒子*/
+	/*height: 448px;*/
+
+	/*给浮动元素的父元素添加overflow:hidden;*/
+	overflow: hidden;
+}
+.good_set .title{
+	height: 20px;
+	line-height: 20px;
+	margin-bottom: 28px;
+}
+.good_set .title h2{
+	color:#666666;
+	font-size:20px;
+}
+.good_set .content{
+	height: 400px;
+}
+.good_set .content .item{
+	width: 390px;
+	height: 400px;
+	border:1px solid #eeeeee;
+	float: left;
+}
+.good_set .content .item:nth-child(2){
+	margin-left: 12px;
+	margin-right: 12px;
+}
+
+.good_set .content .item .bigImg{
+	width: 390px;
+	height: 210px;
+}
+.good_set .content .item .bigImg a{
+	position: relative;
+	height: 210px;
+	display: block;
+}
+.good_set .content .item .bigImg a img{
+	width: 100%;
+	height: 100%;
+}
+.good_set .content .item .bigImg a .mask{
+	width: 390px;
+	height: 54px;
+	background:url(../images/shadow.png);
+	position: absolute;
+	left: 0;
+	top: 0;
+	font-size:18px;
+	color:white;
+	text-align: center;
+	padding-top: 156px;
+}
+.good_set .content .item .bigImg a .mask::after{
+	content:"";
+	display: inline-block;
+	width: 0;
+	height: 0;
+	border:5px solid transparent;
+	border-left:5px solid white;
+	margin-left: 11px; 
+}
+.good_set .content .item .threeSmallImg{
+	width: 390px;
+	height: 174px;
+	margin-top: 16px;
+}
+.good_set .content .item .threeSmallImg a{
+	float: left;
+	width: 114px;
+	height: 157px;
+	margin-left: 8px;
+	margin-right: 8px;
+	text-align: center;
+}
+.good_set .content .item .threeSmallImg a img{
+	width: 114px;
+	height: 130px;
+	margin-bottom: 16px;
+}
+/*好物组货样式结束*/
+
+
+
+/*footer样式开始*/
+.footer{
+	height: 299px;
+	background: #f5f5f5;
+	margin-top: 26px;
+	border-top: 1px solid #dddddd;
+}
+.footer .top{
+	height: 195px;
+	border-bottom: 1px solid #dddddd;
+	padding-top: 35px;
+}
+.footer .top .top_left{
+	height: 100%;
+	/*浮动以后的元素可以不给宽度,但是需要有内容,因为浮动以后的元素会具有行内块特性,默认宽度由内容决定*/
+	/*width: 577px;*/
+	/*background: orange;*/
+}
+.footer .top .top_left dl{
+	/*dl是块元素,想让块元素排成一行,用浮动*/
+	float: left;
+	margin-right: 106px;
+}
+.footer .top .top_left dl:last-child{
+	margin-right: 0;
+}
+
+.footer .top .top_left dl dt{
+	color:#666666;
+	font-size:16px;
+	font-weight: bold;
+}
+.footer .top .top_left dl dd{
+	margin-top: 20px;
+}
+.footer .top .top_left dl dd a span{
+	height: 18px;
+	width: 18px;
+	background: url(../images/footer-icon.png) no-repeat;
+	display: inline-block;
+	/*行内元素或者行内块元素使用vertical-align设置垂直对齐方式*/
+	vertical-align: -4px;
+	margin-right: 6px;
+}
+/*background-position的取值有几种  有三种, 英文位置单词,百分比,数值带px*/
+.footer .top .top_left dl dd a .qq_zone{
+	background-position: center top;
+}
+.footer .top .top_left dl dd a .weibo{
+	background-position: right top;
+}
+
+
+.footer .top .top_right{
+	height: 100%;
+	width: 311px;
+	margin-right: 87px;
+}
+.footer .top .top_right div{
+	width: 130px;
+	color:#666666;
+	font-size:16px;
+	font-weight: bold;
+	text-align: center;
+}
+.footer .top .top_right div p{
+	margin-bottom: 20px;
+}
+.footer .bottom{
+	height: 56px;
+	text-align: center;
+	padding-top: 12px;
+	color:#666666;
+}
+.footer .bottom p{
+	height: 22px;
+	line-height: 22px;
+}
+/*footer样式结束

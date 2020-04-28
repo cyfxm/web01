@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>边框阴影</title>
+    <style>
+        .nav {
+            width: 1000px;
+            height: 80px;
+            margin: 50px auto;
+
+            /* 阴影 */
+            /* 阴影：水平偏移量 垂直偏移量 模糊度 延伸量（可选） 阴影颜色 内阴影 */
+            /* 水平偏移量  是正数  往右偏移 ， 否则反之  */
+            /* 垂直偏移量  是正数  往下偏移 ， 否则反之*/
+            /* box-shadow: 1px 1px 1px 1px #ccc inset; */
+            /* box-shadow: 1px 1px 1px 1px #ccc; */
+           
+        }
+
+        .nav1 {
+            box-shadow: 10px 10px 10px  #ccc;
+        }
+
+        .nav2 {
+            box-shadow: -10px -10px 10px  #ccc;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="nav nav1">nav nav1</div>
+
+    <div class="nav nav2">nav nav2</div>
+</body>
+</html>

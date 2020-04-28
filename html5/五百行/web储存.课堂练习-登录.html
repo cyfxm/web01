@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        input[type='checkbox'] {
+            width: 30px;
+            height: 30px;
+        }
+        .form > div {
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="form">
+        <h3>用户登录</h3>
+        <div>
+            <label for="">账号：</label><input placeholder="请输入" type="text" id="account">
+        </div>
+        <div>
+            <label for="">密码:</label> <input  placeholder="请输入" type="password" id="password">
+        </div>
+        <div>
+            <input type="checkbox"  id="rememberId"> <span>是否记住账号密码？</span>
+        </div>
+        <div><input type="submit" value="登录" id="login_btn"></div>
+    </div>
+
+
+    <script>
+        var account_ele = document.querySelector("#account");
+        var password_ele = document.querySelector("#password");
+        var rememberId_ele = document.querySelector("#rememberId");
+        var login_btn = document.querySelector("#login_btn");
+
+        var userInfo = localStorage.getItem('user');
+
+        if(userInfo !=null){
+            userInfo = JSON.parse(userInfo);
+            console.log(userInfo);
+            account_ele.value = userInfo.useraccount;
+            password_ele.value = userInfo.userpassword;
+
+            rememberId_ele.checked = true;
+        }
+
+        login_btn.onclick = function(){
+            var bool = rememberId_ele.cheaked;
+            var user = {
+                useraccount:account_ele.value,
+                userpassword:password_ele.value
+            }
+
+            if(user['useraccount'].length == 0){
+                alert('请输入账号！');
+                return;
+            }
+            if(user['userpassword'].length == 0){
+                    alert('请输入密码！');
+                    return;
+            }
+
+            if(bool){
+                var dataStr = JSON.stringify(user);
+                localStorage.setItem('user',dataStr);
+            }else{
+                localStorage.clear('user');
+            }
+
+            login_btn.style.backgroundColor = "#ccc";
+        }
+    </script>
+</body>
+</html>

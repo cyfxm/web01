@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript">
+		// 获取字符串位置的方法,用于从字符串中查找指定字符或者字符串的位置
+
+		// indexOf('要查找的字符或字符串') 返回指定内容在原字符串中第一次出现的位置， 如果找不到就返回 -1; 如果查找的是多个字符 ,找的到就返回第一个字符的下标
+
+		var str1 = "1789h23hello456hello789efg";
+		// 查找h字符在str1中第一次出现的位置
+		console.log( str1.indexOf("h") );// 4
+
+		// 查找hello字符串在str中第一次出现的位置
+		console.log( str1.indexOf("hello") );// 3
+
+		// 查找一个不存在的字符,会返回-1
+		console.log( str1.indexOf("a") );// -1
+
+		console.log("");
+
+
+
+		// lastIndexOf('要查找的字符或字符串') 返回指定内容在原字符串中最后一次出现的位置， 如果找不到就返回 -1; 如果查找的是多个字符 ,找的到就返回第一个字符的下标
+		var str2 = "1789h23hello456hello789efgh";
+
+		console.log( str2.indexOf("hello") );// 7
+
+		// 返回指定内容在原字符串中最后一次出现的位置
+		console.log( str2.lastIndexOf("hello") );// 15
+
+		console.log( str2.lastIndexOf("h") );// 26
+
+		// 如果找不到,也是返回-1
+		console.log( str2.lastIndexOf("a") );// -1
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

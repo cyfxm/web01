@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript">
+		// 我们在定义函数的时候,如果函数体中有一些不确定变量的值,或者函数体中有些需要调用的时候才能确定值,这样的值,我们就会使用函数的参数的实现
+
+		// 函数的参数分为两种,定义函数的时候,叫形式参数,简称"形参"
+		// 函数的参数分为两种,调用函数的时候,叫实际参数,简称"实参"
+		// 其实形式参数就是一个变量名,注意,不能加var
+
+
+		/*函数参数的使用语法
+
+		function 函数名([形参1,形参2,形参3...]){
+			函数体;
+			return 返回值;
+		}
+
+		函数名([实参1,实参2,实参3...]);*/
+
+		// 实现一个看到谁,就对谁说你好的函数 
+		function fn( username ){
+			// document.write( username );
+			// document.write("<br/>");
+			document.write( username+ ",你好<br/>");
+		}
+
+		// 有形参的时候,对应调用函数的时候,就要传递一个值给形参;如果调用的时候,没有传实参,对应形参的是就是undefind
+
+		// 不传实参
+		fn();
+		// 传实参
+		fn( "张三" );
+		fn( "李四" );
+
+		document.write("<hr/>");
+
+
+
+
+
+		// 案例:用函数封装 根据传入的 任意2个数值的和
+		function getSum(a,b){
+			document.write( a + b);
+			document.write("<hr/>");
+		}
+
+		getSum(10,20);
+		getSum(50,30);
+	</script>
+
+</head>
+<body>
+	
+</body>
+</html>

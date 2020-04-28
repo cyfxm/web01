@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>H5 视频播放器 </title>
+    <link rel="icon shortcut" href="./favico.ico">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./assets/css/font-awesome.css">
+</head>
+<body>
+    <!-- 头部 -->
+    <header class="y_header">
+        <div class="container"><h3>视频播放器</h3></div>
+    </header>
+    <!-- 主体 -->
+    <main class="y_main">
+        <div class="container">
+            <!-- 内容 -->
+            <article class="y_article">
+                <!-- 视频播放区 -->
+                <section class="content">
+                    <!-- <video id="video" src="./video/movie.mp4"></video> -->
+                    <video id="video" src="./video/funny.mp4"></video>
+                </section>
+                <!-- 控件 -->
+                <section class="controls">
+                    <div class="controls_left">
+                         <!-- 播放 -->
+                         <div class="btn active" id="play_button">
+                            <span class="icon fa fa-play"></span>
+                         </div>
+                         <!-- 暂停 -->
+                         <div class="btn" id="pause_button"><img src="" alt="">
+                            <span class="icon fa fa-pause"></span>
+                        </div>
+                    </div>
+                    <!-- 进度条 -->
+                    <div class="controls_center">
+                        <ul id="progress">
+                            <li id="line">
+                                <span id="bar" class="circle"></span>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- 播放时间 -->
+                    <div class="controls_right">
+                        <div class="time_box">
+                            <span id="current" class="current">00:00:00</span> /
+                            <span id="total" class="total">00:00:00</span>
+                        </div>
+                    </div>
+                </section>
+            </article>
+            <!-- 侧栏 -->
+            <aside class="y_aside">
+
+            </aside>
+        </div>
+    </main>
+
+    <!-- 自定义右击菜单 -->
+    <div id="wrap">
+
+    </div>
+
+    <script src="./js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript">
+		// 我们之前学的数组下标都是数值,是从0开始的,这样的数组,我们叫索引数组
+		// 如果数组的下标是字符串,那么这样的数组,我们叫关联数组
+
+		// 创建关联数组的步骤
+		// 1.先定义一个空数组
+		// 2.给数组中添加数组元素,不过这个数组元素的下标是字符串
+
+		var arr = [];
+		arr["username"] = "张三";
+		arr["age"]      = 23;
+		arr["sex"]      = "男";
+		console.log( arr );
+
+		// 想访问关联数组中的某个数组元素
+		console.log( arr["username"] );
+		console.log("");
+
+		// 遍历关联数组 for...in
+		for(var i in arr){
+			console.log( arr[i] );
+		}
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

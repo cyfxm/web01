@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <ul>
+        <li>苹果</li>
+        <li>香蕉</li>
+        <li>葡萄</li>
+    </ul>
+    <button>我是按钮</button>
+
+    <script>
+        // 第一题
+        var obj = document.getElementsByTagName("li");
+        console.log(obj[0]);
+        console.log(obj[2]);
+
+        // 第二题
+        var obj1 = document.querySelectorAll("li");
+        var obj2 = document.getElementsByTagName("li");      
+        console.log(obj1);
+        console.log(obj2);
+
+        // 第三题
+        // 1）1.事件源
+        //     2.事件类型
+        //     3.事件处理程序
+        // 2）1.获取事件源
+            // 2.绑定事件
+            // 3.添加事件处理程序
+
+        // 第四题
+        var button = document.querySelector("button");
+        button.onclick = function(){
+            alert("你好");
+            
+        }
+
+        
+    </script>
+</body>
+</html>

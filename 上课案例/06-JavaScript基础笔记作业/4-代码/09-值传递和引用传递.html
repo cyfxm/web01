@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript">
+		// 值传递与引用传递
+		// 什么叫做传递呢?就是"变量与变量之间"的"赋值"操作
+
+		// js中的传递分为值传递与引用传递
+		// "基本数据类型"之间的赋值操作都是"值传递"
+		// "复合数据类型"之间的赋值操作都是"引用传递"
+
+		// 值传递:将一个变量的值赋值给另外一个变量，如果修改其中一个变量的值，不会影响到另外一个变量的值！这两个变量之间是没有任何的联系。(互不相关)
+
+		var a = 10;
+		var b = a;// var b = 10
+		console.log( a,b );// 10 10
+		// 修改变量a的值
+		a = 100;
+		console.log( a,b );// 100 10
+
+		console.log("");
+		console.log("");
+		console.log("");
+		console.log("");
+
+		// 引用传递:将一个变量的值（内存地址）赋值给另外一个变量，如果修改其中一个变量的值，会影响到另外一个变量的值!这两个变量之间是有联系的。(同生共死)
+
+		/*// 数组就是复合类型,所以数组之间的赋值操作是引用传递
+		var arr1 = [10,20,30];
+		var arr2 = arr1;
+		console.log( arr1, arr2 );// [10,20,30]  [10,20,30]
+		// 修改 数组中某个元素的值
+		arr2[0] = 100;
+		console.log( arr1, arr2 );// [100,20,30]  [100,20,30]*/
+
+
+		var arr1 = [10,20,30];
+		var arr2 = arr1;
+		console.log( arr1, arr2 );// [10,20,30] [10,20,30]
+		// 直接修改arr2变量的值
+		arr2 = 100;
+		console.log( arr1, arr2 );// [10,20,30]  100
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

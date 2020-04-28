@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <div>第一个页面</div>
+
+    <div>
+        <a href="./web储存sessionStorage.html">下一页</a>
+    </div>
+
+    <button id="btn_a">设置web存储数据</button>
+
+    <button id="btn_b">获取web储存数据</button>
+
+    <button id="btn_c">清空web存储数据</button>
+   
+    <h1>
+
+    </h1>
+
+    <script>
+        var set_data_button = document.querySelector("#btn_a");
+        var get_data_button = document.querySelector("#btn_b");
+        var clear_data_button = document.querySelector("#btn_c");
+
+        set_data_button.onclick = function(){
+            window.sessionStorage.setItem('res','html5 javas');
+        }
+
+        get_data_button.onclick = function(){
+            var res = window.sessionStorage.getItem('res');
+            console.log(res);
+            document.querySelector('h1').innerHTML = res;
+        }
+
+        clear_data_button.onclick = function(){
+            window.sessionStorage.clear();
+        }
+    </script>
+</body>
+</html>

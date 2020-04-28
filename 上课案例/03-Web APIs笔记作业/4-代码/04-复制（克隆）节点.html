@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul>
+        <li>水果
+            <ul>
+                <li>苹果</li>
+                <li>香蕉</li>
+                <li>葡萄</li>
+            </ul>
+        </li>
+        <li>手机</li>
+        <li>电脑</li>
+    </ul>
+
+    <button>浅拷贝</button>
+    <button>深拷贝</button>
+
+    <script>
+        // 复制（克隆）节点
+        // 节点.cloneNode(参数)   克隆节点/拷贝节点   返回值是节点的一个副本
+        // 注意:
+        // 如果括号参数为空或者false,则是"浅拷贝",即只克隆复制节点本身,"不克隆里面的子节点"
+        // 如果括号参数为true,则是"深度拷贝",会复制节点本身以及里面"所有的子节点"
+        
+        // 获取两个按钮对象
+        var btns = document.querySelectorAll("button");
+        // 获取ul中的第一个li标签,也就是水果li
+        var ul = document.querySelector("ul");
+        // console.log( ul );
+        // console.log( ul.children );
+        var fruits =  ul.children[0];
+
+        btns[0].onclick=function(){
+            // 如果括号参数为空或者false,则是"浅拷贝",即只克隆复制节点本身,"不克隆里面的子节点"
+            // console.log( fruits.cloneNode() );
+            console.log( fruits.cloneNode(false) );
+        }
+        btns[1].onclick=function(){
+             // 如果括号参数为true,则是"深度拷贝",会复制节点本身以及里面"所有的子节点"
+            console.log( fruits.cloneNode(true) ); 
+        }
+</script>
+</body>
+</html>

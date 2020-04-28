@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>设置了容器的flex-direction注意的事项</title>
+    <style>
+        ul {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+
+            width: 300px;
+            height: 400px;
+            background-color: #ccc;
+
+            /* 这个display : flex ; 必须需要填写的属性 ，转弹性容器。 */
+            display: flex;
+            /* 设置容器为侧轴方向 垂直方向*/
+            flex-direction: column;
+
+            /* 本来是设置子元素在水平方向的位置的，  */
+            /* 因为flex-direction 把主轴设置成侧轴了 ，那就是设置子元素的垂直位置*/
+            justify-content: flex-end;
+
+
+            /* 以后关于伸缩布局设置子元素位置的属性的应用 */
+            /* 先看下有没有设置了 flex-direction 这个属性 */
+            /* 有设置，就需要注意justify-content 和 align-items 的使用 */
+            /* 默认情况下 ，justify-content 设置子元素在主轴方向（水平）的位置 */
+            /* 默认情况下 ，align-items  设置子元素在侧轴方向（垂直）的位置 */
+        }
+
+        ul li {
+            width: 80px;
+            height: 50px;
+            background-color: red;
+            border: 1px solid #fff;
+        }
+    </style>
+</head>
+<body>
+
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+    </ul>
+
+
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>绘制文本</title>
+    <style>
+        canvas {
+            background-color: skyblue;
+        }
+    </style>
+</head>
+<body>
+
+    <canvas id="canvas">不支持canvas标签！</canvas>
+
+    <script>
+        // 1.0 获取canvas标签
+        var canvas = document.getElementById("canvas");
+        // 2.0 设置画布的大小
+        canvas.width = 800;
+        canvas.height = 800;
+        // 3.0 获取canvas上下文对象
+        var ctx = canvas.getContext('2d');
+
+        // 4.0 设置字体样式
+        ctx.font="30px Microsoft Yahei";
+        // 设置文本水平位置(跟css的text-align:left相反) left center right
+        ctx.textAlign="center";
+        // 设置文本垂直位置 (注意：top在坐标下方,bottom坐标上方 ，middle 中间
+        ctx.textBaseline="middle";
+        // 5.0 填充字体
+        ctx.fillText("hello",100,100);
+        // 6.0 描边字体
+        ctx.strokeText("你好",100,200);
+
+
+
+
+
+
+        // 7.0 绘制一根线
+        ctx.beginPath();
+        ctx.moveTo(100,0);
+        ctx.lineTo(100,600);
+        ctx.closePath();
+        ctx.stroke();
+        // 8.0 绘制一根线
+        ctx.beginPath();
+        ctx.moveTo(0,100);
+        ctx.lineTo(600,100);
+        ctx.closePath();
+        ctx.stroke();
+
+
+
+
+         // 绘制文本
+        // ctx.font = "font-style font-variant font-weight font-size font-family";    //css字体样式，默认值："20px sans-serif"
+        // ctx.fillText("hello", 100, 100);    //String字符串，和坐标位置，第四个为可选参数，这行文字的最长宽度
+        // ctx.strokeText("hello", 100, 100); 
+
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript">
+		
+		/*// 得到任意两个数的和
+		function getSum(a,b){
+			// 直接在函数里面输出
+			var result = a + b;
+			document.write("他们的和为:" + result +"<br/>" );
+		}
+		
+		// 小明想把结果输出在页面
+		getSum(10,20);
+
+		// 小红想把结果输出在控制台
+		getSum(50,60);
+
+		// 我们这个时候,发现函数体中输出只能写一个,不能同时实现两种,所以这个时候,可以考虑使用return返回值*/
+
+
+		// return关键字可以在函数中向函数的调用者返回结果
+		// 函数外面需要向函数里面传值,我们会通过函数的参数来实现
+		// 函数里面需要向函数外面传值,我们会通过函数返回值实现
+
+
+		/*return使用的语法,在函数体中写,return后面的值就会被返回给"函数调用者"
+		return 返回值;*/
+		// 特别要注意:return没有输出的功能
+		function getSum(a,b){
+			var result = a + b;
+
+			// return 返回值;
+			return result;
+		}
+
+		var jieguo = getSum( 10,20 );
+		// 小明想把结果输出在页面
+		document.write("小明想把结果输出在页面:" + jieguo );
+
+		// 小红想把结果输出在控制台
+		var jieguo2 = getSum(50,60);
+		console.log("小红想把结果输出在控制台" + jieguo2 );
+
+
+		console.log( getSum(100,150)/10 );// 25
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

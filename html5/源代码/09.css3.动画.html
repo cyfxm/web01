@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>动画</title>
+    <style>
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+
+        }
+
+        /* 1.定义动画 */
+        @keyframes move {
+            from {
+                width: 100px;
+            }
+            to {
+                width: 1000px;
+            }
+        }
+
+        /* 2.使用动画 */
+        .box2 {
+            /* 动画名称 */
+            animation-name: move;
+            /* 动画持续的时间 */
+            animation-duration: 5s;
+            /* 动画的快慢 */
+            animation-timing-function: linear;
+            /* 动画停留结束状态 */
+            animation-fill-mode: forwards;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="box box2">
+
+    </div>
+</body>
+</html>

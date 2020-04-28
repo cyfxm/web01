@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // forEach,filter和some区别
+        // 1. 相同点:forEach和filter和some都可以遍历数组中的元素,遍历就是把数组中的每个元素都访问一遍
+        // 2. 不同点:  forEach没有返回值  filter返回值是满足条件元素组成的新数组  some返回值是布尔值,判断是否有一个满足条件,只要有一个满足条件就返回true;如果所有元素都不满足条件就返回false
+        // 3. 不同点: forEach主要用于遍历数组,类似之前使用for遍历数组;   filter筛选满足条件的数组元素,回调函数中需要return布尔值或者条件表达式;   some判断是否至少有一个元素满足条件,回调函数中需要return布尔值或者条件表达式
+        // 4. 不同点: forEach遇到return以后,不会终止遍历;  filter遇到return以后,也不会终止遍历   some效率比较高,找到满足条件以后的元素,也就是return true以后,就会终止遍历
+
+        var arr1 = [10,20,30];
+        var result1 = arr1.forEach(function(value){
+            console.log( value );
+            return false;
+        });
+        console.log( result1 );
+        console.log("");
+        
+        var arr2 = [5,7,8,9,52,67];
+        var result2 = arr2.filter(function(value){
+            // console.log( value );
+
+            // 返回大于10的元素
+            return value > 10;
+
+            // console.log( 111 );
+            // return false;
+        });
+        console.log( result2 );
+        console.log("");
+        
+        var arr3 = ["张五","李四","王五五五","赵六六"];
+        var result3 = arr3.some(function(value){
+            // console.log( value );
+
+            // 其实就是找每个元素的值是否有等于张三的
+            // return value == "张三";
+            // console.log( value.length );
+
+            console.log( 2222 );
+            return value.length > 3;
+
+            // console.log( 111  );
+            // return true;
+        });
+        // console.log( result3 );
+    </script>
+</body>
+</html>

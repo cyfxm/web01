@@ -1,0 +1,5 @@
+/*注意:在.css文件中,不能写style标签,直接写css样式即可*/
+div{
+	color:orange;
+	border:10px solid blue;
+}

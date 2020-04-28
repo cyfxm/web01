@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <a href="https://www.baidu.com">百度</a>
+
+    <button>获取标签内容和href属性值</button>
+    <button>设置标签内容和href属性值</button>
+    <button>给a标签添加新的自带属性</button>
+    <button>获取a标签没有设置的自带属性</button>
+
+    <script>
+        // 我们的DOM可以操作网页的内容,网页的结构,网页的样式,还可以操作标签的自带属性,什么时候自带属性,比如img标签自带src属性,a标签自带href属性...
+
+        // 获取按钮对象
+        var btns = document.querySelectorAll("button");
+        // console.log( btns );
+ 
+        // 获取a标签对象
+        var a = document.querySelector("a");
+
+        // 给按钮绑定单击事件
+        btns[0].onclick=function(){
+            // 获取a标签里面的内容  双标签对象.innerHTML或者双标签对象.innerText
+            console.log( a.innerHTML );
+
+            // 获取a标签里面href属性值 语法 对象.自带属性名
+            console.log( a.href );
+        }
+
+        btns[1].onclick=function(){
+            // 设置a标签里面的内容  双标签对象.innerHTML = "内容" 或者双标签对象.innerText = "内容";
+            a.innerHTML = "腾讯";
+
+            // 设置a标签里面href属性值 语法 对象.自带属性名 = 新属性值
+            a.href = "https://www.qq.com";
+        }
+
+        btns[2].onclick=function(){
+            // 给a标签添加一个target属性
+            a.target = "_blank";
+        }
+
+        btns[3].onclick=function(){
+            // 获取a标签的title属性
+            console.log( a.title );
+        }
+    </script>
+</body>
+</html>

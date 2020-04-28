@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+       root {
+            background-color: pink;
+        }
+
+        .box {
+            width: 150px;
+            height: 150px;
+            background-color: #fff;
+            border:20px dashed  green;
+            padding: 20px ;
+            background-image: url(./images/bg.jpg);
+            background-repeat: no-repeat;
+            margin:50px;
+        }
+
+        .box2-border {
+            background-clip: border-box;
+        }
+
+        .box2-padding {
+            background-clip: padding-box;
+        }
+
+        .box2-content {
+            background-clip: content-box;
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="box"> 1 默认</div>
+    <div class="box box2-border">2 border-box </div>
+    <div class="box box2-padding">3 padding-box </div>
+    <div class="box box2-content">4 content-box</div>
+
+</body>
+</html>

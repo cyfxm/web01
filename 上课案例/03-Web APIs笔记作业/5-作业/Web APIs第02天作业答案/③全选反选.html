@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 一组复选框 要求name属性值要一样的  -->
+   爱好:篮球 <input type="checkbox" name="hobby"> 
+         足球 <input type="checkbox" name="hobby">
+         台球 <input type="checkbox" name="hobby">
+         羽毛球 <input type="checkbox" name="hobby">
+         保龄球 <input type="checkbox" name="hobby">
+         <br/>
+    <input type="button" value="全选" onclick="quanxuan()">
+    <input type="button" value="取消" onclick="quxiao()">
+    <input type="button" value="反选" onclick="fanxuan()">
+    <script>
+        //通过name属性值等于hobby这些元素  
+        var hobbysObj = document.getElementsByName("hobby");
+        function quanxuan(){ 
+            
+            //需要给每一个复选框 打上勾  遍历数组 
+            for(var i=0;i<hobbysObj.length;i++){
+                //给每一个复选框 添加checked属性   标签有什么属性 对象也有什么属性 
+                hobbysObj[i].checked = true;  //表示是被选中的
+            }
+        }
+         function quxiao(){  
+            //需要给每一个复选框 打上勾  遍历数组 
+            for(var i=0;i<hobbysObj.length;i++){
+                //给每一个复选框 添加checked属性   标签有什么属性 对象也有什么属性 
+                hobbysObj[i].checked = false;  //表示是没有被选中的
+            }
+        }
+        function fanxuan(){    
+            //需要给每一个复选框 打上勾  遍历数组 
+            for(var i=0;i<hobbysObj.length;i++){
+                //给每一个复选框 添加checked属性   标签有什么属性 对象也有什么属性 
+                //先判断当前的复选框是否已经被选中 如果选中  就取消 反之 就选中
+                // if(hobbysObj[i].checked){
+                //     hobbysObj[i].checked = false;
+                // }else {
+                //     hobbysObj[i].checked = true;
+                // }
+                //将true变成false  将false变成true 
+                hobbysObj[i].checked = !hobbysObj[i].checked;
+            }
+
+        }
+    
+    </script>
+</body>
+</html>

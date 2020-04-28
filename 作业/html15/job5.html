@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		body{font-family: "仿宋";}
+	</style>
+	<script type="text/javascript">
+		// 使用for循环输出如下各个图案 , 设置页面字体为仿宋<style type="text/css">body{font-family: "仿宋";}</style>
+		for(var i=0;i<=4;i++){
+			for(var j=0;j<4;j++){
+			    document.write("*");
+			}
+			document.write("<br>");
+		} 
+		
+		for(var i=0;i<=4;i++){
+			for(var j=0;j<i;j++){
+			    document.write("*");
+			}
+			document.write("<br>");
+		}
+
+		for(var i=0;i<=4;i++){
+			for(var j=0;j<2*i-1;j++){
+			    document.write("*");
+			}
+			document.write("<br>");
+		}
+		document.write("<br>");
+
+		for(var i=1;i<=4;i++){
+			for(var j=1;j<=(4-i);j++){
+			    document.write("&nbsp");
+			}
+			for(var k=1;k<=(2*i-1);k++){
+				document.write("*");
+			}
+			document.write("<br>");
+		}
+		document.write("<br>");
+
+		for(var i=1;i<=4;i++){
+		for(var j = 1; j <= 4 - i; j++) {
+				document.writeln("&nbsp;");
+			}
+			for(var k = 1; k <= 2*i - 1; k++) {
+				if (i == 1 || i ==4) {
+					document.writeln("*");
+				}else {
+					if(k == 1 || k == 2*i -1) {
+						document.writeln("*");
+					}else {
+						document.writeln("&nbsp;"); 
+					}
+				}
+			}
+			document.write("<br>");
+		}
+
+		for(var i=1;i<=4;i++){
+		for(var j = 1; j <= 4 - i; j++) {
+				document.writeln("&nbsp;");
+			}
+			for(var k = 1; k <= 2*i - 1; k++) {
+				if (i == 1 || i ==4) {
+					document.writeln("*");
+				}else {
+					if(k == 1 || k == 2*i -1) {
+						document.writeln("*");
+					}else {
+						document.writeln("&nbsp;"); 
+					}
+				}
+			}
+			document.write("<br>");
+		}
+		document.write("<br>");
+
+		var rows=11;
+		var num=(rows+1)/2;
+		//菱形上部分
+		for(var i=1;i<=num;i++){
+		   for(var j=1;j<=num-i;j++){
+		            document.write(" ");
+		    }
+		  for(var k=1;k<=2*i-1;k++){
+		          if(k==1||k==2*i-1){
+		          document.write("*");
+		          }
+		      else{
+		            document.write(" ");
+		         }
+		       }
+		       document.write(" ");
+		       document.write("<br>");
+		}
+		//菱形下部分
+		for(var i=rows-num;i>=1;i--){
+		   for(var j=1;j<=rows-num-i+1;j++){
+		              document.write(" ");
+		 }
+		  for(var k=1;k<=2*i-1;k++){
+		          if(k==1||k==2*i-1){
+		         document.write("*");
+		    }
+		      else{
+		            document.write(" ");
+		 }
+		       }
+		       document.write(" ");
+		       document.write("<br>");
+		}
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

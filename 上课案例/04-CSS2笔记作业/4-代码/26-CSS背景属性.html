@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		.div1{
+			/*background-color设置元素背景颜色,取值颜色值,英文颜色单词,rgb,十六进制,今天再教大家一种,rgba方式*/
+			
+			width: 200px;
+			height: 200px;
+
+			/*注意:设置背景相关属性的时候,需要留意有没有宽度高度或者有没有内容;*/
+			/*background-color:red;*/
+			/*background-color:rgb(0,255,0);*/
+			/*background-color: #f9264c;*/
+
+			/*rgba是rgb颜色值方式的升级版,a代表alpha,是透明度的意思,取值0~1之间所有数,允许小数,0代表完全透明,1代表完全不透明;  另外取值小数的时候,可以省略0,比如写0.7的时候,可以省略0,写成.7*/
+
+			/*background-color: rgba(255,0,0,0.7);*/
+			background-color: rgba(255,0,0,.7);
+		}
+
+		.div2{
+			width: 500px;
+			height: 500px;
+			border:5px solid blue;
+			/*background-image设置元素的背景图片,取值url(图片所在路径)*/
+			background-image: url(images/3.jpg);
+
+			/*background-repeat设置背景图片是否重复
+				取值
+					repeat-x 水平重复,垂直不重复
+					repeat-y 水平不重复,垂直重复
+					repeat   水平垂直都重复,默认值
+					no-repeat水平垂直都不重复
+			*/
+			/*background-repeat: repeat-x;*/
+			background-repeat: repeat-y;
+			/*background-repeat: repeat;*/
+			/*background-repeat: no-repeat;*/
+			
+			/*注意:如果同时设置了背景颜色和背景图片,那么背景图片会压住背景颜色;如果背景图片没有覆盖到的地方,就会使用背景颜色显示*/
+			background-color:pink;
+		}
+	</style>
+</head>
+<body>
+	<div class="div1">div1的内容</div>
+	<div class="div2">div2的内容</div>
+</body>
+</html>

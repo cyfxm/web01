@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript">
+		// 9、进阶题 封装一个查找数组元素的函数,找到则返回元素的下标,找不到返回-1
+		function findElement(arr,element,startIndex = 0){
+			// arr:原数组
+			// element:需要查找的元素
+		    // startIndex:开始查找的下标,如果不传,代表从0开始查找
+		   	for( var i = startIndex ; i < arr.length; i++){
+		   		if( arr[i] == element){
+		   			return i;
+		   		}
+		   	}
+		   	console.log( startIndex );
+		   	return -1;
+		}
+		console.log( findElement(["a","b","c","d","e","c"],"c")   );
+		console.log( findElement(["a","b","c","d","e","c"],"c",3) );
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

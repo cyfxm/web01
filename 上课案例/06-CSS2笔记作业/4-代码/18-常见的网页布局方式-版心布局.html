@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		/*常见的网页布局方式有三种:版心布局,通栏布局,分栏布局*/
+		/*版心布局:"宽度超过页面的一半",并且在"页面的中间";*/
+
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.header{
+			background: red;
+			height: 50px;
+		}
+		.banner{
+			background: green;
+			height: 100px;
+		}
+		.nav{
+			background: blue;
+			height: 100px;
+		}
+		.main{
+			background: pink;
+			height: 200px;
+		}
+		.footer{
+			background: skyblue;
+			height: 100px;
+		}
+
+		/*我们通常会定义一个版心类 版心类的名称可以叫container或者w或者wrap*/
+
+		/*版心类一般只设置一个宽度以及左右外边距为auto*/
+		.w{
+			width: 1000px;
+			margin:0 auto;
+		}
+	</style>
+</head>
+<body>
+	<!-- 原理是使用多类选择器 -->
+	<!-- 多类名选择器 一个class属性可以有多个类名,类名之间使用"空格"隔开,也就是一个标签可以同时被多个类选择器选中 -->
+	<div class="header w">头部</div>
+	<div class="banner w">轮播图层</div>
+	<div class="nav w">导航栏</div>
+	<div class="main w">主要内容层</div>
+	<div class="footer w">底部</div>
+</body>
+</html>

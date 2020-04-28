@@ -1,0 +1,903 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>学成在线</title>
+	<!-- 如何引入网页小图标 -->
+	<!-- 说明:ico图标一般会跟网页放在同一级目录 -->
+	<!-- <link rel="shortcut icon" type="image/x-icon" href="ico图片所在路径"> -->
+	<!-- link:favicon然后再按tab键 -->
+	<link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
+	<style>
+		/*第二步:写页面初始化样式*/
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		li{
+			list-style:none;
+		}
+		a{
+			text-decoration: none;
+			color:#2b2b2b;
+		}
+		a:hover{
+			color:#00a4f9;
+		}
+		/*定义一个版心类*/
+		.w{
+			width: 1200px;
+			margin:0 auto;
+		}
+		/*因为网页布局的时候,浮动使用的非常频繁*/
+		/*所以,我们又可以定义两个浮动类*/
+		/*左浮动类*/
+		.fl{
+			float:left;
+		}
+		/*右浮动类*/
+		.fr{
+			float: right;
+		}
+		
+		/*去掉input和textarea标签外轮廓线*/
+		input,textarea{
+			outline:none;
+		}
+		/*去掉图片底部缝隙*/
+		img{
+			vertical-align: bottom;
+		}
+
+		/*设置整个网页的背景颜色*/
+		body{
+			background: #f3f6f8;
+		}
+
+
+		/*第三步:写具体样式 从大到小 从上到下 从左到右*/
+		.header{
+			height: 101px;
+			background: #f3f6f8;
+			/*background: pink;*/
+		}
+		.header .logo{
+			/*给元素设置背景颜色或者边框,看元素所在位置*/
+			/*border:1px solid red;*/
+			margin-top: 31px;
+			margin-right: 71px;
+		}
+		.header .nav{
+			margin-top: 43px;
+		}
+		.header .nav ul li{
+			float: left;
+			font-size:18px;
+			margin-right: 25px;
+		}
+		.header .nav ul li a{
+			padding-left:10px;
+			padding-right: 10px;
+			padding-bottom: 10px;
+		}
+		/*找到第一个li下面的a标签*/
+		.header .nav ul li:first-child a{
+			padding-left:10px;
+			padding-right: 10px;
+			padding-bottom: 10px;
+			border-bottom:2px solid #00a4f9;
+		}
+
+		.header .search{
+			margin-left: 60px;
+			background: skyblue;
+			margin-top: 31px;
+			width: 411px;
+			height: 40px;
+		}
+		.header .search input:first-child{
+			width: 360px;
+			height: 38px;
+			border:1px solid #00a4f9;
+			border-right:none;
+			background: #f3f6f8;
+			color:#d0d3d3;
+			text-indent: 19px;
+		}
+		.header .user{
+			/*background: skyblue;*/
+			margin-top: 35px;
+			margin-right: 36px;
+			height: 33px;
+			/*默认情况下,有图片img的存在,img旁边的文字默认跟img图片的底线对齐,而且使用行高调节不了*/
+			/*line-height: 33px;*/
+		
+			/*如果我们给img以及img周围的文字都设置了浮动,那么就可以实现图文混排,这个时候行高就可以生效*/
+			line-height: 33px;
+		}
+		.header .user a img{
+			border-radius: 50%;
+			margin-right: 8px;
+		}
+	</style>
+</head>
+<body>
+	<!-- 实现思路 -->
+	<!-- 第一步:根据效果分析,写出HTML结构 -->
+	
+	<!-- header头部开始 -->
+	<div class="header">
+
+		<div class="w">
+			<!-- logo网页图标层开始 -->
+			<div class="logo fl">
+				<img src="images/logo.png"/>
+			</div>
+			<!-- logo网页图标层结束 -->
+			
+			<!-- 导航栏开始 -->
+			<div class="nav fl">
+				<ul>
+					<li><a href="#">首页</a></li>
+					<li><a href="#">课程</a></li>
+					<li><a href="#">职业规划</a></li>
+				</ul>
+			</div>
+			<!-- 导航栏结束 -->
+			
+			<!-- 搜索层开始 -->
+			<div class="search fl">
+				<input type="text" value="输入关键词" class="fl"/>
+				<input type="image" src="images/btn.png" class="fl">
+			</div>
+			<!-- 搜索层结束 -->
+			
+			<!-- 用户信息层开始 -->
+			<div class="user fr">
+				<a href="#">
+					<!-- 如果我们给img以及img周围的文字都设置了浮动,那么就可以实现图文混排 -->
+					<img src="images/user.png" class="fl"/>
+					<span class="fl">qq-leishui</span>
+				</a>
+			</div>
+			<!-- 用户信息层结束 -->
+		</div>
+
+	</div>
+	<!-- header头部结束 -->
+
+	<!-- 轮播层开始 -->
+
+	<!-- style标签可以出现在HTML文档的任意位置,style标签也可以出现多次 -->
+	<style>
+		/*轮播图样式开始*/
+		.banner{
+			height: 420px;
+			background:url(images/banner2.png) no-repeat center top #1b046b;
+		}
+		.banner .w{
+			position: relative;
+			height: 420px;
+		}
+		.banner .nav{
+			width: 150px;
+			height: 420px;
+			background: rgba(21, 2, 80,0.8);
+			padding-left: 20px;
+			padding-right: 20px;
+		}
+		.banner .nav ul{
+			margin-top: 10px;
+		}
+		.banner .nav ul li{
+			/*如果想知道li的高度,但是又没有明显的边框,让我们量,我们就可以使用上行文字到下行文字的距离,上底到下底的距离;然后再设置行高垂直居中*/
+			height: 45px;
+			line-height: 45px;
+		}
+		/*如果给a设置了颜色,那么一般就需要配套设置一下a:hover的样式*/
+		.banner .nav ul li a{
+			color:white;
+			/*注意:如果想让a铺满整个父元素,我们可以把a转换成块元素*/
+			display: block;
+			font-size:12px;
+		}
+		.banner .nav ul li a:hover{
+			color:#00a4f9;
+		}
+		
+		.banner .nav ul li a span{
+			float: right;
+		}
+		.banner .nav ul li:first-child a{
+			color:#00a4f9;
+		}
+
+		.banner .class_table{
+			width: 228px;
+			height: 300px;
+			background: white;
+			margin-top: 50px;
+		}
+		.banner .class_table h2{
+			height: 48px;
+			text-align: center;
+			line-height: 48px;
+			color:white;
+			background: #9acfea;
+			font-size:20px;
+		}
+		.banner .class_table ul {
+			padding-left: 16px;
+			padding-right: 16px;
+		}
+		.banner .class_table ul li{
+			height: 48px;
+			border-bottom: 1px solid #ebebeb;
+			padding-top: 22px;
+		}
+		.banner .class_table ul li a{
+			font-size:12px;
+			color:#aeaeae;
+		}
+		.banner .class_table ul li:nth-child(2){
+			height: 47px;
+			padding-top: 10px;
+		}
+		.banner .class_table ul li:nth-child(3){
+			border-bottom: none;
+			color:#00a4f9;
+		}
+		.banner .class_table ul li:nth-child(3){
+			height: 48px;
+			border-bottom: 1px solid #ebebeb;
+			padding-top: 12px;
+		}
+		.banner .class_table ul li:nth-child(3) a{
+			color:#00a4f9;
+		}
+		.banner .class_table .all_class{
+			border:1px solid #00a4f9;
+			color:#00a4f9;
+			width: 198px;
+			height: 38px;
+			display: block;
+			text-align: center;
+			line-height: 38px;
+			margin-left: 14px;
+		}
+
+		.banner .circle{
+			width: 160px;
+			height: 12px;
+			position: absolute;
+			left: 50%;
+			bottom: 34px;
+			margin-left: -80px;
+		}
+		.banner .circle ul li{
+			width: 12px;
+			height: 12px;
+			border-radius: 50%;
+			background: rgba(255,255,255,0.5);
+			float: left;
+			margin-right: 16px;
+		}
+		.banner .circle ul li:first-child{
+			width: 20px;
+			background: white;
+			border-radius: 5px;
+		}
+		.banner .circle ul li:last-child{
+			margin-right: 0;
+		}
+		/*轮播图样式结束*/
+	</style>
+
+	<div class="banner">
+		<div class="w">
+			<!-- 左边导航栏 -->
+			<div class="nav fl">
+				<ul>
+					<li><a href="#">前端开发<span>></span></a></li>
+					<li><a href="#">后端开发<span>></span></a></li>
+					<li><a href="#">移动开发<span>></span></a></li>
+					<li><a href="#">人工智能<span>></span></a></li>
+					<li><a href="#">商业预测<span>></span></a></li>
+					<li><a href="#">云计算&大数据<span>></span></a></li>
+					<li><a href="#">运维&从测试<span>></span></a></li>
+					<li><a href="#">UI设计<span>></span></a></li>
+					<li><a href="#">产品<span>></span></a></li>
+				</ul>
+			</div>
+			
+			<!-- 右边部分课程表 -->
+			<div class="class_table fr">
+				<h2>我的课程表</h2>
+				<ul>
+					<li>
+						<p>继续学习 程序语言设计</p>
+						<a href="#">正在学习-使用对象</a>
+					</li>
+					<li>
+						<p>继续学习 程序语言设计</p>
+						<a href="#">正在学习-使用对象</a>
+					</li>
+					<li>
+						<p>继续学习 程序语言设计</p>
+						<a href="#">正在学习-使用对象</a>
+					</li>
+				</ul>
+				<a href="#" class="all_class">全部课程</a>
+			</div>
+
+
+			<!-- 6个小圆点 -->
+			<div class="circle">
+				<ul>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+				</ul>
+			</div>
+
+		</div>
+	</div>
+	<!-- 轮播层结束 -->
+	
+	<!-- 注意:每次在做新层的时候,可以先写的文字,看看文字的位置是否正确,这个可以用于判断新层是否受到上面浮动的影响; 如果文字出现的文字不是正确的,一般是前面的元素脱标导致的,解决方法有给父元素设置固定高度,设置overflow:hidden;或者添加一个额外标签法 -->
+
+	<style>
+		/*精品推荐头部样式开始*/
+		.tuijian{
+			margin-top: 8px;
+			height: 16px;
+			background: white;
+			padding:22px 0;
+			/*盒子阴影*/
+			box-shadow: 1px 1px 7px 0px rgba(0,0,0,0.5);
+		}
+		.tuijian ul li{
+			float: left;
+			border-right: 1px solid #c0c0c0;
+		}
+		.tuijian ul li:last-child{
+			border-right:none;
+		}
+		.tuijian ul li a{
+			padding-left: 32px;
+			padding-right: 32px;
+			color:#000000;
+		}
+		.tuijian ul li a:hover{
+			color:#00a8fe;
+		}
+		.tuijian ul li:first-child{
+			padding-left: 32px;
+			padding-right: 32px;
+			font-weight: bold;
+			color:#00a8fe;
+			font-size:18px;
+		}
+		.tuijian>a{
+			color:#00a8fe;
+			font-size:12px;
+			margin-right: 26px;
+		}
+
+
+		/*精品推荐头部样式结束*/
+	</style>
+	<!-- 精品推荐头部开始 -->
+	<div class="tuijian w">
+		<ul class="fl">
+			<li>精品推荐</li>
+			<li><a href="#">Jquery</a></li>
+			<li><a href="#">Spark</a></li>
+			<li><a href="#">MySQL</a></li>
+			<li><a href="#">JavaWeb</a></li>
+			<li><a href="#">Mysql</a></li>
+			<li><a href="#">JavaWeb</a></li>
+		</ul>
+
+		<a href="#" class="fr">修改兴趣</a>
+	</div>
+	<!-- 精品推荐头部结束 -->
+
+	<style>
+		/*精品推荐内容样式开始*/
+		.recommendation{
+			margin-top: 34px;
+		}
+		.recommendation .title{
+			height: 20px;
+			line-height: 20px;
+			font-size:20px;
+			color:#414444;
+		}
+		.recommendation .title a{
+			font-size:12px;
+			color:#b5b8b8;
+		}
+		.recommendation .title a:hover{
+			color:#00a8fe;
+		}
+		.recommendation .content{
+			/*为了看到层的位置,可以给层设置背景颜色或者边框*/
+			/*background: pink;*/
+			margin-top: 21px;
+		}
+		.recommendation .content ul li{
+			width: 228px;
+			height: 270px;
+			background: white;
+			float: left;
+			margin-right: 15px;
+			margin-bottom: 15px;
+			position: relative;
+			box-shadow: 1px 1px 3px 0px rgba(0,0,0,0.5);
+		}
+
+		/*5n代表找5的倍数的子元素*/
+		.recommendation .content ul li:nth-child(5n){
+			margin-right: 0;
+		}
+		/*找到6开始以后的元素,包括6*/
+		.recommendation .content ul li:nth-child(n+6){
+			margin-bottom: 0;
+		}
+		.recommendation .content ul li a img{
+			width: 228px;
+			height: 155px;
+		}
+		.recommendation .content ul li a .desc{
+			height: 34px;
+			padding-top: 25px;
+			padding-left: 24px;
+			padding-right: 20px;
+			padding-bottom: 20px;
+			font-size:14px;
+		}
+		.recommendation .content ul li a .study{
+			margin-left: 24px;
+			font-size:12px;
+			color:#9f9f9f;
+		}
+		.recommendation .content ul li a .study span{
+			color:#fa8b46;
+		}
+		.recommendation .content ul li a .hot{
+			position: absolute;
+			right: -4px;
+			top: 5px;
+			width: 40px;
+			height: 24px;
+			background: url(images/hot.png);
+		}
+		.recommendation .content ul li a .new{
+			position: absolute;
+			right: -4px;
+			top: 5px;
+			width: 40px;
+			height: 24px;
+			background: url(images/new.png);
+		}
+		/*精品推荐内容样式结束*/
+	</style>
+	<!-- 精品推荐内容开始 -->
+	<div class="recommendation w">
+		<!-- 上部分:标题 -->
+		<div class="title">
+			精品推荐
+			<a href="#" class="fr">查看更多</a>
+		</div>
+		<!-- 下部分:内容 -->
+		<div class="content">
+			<ul>
+				<li>
+					<a href="#">
+						<!-- 图片 -->
+						<img src="images/pro1.png"/>
+						<!-- 描述 -->
+						<p class="desc">Think PHP 5.0 博客系统实战项目演练</p>
+						<!-- 学习人数 -->
+						<p class="study"><span>高级</span>  •  1125人在学习</p>
+						<span class="hot"></span>
+					</a>
+				</li>
+				<li>
+					<a href="#">
+						<!-- 图片 -->
+						<img src="images/pro2.png"/>
+						<!-- 描述 -->
+						<p class="desc">Android 网络图片加载框架详解</p>
+						<!-- 学习人数 -->
+						<p class="study"><span>高级</span>  •  1125人在学习</p>
+						<span class="new"></span>
+					</a>
+				</li>
+				<li>
+					<a href="#">
+						<!-- 图片 -->
+						<img src="images/pro3.png"/>
+						<!-- 描述 -->
+						<p class="desc">Angular 2 最新框架+主流技术+项目实战</p>
+						<!-- 学习人数 -->
+						<p class="study"><span>高级</span>  •  1125人在学习</p>
+					</a>
+				</li>
+				<li>
+					<a href="#">
+						<!-- 图片 -->
+						<img src="images/pro4.png"/>
+						<!-- 描述 -->
+						<p class="desc">Android Hybrid APP开发实战 H5+原生！</p>
+						<!-- 学习人数 -->
+						<p class="study"><span>高级</span>  •  1125人在学习</p>
+					</a>
+				</li>
+				<li>
+					<a href="#">
+						<!-- 图片 -->
+						<img src="images/pro5.png"/>
+						<!-- 描述 -->
+						<p class="desc">Android Hybrid APP开发实战 H5+原生！</p>
+						<!-- 学习人数 -->
+						<p class="study"><span>高级</span>  •  1125人在学习</p>
+					</a>
+				</li>
+				<li>
+					<a href="#">
+						<!-- 图片 -->
+						<img src="images/pro1.png"/>
+						<!-- 描述 -->
+						<p class="desc">Think PHP 5.0 博客系统实战项目演练</p>
+						<!-- 学习人数 -->
+						<p class="study"><span>高级</span>  •  1125人在学习</p>
+						<span class="hot"></span>
+					</a>
+				</li>
+				<li>
+					<a href="#">
+						<!-- 图片 -->
+						<img src="images/pro2.png"/>
+						<!-- 描述 -->
+						<p class="desc">Android 网络图片加载框架详解</p>
+						<!-- 学习人数 -->
+						<p class="study"><span>高级</span>  •  1125人在学习</p>
+						<span class="new"></span>
+					</a>
+				</li>
+				<li>
+					<a href="#">
+						<!-- 图片 -->
+						<img src="images/pro3.png"/>
+						<!-- 描述 -->
+						<p class="desc">Angular 2 最新框架+主流技术+项目实战</p>
+						<!-- 学习人数 -->
+						<p class="study"><span>高级</span>  •  1125人在学习</p>
+					</a>
+				</li>
+				<li>
+					<a href="#">
+						<!-- 图片 -->
+						<img src="images/pro4.png"/>
+						<!-- 描述 -->
+						<p class="desc">Android Hybrid APP开发实战 H5+原生！</p>
+						<!-- 学习人数 -->
+						<p class="study"><span>高级</span>  •  1125人在学习</p>
+					</a>
+				</li>
+				<li>
+					<a href="#">
+						<!-- 图片 -->
+						<img src="images/pro5.png"/>
+						<!-- 描述 -->
+						<p class="desc">Android Hybrid APP开发实战 H5+原生！</p>
+						<!-- 学习人数 -->
+						<p class="study"><span>高级</span>  •  1125人在学习</p>
+					</a>
+				</li>
+			</ul>
+
+			<!-- 额外标签法 -->
+			<div style="clear:both;"></div>
+		</div>
+	</div>
+	<!-- 精品推荐内容结束 -->
+	
+	<style>
+		/*编程入门层样式开始*/
+		.programming{
+			margin-top: 38px;
+		}
+		.programming .top{
+			height: 20px;
+			line-height: 20px;
+			position: relative;
+		}
+		.programming .top h2{
+			font-size:20px;
+			color:#414444;
+			font-weight: normal;
+		}
+		.programming .top ul{
+			width: 338px;
+			height: 20px;
+			position: absolute;
+			left: 50%;
+			margin-left: -169px;
+			top: 0;
+		}
+		.programming .top ul li{
+			float: left;
+			margin-right: 70px;
+		}
+		.programming .top ul li:last-child{
+			margin-right: 0;
+		}
+		.programming .top>a{
+			font-size:12px;
+			color:#b5b8b8;
+		}
+		.programming .top>a:hover{
+			color:#00a8fe;
+		}
+		.programming .bottom{
+			margin-top: 22px;
+			height: 392px;
+		}
+		.programming .bottom .left{
+			width: 192px;
+			height: 392px;
+			background: url(images/php1.png);
+			color:white;
+			padding-left: 36px;
+		}
+		.programming .bottom .left .desc{
+			line-height: 36px;
+			font-size:18px;
+			font-weight: bold;
+			margin-top: 38px;
+			margin-bottom: 47px;
+		}
+		.programming .bottom .left ul{
+			background: url(images/moreRadius.png) no-repeat 4px 9px;
+		}
+		.programming .bottom .left ul li{
+			margin-bottom: 53px;
+			font-size:14px;
+			background:url(images/radius.png) no-repeat left center;
+			padding-left: 16px;
+		}
+		.programming .bottom .right{
+			width: 957px;
+			height: 392px;
+		}
+		.programming .bottom .right .right_top{
+			width: 100%;
+			height: 100px;
+		}
+		.programming .bottom .right .right_bottom{
+			width: 100%;
+			height: 270px;
+			margin-top: 22px;
+		}
+		.programming .bottom .right .right_bottom ul li{
+			width: 228px;
+			height: 270px;
+			background: white;
+			float: left;
+			margin-right: 15px;
+			box-shadow: 1px 1px 3px 0px rgba(0,0,0,0.5);
+		}
+		.programming .bottom .right .right_bottom ul li:last-child{
+			margin-right: 0;
+		}
+
+		.programming .bottom .right .right_bottom ul li a img{
+			width: 228px;
+			height: 155px;
+		}
+		.programming .bottom .right .right_bottom ul li a .desc{
+			height: 34px;
+			padding-top: 25px;
+			padding-left: 24px;
+			padding-right: 20px;
+			padding-bottom: 20px;
+			font-size:14px;
+		}
+		.programming .bottom .right .right_bottom ul li a .study{
+			margin-left: 24px;
+			font-size:12px;
+			color:#9f9f9f;
+		}
+		.programming .bottom .right .right_bottom ul li a .study span{
+			color:#fa8b46;
+		}
+		/*编程入门层样式结束*/
+	</style>
+	<!-- 编程入门层开始 -->
+	<div class="programming w">
+		<div class="top">
+			<h2 class="fl">编程入门</h2>
+			<ul>
+				<li><a href="#">热门</a></li>
+				<li><a href="#">初级</a></li>
+				<li><a href="#">中级</a></li>
+				<li><a href="#">高级</a></li>
+			</ul>
+			<a href="#" class="fr">查看全部</a>
+		</div>
+
+
+		<div class="bottom">
+			<!-- 左部分 -->
+			<div class="left fl">
+				<div class="desc">
+					PHP入门：<br/> 
+					基础语法到实际运用
+				</div>
+				
+				<ul>
+					<li>零基础入门：语法与界</li>
+					<li>进阶：网络与数据缓存</li>
+					<li>界面到数据存储</li>
+				</ul>
+
+			</div>
+
+			<!-- 右部分 -->
+			<div class="right fr">
+				<!-- 右上部分 -->
+				<div class="right_top">
+					<a href="#"><img src="images/pyhton1.png"/></a>
+				</div>
+				<!-- 右下部分 -->
+				<div class="right_bottom">
+					<ul>
+						<li>
+							<a href="#">
+								<!-- 图片 -->
+								<img src="images/pro8.png"/>
+								<!-- 描述 -->
+								<p class="desc">Android Hybrid APP开发实战 H5+原生！</p>
+								<!-- 学习人数 -->
+								<p class="study"><span>高级</span>  •  1125人在学习</p>
+							</a>
+						</li>
+						<li>
+							<a href="#">
+								<!-- 图片 -->
+								<img src="images/pro9.png"/>
+								<!-- 描述 -->
+								<p class="desc">Kami2首页界面切换效果</p>
+								<!-- 学习人数 -->
+								<p class="study"><span>高级</span>  •  1125人在学习</p>
+							</a>
+						</li>
+						<li>
+							<a href="#">
+								<!-- 图片 -->
+								<img src="images/pro7.png"/>
+								<!-- 描述 -->
+								<p class="desc">Unity Profiler入门</p>
+								<!-- 学习人数 -->
+								<p class="study"><span>高级</span>  •  1125人在学习</p>
+							</a>
+						</li>
+						<li>
+							<a href="#">
+								<!-- 图片 -->
+								<img src="images/pro6.png"/>
+								<!-- 描述 -->
+								<p class="desc">Cocos2d-x 引擎源码中的纹理优化</p>
+								<!-- 学习人数 -->
+								<p class="study"><span>高级</span>  •  1125人在学习</p>
+							</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- 编程入门层结束 -->
+	
+	<style>
+		/*footer底部样式开始*/
+		.footer{
+			margin-top: 40px;
+			background: white;
+			height: 167px;
+			padding-top: 33px;
+		}
+		.footer .footer_left{
+			width: 504px;
+			height: 167px;
+			margin-left: 20px;
+		}
+		.footer .footer_left .desc{
+			margin-top: 26px;
+			font-size:14px;
+			margin-bottom: 17px;
+		}
+		.footer .footer_left .app{
+			width: 118px;
+			height: 34px;
+			border:1px solid #00a8fe;
+			color:#00a8fe;
+			text-align: center;
+			line-height: 34px;
+			display: block;
+		}
+		.footer .footer_left .app:hover{
+			color:white;
+			background: #00a8fe;
+		}
+		.footer .footer_right{
+			height: 167px;
+			margin-right: 30px;
+		}
+		.footer .footer_right dl{
+			float: left;
+		}
+		.footer .footer_right dl dt{
+			color:#000000;
+			margin-bottom: 16px;
+		}
+		.footer .footer_right dl dd{
+			font-size:14px;
+		}
+		.footer .footer_right dl:nth-child(2){
+			margin-left: 147px;
+			margin-right: 122px;
+		}
+
+		/*footer底部样式结束*/
+	</style>
+	<!-- 底部开始 -->
+	<div class="footer">
+		<div class="w">
+			<!-- 底部左边部分 -->
+			<div class="footer_left fl">
+				<a href="#"><img src="images/logo.png"/></a>
+				<p class="desc">学成在线致力于普及中国最好的教育它与中国一流大学和机构合作提供在线课程。 © 2017年XTCG Inc.保留所有权利。-沪ICP备15025210号</p>
+				<a href="#" class="app">下载APP</a>
+			</div>
+
+			<!-- 底部右边部分 -->
+			<div class="footer_right fr">
+				<dl>
+					<dt>关于学成网</dt>
+					<dd><a href="#">关于</a></dd>
+					<dd><a href="#">管理团队</a></dd>
+					<dd><a href="#">工作机会</a></dd>
+					<dd><a href="#">客户服务</a></dd>
+					<dd><a href="#">帮助</a></dd>
+				</dl>
+
+				<dl>
+					<dt>新手指南</dt>
+					<dd><a href="#">如何注册</a></dd>
+					<dd><a href="#">如何选课</a></dd>
+					<dd><a href="#">如何拿到毕业证</a></dd>
+					<dd><a href="#">学分是什么</a></dd>
+					<dd><a href="#">考试未通过怎么办</a></dd>
+				</dl>
+
+				<dl>
+					<dt>合作伙伴</dt>
+					<dd><a href="#">合作机构</a></dd>
+					<dd><a href="#">合作导师</a></dd>
+				</dl>
+			</div>
+		</div>
+	</div>
+	<!-- 底部结束 -->
+</body>
+</html>
+
+

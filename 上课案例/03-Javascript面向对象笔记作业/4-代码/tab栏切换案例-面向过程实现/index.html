@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>面向过程 Tab</title>
+    <link rel="stylesheet" href="./styles/tab.css">
+    <link rel="stylesheet" href="./styles/style.css">
+    <style>
+        body{
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            -khtml-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+    </style>
+</head>
+
+<body>
+
+    <main>
+        <h4>
+            Js 面向过程 动态添加标签页
+        </h4>
+        <div class="tabsbox" id="tab">
+            <!-- tab 标签 -->
+            <nav class="fisrstnav">
+                <ul>
+                    <li class="liactive"><span>测试1</span><span class="iconfont icon-guanbi"></span></li>
+                    <li><span>测试2</span><span class="iconfont icon-guanbi"></span></li>
+                    <li><span>测试3</span><span class="iconfont icon-guanbi"></span></li>
+                </ul>
+                <div class="tabadd">
+                    <span>+</span>
+                </div>
+            </nav>
+
+            <!-- tab 内容 -->
+            <div class="tabscon">
+                <section class="conactive">测试1</section>
+                <section>测试2</section>
+                <section>测试3</section>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // 功能1 点击 tab栏,可以切换效果
+        // 获取tab栏对应的3个li对象
+        var lis = document.querySelectorAll("#tab .fisrstnav ul li");
+        // 获取所有section对象
+        var sections = document.querySelectorAll(".tabscon section");
+
+        // 功能2: 点击 + 号, 可以添加 tab 项和内容项
+        // 获取+号对象
+        var tabadd = document.querySelector(".tabadd");
+        // 获取li的父元素ul
+        var ul = document.querySelector(".fisrstnav ul");
+        // 获取section的父元素
+        var tabscon = document.querySelector(".tabscon");
+
+        // 功能3: 实现点击选项卡右上角的叉叉按钮,可以删除对应li标签和对应的section标签
+        // 获取所有关闭按钮
+        var guanbis = document.querySelectorAll(".icon-guanbi");
+
+        // 获取所有li中第一个span标签
+        var spans = document.querySelectorAll(".fisrstnav ul li span:first-child");
+        
+        // 因为再这样写下来,代码越来越多,越来越乱,那么这个时候,可以把一些常用的功能封装成函数
+        // 比如 清除所有li和section类名的功能
+        function clearClass(){
+            for(var j=0;j<lis.length;j++){
+                lis[j].removeAttribute("class");
+                sections[j].removeAttribute("class");
+            }
+        }
+
+        // 更新节点,获取当前最新所有li和所有section元素
+        function updateNode(){
+            // 获取当前所有tab栏中li对象
+            lis = document.querySelectorAll("#tab .fisrstnav ul li");
+            // 获取当前所有section对象
+            sections = document.querySelectorAll(".tabscon section");
+            // 获取当前所有的关闭按钮对象
+            guanbis = document.querySelectorAll(".icon-guanbi");
+            // 获取当前所有li里面的第一个span对象
+            spans = document.querySelectorAll(".fisrstnav ul li span:first-child");
+        }
+
+        // 因为我们一打开页面就需要给页面各种元素绑定相应的事件,比如li绑定点击切换功能,+号绑定点击添加tab等等
+        // init初始化给元素绑定事件
+        function init(){
+            // 获取最近节点
+            updateNode();
+
+            // 循环给每个元素绑定事件
+            for(var i=0;i<lis.length;i++){
+                // 设置自定义属性
+                lis[i].setAttribute("data-index" , i);
+
+                // 给li绑定鼠标单击事件  可以给对象的事件驱动程序指定一个有名函数
+                lis[i].onclick = toggleTab;
+
+                // 给每个关闭按钮都绑定单击事件
+                guanbis[i].onclick = removeTab;
+
+                // 给每个span绑定双击事件
+                spans[i].ondblclick = editTab;
+                
+                // 给每个section绑定双击事件
+                sections[i].ondblclick = editTab;
+            }
+            
+            // 因为+号只需要给一个元素绑定事件
+            tabadd.onclick = addTab;
+        }
+
+        // 切换选项卡的功能
+        function toggleTab(){
+            clearClass();
+
+            // 单独设置当前被点击的li的类名
+            this.className = "liactive";
+            
+            // 单独设置当前被点击的li对应的section显示
+            var index = this.getAttribute("data-index");
+            sections[index].className = "conactive";
+        }
+    
+        // 添加选项卡的功能
+        function addTab(){
+            // 先清除所有的li和section标签的类名
+            clearClass();
+
+            // 创建一个HTML元素的字符串
+            var li = '<li class="liactive"><span>新选项卡</span><span class="iconfont icon-guanbi"></span></li>';
+            // 使用insertAdjacentHTML把HTML字符串当做节点添加到指定父元素中
+            ul.insertAdjacentHTML("beforeend",li);
+
+            var section = '<section class="conactive">测试 '+Math.random()+'</section>';
+            tabscon.insertAdjacentHTML("beforeend",section);
+
+            // 调用初始化函数,实现各种元素的绑定事件
+            init();
+        }
+
+        // 删除选项卡功能
+        function removeTab(e){
+            // 因为关闭按钮绑定单击事件,他父元素li也有单击事件,所以会出现冒泡
+            // 阻止冒泡
+            e.stopPropagation();
+            
+            // 获取所点击选项卡的索引号,关闭按钮没有,但是关闭按钮的父元素有
+            var index = this.parentNode.getAttribute("data-index");
+
+            // 删除所点击的选项卡
+            lis[index].remove();
+
+            // 删除所点击的选项卡对应的内容层
+            sections[index].remove();
+
+            // 因为改变了选项卡的个数,所以需要调用一次初始化函数
+            init();
+
+            // 当我们删除了选中状态的这个li的时候,让它的前一个li处于选定状态
+            if(  this.parentNode.className == "liactive" ){
+                // 让索引号-1  代表前一个的索引号
+                index--;
+                // 手动调用前一个li点击事件
+                // &&如果前面的内容转成false, &&后面的代码就不执行
+                lis[index] && lis[index].click();
+            }
+        }
+
+        // 编辑功能
+        function editTab(){
+            // 获取span原来的内容
+            var oldStr = this.innerHTML;
+            // 设置span的标签内容为input标签 其实就是往span标签中添加了一个input子元素
+            this.innerHTML = "<input type='text'/>";
+            // 得到span中第一个子元素,也就是input标签
+            var input =  this.children[0] ;
+            // 设置input标签的内容
+            input.value = oldStr;
+            // 选中input标签中所有文字内容  语法: 文本框对象.select()
+            input.select();
+            // input失去焦点事件
+            input.onblur = function(){
+                // 把span标签内容设置为input的value值
+                this.parentNode.innerHTML = this.value;
+            }
+            // input键盘弹起事件
+            input.onkeyup = function(e){
+                if(e.keyCode == 13){
+                    // 手动调用失去焦点事件  对象名.事件名()
+                    this.blur();
+                }
+            }
+        }
+    
+        // 调用初始函数,给整个页面各种元素绑定事件
+        init();
+
+    </script>
+</body>
+
+</html>

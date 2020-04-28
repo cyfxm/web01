@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        form{
+            width: 600px;
+            padding: 20px;
+            background-color: #ccc;
+            margin: 0 auto;
+        }
+
+        form > div{
+            width: 100%;
+        }
+
+        form > div input{
+            width: 100%;
+            height: 40px;
+            border: 1px solid #ccc;
+            display: block;
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    
+    <form action="">
+        <div>
+            <input type="text" placeholder="请输入文本">
+        </div>
+
+        <div>
+            <input type="text" autofocus placeholder="autofocus">
+        </div>
+
+        <div>
+            <input type="text" required placeholder="required">
+        </div>
+
+        <div>
+            <input type="text" required pattern="^1[3-9]\d{9}$" placeholder="pattern">
+        </div>
+
+        <div>
+            <input type="sumbit" value="提交表单">
+        </div>
+    </form>
+</body>
+</html>

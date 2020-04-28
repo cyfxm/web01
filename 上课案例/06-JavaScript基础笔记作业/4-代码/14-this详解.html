@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript">
+		// JavaScript中的this指向问题，有时候会让人难以捉摸，随着学习的深入，我们可以逐渐了解
+		// 现在我们需要掌握函数内部的this几个特点
+		// 1. 函数在定义的时候this是不确定的，只有在调用的时候才可以确定
+		// 2. 一般函数直接执行，内部this指向全局window
+		// 3. 函数作为一个对象的方法，被该对象所调用，那么this指向的是该对象(谁调用指向谁)
+		// 4. 构造函数中的this 指向这个对象的实例
+
+		// 直接在代码中输出this,这个this代表window对象
+		console.log( this );
+
+		// 在函数中使用this,谁调用这个this就代表谁,默认情况下,函数是由window对象调用的
+		function fn(){
+			console.log( this );
+		}
+		fn();
+		window.fn();
+		console.log("");
+
+		// 在js代码中,定义的函数跟变量,都会被放在window对象下
+		var a = 10;
+		console.log( a );
+		console.log( window.a);
+		console.log("")
+
+		var person = {
+			"name":"张三",
+			"age" : 23,
+			"sex" : "男",
+			call  : function(){
+				// 在哪个对象中的方法输出this,这个this就代表谁
+				console.log( this );
+			}
+		};
+
+		// 输出person对象
+		console.log( person );
+		// 调用person对象中的call方法
+		person.call();
+
+		console.log("");
+		console.log("");
+
+
+		// 构造函数
+		/*function 类名(形参1,形参2,形参3...){
+			this.属性名1 = 形参1;
+			this.属性名2 = 形参2;
+			this.属性名3 = 形参3;
+
+			this.方法名1 = 匿名函数;
+			this.方法名2 = 匿名函数;
+		}*/
+
+		function Student(number,name,age){
+			this.number = number;
+			this.name   = name;
+			this.age    = age;
+
+			this.code = function(){
+				console.log( this.name+"同学正在开心快乐的写代码~" );
+			};
+
+			this.eating = function(){
+				console.log( this.name+"同学正在吃饭" ); 
+			}
+
+			this.showInfo = function(){
+				// 这里的this代表当前对象
+				console.log( this );
+				console.log( "同学的个人信息,学号为"+this.number+",姓名为"+this.name+",年龄为"+this.age );
+			}
+		}
+
+		// 想从类中得到具体对象,需要实例化,通过new
+		var student1 = new Student(1,"张三",23);
+		console.log( student1 );
+		console.log( student1.name );
+		student1.showInfo();
+
+		console.log("");
+		console.log("");
+		console.log("");
+
+		var student2 = new Student(2,"李四",24);
+		console.log( student2 );
+		student2.showInfo();
+
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

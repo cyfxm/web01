@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .form{
+            width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f0f0f0;
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="form">
+        <div>
+            <input type="text" list="resultId" id="inpId" placeholder="请输入关键字">
+        </div>
+        <div>
+            <datalist id="resultId">
+
+            </datalist>
+        </div>
+    </div>
+
+    <script src="../../jQuery/js/jquery-3.4.1.js"></script>
+    <script>
+       $(function(){
+            //  获取数据
+            function getData(keyword,callback){
+                // jquery  ajax
+                $.ajax({
+                    // url:"https://suggest.taobao.com/sug?code=utf-8&_ksTS=1586760821600_702&callback=jsonp703&k=1&area=c2c&bucketid=18&q=笔记本",
+                    url:"https://suggest.taobao.com/sug",
+                    data:{
+                        code:"utf-8",
+                        q:keyword,
+                        bucketid:"18",
+                        area:"c2c",
+                        k:1,
+                        callback:"jsonp703",
+                        _ksTS:"1586760821600_702"
+                    },
+                    jsonpCallback:"jsonp703", //响应的数据中包含的函数名字
+                    dataType:"jsonp", //跨域
+                    success:function(res){
+                        // console.log(res);
+                        // callback && callback(res);
+                        if(callback) callback(res);
+                    },
+                    error:function(err){
+                        console.log(err);
+                    }
+                })
+            }
+            
+       
+            // 获取元素 绑定事件
+            $("#inpId").on('input',function(){
+                console.log($(this).val())
+                // 获取输入的值
+                var v1 = $(this).val();
+                // 获取数据
+                getData(v1,function(res){
+                    console.log(res)
+                    //处理json格式
+                    var arr = res.result;
+                    // 字符串
+                    var html = "";
+                    // 循环数组
+                    for(var i = 0 ; i < arr.length ; i ++){
+                        // 字符串拼接
+                        html += '<option value="'+arr[i][0]+'">'+arr[i][0]+'</option>'
+                    }
+                    // 把数据渲染出来
+                    $("#resultId").html(html);
+                })
+            })
+       
+        })
+    </script>
+</body>
+</html>

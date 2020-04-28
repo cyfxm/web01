@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		/*链接伪类选择器*/
+		/*通过超级链接的不同状态，对其设置不同的样式！*/
+		/*:link 未访问的状态 超级链接没有被访问*/
+
+
+
+		a:link{
+			color:orange;
+		}
+
+		/*:visited 访问过后状态 超级链接已经被访问*/
+		a:visited{
+			color:pink;
+		}
+		
+		/*:hover 鼠标放上状态 鼠标放在超级链接上面，但是并没有将鼠标的左键按下去*/
+		a:hover{
+			color:red;
+		}
+		
+		a:active{
+			color:green;
+		}
+		/*:active 激活状态 鼠标左键已经按下去了，但是并没有将鼠标的左键弹出,也就是按住不放*/
+		
+
+		/*注意：*/
+		/*超级链接的不同状态它其实是有顺序。也就是说锚伪类选择器设置其实是有顺序。*/
+
+		/*如果不按照锚伪类选择器的顺序，那么样式就会失效。顺序:	  :link   :visited  :hover   :actice*/
+
+		/*记忆:   要遵守“爱恨准则”要先有爱，才有恨。“Love  Hate”(也可以通过 lv是一个hao包包来记忆)*/
+	</style>
+</head>
+<body>
+	<a href="https://www.baidu.com">百度</a>
+</body>
+</html>

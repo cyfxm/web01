@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<!-- table的属性就是设置table标签上面的 -->
+	<!-- width设置表格的宽度,取值数值不带px 或者 百分比(相对父元素)  默认宽度由表格里面的单元格内容决定 -->
+
+	<!-- height设置表格的高度,取值数值不带px 或者 百分比(相对父元素,如果父元素是body,百分比无效)  默认高度由表格里面的单元格内容决定 -->
+
+	<!-- border设置表格的边框线,取值数值,默认0,0代表无边框 -->
+	<!-- bordercolor设置表格边框线的颜色,取值网页颜色值 -->
+
+	<!-- align设置"整个表格"的水平对齐方式  取值 left center right -->
+
+	<!-- bgcolor设置整个表格背景颜色,取值网页颜色 -->
+
+	<!-- background设置整个表格背景图片,取值图片所在路径 -->
+	<!-- 注意:如果同时设置了背景图片与背景颜色,那么背景图片是会覆盖背景颜色的 -->
+
+	<!-- <table width="500" border="1" height="300" align="center" background="images/P_089.jpg"  bgcolor="pink" bordercolor="blue"> -->
+	
+	<!-- cellpadding设置单元格中内容到边框的距离 取值:数值 -->
+	<!-- <table border="1" cellpadding="10"> -->
+
+	<!-- cellspacing设置单元格与单元格之间的距离,取值:数值 -->
+	<!-- <table border="1" cellspacing="20"> -->
+	
+	<!-- rules="all"合并边框线,得到更细的边框线 -->
+	<table border="1" width="300" rules="all" bordercolor="red">
+		<caption>个人信息表</caption>
+		<tr>
+			<th>姓名</th>
+			<th>性别</th>
+			<th>电话</th>
+		</tr>
+		<tr>
+			<td>小王</td>
+			<td>女</td>
+			<td>110</td>
+		</tr>
+		<tr>
+			<td>小明</td>
+			<td>男</td>
+			<td>120</td>
+		</tr>
+		<tr>
+			<td>小红</td>
+			<td>女</td>
+			<td>119</td>
+		</tr>
+		<tr>
+			<td>小绿</td>
+			<td>男</td>
+			<td>100</td>
+		</tr>
+	</table>
+</body>
+</html>

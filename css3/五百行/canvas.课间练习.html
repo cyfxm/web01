@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            margin: 0;
+        }
+
+        canvas{
+            display: block;
+            background-color: skyblue;
+        }
+    </style>
+</head>
+<body>
+    
+    <canvas id="canvas">不支持canvas标签</canvas>
+
+    <script>
+        var canvas = document.querySelector("#canvas");
+
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        var ctx = canvas.getContext("2d");
+
+        function drawRect(color,x,y,w,h){
+            ctx.beginPath();
+            ctx.fillStyle = color;
+            ctx.rect(x,y,w,h);
+            ctx.closePath();
+            ctx.fill();
+        }
+
+        function clearFunc(){
+            ctx.clearRect(0,0,canvas.width,canvas.height);
+        }
+
+        function getRandomColor(){
+            var red = Math.floor(Math.random()*256);
+            var green = Math.floor(Math.random()*256);
+            var blue = Math.floor(Math.random()*256);
+            return "rgba("+red+","+green+","+blue+")";
+        }
+
+        var x = 0;
+        var y = 0;
+
+        var width = 0;
+        var height = 0;
+
+        var sx = 0;
+        var sy = 0;
+
+        var mx = 0;
+        var my = 0;
+
+        var bool = false;
+        var color;
+
+        document.onmousedown = function(e){
+            clearFunc();
+            x = sx = e.pageX;
+            y = sy = e.pageY;
+
+            bool = true;
+            color = getRandomColor();
+        }
+
+        document.onmousemove = function(e){
+            if(bool){
+                clearFunc();
+                mx = e.pageX;
+                my = e.pageY;
+                width = mx - sx;
+                height = my - sy;
+                drawRect(color,x,y,width,height);
+            }
+        }
+
+        document.onmouseup = function(){
+            bool = false;
+        }
+    </script>
+</body>
+</html>

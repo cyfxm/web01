@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>justify-content  设置子元素在水平方向的位置</title>
+    <style>
+        /* justify-content 给弹性容器添加的属性 */
+        div {
+            margin: 50px 0;
+        }
+        ul {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+            width: 500px;
+            height: 300px;
+            border: 1px solid #ccc;
+
+            display: flex;
+            /* justify-content: flex-start; */
+        }
+
+        ul li {
+            width: 100px;
+            height: 50px;
+            border: 1px solid #ccc;
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+
+   <div>
+       <label> justify-content : </label>
+        <select id="selectId">
+            <option value="0">请选择属性值</option>
+            <option value="flex-start">flex-start</option>
+            <option value="center">center</option>
+            <option value="flex-end">flex-end</option>
+            <option value="space-between">space-between</option>
+            <option value="space-around">space-around</option>
+        </select>
+   </div>
+
+    <ul id="container">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+    </ul>
+</body>
+</html>
+<script>
+    var select_element =  document.querySelector("#selectId");
+    var container_element =  document.querySelector("#container");
+    console.log(container_element)
+    select_element.onchange = function(){
+        var attr = this.value;
+        container_element.style.justifyContent  = attr;
+    }
+
+
+</script>

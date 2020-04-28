@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		/*我们通常会去掉超级链接的下划线，然后同时会给超级链接设置一个颜色。*/
+
+		/*一般情况下：*/
+		/*正常未访问状态与访问过后的状态的样式设置为一样*/
+
+		/*当鼠标放上的时候给其设置另外一个颜色*/
+		/*激活状态一般不会设置 因为激活状态的时间太短 */
+
+
+		/*第一种对超级链接进行美化的设置方法： 了解
+
+		a:link,a:visited{去掉超级链接的下划线;设置一个颜色;}
+
+		a:hover {设置另外一种颜色;或者增加下划线;}*/
+		
+		/*分组选择器,提取公共样式*/
+		/* a:link,a:visited{
+			color:#3c3c3c;
+			text-decoration: none;
+		}
+		a:hover{
+			color:orange;
+			text-decoration: underline;
+		} */
+
+		/*第二种对超级链接进行美化的设置方法：     必须掌握 
+		a{color:#172c45;text-decoration:none}
+
+		a:hover{color:#cd0200;text-decoration:underline}
+		*/
+	
+		a{
+			color:#3c3c3c;
+			text-decoration: none;
+		}
+		
+		a:hover{
+			color:orange;
+			text-decoration: underline;
+		}
+		
+
+	</style>
+</head>
+<body>
+	<a href="#">连衣裙</a>
+	<a href="#">半身裙</a>
+	<a href="#">男士外套</a>
+</body>
+</html>

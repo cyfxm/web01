@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript">
+		// 我们可以在定义函数的时候,给形参设置默认值;
+		// 如果有形参有默认的话,调用函数的时候,可以不传递实参;不传实参就会使用默认值
+		// 注意:需要定义默认值的参数,需要放在形参列表的后面
+
+
+		// 定义函数,函数参数没有设置默认值
+		function fn(a,b,c){
+			console.log(a+b+c);
+		}
+		fn(10,20,30);// 60
+		fn(10,20);// NaN
+		console.log("");
+
+
+
+		// 注意:需要定义默认值的参数,需要放在形参列表的后面
+		function fn2(a = 10,b = 20,c){
+			console.log( a+b+c );
+		}
+		fn2(50,7,12);// 69
+		fn2(7,12);// NaN
+		console.log("");
+
+
+
+		// 设置了默认值的形式参数,需要形参列表的后面
+		// 如果有形参有默认的话,调用函数的时候,可以不传递实参;不传实参就会使用默认值
+		function fn3(a,b=20,c=10){
+			console.log( a+b+c );
+		}
+		// a,b,c三个都传值了
+		fn3(10,50,60);// 120
+
+		// a,b两个传值了
+		fn3(10,40);// 60
+
+		// 只传了一个a的值 
+		fn3(10);// 40
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

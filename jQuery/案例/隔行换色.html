@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul{
+            width: 200px;
+            height: 50px;
+            background-color: gray;
+            border-bottom: 1px solid red;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="demo">
+        <ul>1</ul>
+        <ul>2</ul>
+        <ul>3</ul>
+        <ul>4</ul>
+        <ul>5</ul>
+        <ul>6</ul>
+        <ul>7</ul>
+        <ul>8</ul>
+    </div>
+    <script src="../js/jquery-3.4.1.js"></script>
+    <script>
+        $(function(){
+            $("ul:nth-child(even)").css("backgroundColor","skyblue");
+            $("ul:nth-child(odd)").css("backgroundColor","red");
+        })
+    </script>
+</body>
+</html>

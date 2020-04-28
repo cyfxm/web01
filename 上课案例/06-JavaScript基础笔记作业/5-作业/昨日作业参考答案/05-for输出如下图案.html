@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		body{
+			font-family: 仿宋;
+		}
+	</style>
+	<script type="text/javascript">
+		document.write("<h2>A:</h2>");
+		for(var i=1;i<=4;i++){
+			for(var j=1;j<=4;j++){
+				document.write("*");
+			}
+			document.write("<br/>");
+		}
+
+		document.write("<h2>B:</h2>");
+		for(var i=1;i<=4;i++){
+			for(var j=1;j<=i;j++){
+				document.write("*");
+			}
+			document.write("<br/>");
+		}
+
+		document.write("<h2>C:</h2>");
+		for(var i=1;i<=4;i++){
+			for(var j=1;j<=2*i-1;j++){
+				document.write("*");
+			}
+			document.write("<br/>");
+		}
+
+		document.write("<h2>D:</h2>");
+		for(var i=1;i<=4;i++){
+
+			// 输出空格
+			for(var k=1;k<=4-i;k++){
+				document.write("&nbsp;");
+			}
+
+			for(var j=1;j<=2*i-1;j++){
+				document.write("*");
+			}
+			document.write("<br/>");
+		}
+
+		document.write("<h2>E:</h2>");
+		for(var i=1;i<=4;i++){
+
+			// 输出空格
+			for(var k=1;k<=4-i;k++){
+				document.write("&nbsp;");
+			}
+			
+			for(var j=1;j<=2*i-1;j++){
+				if(j==1||j==2*i-1){
+					document.write("*");
+				}else{
+					document.write("&nbsp;");
+				}
+			}
+			document.write("<br/>");
+		}
+
+		document.write("<h2>F:</h2>");
+		for(var i=1;i<=4;i++){
+
+			// 输出空格
+			for(var k=1;k<=4-i;k++){
+				document.write("&nbsp;");
+			}
+			
+			for(var j=1;j<=2*i-1;j++){
+				if(j==1||j==2*i-1||i==4){
+					document.write("*");
+				}else{
+					document.write("&nbsp;");
+				}
+			}
+			document.write("<br/>");
+		}
+
+		document.write("<h2>G:</h2>");
+		for(var i=1;i<=4;i++){
+
+			// 输出空格
+			for(var k=1;k<=4-i;k++){
+				document.write("&nbsp;");
+			}
+			
+			for(var j=1;j<=2*i-1;j++){
+				if(j==1||j==2*i-1){
+					document.write("*");
+				}else{
+					document.write("&nbsp;");
+				}
+			}
+			document.write("<br/>");
+		}
+		for(var i=3;i>=1;i--){
+
+			// 输出空格
+			for(var k=1;k<=4-i;k++){
+				document.write("&nbsp;");
+			}
+			
+			for(var j=1;j<=2*i-1;j++){
+				if(j==1||j==2*i-1){
+					document.write("*");
+				}else{
+					document.write("&nbsp;");
+				}
+			}
+			document.write("<br/>");
+		}
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		.box{
+			width: 1000px;
+			height:200px;
+			background: lightgreen;
+			/*可以让一个盒子实现水平居中，需要满足一下三个条件:*/
+			/*1.必须是块级元素。*/
+			/*2.盒子必须指定了小于父元素100%的宽度(width)*/
+			/*3.然后就给"左右的外边距"都设置为"auto"，就可使块级元素水平居中。*/
+			/*auto代表自动分配空间*/
+			
+			/*把空白空间自动分配给左边*/
+			/*margin-left:auto;*/
+			
+			/*把空白空间自动分配给右边*/
+			/*margin-right:auto;*/
+			
+			/*同时设置左右margin的取值为auto*/
+			margin-left:auto;
+			margin-right:auto;
+		}
+	</style>
+</head>
+<body>
+	<div class="box">box盒子的内容</div>
+</body>
+</html>

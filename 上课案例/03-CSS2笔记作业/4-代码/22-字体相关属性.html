@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		.div1{
+			/*font-size设置字体大小,取值数值带px单位,谷歌浏览器默认字体大小是16px;  一般字体大小取值都是使用偶数值,因为偶数值兼容性比较好;*/
+
+			/*网页中的字体大小12px 14px 16px这三个*/
+
+			font-size:50px;
+
+			/*有一个特殊的字体大小0,可以让文字消失看不到*/
+			/*font-size:0px;*/
+		}
+		.div2{
+			/*font-style设置字体是否倾斜,取值italic斜体 normal正常字体,不倾斜*/
+			font-size:100px;
+			font-style:italic;
+		}
+		i{
+			font-style:normal;
+		}
+
+		.div3{
+			/*font-weight设置字体是否加粗,取值bold加粗,也可以使用700表示,这个700不用带px单位;  normal不加粗,正常字体,也可以使用400表示,这个400不需要带px单位*/
+
+			font-weight: bold;
+			/*font-weight: 700;*/
+		}
+		strong{
+			font-weight: normal;
+			/*font-weight: 400;*/
+		}
+
+		.div4{
+			/*font-family设置何种字体,类似我们之前学的font标签中的face属性*/
+			/*取值是字体名称,字体建议使用引号包裹*/
+			/*每个浏览器默认字体有所差异,老师的这个谷歌浏览器默认字体是微软雅黑*/
+
+			/*我们网页中的字体一般是宋体或者微软雅黑*/
+			/*font-family: 宋体;*/
+			/*font-family: "宋体";*/
+
+			/*还可以同时设置多个字体,多个字体名称之间使用"逗号"隔开;会依次从左到右匹配,匹配到了就使用这个字体;如果没匹配到,继续往后匹配;如果全都没有,就会使用浏览器默认字体*/
+
+			font-family: "仿宋","宋体","楷体";
+		}
+	</style>
+</head>
+<body>
+	<!-- div[class="div$"]{div$}*5 -->
+	<div class="div1">div1</div>
+	<div class="div2">div2</div>
+	<i>我本倾斜</i>
+	<div class="div3">div3的内容</div>
+	<strong>我本加粗</strong>
+	<div class="div4">我爱我的祖国</div>
+	<div style="font-family: '仿宋';">我和我的祖国</div>
+</body>
+</html>

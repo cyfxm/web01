@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript">
+		function Hero(username,type,blood,attack){
+			this.username = username;
+			this.type = type;
+			this.blood = blood;
+			this.attack = attack;
+
+			this.show = function(){
+				console.log(this.username+this.type+this.blood+"血量"+this.attack);
+			}
+
+		}
+
+		var hero = new Hero("安琪拉","法师型","80","法术攻击");
+		console.log(hero);
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

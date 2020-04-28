@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        div{
+            width: 300px;
+            height: 100px;
+            border: 1px solid #ccc;
+            margin: 10px;
+            float: left;
+            background-color: skyblue;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="oneWeather"></div>
+    <div id="twoWeather"></div>
+    <div id="thereWeather"></div>
+    <div id="fourWeather"></div>
+    <div id="fiveWeather"></div>
+    <div id="sixWeather"></div>
+    <div id="sevenWeather"></div>
+
+    <script src="./jquery-3.4.1.js"></script>
+    <script>
+        $(function () {
+            $.ajax({
+                url: "https://tianqiapi.com/api?version=v1&appid=58486958&appsecret=YtJ4aQFw",
+                type: "get",
+                dataType: "jsonp",
+                jsonpCallback: "jsonpCallback",
+                success: function (d) {
+                    var $ul = $("<ul></ul>");
+                    $.each(d,function (i,v) {
+                        console.log(d.data[6]);
+                        
+                        console.log(i);
+                        console.log(" ");
+                        console.log();
+                        console.log(i);
+                        if (i == "success") {
+                            // return false;
+                        } else {
+                            $("#oneWeather").html(v[0].date+v[0].week+v[0].day+"<br>温度:"+v[0].tem+"<br>天气状况:"+v[0].wea+"<br>风力:"+v[0].win);
+                            $("#twoWeather").html(v[1].date+v[1].week+v[1].day+"<br>温度:"+v[1].tem+"<br>天气状况:"+v[1].wea+"<br>风力:"+v[1].win);
+                            $("#thereWeather").html(d.data[2].date+d.data[2].week+d.data[2].day+"<br>温度:"+d.data[2].tem+"<br>天气状况:"+d.data[2].wea+"<br>风力:"+d.data[2].win);
+                            $("#fourWeather").html(d.data[3].date+d.data[3].week+d.data[3].day+"<br>温度:"+d.data[3].tem+"<br>天气状况:"+d.data[3].wea+"<br>风力:"+d.data[3].win);
+                            $("#fiveWeather").html(d.data[4].date+d.data[4].week+d.data[4].day+"<br>温度:"+d.data[4].tem+"<br>天气状况:"+d.data[4].wea+"<br>风力:"+d.data[4].win);
+                            $("#sixWeather").html(d.data[5].date+d.data[5].week+d.data[5].day+"<br>温度:"+d.data[5].tem+"<br>天气状况:"+d.data[5].wea+"<br>风力:"+d.data[5].win);
+                            $("#sevenWeather").html(d.data[6].date+d.data[6].week+d.data[6].day+"<br>温度:"+d.data[6].tem+"<br>天气状况:"+d.data[6].wea+"<br>风力:"+d.data[6].win);
+                        }
+                    });
+                },
+            })
+        })
+    </script>
+</body>
+
+</html>

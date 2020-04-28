@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript">
+		// 封装在指定n范围找到质数的函数, n>=1, n是整数,返回指定返回的所有质数
+
+		function getPrime(n){
+			var arr = [];
+
+			for(var i=1;i <= n; i++){
+				// 定义一个变量保存因数的个数
+				var count = 0;
+
+				for(var j=1;j<=i;j++){
+					if(i%j==0){
+						count++;
+					}
+				}
+
+				if(count == 2){
+					arr[arr.length] = i;
+				}
+			}
+
+			return arr;
+
+		}
+		console.log( getPrime(100) );
+		console.log( getPrime(200) );
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

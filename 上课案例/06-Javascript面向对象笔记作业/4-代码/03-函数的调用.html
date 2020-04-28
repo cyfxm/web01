@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button>按钮</button>
+
+    <script>
+        // 1. 普通函数
+        function fn(){
+            console.log("普通函数");
+        }
+        fn();
+
+        // 2. 对象的方法
+        var obj = {
+            sayHello:function(){
+                console.log("我是对象里面的sayHello方法");
+            }
+        }
+        // 对象里面的方法,是通过对象去调用的
+        obj.sayHello();
+
+        // 3. 构造函数
+        function Star(uname,age){
+            this.uname = uname;
+            this.age = age;
+            console.log( "只要实例化了,就会调用构造函数里面的代码 ");
+        }
+        new Star();
+
+
+        // 4. 绑定事件函数
+        var btn = document.querySelector("button");
+        btn.onclick = function(){
+            // 绑定事件的函数不会马上调用,触发的时候才会调用
+            alert("点击了按钮");
+        }
+        
+        // 5. 定时器,延时器函数
+        window.setInterval(function(){
+            console.log("我是定时器里面的代码,我每隔1秒就会执行");
+        },1000);
+
+        window.setTimeout(function(){
+            console.log("我是延时器里面的代码,隔3秒以后才会执行,只执行一次");
+        },3000);
+
+        // 6. 立即执行函数(自调用函数,自己调用自己,立马执行函数体)
+        (function(){
+            console.log("我是立即执行函数");
+        })()
+    </script>
+</body>
+</html>

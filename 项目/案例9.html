@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript">
+	var str = "我爱中华人民共和国";
+	str = str.substr(2,2);
+	console.log(str);
+	console.log(" ");
+
+	var str1="abcd123456";
+           var strarr=str1.split('').reverse();
+           console.log(strarr);
+           console.log(" ");
+
+    var str3 = "C:/Users/Administrator/Desktop/images/dog.png";
+    console.log(str3.substring(41));
+    var str2 = "abcoefoxyozzopp";
+    var reg = /o/gi
+    console.log(str2.replace(reg,"*"));
+
+    var str4 = "abcdfgaaa123411156";
+    console.log(str4.length);
+    console.log(str4[0]+str4[3]+str4[5]+str4[9]);
+    if(str4.indexOf("i") == -1){
+    	console.log("i不存在");
+    }else{
+    	console.log("i不存在");
+    }
+
+    if(str4.indexOf("b") == -1){
+    	console.log("b不存在");
+    }else{
+    	console.log("b不存在");
+    }
+    if(str4.indexOf("c") == -1){
+    	console.log("c不存在");
+    }else{
+    	console.log("c不存在");
+    }
+
+    var re = /a/gi;
+    var r = /1/gi;
+    console.log(str4.replace(re,"A"));
+    console.log(str4.replace(r,"-"));
+
+    console.log(str4.substr(1,5));
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul class="studentNames">
+        <li>张三</li>
+        <li>李四</li>
+        <li>王五</li>
+        <li>赵六</li>
+        <li>孙七</li>
+    </ul>
+ ​
+    <ul class="fruit">
+        <li>苹果</li>
+        <li>香蕉</li>
+        <li>葡萄</li>
+        <li>火龙果</li>
+        <li>桔子</li>
+    </ul>
+    <script>
+        // 点击li输出当前li 的索引号
+        // 方式一:使用自定义属性
+        var studentLis = document.querySelectorAll(".studentNames li");
+        for(var i=0;i<studentLis.length;i++){
+            // 把索引号保存在自定义属性中
+            studentLis[i].setAttribute("data-index",i);
+
+            studentLis[i].onclick = function(){
+                var index = this.getAttribute("data-index");
+                alert( index );
+            }
+        }
+
+        // 方式二:使用闭包的方式
+        // 需要借助立即执行函数,立即执行函数也能成为闭包
+        var fruitLis = document.querySelectorAll(".fruit li");
+        for(var i=0;i<fruitLis.length;i++){
+            // 立即执行函数会马上执行的  会把i传递给index这个形参,接着在单击事件的匿名函数中就可以使用这个index
+            (function(index){
+                fruitLis[i].onclick = function(){
+                    alert( index );
+                }
+            })(i)
+        }
+    </script>
+</body>
+</html>

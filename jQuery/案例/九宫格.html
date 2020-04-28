@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        .stage {
+            width: 450px;
+            height: 360px;
+            background-color: #ccc;
+            margin: 50px auto;
+        }
+
+        .stage ul li {
+            width: 150px;
+            height: 120px;
+            border: 1px solid #000;
+            box-sizing: border-box;
+            float: left;
+            text-align: center;
+            /* margin: 1px; */
+            line-height: 120px;
+            font-size: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="stage">
+        <ul>
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+            <li>6</li>
+            <li>7</li>
+            <li>8</li>
+            <li>9</li>
+        </ul>
+    </div>
+
+    <script src="../js/jquery-3.4.1.js"></script>
+    <script>
+        $(function () {
+            var data = [];
+            $("ul li").each(function (index, dom) {
+                // 获取每一个元素的坐标位置
+                var point = $(dom).offset();
+                data.push(point);
+            })
+            console.log(data);
+            $("ul li").each(function (index, dom) {
+                $(dom).css({
+                    position: "absolute",
+                    left: data[index].left,
+                    top: data[index].top
+                })
+            })
+            $("ul li").eq(2).position();
+
+            var elements = [];
+            $(".stage ul").on('click', 'li', function () {
+                $(this).css('backgroundColor', 'orange');
+                var ele = $(this);
+                var left = $(this).position().left;
+                var ttop = $(this).position().top;
+                var obj = {
+                    ele: ele,
+                    left: left,
+                    top: ttop
+                }
+                // 把当前点击的元素的相关数据，添加进数组
+                elements.push(obj);
+
+                if (elements.length == 2) {
+                    // 设置第一次盒子的位置
+                    elements[0].ele.animate({
+                        left:elements[1].left,
+                        top:elements[1].top
+                    },1000,function(){
+                        elements[0].ele.css("backgroundColor",'transparent');
+                    })
+                     // 设置第二次盒子的位置
+                     elements[1].ele.animate({
+                        left:elements[0].left,
+                        top:elements[0].top
+                    },1000,function(){
+                        elements[1].ele.css("backgroundColor",'transparent')
+                        elements = [];
+
+                    })
+                }
+
+            })
+        })
+    </script>
+</body>
+
+</html>

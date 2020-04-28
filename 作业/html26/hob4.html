@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .score{
+            margin-left: 50px;
+            margin-top: 50px;
+        }
+        .box{
+            width: 400px;
+            height: 400px;
+            margin-left: 50px;
+            margin-top: 50px;
+            border: 1px solid blue;
+            position: relative;
+            overflow: hidden;
+        }
+        .box .game{
+            position: absolute;
+            top: -50px;
+            left: 0;
+        }
+        .box .game .row div{
+            width: 98px;
+            height: 100px;
+            float: left;
+            background: white;
+            border: 1px solid gray;
+        }
+        .box .game .row .black{
+            background-color: black;
+        }
+    </style>
+</head>
+<body>
+    <input type="text" class="score" value="0" disabled="disabled">
+
+    <div class="box">
+        <div class="game">
+            <div class="row">
+                <div class="black"></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+            <div class="row">
+                <div></div>
+                <div class="black"></div>
+                <div></div>
+                <div></div>
+            </div>
+            <div class="row">
+                <div></div>
+                <div></div>
+                <div class="black"></div>
+                <div></div>
+            </div>
+            <div class="row">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div class="black"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        var speed  = 1;//速度
+        var score1 = 0;//分数
+        var gameover = false;//代表游戏没有结束
+        var score = document.querySelector(".score");
+        var game = document.querySelector(".game");
+        var timer = setInterval(function(){
+            // 设置动画
+            var y = game.offsetTop + speed;
+            game.style.top = y+"px";
+
+            // 随机生成黑块
+            var random = Math.floor( Math.random()*4 + 1)
+
+            // 动态添加行数
+            if( game.offsetTop >= 0 ){
+                // 判断是否在底部
+                if( game.lastElementChild.getAttribute("pass") == null ){
+                    window.clearInterval(timer);
+                    gameover = true;
+                    alert("游戏结束");
+                    return;
+                }
+                if( game.children.length >= 5){
+                    game.lastElementChild.remove();
+                }
+                var row = document.createElement("div");
+                row.className = "row";
+                for( var i = 1; i <= 4; i++ ){
+                    var div = document.createElement("div");
+                    // i=随机数
+                    if( i == random ){
+                        div.className = "black";
+                    }
+                    row.appendChild(div);
+                }
+                game.insertBefore(row, game.children[0]);
+                game.style.top = -100+"px";
+            }
+        },15)
+
+        // 绑定点击事件
+        game.onclick = function(e){
+            e = e || window.event;
+            if(gameover){
+                alert("游戏结束,请重新开始");
+            }else if(e.target.className == "black"){
+                e.target.removeAttribute("class");
+                score.value = ++score1;
+                 // 根据分数加速
+                if( score1 % 5 ==0 ){
+                    speed++;
+                }
+
+                e.target.parentNode.setAttribute("pass",true);
+            }else{
+                alert("游戏结束，你的分数为" + score1);
+                window.clearInterval(timer);
+                // 游戏结束
+                gameover = true;
+            }
+        }
+    </script>
+</body>
+</html>

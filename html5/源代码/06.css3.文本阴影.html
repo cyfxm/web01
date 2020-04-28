@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>文本阴影</title>
+    <style>
+        body {
+            background-color: #f0f0f0;
+        }
+        .header , .nav {
+            height: 200px;
+            margin: 50px 0;
+        }
+        .container {
+            width: 1200px;
+            margin: 0 auto;
+        }
+        .header h1 , .nav h1 {
+            font-size: 50px;
+            color: white;
+        }
+
+        /* text-shadow  */
+        /* 文本阴影：水平偏移量 垂直偏移量 模糊度  阴影颜色 */
+        /* 水平偏移量   是正数  往右偏移 ， 否则反之  */
+        /*  垂直偏移量  是正数  往下偏移 ， 否则反之*/
+        .header h1 {
+            text-shadow: 1px 1px 1px #333;
+        }
+
+        .nav h1 {
+            /* text-shadow: -1px -1px 1px  #333 ; */
+            text-shadow: -1px -1px 1px  green , 1px 1px 1px red ;
+        }
+       
+    </style>
+</head>
+<body>
+
+    <div class="header ">
+        <div class="container">
+            <h1> hello world! </h1>
+        </div>
+    </div>
+
+    <div class="nav">
+        <div class="container">
+            <h1> 你好，世界！ </h1>
+        </div>
+    </div>
+
+
+
+</body>
+</html>

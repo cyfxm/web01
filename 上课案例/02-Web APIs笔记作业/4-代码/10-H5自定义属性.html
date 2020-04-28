@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div data-index="1">div的内容</div>
+    <p data-spm-max-idx="淘宝复制的自定义属性">p段落内容</p>
+
+    <script>
+        // H5自定义属性   扩展知识
+        // 自定义属性目的:是为了"保存并使用数据"。有些数据可以保存到页面中而不用保存到数据库中。
+        // 自定义属性获取是通过getAttribute("属性名") 获取。
+        // 但是有些自定义属性很容易引起歧义，不容易判断是元素的内置属性还是自定义属性。
+
+        // 设置H5自定义属性
+        // H5规定自定义属性"data-"开头作为属性名并且赋值
+        
+        // 比如<div data-index="1"></div>
+        // 或者使用JS设置
+        // element.setAttribute("data-index",1)
+
+        var p = document.querySelector("p");
+        // 设置自定义属性,一定要使用setAttribute("属性名","属性值")这种方式
+        p.setAttribute("data-abc","我是abc");
+
+        // 获取H5自定义属性
+        // 比如 <div data-index="1"></div>
+        // 1. 兼容性获取   element.getAttribute("data-index"); 推荐大家使用
+        console.log( p.getAttribute("data-abc") );
+        console.log("");
+
+        // 2. H5新增获取方法 element.dataset.index 或者 element.dataset["index"]
+        console.log( p.dataset.abc );
+        console.log( p.dataset["abc"] );  
+        console.log("");
+        // 但是要注意ie 11以后才支持;如果自定义属性里面有多个-链接的单词，我们获取的时候采取 驼峰命名法
+        console.log( p.getAttribute("data-spm-max-idx") );
+        console.log( p.dataset.spmMaxIdx );
+        console.log( p.dataset["spmMaxIdx"]);
+    </script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="content"></div>
+    <button>按钮1</button>
+    <button>按钮2</button>
+    <script>
+        // 以前添加元素我们是使用 父节点.appendChild(子节点)
+        var content = document.querySelector(".content");
+        var btns = document.querySelectorAll("button");
+        btns[0].onclick = function(){
+            var h1 = document.createElement("h1");
+            h1.innerHTML = "我是标题1标签";
+            content.appendChild( h1 );
+        }
+        btns[1].onclick = function(){
+            // 父对象.insertAdjacentHTML("插入到哪里","字符串")
+            content.insertAdjacentHTML("beforeend","<h2><span>h2标题里面的span标签</span></h2>");
+        }
+    </script>
+</body>
+</html>

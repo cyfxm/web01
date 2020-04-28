@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript">
+		// 创建自定义对象-使用{}创建自定义对象  推荐大家使用,简单容易理解
+		
+		/*
+		语法一: 先定义一个空对象,再给这个对象设置属性和方法
+
+			var 对象变量名 = {};
+			// 给对象定义属性(特征),我们可以理解属性就是变量
+			对象变量名.属性名1 = 属性值1;
+			对象变量名.属性名2 = 属性值2;
+
+			// 给对象定义方法(行为,功能,可以做什么),我们可以理解方法就是函数
+			对象变量名.方法名1 = function(){
+				// 具体方法1的代码
+			}
+
+			对象变量名.方法名2 = function(){
+				// 具体方法2的代码
+			}
+		*/
+
+		// 定义了一个猫对象
+		var cat = {};
+		// 猫的属性(猫的特性)
+		cat.color    = "white";
+		cat.weight   = "5kg";
+		// 猫的方法(猫的特性)
+		cat.skill = function(){
+			console.log("猫可以抓老鼠~");
+		}
+		cat.cry = function(){
+			console.log("喵~");
+		}
+
+		// 访问对象中的属性  语法:  对象名.属性名  或者  对象['属性名']
+		console.log( cat.color );
+		console.log( cat["weight"] );
+
+		// 访问对象中的方法  语法:  对象名.方法()
+		cat.skill();
+		cat.cry();
+
+
+		// 语法二: 也是使用{},定义的对象的时候,同时给这个对象设置属性和方法
+		// 有点像CSS的感觉
+		/*var 对象变量名 = {
+		    属性名1:值1,
+		    属性名2:值2,
+		    方法名1:匿名函数1,
+		    方法名2:匿名函数2,
+		    ...
+		};*/
+		
+		console.log("");
+		console.log("");
+		console.log("");
+
+
+		// 定义一个女朋友对象
+		var girlFirend = {
+			// 属性
+			height:"170cm",
+			weight:"45kg",
+			// 方法
+			eating:function(){
+				console.log("女朋友可以陪你吃饭");
+			},
+			game:function(){
+				console.log("女朋友可以玩开心消消乐");
+			}
+		};
+
+		// 输出女朋友对象的属性
+		// 访问对象中的属性  语法:  对象名.属性名  或者  对象['属性名']
+		console.log("女朋友的身高为:"+girlFirend.height);
+		console.log("女朋友的体重为:"+girlFirend["weight"]);
+
+		// 调用女朋友对象的方法
+		// 访问对象中的方法  语法:  对象名.方法()
+		girlFirend.eating();
+		girlFirend.game();
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

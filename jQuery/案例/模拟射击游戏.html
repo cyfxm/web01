@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .map{
+            width: 500px;
+            height: 600px;
+            background-color: skyblue;
+            position: relative;
+            cursor: pointer;
+        }
+        .map .bundle{
+           width: 20px; 
+           height: 20px;
+           border: 1px solid #000;
+           border-radius: 50%;
+           position: absolute;
+           left: 200px;
+           top:600px;
+        }
+        .time{
+            position: absolute;
+            left: 508px;
+            top: 8px;
+            width: 150px;
+            height: 50px;
+            background-color: #ccc;
+            text-align: center;
+            line-height: 50px;
+        }
+    </style>
+</head>
+<body>
+    <span class="time">5000</span>
+    <div class="map">
+        <!-- <div class="bundle"></div> -->
+    </div>
+    
+    <script src="../js/jquery-3.4.1.js"></script>
+    <script>
+        $(function(){
+            var point = {
+                left:200,
+                top:600
+            }
+            $(".map").on('click',function(evt){
+                // 获取鼠标点击的位置
+                var obj = {
+                    left:evt.pageX - 8,
+                    top:evt.pageY - 8
+                }
+                var bundle = '<div class = "bundle"></div>';
+                $(".map").append(bundle);
+                $(".bundle").eq(0).animate(obj,500,function(){
+                    $(this).remove();
+                })
+            })
+
+            // 定义一个计数器变量
+            var count = 5000;
+            // 设置定时器
+            var timer = setInterval(function(){
+                count--;
+                if(count < 0){
+                    clearInterval(timer);
+                    $(".map").off("click");
+                    return;
+                }
+                $(".time").text(count);
+            },1)
+        })
+    </script>
+</body>
+</html>

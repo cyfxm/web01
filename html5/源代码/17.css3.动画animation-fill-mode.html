@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>animation-fill-mode</title>
+    <link rel="stylesheet" href="./base.css">
+    <style>
+        /* 1.0 定义动画 */
+        @keyframes foo5 {
+            from {
+                margin: 0 0 0 0;
+            }
+            to {
+                margin: 0 0 0 500px;
+            }
+        }
+
+        /* 2.0 使用动画 */
+        .box {
+            animation-name: foo5;
+            animation-duration: 5s;
+
+            /* 停留动画结束的位置 */
+            /* 让元素停留在动画结束的位置 */
+            animation-fill-mode: forwards;
+            /* 让元素停留在动画开始的位置（原来的位置） */
+            /* animation-fill-mode:backwards; */
+            
+        }
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+</body>
+</html>

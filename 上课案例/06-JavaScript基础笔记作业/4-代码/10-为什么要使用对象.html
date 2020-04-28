@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript">
+		// 1. 对象的结构更加清晰
+		// 2. 代码复用性更高,比函数的复用性还高,函数就是对象里面的方法
+		
+		// 定义了一个Person类
+		function Person(username,age,sex){
+		   //属性
+		   this.username = username;
+		   this.age  = age;
+		   this.sex  = sex;
+
+		   //方法
+		   this.sayHello = function(){
+		       console.log("我的名字叫:"+this.username+",年龄:"+this.age+",性别:"+this.sex);
+		  };
+
+		  
+		   this.chifan = function(){
+		       console.log(this.username+"在吃饭");
+		  }
+		}
+
+		// 通过new就可以从一个类中得到一个新的具体对象
+		var daBai = new Person("大白",23,'男');
+		daBai.sayHello();
+		daBai.chifan();
+
+		var xiaobai = new Person("小白",21,'男');
+		xiaobai.sayHello();
+		xiaobai.chifan();
+
+		var xiaoMei = new Person("小美",21,'女');
+		xiaoMei.sayHello();
+		xiaoMei.chifan();
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

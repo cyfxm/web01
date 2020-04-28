@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript">
+		// 昨天的我们讲过使用 字符串.split(分隔符) 可以把字符串根据分隔符分割成一个数组
+		var str = "张三|李四|王五|赵六|李狗蛋|李二狗";
+		var arr = str.split("|");
+		console.log( arr );
+		console.log( typeof(arr) );
+		console.log("");
+
+		// 数组转换成字符串,常见两种方法
+		// toString() 把数组转换成字符串,"逗号"分隔每一项 返回一个字符串
+		var arr1 = [10,20,30,true,"abc","男"];
+		console.log( arr1.toString() );
+		console.log("");
+
+		// join("分隔符") 用于把数组中的所有元素以分隔符连接,合并为一个字符串; 返回一个字符串
+		console.log( arr1.join(",") );
+		console.log( arr1.join("-") );
+		console.log( arr1.join("|") );
+		console.log( arr1.join("^_^") );
+		console.log("");
+
+		console.log( arr1.join("") );
+		console.log( arr1.join(" ") );
+		// 如果join没有传参,默认是使用逗号连接每一项数组元素
+		console.log( arr1.join() );
+
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript">
+		
+	// JSON数组
+	// 问题：在JS中，我们可以通过JSON格式的数据来保存一个人的信息;
+
+	// 如果我们想保存多个人的信息如何进行操作呢？答：使用JSON数组,   "把多个json对象放在一个数组中"
+
+	/*基本语法：
+	var 变量名 = [ 
+	    {键值对},
+	    {键值对},
+	    {键值对},
+	    ...
+	];
+	*/
+
+	// 保存一个人的信息
+	var jsonObj = {
+		"username" : "张三",
+		"age"      : 23,
+		"sex"      : "男"
+	};
+
+	console.log( jsonObj.username )
+	console.log( jsonObj.age )
+	console.log( jsonObj.sex )
+	console.log("");
+	console.log("");
+
+	// 如果需要保存多个人的个人信息,可以就可以使用JSON数组,说白了,就是把多个JSON对象放在一个数组里面
+	// 我们之前说过一个东西,数组中的元素类型可以是任意,可以是字符串,数值,布尔,null,undefind,数组,对象
+
+	var arrObjs = [
+		{
+			"username" : "李四",
+			"age"      : 24,
+			"sex"      : "女"
+		},
+		{
+			"username" : "小明",
+			"age"      : 25,
+			"sex"      : "男"
+		},
+		{
+			"username" : "小红",
+			"age"      : 28,
+			"sex"      : "女"
+		}
+	];
+	console.log( arrObjs );
+
+	// 我们想直接输出李四,该怎么写
+	console.log( arrObjs[0] );
+	console.log( arrObjs[0]["username"] );
+	console.log( arrObjs[0].username );
+	console.log("");
+
+
+	// 如果遍历里面所有属性值出来
+	for( var i=0;i < arrObjs.length; i++){
+		// 因为对象没有数组下标0,1,2,3...所以不能使用for循环
+		for(var j in arrObjs[i] ){
+			console.log( arrObjs[i][j] );
+		}
+	}
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

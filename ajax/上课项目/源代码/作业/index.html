@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <!-- 指定视口（容器） 
+        width=device-width  当前设备的宽度
+        initial-scale=1.0   初始化的缩放比    moblie  :  pc =  1 : 1 
+    -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title> 自定义简单的手机（数字）软键盘 </title>
+    <style>
+        html , body {
+            /* height: 100%;
+            overflow: hidden; */
+        }
+        body {
+            margin: 0;
+            background-color: blue;
+        }
+        ul {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+        .search {
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            height: 30px;
+            padding: 50px 0;
+            width: 100%;
+        }
+        .search input {
+            height: 30px;
+            width: 280px;
+            border:1px solid #ccc;
+            border-radius: 15px;
+            display: block;
+            margin: 0 auto;
+            outline: none;
+            padding-left: 20px ;
+        }
+
+        .edit {
+            width: 100%;
+            position: absolute;
+            left:0;
+            bottom:-400px;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+        .edit ul {
+            width: 300px;
+            margin: 0 auto;
+            
+        }
+        .edit ul li {
+            width:88px;
+            height: 88px;
+            border: 1px solid #ccc;
+            float: left;
+            text-align: center;
+            line-height: 90px;
+            margin:5px 5px;
+            color: white;
+        }
+        .edit ul li:active {
+            background-color: #ccc;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 输入框 -->
+    <div class="search">
+        <!-- 禁用软键盘弹出  -->
+        <input type="text" readonly value="">
+    </div>
+    <!-- 自定义软键盘 -->
+    <div class="edit">
+        <ul>
+            <li data-num="0">0</li>
+            <li data-num="1">1</li>
+            <li data-num="2">2</li>
+            <li data-num="3">3</li>
+            <li data-num="4">4</li>
+            <li data-num="5">5</li>
+            <li data-num="6">6</li>
+            <li data-num="7">7</li>
+            <li data-num="8">8</li>
+            <li data-num="9">9</li>
+            <li data-num="-1">DEL</li>
+        </ul>
+    </div>
+
+
+    
+
+    <script src="./jquery/jquery.js"></script>
+    <script>
+
+        $(function(){
+            // 监听输入框的获取焦点的事假
+            $('.search').on('focus','input[type="text"]' , function(event){
+                // console.log("test")
+                // 取消获取焦点 （就不弹出手机自带的软键盘）
+                document.activeElement.blur();
+                // 调用显示软键盘的函数
+                show();
+                //阻止事件冒泡
+                // event.stopPropagation();
+                return false;
+            })
+
+            // 定义一个字符串 接收输入的值
+            var content = "";
+            // 给软键盘下的所有Li标签绑定事件
+            $(".edit ul li").click(function(){
+                // 获取当前点击的li标签的自定义属性值
+                var num = $(this).attr('data-num');
+              
+                // 判断
+                if(num == "-1"){
+                    // 没有值 
+                    if(content.length == 0){ return false ;}
+                    // 删除逻辑 删除字符串的最后一个字符
+                    content = content.slice(0,-1);
+                    // 显示字符串
+                    $("input[type='text']").val(content);
+                }else {
+                    // 添加逻辑
+                    content += num ;
+                    // 显示字符串
+                    $("input[type='text']").val(content);
+                }
+            })
+
+
+
+            // 编写函数 显示自定义软键盘
+            function show(){
+                $(".search").animate({
+                    bottom:400
+                },300)
+
+                $(".edit").animate({
+                    bottom:0
+                },300)
+            }
+
+
+            // 编写函数 隐藏自定义软键盘
+            function hide(){
+                $(".search").animate({
+                    bottom:0
+                },300)
+
+                $(".edit").animate({
+                    bottom:-400
+                },300)
+            }
+
+
+            // 阻止事件冒泡
+            $('body').click(function(event){
+                console.log('body')
+                event.stopPropagation();
+                return false;
+            })
+            //  点击空白处
+            $(document).click(function(){
+                console.log('document')
+                //  隐藏软键盘
+                hide();
+            })
+        })
+
+    </script>
+</body>
+</html>

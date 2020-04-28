@@ -1,0 +1,56 @@
+/* 头部 */
+.jd_classify_header{
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 0;
+    background-color: #ccc;
+}
+html , body{
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+}
+.jd_classify_main{
+    width: 100%;
+    padding-top: 2.5rem;
+    height: 100%;
+    display: flex;
+}
+.jd_classify_main .jd_classify_aside{
+    width: 90px;
+    background-color: #f0f0f0;
+    height: 100%;
+    overflow: hidden;
+    padding-bottom: 2.5rem;
+}
+.jd_classify_main .jd_classify_aside ul {
+    width: 90px;
+}
+.jd_classify_main .jd_classify_aside ul li{
+    height: 40px;
+    border-bottom: 1px solid #f0f0f0;
+    border-right: 1px solid #f0f0f0;
+    box-sizing: border-box;
+    font-size: 16px;
+    color: #ccc;
+    background-color: #fff;
+    text-align: center;
+    line-height: 2rem;
+    transform: translateY();
+}
+.jd_classify_main .jd_classify_content{
+    background-color: skyblue;
+    height: 100%;
+    flex: auto;
+    box-sizing: border-box;
+    padding:10px;
+    padding-bottom: 50px;
+}
+.jd_classify_main .jd_classify_content>div{
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+}

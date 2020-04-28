@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript">
+		// 作用域指的是:通常来说，一段程序代码中所用到的名字并不总是有效和可用的，而限定这个名字的可用性的代码范围就是这个名字的作用域。作用域的使用提高了程序逻辑的局部性，增强了程序的可靠性，减少了名字冲突。
+
+		/*全局作用域
+		作用于所有代码执行的环境(整个 script 标签内部)或者一个独立的 js 文件。*/
+
+		/*局部作用域
+		作用于函数内的代码环境，就是局部作用域。 因为跟函数有关系，所以也称为函数作用域。*/
+
+		// javascript中没有块级作用域（在ES6之前）
+		// 块作用域是通过{}来划分的,但是在ES6之前,使用var定义的变量,是没有块级作用域
+		if(true){
+		    var num = 123;
+		    console.log(num);// 123
+		}
+		console.log(num);// 123
+		console.log("");
+
+		// 在es6中,可以使用let定义块作用域的变量
+		if(true){
+		    let num2 = 456;
+		    console.log(num2);// 456
+		}
+		console.log(num2);// 报错,报num2 is not defined
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

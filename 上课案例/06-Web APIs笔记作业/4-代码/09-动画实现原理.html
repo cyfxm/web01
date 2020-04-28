@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        div{
+            width: 100px;
+            height: 100px;
+            background: pink;
+            /* 设置绝对定位 */
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+    </style>
+</head>
+<body>
+    <div>div的内容</div>
+
+    <script>
+        // 动画实现原理
+        // 核心原理:通过定时器 setInterval() 不断移动盒子位置。
+        
+        // 实现步骤:
+        // 1. 获得盒子当前位置
+        // 2. 让盒子在当前位置加上1个移动距离
+        // 3. 利用定时器不断重复这个操作
+        // 4. 加一个结束定时器的条件
+        // 5. 注意此元素需要添加定位，才能使用element.style.left
+
+        // 获取div对象
+        var div = document.querySelector("div");
+        // 开启定时器,让div开始移动
+        var timer = setInterval(function(){
+            // 假设我们div移动到400距离的时候,我们就停止移动
+            if(div.offsetLeft == 400){
+                // 清除定时器
+                clearInterval( timer );
+            }else{
+                // 让盒子在当前位置加上1个移动距离,再通过style属性设置left属性值
+                div.style.left = div.offsetLeft + 1 + "px";
+            }
+        },15);
+    </script>
+</body>
+</html>

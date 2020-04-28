@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .father{
+            width: 500px;
+            height: 500px;
+            background:skyblue;
+            margin:100px auto;
+        }
+        .father .son{
+            width: 100px;
+            height: 100px;
+            background: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="father">
+        <div class="son">子元素</div>
+    </div>
+    <script>
+        // mouseenter 和mouseover的区别
+        // mouseenter一般跟mouseleave搭配
+        // mouseover一般跟mouseout搭配
+
+        // 获取父元素对象
+        var father =  document.querySelector(".father");
+        
+        // 当鼠标移动到元素上时就会触发mouseenter 事件
+        // 类似 mouseover，它们两者之间的差别是
+        // mouseover 鼠标经过自身盒子会触发，经过子盒子还会触发。mouseenter  只会经过自身盒子触发
+        // 之所以这样，就是因为mouseenter不会冒泡
+        // 跟mouseenter搭配鼠标离开 mouseleave  同样不会冒泡
+
+
+        // mouseenter  代表鼠标进入元素
+        // mouseenter  只会经过自身盒子触发
+        father.onmouseenter = function(){
+            console.log( "mouseenter输入进入元素了 ");
+            console.log("");
+        }
+        // mouseover 代表鼠标移上元素
+        // mouseover 鼠标经过自身盒子会触发，经过子盒子还会触发
+        father.onmouseover = function(){
+            console.log( "mouseover输入移上元素了 ");
+            console.log("");
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript">
+		// 利用构造函数 创建一个英雄Hero 对象。    
+		// 里面有 姓名属性(username),类型属性(type), 血量属性(blood), 具有 攻击方法(attack)
+
+		// 使用的英雄:   
+		// 安琪拉     法师型     80血量     法术攻击  
+		// 后羿       射手型    100血量     物理攻击  
+
+		function Hero(username,type,blood,attack){
+			this.username = username;
+			this.type 	  = type;
+			this.blood 	  = blood;
+			this.attack   = function(){
+				console.log("攻击方法:"+attack);
+			};
+			this.showInfo = function(){
+				console.log(this.username+"是一个"+this.type+"英雄,有"+this.blood);
+			}
+		}
+		var anqila = new Hero("安琪拉","法师型","80血量","法术攻击");
+		anqila.showInfo();
+		anqila.attack();
+
+		var houyi = new Hero("后羿","射手型","100血量","物理攻击");
+		houyi.showInfo();
+		houyi.attack();
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

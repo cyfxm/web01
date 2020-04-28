@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>@keyframes  关键帧  </title>
+    <style>
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+        }
+        
+
+        /* 1. 定义动画 */
+        @keyframes setRadius {
+            from {
+                border-radius: 0 ;
+            }
+            to {
+                border-radius: 50px;
+            }
+        }
+        /* 2.0 使用动画 */
+        .box1 {
+            /* 简写 */
+            animation: setRadius 5s linear forwards ;
+        }
+    </style>
+</head>
+<body>
+
+
+    <div class="box box1"></div>
+
+
+
+
+</body>
+</html>

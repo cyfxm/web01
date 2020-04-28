@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>transform-orign 设置元素转换的起点</title>
+    <style>
+        ul {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+
+        .wrap {
+            width: 310px;
+            height: 441px;
+            position: relative;
+            margin-left: 100px;
+            margin-top: 50px;
+        }
+        .wrap li {
+            width: 310px;
+            height: 441px;
+            border: 1px solid #ccc;
+            position: absolute;
+            left: 0;
+            top: 0;
+
+            /* 设置元素转换的起点 */
+            transform-origin: left bottom;
+            /* 设置元素的过渡属性 */
+            transition: all 1s;
+        }
+        
+      
+
+        /* 相邻选择器 */
+        /* 选择除了第一li标签后面所有li标签 */
+        /* .wrap li ~ li {
+            background-image: url(./images/pk2.png);
+        } */
+        .wrap li {
+            background-image: url(./images/pk2.png);
+        }
+        .wrap:hover li:nth-of-type(2) {
+            transform: rotateZ(15deg);
+        }
+        .wrap:hover li:nth-of-type(3) {
+            transform: rotateZ(20deg);
+        }
+        .wrap:hover li:nth-of-type(4) {
+            transform: rotateZ(25deg);
+        }
+        .wrap:hover li:nth-of-type(5) {
+            transform: rotateZ(30deg);
+        }
+        .wrap:hover li:nth-of-type(6) {
+            transform: rotateZ(35deg);
+        }
+        .wrap:hover li:nth-of-type(5) {
+            transform: rotateZ(30deg);
+        }
+        .wrap:hover li:nth-of-type(6) {
+            transform: rotateZ(35deg);
+        }
+        .wrap:hover li:nth-of-type(7) {
+            transform: rotateZ(40deg);
+        }
+        .wrap:hover li:nth-of-type(8) {
+            transform: rotateZ(45deg);
+        }
+        .wrap:hover li:nth-of-type(9) {
+            transform: rotateZ(50deg);
+        }
+        /* .wrap:hover li:nth-of-type(10) {
+            transform: rotateZ(55deg);
+        } */
+
+          /* 伪类选择器 */
+        .wrap:hover li:last-of-type {
+            /* 旋转 */
+            transform: rotateZ(75deg);
+        }
+        .wrap li:last-of-type {
+            z-index: 1000;
+            background-image: url(./images/pk3.jpg);
+            background-size: 100% 100%;
+        }
+    </style>
+</head>
+<body>
+
+    <ul class="wrap">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+
+</body>
+</html>

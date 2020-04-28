@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript">
+		// window.prompt()用户输入对话框,因为是window对象下的方法,所以可以省略window.   直接写成prompt()
+
+		// window.prompt(提示信息,输入框中默认文本);
+
+		
+		// window.prompt这个方法有两个按钮 :确定按钮、取消按钮 
+		// 当用户点击确定按钮时会得到一个"String"类型的数据
+		// 当用户点击取消按钮会得到一个关键字 空类型null
+
+		// 我们可以使用一个变量保存用户输入的值
+		var str = window.prompt("请输入您的银行卡密码",123456);
+		// document.write( str );// null
+		// document.write("<br/>");
+		// document.write( typeof(str) );// object
+
+		if( str == null ){// 如果点击了取消
+			document.write("有内鬼,停止交易");
+		}else{// 如果输入的内容,点击确定
+			document.write( "你刚输入的密码" + str );
+			document.write("<hr/>");
+			document.write( typeof(str) );
+		}
+		
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

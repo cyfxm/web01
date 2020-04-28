@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 父构造函数
+        function Father(uname,age){
+            this.uname = uname;
+            this.age = age;
+
+            /* this.money = function(){
+                console.log( "可以赚好多好多的软妹子" );
+            } */
+        }
+
+        // 如果把方法加到Father的原型对象上
+        Father.prototype.money = function(){
+            console.log( "可以赚好多好多的软妹子" );
+        }
+        
+        // 子构造函数
+        function Son(uname,age,score){
+            Father.call(this , uname , age);
+            // score是子构造函数独有的属性
+            this.score = score;
+        }
+
+        // 借用原型对象继承方法
+        // Son.prototype = Father.prototype; "如果直接这样赋值会有问题,如果修改了子原型对象,父原型对象也会跟着一起变化"  因为对象是复合类型 复合类型之前的赋值是引用传递,传地址的
+
+        // 让Son的原型对象等于Father的原型对象
+        Son.prototype = Father.prototype;
+
+        // 给Son原型对象设置一个考试的方法
+        Son.prototype.exam = function(){
+            console.log( "这次考了" + this.score + "分" );
+        }
+
+        var father = new Father("张三",40);
+        console.log( father );
+        father.money();
+        father.exam();
+
+        console.log("===========================================");
+        
+        var son = new Son("张小三",18, 100);
+        console.log( son );
+        // 如果Father的money方法是写在原型对象上的话,son就无法使用了,因为Son构造函数中和Son原型对象上都没有money方法
+        son.money();
+        son.exam();
+    </script>
+</body>
+</html>

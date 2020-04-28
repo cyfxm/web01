@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .map{
+            width: 500px;
+            height: 500px;
+            background: rgb(92, 115, 137);
+        }
+        .crile{
+            background: red;
+            border-radius: 50%;
+            width: 10px;
+            height: 10px;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+    <div class="crile"></div>
+    <script>
+        // 创建地图
+        function map(){
+            this.className='map';
+            this.map=null;
+            this.createMap= function () {
+                if(this.map==null){
+                        this.map=document.createElement('div');
+                        this.map.className=this.className;
+                        document.body.appendChild(this.map);
+                    }
+                }
+        }
+        Map=new map(); 
+        Map.createMap(); 
+
+        // 随机数
+        function random(max, min) {
+            return parseInt(Math.random() * (max - min + 1) + min);
+        }
+        // 点出现随机位置
+        var crile  =document.querySelector(".crile");
+        var map1 = document.querySelector(".map");
+        var timer = setInterval(function(){         
+            crile.style.left = random(0, 490)+ "px";
+            crile.style.top = random(0,490) + "px";
+        },1000)
+
+        // 创建蛇，
+        function Snake(){
+            this.width = 10;
+            this.height = 10;
+            this.direction = 'right';
+            this.body = [
+                {x:2, y:0},  
+                {x:1, y:0},  
+                {x:0, y:0}  
+            ];
+        }
+        var snake = new Snake();
+    </script>
+</body>
+</html>

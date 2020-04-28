@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>轮播图</title>
+    <!-- 移动端  注意你的轮播图 图片尺寸是否一致 -->
+
+    <style>
+        ul {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+
+        /* 去掉行内块元素的空白文本 */
+        img {
+            display: block;
+        }
+
+        .banner {
+            width: 100%;
+            max-width: 600px;
+            border: 10px solid #333;
+            margin: 0 auto;
+            overflow: hidden;
+
+            /* 改变盒子大小计算方式  */
+            box-sizing: border-box;
+        }
+        .banner ul { /*6000px*/
+            width: 1000%;
+            /* 转换的位移 */
+            /* 在JS中，我们是可以获取li标签的宽度 */
+            /* 根据索引值 和 li标签宽度 切换图片即可 */
+            transform: translateX(-20%);
+        }
+        .banner ul::after {
+            content: "";
+            display: block;
+            clear: both;
+        }
+        .banner ul li { /*600px*/
+            width: 10%; 
+            float: left;
+        }
+        .banner ul li a {  /*600px*/
+            display: block;
+            width: 100%;
+        }
+        .banner ul li a img {  /*600px*/
+            width: 100%;
+        }
+    </style>
+
+</head>
+<body>
+
+    <div class="banner">
+        <ul>
+            <!-- <li>
+                <a href="javascript:">
+                    <img src="./images/1.jpg" alt="">
+                </a>
+            </li> -->
+            <li>
+                <a href="javascript:">
+                    <img src="./images/2.jpg" alt="">
+                </a>
+            </li>
+            <li>
+                <a href="javascript:">
+                    <img src="./images/3.jpg" alt="">
+                </a>
+            </li>
+            <li>
+                <a href="javascript:">
+                    <img src="./images/4.jpg" alt="">
+                </a>
+            </li>
+            <li>
+                <a href="javascript:">
+                    <img src="./images/5.jpg" alt="">
+                </a>
+            </li>
+        </ul>
+    </div>
+
+
+</body>
+</html>

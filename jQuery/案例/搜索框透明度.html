@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            width: 100%;
+        }
+    
+        .layout{
+            width: 100%;
+            max-width: 640px;
+            background-color: #ccc;
+            margin: 0 auto;
+            padding-top: 80px;
+        }
+
+        .header{
+            position: fixed;
+            left: 0;
+            top:0;
+            z-index: 999;
+            width: 100%;
+        }
+        .header .search{
+            height: 80px;
+            background-color: rgba(0,0,0,0);
+            width: 100%;
+            max-width: 640px;
+            margin: 0 auto;
+        }
+        .main ol li{
+            height: 100px;
+            border-bottom: 1px solid #fff;
+        }
+    </style>
+</head>
+<body>
+    <div class="layout">
+        <div class="header">
+            <div class="search"></div>
+        </div>
+        <div class="main">
+            <ol>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ol>
+        </div>
+    </div>
+
+    <script src="../js/jquery-3.4.1.js"></script>
+    <script src="./search.js"></script>
+    <script>
+        $(function(){
+            $(".search").searchFunc({
+                height:200
+            })
+        })
+    </script>
+</body>
+</html>

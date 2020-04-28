@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        input{
+            outline:none;
+            width: 300px;
+            height: 30px;
+        }
+        .box{
+            width: 1200px;
+            margin: 100px auto;
+        }
+        .box .content{
+            background:skyblue;
+            height: 200px;
+            margin-top: 10px;
+        }
+        .box img{
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <!-- 三个表情图片 -->
+        <img src="弹幕/images/1.gif">
+        <img src="弹幕/images/2.gif">
+        <img src="弹幕/images/3.gif">
+
+        <br/>
+
+        <!-- 文本框 -->
+        <input type="text" />
+
+        <!-- 可以点击的按钮 -->
+        <button>按钮</button>
+        
+        <!-- 内容层 -->
+        <div class="content"></div>
+    </div>
+    <script>
+        // 要求1. 每个图片都可以点击,点击以后,可以生成对应的字符串放在input文本框中 比如 img的src是中图片的文件名是 1.gif =>  [em_1]
+        // 获取所有的图片对象
+        // 第一种方法 使用自定义属性,但是图片名需要有规律,才可以使用
+        /* var imgs = document.querySelectorAll("img");
+        for(var i=0;i<imgs.length;i++){
+            // 设置自定义属性
+            imgs[i].setAttribute("data-index",i+1);
+            imgs[i].onclick = function(){
+                // this代表当前的图片
+                // console.log( this );
+                var index = this.getAttribute("data-index");
+                console.log( index );
+            }
+        } */
+
+
+        // 第二种方法获取图片名
+        var imgs = document.querySelectorAll("img");
+        var input = document.querySelector("input");
+        for(var i=0;i<imgs.length;i++){
+            imgs[i].onclick = function(){
+                // 得到点击图片的src路径
+                var imgSrc = this.src ;
+                // 让字符串根据某个符号分割成数组
+                var arr = imgSrc.split("/");
+                // 从数组中得到最后一个元素,就是图片名文件包括后缀的
+                var fileFullName = arr[arr.length - 1];
+                // 找到最后一个.出现的位置
+                var pos = fileFullName.lastIndexOf(".");
+                // 再从下标0开始截取到最后一个.之前
+                // 得到文件名
+                var filename =  fileFullName.substring(0,pos) ;
+                // 拼接字符串成 [em_1]
+                var str = "[em_" + filename + "]";
+                
+                // 设置input文本框的内容
+                input.value = input.value + str;
+            }
+        }
+
+        // 要求2. 点击按钮以后 把input文本框中所有内容放进 .content层中 ,并且清空原来input中的所有内容
+        var btn = document.querySelector("button");
+        var content = document.querySelector(".content");
+        btn.onclick = function(){
+            // 设置content层的标签内容
+            content.innerHTML = input.value;
+            // 清空input内容
+            input.value = "";
+
+            // 要求3.  我们把.content层中标签内容 [em_1] [em_2]换成对应的表情,其实就是把[em_1]=> <img src="xxx/1.gif"/>
+            content.innerHTML = replaceBiaoqing( content.innerHTML );
+        }
+
+        // 封装一个把字符串中的[em_1]转成图片的函数
+        function replaceBiaoqing(str){
+            // 正则表达式过几天学
+            var reg = /\[em_([0-9]*)\]/gi;
+            return str.replace(reg, "<img src='弹幕/images/$1.gif'/>");
+        }
+        
+    </script>
+</body>
+</html>

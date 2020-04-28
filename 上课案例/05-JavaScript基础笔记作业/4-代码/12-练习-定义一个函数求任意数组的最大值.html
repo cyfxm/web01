@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript">
+		// 练习:定义一个函数求一个任意数组,数组元素的最大值  ,并返回在这个最大值 ,  比如 [5,2,99,101,67,77] 中元素最大值是101,返回101
+
+		// 如果大家在封装函数的时候,不知道怎么写,可以写用以前的写法,写一遍
+
+		
+
+		// 不固定的东西,需要放在函数的参数中
+		function getArrayMax( arr ){
+			var maxValue = arr[0];
+			for(var i=1;i<arr.length;i++){
+				if(maxValue < arr[i] ){
+					maxValue = arr[i];
+				}
+			}
+			// 返回最大值
+			return maxValue;
+		}
+
+		var arr1 = [5,2,99,101,67,77];
+		console.log( getArrayMax( arr1 ) );
+
+		var arr2 = [3,8,2,99,1,88];
+		console.log( getArrayMax( arr2 ) );
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

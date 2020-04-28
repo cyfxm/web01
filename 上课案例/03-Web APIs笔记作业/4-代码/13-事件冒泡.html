@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .father{
+            width: 480px;
+            height: 480px;
+            background: skyblue;
+            padding:10px;
+            margin:50px auto;
+        }
+        .father .son{
+            width: 100px;
+            height: 100px;
+            background: pink;
+            margin:0 auto;
+            margin-top: 200px;
+        }
+    </style>
+</head>
+<body>
+    <div class="father">
+        <div class="son">son盒子</div>
+     </div>
+
+     <script>
+        // 注意:
+        // JS代码中只能执行捕获或者冒泡两个阶段中的其中一个阶段
+        // onclick传统绑定事件跟attachEvent监听绑定事件的方式只能得到冒泡阶段
+        // addEventListener(type,listener,[,useCapture])这种监听方式,才可以掩饰捕获阶段; 第三个参数如果是true,表示在事件捕获阶段调用事件处理程序;  如果是false(默认不写就是false),表示事件冒泡阶段调用事件处理程序.
+        // 实际开发中我们很少使用事件捕获,我们更关注事件冒泡.
+        // 有些事件是没有冒泡的,比如onblur,onfocus,onmouseenter,onmouseleave
+        // 事件冒泡有时候会带来麻烦,有时候又会帮助我们很巧妙的做某些事件,我们后面讲解
+
+        //  为了演示事件冒泡,我们分别给document,html,body,.father, .son都绑定鼠标单击事件
+        // console.log( document );
+        
+        // 事件的冒泡阶段是从 目标阶段 开始往上,从下到上的过程,最顶层的是document
+
+        // 给document绑定单击事件
+        document.onclick=function(){
+            alert("document点击事件");
+        }
+        // 给html绑定单击事件
+        // console.log( document.documentElement );
+        document.documentElement.onclick=function(){
+            alert("html点击事件");
+        }
+        // 给body绑定单击事件
+        document.body.onclick=function(){
+            alert("body点击事件");
+        }
+        // 给.father绑定单击事件
+        var father = document.querySelector(".father");
+        father.onclick=function(){
+            alert("father点击事件");
+        }
+        // 给.son绑定单击事件
+        var son = document.querySelector(".son");
+        son.onclick=function(){
+            alert("son点击事件");
+        }
+     </script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 创建一个明星类
+        function Star(uname,age){
+            this.uname = uname;
+            this.age = age;
+            this.sing = function(){
+                console.log("我会唱歌");
+            }
+        }
+
+        // 实例化对象
+        var ldh = new Star("刘德华", 18);
+        console.log( ldh );
+        ldh.sing();
+        console.log("");
+
+        var zxy = new Star("张学友", 19);
+        console.log( zxy );
+        zxy.sing();
+        console.log("");
+
+        console.log( ldh.uname );
+        console.log( zxy.uname );
+        console.log("");
+
+        console.log( ldh.sing );
+        console.log( zxy.sing );
+        console.log("");
+        
+        console.log( ldh.uname == zxy.uname );// false
+        console.log( ldh.uname === zxy.uname );// false
+        // 构造函数方法每次创建一个实例,就会单独创建一个空间来存放同一个函数,这样就比较浪费内存
+        console.log( ldh.sing  == zxy.sing );// false
+        console.log( ldh.sing  === zxy.sing );// false
+    </script>
+</body>
+</html>

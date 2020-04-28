@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        /*初始化样式开始*/
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		a{
+			text-decoration: none;
+			color:#666666;
+		}
+		a:hover{
+			color:#ff3366;
+		}
+		li{
+			list-style: none;
+		}
+		/*版心类*/
+		.w{
+			width: 1200px;
+			margin:0 auto;
+		}
+		/*去掉图片底部的缝隙*/
+		img{
+			vertical-align: bottom;
+		}
+		/*初始化样式结束*/
+
+		/*轮播层样式开始*/
+		.banner{
+			margin-top: 30px;
+			height: 400px;
+			cursor: pointer;
+			position: relative;
+            /* 溢出隐藏 */
+            overflow: hidden;
+		}
+		.banner>img{
+			position: absolute;
+			width: 36px;
+			height: 44px;
+			top:50%;
+            z-index:2;
+			margin-top: -22px;
+            display: none;
+		}
+		.banner>img:nth-child(2){
+			right: 0;
+		}
+        .banner ul {
+            width: 600%;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        .banner ul li{
+            float: left;
+        }
+		.banner ol {
+			position: absolute;
+			left: 50%;
+			bottom: 20px;
+			width: 120px;
+			margin-left: -60px;
+		}
+		.banner ol li{
+			width: 10px;
+			height: 10px;
+			background: rgba(255,255,255,0.8);
+			border-radius: 50%;
+			float: left;
+			margin-right: 10px;
+		}
+		.banner ol li.current{
+			width: 20px;
+			border-radius: 5px;
+		}
+		.banner ol li:last-child{
+			margin-right: 0;
+		}
+		/*轮播层样式结束*/
+    </style>
+    <!-- 引入animate.js -->
+    <script src="../js/animated.js"></script>
+    <script>
+        window.onload = function(){
+            // 获取.banner层对象
+            var banner = document.querySelector(".banner");
+            // 获取.banner层对象的宽度
+            var bannerWidth = banner.offsetWidth;
+            // 获取左按钮
+            var arrow_left = document.querySelector(".arrow_left");
+            // 获取右按钮
+            var arrow_right = document.querySelector(".arrow_right");
+
+            // 1. 鼠标经过轮播图模块，左右按钮显示，离开隐藏左右按钮
+            banner.onmouseenter = function(){
+                arrow_left.style.display  = "block";
+                arrow_right.style.display = "block";
+                // 停止定时器
+                clearInterval(timer);
+                // 清除定时器变量
+                timer = null;
+            }
+            banner.onmouseleave = function(){
+                arrow_left.style.display  = "none";
+                arrow_right.style.display = "none";
+
+                // 重新开启定时器,不要加var
+                if( timer ==  null){
+                    timer = setInterval(function(){
+                        arrow_right.click();
+                    },2000);
+                }
+            }
+
+            // 2.动态生成指示器中的li(也就是动态生成小圆圈)
+                // 动态生成小圆圈
+                // 核心思路：小圆圈的个数要跟图片张数一致
+                // 首先先把HTML结构.circle下的li都删除掉,然后得到ul里面图片的张数（图片放入li里面，所以就是li的个数）
+                // 利用循环动态生成小圆圈（这个小圆圈要放入ol里面）
+                // 创建节点 createElement('li')
+                // 插入节点 ol.appendChild(li)
+                // 第一个小圆圈需要添加 current 类
+                
+            // 获取.banner ul对象
+            var ul     = document.querySelector(".banner ul");
+            // console.log(ul.children.length);
+            // 获取具有.circled的ol对象
+            var ol = document.querySelector(".banner .circle");
+
+            for(var i = 0;i < ul.children.length; i++ ){
+                // 创建li标签
+                var li = document.createElement("li");
+                // 记录当前小圆圈的索引号,通过自定义属性来做
+                li.setAttribute("index",i);
+                // 3. 被点击小圆圈高亮
+                    // 小圆圈的排他思想
+                    // 所有小圆圈都移除这个current类
+                    // 点击当前小圆圈,就添加current类
+                    // 注意:我们在刚才生成小圆圈的同时,就可以直接绑定这个点击事件了
+                li.onclick = function(){
+                    for(var j=0; j<ol.children.length ;j++){
+                        ol.children[j].removeAttribute("class");
+                    }
+                    this.setAttribute("class","current");
+
+                    // 4. 点击小圆圈滚动到对应图片
+                        // 滚动图片的核心算法： 点击某个小圆圈 ， 就让图片滚动  小圆圈的索引号乘以图片的宽度做为ul移动距离
+                        // 此时需要知道小圆圈的索引号， 我们可以在生成小圆圈的时候，给它设置一个自定义属性，点击的时候获取这个自定义属性即可
+                    var index = this.getAttribute("index");
+                    // 当我们点击了ol中某个小li 我们就要把这个li的索引号给num变量
+                    num = index;
+                    // 当我们点击了ol中某个小li 我们就要把这个li的索引号给circle变量
+                    circle = index;
+
+                    // console.log(bannerWidth);
+                    // console.log(index);
+                    // 执行动画
+                    animated(ul,-index*bannerWidth);
+                }
+
+                // 把li添加到ol中
+                ol.appendChild(li);
+
+            }
+            // 把ol里面的第一个li设置类名为current
+            ol.children[0].className = "current";
+
+            // 声明一个变量
+            var num = 0;
+            // circle控制小圆圈的播放
+            var circle = 0;
+
+            // 5.点击右侧按钮一次，就让图片滚动一张
+                // 点击右侧按钮一次，就让图片滚动一张。 
+                // 声明一个变量num， 点击一次，自增1， 让这个变量乘以图片宽度，就是 ul 的滚动距离。
+                // 图片无缝滚动原理
+                // 把ul 第一个li 克隆一份，放到ul 的最后面
+                // 当图片滚动到克隆的最后一张图片时， 让ul 快速的、不做动画的跳到最左侧： left 为0
+                // 同时num 赋值为0，可以重新开始滚动图片了
+
+            // 6.克隆第一个li,包括里面的子节点也要克隆 放到 ul最后面
+            var first = ul.children[0].cloneNode(true);
+            ul.appendChild(first);
+            // 设置ul的宽度,不然最后一个li无法显示出来
+            ul.style.width = ul.children.length*100+"%";
+
+            // flag 节流阀
+            var flag = true;
+
+            // 右侧按钮
+            arrow_right.onclick = function(){
+            	if(flag){
+            		flag = false;// 关闭节流阀
+            		// 如果走到了最后复制的一张图片,此时我们的ul要快速复原,left改为0
+	                if(num == ul.children.length-1){
+	                    ul.style.left = 0;
+	                    num = 0;
+	                }
+                    num++;
+	                animated(ul,-num*1200,function(){
+	                	flag = true;// 动画执行完毕以后,打开节流阀
+	                });
+	                // 7.点击右侧按钮,小圆圈跟随一起变化,可以再声明一个变量控制小圆圈的 播放
+	                circle++;
+	                // 如果circle变量等于 ol.children.length 说明走到最后我们克隆的这张图片了 我们就复原
+	                if(circle == ol.children.length){
+	                    circle = 0;
+	                }
+	                circleChange();
+	            }
+            }
+
+            // 左侧按钮
+            arrow_left.onclick = function(){
+                if(flag){
+                    flag = false;
+                    if(num == 0){
+                        // ul.style.left =  ul.children.length-1 * bannerWidth + "px";
+                        // num = ul.children.length-1;
+
+                        num = ul.children.length-1;
+                        ul.style.left =  -num * bannerWidth + "px";
+                    }
+                    num--;
+                    animated(ul,-num*bannerWidth,function(){
+                        flag = true;
+                    });
+                    // 7.点击左侧按钮,小圆圈跟随一起变化,可以再声明一个变量控制小圆圈的 播放
+                    circle--;
+                    // 如果circle < 0 说明第一张图片,则小圆圈要改为最后一个,也就是ol中最后一个li
+                    if(circle < 0 ){
+                        circle = ol.children.length-1;
+                    }
+                    circleChange();
+                }
+            }
+
+            // 小圆点变化的函数
+            function circleChange(){
+                // 先清除其他小圆圈的current类名
+                for(var k = 0;k<ol.children.length; k++){
+                ol.children[k].removeAttribute("class");
+                }
+                ol.children[circle].setAttribute("class","current");
+            }
+            
+            // 自动播放轮播图
+            var timer = setInterval(function(){
+                // 手动调用点击事件
+                arrow_right.click();
+            },2000);
+
+
+        }
+    </script>
+</head>
+<body>
+	<!-- 轮播层开始 -->
+	<div class="banner w">
+        <!-- 左侧按钮 -->
+        <img src="images/prev.png" class="arrow_left">
+        <!-- 右侧按钮 -->
+        <img src="images/next.png" class="arrow_right">
+        
+        <!-- 核心的滚动区域 -->
+		<ul>
+			<li><a href="javascript:void(0)"><img src="images/banner01.jpg"/></a></li>
+			<li><a href="javascript:void(0)"><img src="images/banner02.jpg"/></a></li>
+			<li><a href="javascript:void(0)"><img src="images/banner03.jpg"/></a></li>
+			<li><a href="javascript:void(0)"><img src="images/banner04.jpg"/></a></li>
+			<li><a href="javascript:void(0)"><img src="images/banner05.jpg"/></a></li>
+            <li><a href="javascript:void(0)"><img src="images/banner06.jpg"/></a></li>
+        </ul>
+        
+        <!-- 指示器  小圆圈 -->
+        <ol class="circle">
+            
+        </ol>
+	</div>
+	<!-- 轮播层结束 -->
+</body>
+</html>

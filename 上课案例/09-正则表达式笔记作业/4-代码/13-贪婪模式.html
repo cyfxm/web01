@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 因为在正则表达式中，默认情况下，能匹配多的就不匹配少的，我们把这种匹配模式就称之为 贪婪匹配,也叫做 贪婪模式所有的正则表达式，默认情况下采用的都是贪婪匹配原则。
+        var str = '我的QQ20869921366666666666，nsd你的是6726832618吗？';
+        var reg = /[1-9]\d{4,12}/g; // 匹配QQ号的正则表达式
+        // 全局模式下使用match可以得到所有符合正则表达式的内容
+        console.log( str.match( reg ) );
+        // 如果在限定符(量词符)的后面添加一个问号？，那我们的贪婪匹配原则就会转化为非贪婪匹配原则，优先匹配少的，也叫惰性匹配；
+        var reg2 =  /[1-9]\d{4,12}?/g;
+        console.log( str.match( reg2 ) );
+    </script>
+</body>
+</html>

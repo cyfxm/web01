@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title> ajax  读取文档内容技术 （一套编程逻辑） </title>
+</head>
+<body>
+
+
+
+    <script>
+
+        // 1.0 创建XMLHttpRequest() 这个异步对象的实例 {属性，方法}
+        var xhr = new XMLHttpRequest();
+        // 2.0 发起请求动作
+        // 参数1：请求数据的方式  参数2：请求数据地址 参数3：布尔值（判断是否异步的）
+        xhr.open('get','./data/a.txt',true);
+        // 3.0 发送请求主体（向服务端发送请求）
+        // 如果是get请求方式  xhr.send(填写null)
+        xhr.send(null);
+        // 4.0 监听请求和响应的状态
+        xhr.onreadystatechange = function(){
+            // 5.0 表示请求完成的属性（状态值） 等于4表示完成
+            if(xhr.readyState === 4 ){
+                // 6.0 表示响应成功的属性（状态值） 状态码列表 等于200表示成功
+                if(xhr.status === 200){// 404 、 500 、
+                    // 7.0 服务端响应的数据
+                    var res = xhr.responseText;
+                    // 8.0 JSON有个方法 可以把json格式的字符串转成json对象
+                    // json数据
+                    var data = JSON.parse(res);
+                    console.log(data);
+                }
+            }
+        }
+
+
+        // json格式数据 灵活方便
+        // 数组嵌套对象 
+        // 数组  根据索引值取出相关数据
+        // var arr = [{a:"111"},{a:"222"},{a:333}]
+        // arr[1].a ;// 222 
+
+        // 对象嵌套数组
+        // 对象  根据key取出对应的数据
+        // var obj = {result:[ "aaa","bbb","ccc" ]}
+        // obj['result'][1] ;// bbb
+
+
+
+
+
+
+        // 储存数据的标记语言 xml 
+        // <root>
+            // <item>111</item>
+            // <item>222</item>
+            // <item>333</item>
+        // </root>
+
+        // document.getElementsByTagName("item")[1].innerHTML ; // 222
+
+
+    </script>
+</body>
+</html>

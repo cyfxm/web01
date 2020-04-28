@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>延迟执行动画</title>
+    <link rel="stylesheet" href="./base.css">
+    <style>
+
+        /* 1.0 定义动画  */
+        @keyframes foo {
+            from {
+                width: 100px;
+            }
+            to {
+                width: 500px;
+            }
+        }
+        .box {
+            animation-name: foo;
+            animation-duration: 2s;
+
+            /* 延迟执行动画 */
+            animation-delay: 2s;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="box"></div>
+
+
+</body>
+</html>

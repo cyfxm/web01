@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.one{
+			width: 100px;
+			height: 100px;
+			background: rgba(255,0,0,0.4);
+			/*浮动以后的元素,不占位置*/
+			/*我们给第一个盒子设置左浮动,这个盒子就会跑到父元素最左边*/
+
+			/*注意:文字是不会跑到浮动元素的上面的,原因是因为浮动最初的目的就为了实现图文混排*/
+			float:left;
+		}
+		.two{
+			width: 300px;
+			height: 400px;
+			background: blue;
+		}
+	</style>
+</head>
+<body>
+	<div class="one">one</div>
+	<div class="two">two</div>
+</body>
+</html>

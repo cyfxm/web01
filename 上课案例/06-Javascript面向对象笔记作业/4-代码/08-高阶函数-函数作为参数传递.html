@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 引入cdn上面jquery.min.js -->
+    <script src="https://cdn.bootcss.com/jquery/1.8.3/jquery.min.js"></script>
+    <style>
+        div{
+            width: 100px;
+            height: 100px;
+            background: pink;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+    <div>div盒子</div>
+
+    <script>
+        // 函数也是一种数据类型，同样可以作为参数，传递给另外一个参数使用。最典型的就是作为回调函数。 我们之前学过的回调函数,就是这样的情况,把函数作为参数传递进另一个函数中
+        function fn(a,b,callback){
+            console.log( a+b);
+
+            console.log( callback );
+
+            // 先判断callback参数是否有值
+            /* if( callback ){
+                // 调用函数
+                callback();
+            } */
+
+            // 以上代码可以优化为  &&前面如果可以转成true的值,就会执行&&后面的代码;&&前面如果转成false的值,就不会执行&&后面的代码
+            callback && callback();   
+        }
+        // 只传递前两个参数
+        fn(10,20);
+        // 传递三个参数
+        fn(50,80,function(){
+            console.log("我是回调函数");
+        });
+
+
+        // 在后续课程中,大家使用回调函数的几率会大点,比如jquery中有一个animate方法里面就可以传递一个回调函数
+        $("div").animate({"left":"500px"},function(){
+            $("div").css({"background":"skyblue"});
+            $("div").animate({"bottom":"200px"},function(){
+                $("div").css({"background":"orange"});
+            })
+        })
+    </script>
+</body>
+</html>

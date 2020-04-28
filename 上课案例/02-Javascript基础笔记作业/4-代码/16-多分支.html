@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript">
+		// 多分支就是有多种选择,但是还是只能选择其中一种
+		/*
+			语法结构如下
+			
+			if(条件表达式1){
+				条件表达式1成立执行的代码块;
+			}else if(条件表达式2){
+				条件表达式1不成立,但是条件表达式2成立执行的代码块;
+			}else if(条件表达式3){
+				条件表达式1跟2都不成立,但是条件表达式3成立执行的代码块;
+			}else if(条件表达式4){
+				条件表达式1,2,3都不成立,但是条件表达式4成立执行的代码块;
+			}else{
+				以上所有条件表达都不成立,执行的默认代码块
+			}
+
+			注意:多个条件表达式是从上往下依次判断的,判断成立就执行,结束if语句
+		*/
+		
+
+		// 举例: 
+		// 如果分数大于或者等于90 优秀
+		// 如果分数大于或者等于80 并且 小于90 良好
+		// 如果分数大于或者等于70 并且 小于80 一般
+		// 如果分数大于或者等于60 并且 小于70 及格
+		// 如果分数小于 60 渣渣辉
+
+		var score = 75;
+		if( score>=90 ){
+			document.write("优秀");
+		}else if( score>=80 ){
+			document.write("良好");
+		}else if( score>=70 ){
+			document.write("一般");
+		}else if( score>=60 ){
+			document.write("及格");
+		}else{
+			document.write("渣渣辉");
+		}
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

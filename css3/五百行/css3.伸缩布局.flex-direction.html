@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>设置子元素在主轴上还是侧轴上</title>
+    <style>
+        .container {
+            width: 1200px;
+            height: 150px;
+            background-color: lightgreen;
+            display: flex;
+        }
+
+        .container .box {
+            width: 100px;
+            height: 50px;
+            border: 1px solid #333;
+            background-color: red;
+        }
+
+        .container_01 {
+            flex-direction: row;
+        }
+
+        .container_02 {
+            flex-direction: row-reverse;
+        }
+
+        .container_03 {
+            flex-direction: column;
+        }
+
+        .container_04 {
+            flex-direction: column-reverse;
+        }
+    </style>
+</head>
+
+<body>
+    <h3>flex-direction: row </h3>
+    <div class="container container_01">
+        <div class="box">1</div>
+        <div class="box">2</div>
+        <div class="box">3</div>
+    </div>
+    <h3>flex-direction: row-reverse </h3>
+    <div class="container container_02">
+        <div class="box">1</div>
+        <div class="box">2</div>
+        <div class="box">3</div>
+    </div>
+    <h3>flex-direction: column </h3>
+    <div class="container container_03">
+        <div class="box">1</div>
+        <div class="box">2</div>
+        <div class="box">3</div>
+    </div>
+
+    <h3>flex-direction: column-reverse </h3>
+    <div class="container container_04">
+        <div class="box">1</div>
+        <div class="box">2</div>
+        <div class="box">3</div>
+    </div>
+</body>
+
+</html>

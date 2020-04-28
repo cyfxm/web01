@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript">
+		// 当不确定有多少个实际参数传递的时候，可以用 arguments 来获取。JavaScript 中，arguments实际上它是当前函数的一个内置对象。所有函数都内置了一个 arguments 对象，arguments 对象中存储了传递的所有实参。arguments展示形式是一个伪数组，因此可以进行遍历。伪数组具有以下特点：
+
+		// 具有 length 属性
+		// 按索引方式储存数据
+		// 不具有数组的 push , pop 等方法
+		// 注意：在函数内部使用该对象，用此对象获取函数调用时传的实参。
+
+
+		// 举例: 利用函数求任意个数的数字中的最大值
+		function fn(){
+			// arguments是js中的一个内置对象,只有在"函数体中"才可以使用
+			// arguments会把函数的实参都保存起来,是一个实参列表
+			// arguments展示形式是一个"伪数组",具有 length 属性,可以按索引方式储存数据(可以理解为数组的下标),因为不是真正的数组,不具有数组的 push , pop 等方法
+			// console.log( arguments );
+			// console.log( arguments.length );// 可以得到实参的个数
+			// console.log( arguments[1] );// 找到实参列表中第二个参数
+
+			var maxValue = arguments[0];
+			for(var i=1;i<arguments.length;i++){
+				if( maxValue < arguments[i] ){
+					maxValue = arguments[i];
+				}
+			}
+			document.write("最大值为:" + maxValue );
+		}
+		fn(100,1,2,3,4,5,6,7,8,9);// 得到100
+
+		document.write("<hr/>");
+
+		fn(50,3,40,70);// 得到70
+
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

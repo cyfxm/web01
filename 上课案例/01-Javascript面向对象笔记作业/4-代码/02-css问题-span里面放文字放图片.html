@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .bigBox{
+            width: 1000px;
+            height: 500px;
+            background: orange;
+            margin: 100px auto;
+            /* 爷爷元素相对定位 */
+            position: relative;
+        }
+        .bigBox .box{
+            width: 800px;
+            height: 400px;
+            background:pink;
+            margin:100px auto;
+            /* 父元素相对定位 */
+            position: relative;
+        }
+        .bigBox .box span{
+            background: skyblue;
+            /* 子元素绝对定位 */
+            position: absolute;
+            left: 0;
+            top: 0;
+            /* 元素如果绝对定位脱标以后,默认宽度由内容决定,但是设置百分比的时候,是相对父辈中最近的那个非静态定位元素;如果父辈中都没有非静态定位元素,就会相对body设置宽度 */
+            width:50%;
+            /* 默认行内元素设置宽度高度无效,默认行内元素的宽度由内容决定 */
+            /* width:50%; */
+        }
+    </style>
+</head>
+<body>
+    <div class="bigBox">
+        <div class="box">
+            <span>我是span的文字文字文字<img src="作业讲评-弹幕/images/1.gif"/></span>
+        </div>
+    </div>
+</body>
+</html>

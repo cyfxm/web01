@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript">
+		// 运算符的优先级就是多个运算符同时存在的时候,先执行哪个运算符,后执行哪个运算符,这些运算符执行有个顺序,这个顺序我们就叫做运算符的优先级
+		console.log( 5+2*3 );// 5+6 = 11
+
+		var y = 20;
+		// 因为赋值运算是最后执行的
+		console.log( y = y+10 ); // y = 20+10; y =30; 
+		console.log("");
+
+		// 我们可以给运算符添加(),提高优先级
+		console.log( (5+2)*3 );
+		console.log("");
+
+		/*
+		优先级从高到底
+		  1. () 优先级最高
+		  2. 一元运算符(自操作) ++   --   !
+		  3. 算数运算符 先* / %   后 +   -
+		  4. 关系运算符 >   >=   <   <=
+		  5. 相等运算符   ==   !=   ===   !==
+		  6. 逻辑运算符 先&&   后||
+		  7. 赋值运算符
+
+		  也不要求大家记忆,想提高优先级,就加(),因为()的优先级是最高的
+		  赋值运算符的优先级是最低
+		*/
+
+		// 如果优先级相同,那么就从左到右运算
+		console.log( 10 + 2 - 5 );// 7
+		console.log( 10 - 2 + 5 );// 3
+		console.log("");
+
+
+
+		// 练习1：
+		console.log (   4 >= 6 || '人' != '阿凡达' && !(12 * 2 == 144) && true   );// true
+
+
+		// 练习2：
+		var num = 10;
+		console.log(    5 == num / 2 && (2 + 2 * num) === '22'   );// false
+		console.log("");
+
+		// 这题比较难  迎难而上  难上加上
+		// var x = 10;
+		// console.log( x + ++x + x++);// 32
+
+
+		// 第一步:先看以下代码
+		// var x = 10;
+		// console.log( x + ++x);// 21
+		// 分析
+		// console.log( 10 + ++10 );
+		// console.log( 10 + 11 );
+		// console.log( 21 );
+
+
+
+		// var y = 20;
+		// console.log( ++y + y);// 42
+		// 分析
+		// console.log( ++20 + 21);
+		// console.log( 21 + 21);
+		// console.log( 42 );
+
+
+		var x = 10;
+		console.log( x + ++x + x++);// 32
+		// 分析
+		// console.log( 10 + ++10 + x++);
+		// console.log( 10 + 11 + 11++);
+		// console.log( 10 + 11 + 11);
+		// console.log( 21 + 11);
+		// console.log( 32);
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

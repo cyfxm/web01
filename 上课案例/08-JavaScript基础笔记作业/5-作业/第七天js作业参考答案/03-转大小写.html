@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript">
+		// 3、(字符，偏难)利用var s1 = prompt(“请输入任意字符”,””)可以获取用户输入的字符(存到变量s1中了)，要求将用户输入的字符“反转顺序”后,再首尾字母转为大写，其他字母转为小写,最后把结果输出在页面上
+
+		// hEllo=>OlleH
+
+		// 方法一
+		// 先死(固定)后活(变量)
+		/*var s1 = "hEllo";
+		var newStr = "";
+		for(var i=s1.length-1;i>=0;i--){
+			if(i==s1.length-1 || i==0){//判断是否是首尾字符
+				newStr  += s1[i].toUpperCase();
+			}else{
+				newStr  += s1[i].toLowerCase();
+			}
+		}
+		console.log(newStr);*/
+
+		// 方法二
+		var s1 = window.prompt("请输入英文单词内容","helloword");
+		var arr = s1.split("");
+
+		// 先把数组元素改成小写
+		for(var i=0;i<arr.length;i++){
+			arr[i] = arr[i].toLowerCase();
+		}
+		// 第一个数组元素改成大写
+		arr[0] = arr[0].toUpperCase();
+		// 最后一个数组元素改成大写
+		arr[arr.length-1] = arr[arr.length-1].toUpperCase();
+		
+		var newStr = "";
+		for(var i=arr.length-1;i>=0;i--){
+			newStr = newStr+arr[i];
+		}
+		document.write(newStr);
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

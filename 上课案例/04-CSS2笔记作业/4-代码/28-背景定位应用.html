@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		/*我们经常使用背景定位从一个大图片中显示一个小图片出来*/
+		/*这种大图片里面放了很多小图片,这种图片我们称之为精灵图或者雪碧图*/
+
+		/*实现步骤:*/
+		/*第一步:设置元素背景图片*/
+		/*第二步:把图片中某个小图片的位置移到元素的左上角*/
+		/*第三步:设置一个合理的元素宽度和高度,让元素只显示小图片;*/
+
+		div{
+			background-image: url(images/abcd.jpg);
+			/*设置背景图片水平垂直都不重复*/
+			background-repeat: no-repeat;
+			/*转成行内块元素*/
+			display: inline-block;
+		}
+		.j{
+			width: 105px;
+    		height: 107px;
+			background-position: -388px -143px;
+		}
+		.a{
+			width: 108px;
+    		height: 121px;
+			background-position: 0px 0px;
+		}
+		.c{
+			width: 104px;
+    		height: 114px;
+			background-position: -240px -9px;
+		}
+		.k{
+			width: 105px;
+    		height: 111px;
+			/*background-position: -495px -143px;*/
+			background-position: right -143px;
+		}
+	</style>
+</head>
+<body>
+	<div class="j"></div>
+	<div class="a"></div>
+	<div class="c"></div>
+	<div class="k"></div>
+</body>
+</html>

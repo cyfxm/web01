@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // call()可以调用函数,还可以改变函数this的指向
+        // 语法
+        // 函数名.call( [this指向谁 ,参数1,参数2...] )
+
+        function fn(x,y){
+            // 因为普通函数是由window对象调用的
+            // 所以普通函数里面的this代表window对象
+            console.log( this );
+            console.log( x );
+            console.log( y );
+            console.log( x + y);
+        }
+
+        // fn(10,20);
+        // 之前我们也说过,定义在全局的变量和函数,都会放在window对象下
+        // window.fn(10,20);
+
+        // call()的第一个功能就是调用函数,执行函数体中的代码
+        fn.call();
+        console.log("");
+
+        // call()的第二个功能是改变this的指向,并且可以给函数传实参
+        var obj = {
+            uname : "zhangsan",
+            age   : 23
+        };
+        // 以下代码意思就是调用fn函数,并且把函数里面的this指向obj对象,再传两个实参进去
+        fn.call( obj, 50, 30 );
+
+
+        console.log("===================我是华丽的分割线====================");
+
+        var sex = "男";
+        function fn2(){
+            console.log( this );
+            console.log( this.sex );
+            console.log("");
+        }
+
+        var obj2 = {
+            uname : "李四",
+            sex   : "女"  
+        };
+
+        var obj3 = {
+            uname : "王五",
+            sex   : "保密"
+        }
+
+        fn2.call();
+        fn2.call( obj2 );
+        fn2.call( obj3 );
+    </script>
+</body>
+</html>

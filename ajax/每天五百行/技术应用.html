@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <div></div>
+    <h1></h1>
+    <p></p>
+
+    <script src="../js/ajaxV0.0.2.js"></script>
+    <script>
+        var div_ele = document.querySelector("div");
+        var h1_ele = document.querySelecto("h1");
+        var p_elle = document.querySelector("p");
+
+        $.ajax({
+            url:"./blue.txt",
+            type:"get",
+            async:true,
+            data:{},
+            success:function(res){
+                res = JSON.parse(res);
+                console.log(red);
+                div_ele.innerHTML = res.message;
+                h1_ele.innerHTML = res.title;
+                p_elle.innerHTML = res.content;
+            }
+        })
+    </script>
+</body>
+</html>

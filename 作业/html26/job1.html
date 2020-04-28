@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>job1</title>
+</head>
+<body>
+    <script>
+        function Game(gameName,gameSize){
+            this.gameName = gameName;
+            this.gameSize = gameSize;
+
+        }
+        var game1 = new Game("最后生还者","70GB");
+        console.log(Game.prototype);
+        console.log(game1.__proto__);
+    </script>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+
+		body{
+			height: 3000px;
+			background: pink;
+		}
+		
+		.box{
+			background: skyblue;
+			height: 100px;
+			/*父元素相对定位*/
+			position: relative;
+		}
+		.box .one{
+			width: 100px;
+			height: 100px;
+			background: red;
+			/*子元素绝对定位*/
+			position: absolute;
+			left: 0;
+			top: 0;
+		}
+		.box .two{
+			width: 100px;
+			height: 100px;
+			background: blue;
+			/*子元素绝对定位*/
+			position: absolute;
+			left: 100px;
+			top: 0;
+		}
+		.box .three{
+			width: 100px;
+			height: 100px;
+			background: green;
+			/*子元素绝对定位*/
+			position: absolute;
+			left: 200px;
+			top: 0;
+		}
+
+		/*如果想使用定位做,我们用的最多的就是子绝父相,子元素在父元素里面进行位置的移动,那这个时候,大家就要区分谁是父元素,谁是子元素*/
+
+		/*注意:子绝父相的时候,一般父元素只设置相对定位,不需要偏移量,父元素是不需要靠偏移量移动的;子元素才需要设置偏移量,在父元素中进行位置的移动*/
+	</style>
+</head>
+<body>
+	<div class="box">
+		<div class="one">1</div>
+		<div class="two">2</div>
+		<div class="three">3</div>
+	</div>
+</body>
+</html>

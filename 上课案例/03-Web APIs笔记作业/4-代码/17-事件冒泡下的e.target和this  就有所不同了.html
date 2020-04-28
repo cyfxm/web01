@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul>
+        <li>abc1111</li>
+        <li>abc2222</li>
+        <li>abc3333</li>
+     </ul>
+     
+     <script>
+        // 事件冒泡下的e.target和this  就有所不同了
+        
+        //  获取ul对象
+        var ul = document.querySelector("ul");
+        
+        // 我们给ul 绑定了事件 那么this 就指向ul  
+        ul.onclick=function(e){
+            e = e || window.event;
+            // e.target 触发了事件的对象 我们点击的是li  e.target 指向的就是li
+            console.log( e.target );
+            console.log( this );
+            console.log( "" );
+        }
+    </script>
+</body>
+</html>

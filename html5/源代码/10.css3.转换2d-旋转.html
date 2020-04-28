@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>转换  transform : rotate() </title>
+    <style>
+        div[class^='b'] {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            margin: 100px;
+        }
+
+        .box1 {
+            /* Z轴 */
+            /* rotate 旋转  单位 deg */
+            /* 正数   表示顺时针旋转    */
+            /* 负数   表示逆时针旋转    */
+            transform: rotate(45deg);
+        }
+        .box2 {
+            /* 绕着 X轴旋转   */
+            transform: rotateX(45deg);
+        }
+
+        .box3 {
+            /* 绕着Y轴 旋转 */
+            transform: rotateY(45deg);
+        }
+
+        .box4 {
+            /* 绕着Z轴 旋转 */
+            transform: rotateZ(45deg);
+        }
+
+
+
+        .box5 {
+            /* 绕着 */
+            /* transform: rotate3d(x,y,z,deg); */
+            transform: rotate3d(10,10,0,45deg);
+        }
+
+    </style>
+</head>
+<body>
+    <div class="box1">1</div>
+    <div class="box2">2</div>
+    <div class="box3">3</div>
+    <div class="box4">4</div>
+
+    <div class="box5">5</div>
+</body>
+</html>

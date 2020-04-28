@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		/*子元素选择器只选择儿子代元素*/
+
+		/*
+		子元素选择器名
+		
+		选择器1>选择器2{
+
+		}
+
+		能选择器1中选择器2对应的标签,但是这个选择器2必须是选择器1的亲儿子
+		*/
+		
+		/*后代选择器,选中所有的子孙后代*/
+		/* div strong{
+			color:red;
+		} */
+
+		/*子元素选择器 只选中亲儿子*/
+		div>strong{
+			color:blue;
+		}
+	</style>
+</head>
+<body>
+	<div>
+	   <strong>儿子</strong>
+	   <strong>儿子</strong>
+	</div>
+	​
+	<div>
+	   <p>
+	       <strong>孙子</strong>
+	       <strong>孙子</strong>
+	   </p>
+	</div>
+</body>
+</html>

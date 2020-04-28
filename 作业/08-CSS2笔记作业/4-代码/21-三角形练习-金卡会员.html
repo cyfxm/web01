@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    .box {
+      width: 333px;
+      height: 82px;
+      margin: 100px auto;
+      position: relative;
+    }
+    .left {
+      width: 0;
+      height: 0;
+      border-top:34px solid #ff0066;
+      border-left:34px solid transparent;
+      border-right:34px solid #ff0066;
+      border-bottom:34px solid #ff0066;
+      position: absolute;
+      top:15px;
+      left:0;
+    }
+    .center {
+      width: 224px;
+      height: 68px;
+      background: #ff0066;
+      line-height: 68px;
+      text-align: center;
+      color: #fff;
+      font-size: 30px;
+      position: absolute;
+      top:0;
+      left:55px;
+    }
+    .right {
+      width: 0;
+      height: 0;
+      border-top:34px solid #ff0066;
+      border-left:34px solid #ff0066;
+      border-right:34px solid transparent;
+      border-bottom:34px solid #ff0066;
+      position: absolute;
+      top:15px;
+      right:0;
+    }
+    .box span {
+      width: 0px;
+      height: 0px;
+      display: block;
+      /*background: rgba(0,0,0,.3);*/
+      position: absolute;
+      top: 68px;
+    }
+    .box span:nth-child(4) {
+      left:55px;
+      border-top: 7px solid rgba(0,0,0,.3);
+      border-right: 7px solid rgba(0,0,0,.3);
+      border-left: 7px solid transparent;
+      border-bottom: 7px solid transparent;
+    }
+    .box span:nth-child(5) {
+      right:55px;
+       border-top: 7px solid rgba(0,0,0,.3);
+      border-right: 7px solid transparent;
+      border-left: 7px solid rgba(0,0,0,.3);
+      border-bottom: 7px solid transparent;
+    }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <div class="left"></div>
+    <div class="center">金卡会员</div>
+    <div class="right"></div>
+    <span></span>
+    <span></span>
+  </div>
+</body>
+</html>

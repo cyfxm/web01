@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+    <button>哆啦a梦</button>
+    <button>小猪佩奇</button>
+    <img src="../20200305下午练习素材/images/xzpq.jpg">
+
+    <script>
+        var button = document.getElementsByTagName("button");
+        var img = document.querySelector("img");
+        
+        button[0].onclick=function(){
+            img.src = "../20200305下午练习素材/images/swh.gif";
+        }
+        button[1].onclick = function(){
+            img.src = "../20200305下午练习素材/images/xzpq.jpg";
+        }
+    </script>
+</body>
+</html>

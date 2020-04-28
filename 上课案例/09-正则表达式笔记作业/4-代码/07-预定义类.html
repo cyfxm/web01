@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 预定义类
+        // \d表示0~9之间是所有数字,等同于[0-9]
+        var reg1 = /[0-9]{3}/;
+        console.log( reg1.test("abc123") );// true
+        console.log( reg1.test("a12bc") );// false
+        console.log( reg1.test("a1234bc") );// true
+        console.log("");
+
+        var reg2 = /\d{3}/;
+        console.log( reg1.test("abc123") );// true
+        console.log( reg1.test("a12bc") );// false
+        console.log( reg1.test("a1234bc") );// true
+        console.log("");
+
+        var reg3 = /^\w$/; // \w等同于 [a-zA-z0-9_]
+        console.log( reg3.test("a") );// true
+        console.log( reg3.test("B") );// true
+        console.log( reg3.test("_") );// true
+        console.log( reg3.test("-") );// false
+        console.log( reg3.test("@") );// false
+        console.log( reg3.test("9") );// true
+        console.log( reg3.test("10") );// false
+        console.log("");
+
+        var reg4 = /^\w+\d{3}$/;  // [a-zA-z0-9_]出现大于等于1次   [0-9]出现3次
+        console.log( reg4.test("abc123") );// true
+        console.log( reg4.test("1234") );// true
+        console.log( reg4.test("-234") );// false
+        console.log( reg4.test("_234") );// true
+        console.log( reg4.test("_234@") );// false
+    </script>
+</body>
+</html>

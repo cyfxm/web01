@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript">
+		// Number对象的方法,就是数值对象的方法
+		// toFixed(n)  将一个数字进行保留n位小数 需要进行"四舍五入"" 返回是一个String类型
+
+		var num1 = 10;
+		console.log( num1.toFixed(2) );// "10.00"
+		console.log( typeof( num1.toFixed(2) ) );// string
+		console.log("");
+
+		var num2 = 10.123456789;
+		console.log( num2.toFixed(4) );
+		console.log( num2.toFixed(3) );
+		console.log( num2.toFixed(7) );
+		console.log("");
+
+		var num3 = 10.12345;
+		console.log( num3.toFixed(4) );
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

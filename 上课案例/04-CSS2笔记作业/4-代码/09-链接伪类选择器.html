@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		/*另外:*/
+		/*:link和:visited只对a标签有效，对其他元素无效。*/
+		a:link{
+			color:orange;
+		}
+		a:visited{
+			color:pink;
+		}
+
+		div:link{
+			color:green;
+		}
+		div:visited{
+			color:blue;
+		}
+		/*:hover和:active对所有的元素都有效果*/
+		a:hover{
+			color:red;
+		}
+		a:active{
+			color:purple;
+		}
+
+		div:hover{
+			/*设置背景颜色*/
+			background-color:skyblue;
+		}
+		div:active{
+			background-color: gold;
+		}
+		/*我们的:hover用的最多,不管元素,都可以设置:hover*/
+		span:hover{
+			color:red;
+		}
+	</style>
+</head>
+<body>
+	<a href="https://www.baidu.com">百度</a>
+	<div>div的内容</div>
+	<span>span的内容</span>
+</body>
+</html>

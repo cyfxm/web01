@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>tab选项</title>
+    <style>
+        .tab {
+            width: 80px;
+            height: 500px;
+            background-color: #ccc;
+            float: left;
+        }
+        .tab > div {
+            height: 50px;
+            line-height: 50px;
+            text-align: center;
+            border: 1px solid skyblue;
+        }
+        .tab > div.active {
+            background-color: yellow;
+        }
+        .content {
+            float: left;
+            width: 300px;
+            height: 500px;
+            background-color: lightgreen;
+        }
+        .content li {
+             height: 100px;
+        }
+    </style>
+</head>
+<body>
+
+
+    <div class="tab">
+        <div class="tab-1 active">选项一</div>
+        <div class="tab-2">选项二</div>
+        <div class="text">0</div>
+    </div>
+
+    <div class="content">
+        <div class="box">
+            <ul id="list">
+                <!-- <li style="background-color:xxx;">1</li> -->
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
+<script>
+  
+
+
+    // 步骤：
+        // 1.0 获取指定的元素
+        var tab1 = document.getElementsByClassName('tab-1')[0];
+        var tab2 = document.getElementsByClassName('tab-2')[0];
+        var text = document.getElementsByClassName('text')[0];
+        var listContent = document.getElementById("list");
+
+        // 2.0 事件绑定
+        // 点击 选项一
+        tab1.onclick = function(){
+            // ajax 
+            // 1.0 创建XMLHttpRequest() 这个异步对象的实例 {属性，方法}
+            var xhr = new XMLHttpRequest();
+            // 2.0 发起请求动作
+            // 参数1：请求数据的方式  参数2：请求数据地址 参数3：布尔值（判断是否异步的）
+            xhr.open('get','./data/a.txt',true);
+            // 3.0 发送请求主体（向服务端发送请求）
+            // 如果是get请求方式  xhr.send(填写null)
+            xhr.send(null);
+            // 4.0 监听请求和响应的状态
+            xhr.onreadystatechange = function(){
+                // 5.0 表示请求完成的属性（状态值） 等于4表示完成
+                if(xhr.readyState === 4 ){
+                    // 6.0 表示响应成功的属性（状态值） 状态码列表 等于200表示成功
+                    if(xhr.status === 200){// 404 、 500 、
+                        // 7.0 服务端响应的数据
+                        var res = xhr.responseText;
+                        // 8.0 JSON有个方法 可以把json格式的字符串转成json对象
+                        // json数据
+                        var data = JSON.parse(res);
+                        console.log(data);
+
+                        // 定义空字符串
+                        var html = "";
+                        // 循环数据 data
+                        for(var i = 0 ; i < data.length ; i ++){
+                            // 字符串的拼接
+                            html += "<li style='background-color:"+data[i].color+";'></li>"
+                        }
+                        // 渲染字符串
+                        listContent.innerHTML = html;
+                        // 当前点击的选项 高亮
+                        tab1.classList.add('active');
+                        tab2.classList.remove('active');
+                    }
+                }
+            }
+        }
+
+
+         //3.0 事件绑定
+         tab2.onclick = function(){
+            // ajax 
+            // 1.0 创建XMLHttpRequest() 这个异步对象的实例 {属性，方法}
+            var xhr = new XMLHttpRequest();
+            // 2.0 发起请求动作
+            // 参数1：请求数据的方式  参数2：请求数据地址 参数3：布尔值（判断是否异步的）
+            xhr.open('get','./data/b.txt',true);
+            // 3.0 发送请求主体（向服务端发送请求）
+            // 如果是get请求方式  xhr.send(填写null)
+            xhr.send(null);
+            // 4.0 监听请求和响应的状态
+            xhr.onreadystatechange = function(){
+                // 5.0 表示请求完成的属性（状态值） 等于4表示完成
+                if(xhr.readyState === 4 ){
+                    // 6.0 表示响应成功的属性（状态值） 状态码列表 等于200表示成功
+                    if(xhr.status === 200){// 404 、 500 、
+                        // 7.0 服务端响应的数据
+                        var res = xhr.responseText;
+                        // 8.0 JSON有个方法 可以把json格式的字符串转成json对象
+                        // json数据
+                        var data = JSON.parse(res);
+                        console.log(data);
+                         // 定义空字符串
+                         var html = "";
+                        // 循环数据 data
+                        for(var i = 0 ; i < data.length ; i ++){
+                            // 字符串的拼接
+                            html += "<li style='background-color:"+data[i].color+";'></li>"
+                        }
+                        // 渲染字符串
+                        listContent.innerHTML = html;
+                        // 当前点击的选项 高亮
+                        tab2.classList.add('active');
+                        tab1.classList.remove('active');
+                    }
+                }
+            }
+        }
+
+
+
+
+
+        // 定时器  主要是演示 页面的局部刷新
+        var index = 0;
+        var timer = setInterval(function(){
+                index  ++;
+                text.innerHTML = index;
+        },1000)
+</script>

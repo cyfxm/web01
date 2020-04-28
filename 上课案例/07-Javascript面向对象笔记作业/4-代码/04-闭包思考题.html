@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 思考题1:
+        var name = "The Window";
+        var object = {
+            name: "My Object",
+            getNameFunc: function() {
+                return function() {
+                    // console.log( "这里的this代表谁,匿名函数里面的this代表window" );
+                    // console.log( this );// window
+                    // return window.name;
+                    return this.name;
+                };
+            }
+        };
+        
+        console.log(object.getNameFunc()());
+        // 上一行代码等同于以下代码
+        // var f = object.getNameFunc();
+        // console.log( f );
+        // console.log( f() );
+        // console.log( window.name );
+        
+        console.log("");
+
+        // 思考题2:
+        var name = "The Window";　　
+        var object = {　　　　
+            name: "My Object",
+            getNameFunc: function() {
+                // 对象里面的方法中的this代表对象本身
+                // 缓存了this
+                var that = this;
+
+                // console.log( that );
+                // console.log( this );
+
+                return function() {
+                    // console.log( that );
+
+                    return that.name;
+                };
+            }
+        };
+        console.log(object.getNameFunc()());
+    </script>
+</body>
+</html>

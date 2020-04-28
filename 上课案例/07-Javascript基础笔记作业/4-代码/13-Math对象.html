@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript">
+		// Math对象中的Math是数学的意思
+		// 跟数学相关的运算就可以使用Math对象提供的方法(比如求绝对值，取整,四舍五入)  
+		// Math对象不需要创建  也就是不需要new Math() 直接使用即可！
+		// Math关键字就是对象名
+
+		// Math的属性
+		console.log("圆周率:" + Math.PI );
+		console.log("");
+
+		// Math的方法
+		// Math.ceil(x) 对x进行向上取整 得到一个比当前数要大的最小整数
+		console.log( Math.ceil(5.6) );// 6
+		console.log( Math.ceil(5.0) );// 5
+		console.log( Math.ceil(-5.5) );// -5
+		console.log("");
+
+		// Math.floor(x) 对x进行向下取整 得到一个比当前数要小的最大整数
+		console.log( Math.floor(5.1) );// 5
+		console.log( Math.floor(5.9) );// 5
+		console.log( Math.floor(-5.5) );// -6
+		console.log("");
+
+		// Math.round(x) 对x进行四舍五入
+		console.log( Math.round(5.1) );// 5
+		console.log( Math.round(5.9) );// 6
+		console.log( Math.round(-5.5) );// -5
+		console.log("");
+
+		// Math.abs(x) 返回x的绝对值  绝对值只有正数,没有负数,0还是得到0
+		console.log( Math.abs(5) );
+		console.log( Math.abs(-6) );
+		console.log( Math.abs(0) );
+		console.log("");
+
+		// Math.max(x1,x2,x3...) 求x1,x2,x3...这些数中的最大值
+		console.log( Math.max( 10,5,7,8,9 ) );
+
+		// Math.min(x1,x2,x3...) 求x1,x2,x3...这些数中的最小值
+		console.log( Math.min( 10,5,7,8,9 ) );
+		console.log("");
+
+		// Math.pow(x,y) 求x的y次方 也就是y个x相乘
+		console.log( Math.pow(5,2) );
+		console.log( Math.pow(5,-2) );
+		console.log( Math.pow(3,3) );
+		console.log("");
+
+		// Math.sqrt(x) 求算术平方根 比如4的平方根是2,比如9的平方根是3
+		console.log( Math.sqrt(9) );
+		console.log( Math.sqrt(25) );
+		console.log( Math.sqrt(3) );
+		console.log( Math.sqrt(6) );
+		console.log( Math.sqrt(16) );
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

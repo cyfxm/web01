@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.one{
+			width: 100px;
+			height: 100px;
+			background: red;
+			/*因为在布局的时候,左浮动相对右浮动会用的比较多*/
+			
+			/*左浮动是元素往左边浮动,移动到父元素的最左边*/
+			/*float:left;*/
+
+			/*右浮动是元素往右边浮动,移动到父元素的最右边*/
+			float:right;
+
+			/*不管左浮动还有右浮动,浮动的元素都不占位置*/
+		}
+		.two{
+			width: 200px;
+			height: 200px;
+			background: blue;
+		}
+	</style>
+</head>
+<body>
+	<div class="one">one</div>
+	<div class="two">two</div>
+</body>
+</html>

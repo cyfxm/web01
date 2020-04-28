@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button>按钮</button>
+    <!-- 阻止事件冒泡的兼容性处理 -->
+    <script>
+        if(e && e.stopPropagation){
+            e.stopPropagation();
+        }else{
+            window.event.cancelBubble = true;
+        }
+    </script>
+    <!-- 删除事件兼容性解决方案 -->
+    <script>
+        function removeEventListener(element,eventName,fn){
+            if(element.removeEventListener){
+                element.removeEventListener(eventName,fn);// 第三个参数 默认是false
+            }else if(element.detachEvent){
+                element.detachEvent("on"+eventName,fn);
+            }else{
+                element["on" + eventName] = null;
+            }
+        }
+    </script>
+    <script>
+        function addEventListener(element,eventName,fn){
+            if(element.addEventListener){
+                element.addEventListener(eventName,fn);
+            }else if(element,attachEvent){
+                element.attachEvent("on" + eventName,fn);
+            }else{
+                element["on" + eventName] = fn;
+            }
+        }
+
+        var btns = document.getElementsByTagName("button");
+        addEventListener(btns[0],"click",function(){
+            alert(1111);
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 键盘事件对象中有一个keyCode,可以记录触发键盘事件的时候的那个键的ASCII值
+        // onkeydown 某个键盘按键被按下时触发
+        document.addEventListener("keydown",function(e){
+            e = e || window.event;
+            console.log("键盘keydown了,keyCode是" + e.keyCode );
+        });
+        // onkeypress 某个键盘按键被按下时触发 但是它"不识别功能键" 比如 ctrl shift 箭头等
+        document.addEventListener("keypress",function(e){
+            e = e || window.event;
+            console.log("键盘keypress了,keyCode是" + e.keyCode );
+        });
+        // onkeyup 某个键盘按键被松开时触发
+        document.addEventListener("keyup",function(e){
+            e = e || window.event;
+            console.log("键盘keyup了,keyCode是" + e.keyCode );
+        });
+        // 注意: keypress获取的keyCode码是区分字母大小写的,而keydown和keyup是不大小写的
+    </script>
+</body>
+</html>

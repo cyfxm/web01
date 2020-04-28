@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		/*背景简写(background)可以同时设置背景颜色,背景图片,背景平铺,背景定位,属性取值之间使用"空格"隔开,没有顺序之分,可以省略某个或者某几个*/
+		.div1{
+			width: 500px;
+			height: 500px;
+			border:2px solid red;
+			/* background-color:skyblue;
+			background-image:url(images/3.jpg);
+			background-repeat: no-repeat;
+			background-position: right bottom; */
+
+			background:url(images/3.jpg) skyblue  no-repeat right bottom;
+		}
+		.div2{
+			/*使用背景简写属性有一个地方需要注意的*/
+			width: 500px;
+			height: 500px;
+			border:2px solid blue;
+
+			/*注意点1:大家不要同时在一个选择器里面写多次background这个简写属性*/
+			/*background:url(images/1.jpg) no-repeat;
+			background:right bottom;*/
+			
+			/*注意点2:因为background会一次性设置所有背景相关属性,会先清空之前的属性值*/
+			/*background-image:url(images/1.jpg);*/
+			/*以下代码只是设置不重复,不设置其他背景相关样式*/
+			/*background: no-repeat;*/
+
+			/*重点:建议大家先使用背景简写,再使用单独背景样式*/
+			background:url(images/1.jpg);
+			background-repeat: no-repeat;
+			background-position: right bottom;
+
+			/*不要在单独背景样式中设置多个属性值*/
+			/*background-image:url(images/1.jpg) no-repeat;*/
+
+
+			/*怎么让一张图片铺满父元素,不是repeat那种*/
+			/* background-image:url(images/1.jpg);
+			background-repeat:no-repeat;
+			background-size:cover; */
+		}
+	</style>
+</head>
+<body>
+	<div class="div1">div1的内容</div>
+	<br/>
+	<div class="div2">div2的内容</div>
+</body>
+</html>

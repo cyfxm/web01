@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>px  em  rem </title>
+    <style>
+        .box {
+            margin: 10px ;
+        }
+        /* px  固定值的单位 */
+        .box1 {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            font-size: 20px;
+        }
+
+        /* em 相对父元素而言的长度单位  根据父元素的font-size属性来定 */
+        /* css 当中有哪些属性是可以被继承的 */
+        /* width ?   不可继承的*/
+        /* height ?  不可继承的*/
+
+        /* text-align  可继承的*/
+        /* line-height  可继承的*/
+        /* color 可继承的 */
+        /* font-* 可继承的 */
+
+
+
+        /* 默认值 ：font-size : 16px */
+        /* 1em = 16px */
+        body {
+            font-size: 10px;
+        }
+        /* 1em = 10px */
+        .box2 {
+            width: 10em; /*100px*/
+            height: 10em; /*100px*/
+            background-color: red;
+        }
+        .box2 span {
+            font-size: 20px;
+        }
+
+
+        /* rem  相对根元素（html）而言的长度单位*/
+        /* 根据html元素的font-size 而定 */
+        /* 默认值 font-size:16px */
+        /**10* 16 = 160px */
+        html {
+            font-size: 10px;
+        }
+        .box3 {
+            width: 10rem; 
+            height: 10rem;
+            background-color: red;
+            font-size: 20px;
+        }
+
+       
+    </style>
+</head>
+<body>
+
+    <div class="box box1">px</div>
+
+    <div class="box box2"><span>em</span></div>
+
+    <div class="box box3">rem</div>
+
+
+
+
+</body>
+</html>

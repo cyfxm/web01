@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>ajax 读取本地文本 </title>
+</head>
+
+<body>
+
+
+    <div class="box" id="boxId"></div>
+
+    <script>
+
+        // var xhr = new XMLHttpRequest();
+
+        // xhr.open('get','./data/1.txt',true);
+
+        // xhr.send(null);
+
+        // xhr.onreadystatechange = function(){
+        //     if(xhr.readyState === 4){ //请求完成了
+        //         if(xhr.status === 200){ //响应成功了
+        //             var res = xhr.responseText;
+        //             console.log(res)
+        //             document.getElementById("boxId").innerHTML = res;
+        //         }
+        //     }
+        // }
+
+
+        // 第一、创建异步对象的实例
+        var xhr = new XMLHttpRequest();
+        // 第二、发起请求动作
+        // xhr.open(参数1，参数2，参数3)
+        xhr.open('get', './data/1.txt', true)
+        // 请求方式 GET / POST
+        // 数据地址：资源所在位置
+        // 布尔值 ： true 表示异步  false 表示同步
+
+        // 第三、发送请求到服务端
+        xhr.send(null);
+        // 根据请求方式
+        // get: xhr.send(null)
+        // post: xhr.send(提交数据);// page=1&pageSize=10
+
+        // 第四、请求方式如果是post 需要设置请求头
+        // xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded')
+
+        // 第五、监听客户端请求和服务端响应的状态
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState == 4) { //表示请求完成
+                if (xhr.status == 200) { // 响应成功了
+                    var res = xhr.responseText; //  相关处理
+                    console.log(res);//json格式的字符串
+                    // 把字符串转成json对象
+                    var obj = JSON.parse(res);
+                    console.log(obj);//对象
+                    document.getElementById("boxId").innerHTML = obj.message;
+                }
+            }
+        }
+
+
+    </script>
+</body>
+
+</html>

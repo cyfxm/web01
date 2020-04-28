@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		/*交集选择器由两个选择器构成，即满足选择器1的标签又满足选择器2的标签*/
+
+		/*两个选择器名之间没有任何的符号连接*/
+		
+		/* 有以下两种:
+
+			标签选择器类选择器{
+			
+			}
+			
+			或者
+
+			标签选择器id选择器{
+			
+			}
+		 */
+
+		 p{
+		 	color:blue;
+		 }
+		 .red{
+		 	color:red;
+		 }
+
+		 /*交集选择器 同时满足选择器1的标签,又满足选择器2的标签*/
+		 p.red{
+		 	color:pink;
+		 }
+	</style>
+</head>
+<body>
+	<!-- 需求:即是p标签,又是.red类的字体颜色设置为粉色 -->
+	<p class="red">红色</p>
+	<p class="red">红色</p>
+	<p class="red">红色</p>
+	<div class="red">红色</div>
+	<div class="red">红色</div>
+	<div class="red">红色</div>
+	<div>div的内容</div>
+	<div>div的内容</div>
+	<div>div的内容</div>
+	<p>蓝色</p>
+	<p>蓝色</p>
+	<p>蓝色</p>
+</body>
+</html>

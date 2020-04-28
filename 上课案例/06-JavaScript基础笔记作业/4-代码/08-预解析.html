@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript">
+		// JavaScript 代码是由浏览器中的 JavaScript 解析器来执行的。JavaScript 解析器在运行 JavaScript 代码的时候分为两步："预解析"和"代码执行"。
+
+		// 预解析：在当前作用域下, JS 代码执行之前，浏览器会默认把带有 var 和 function 声明的变量在内存中进行提前声明或者定义。
+
+		// 代码执行： 从上到下执行JS语句。
+
+		// 预解析会把变量和函数的声明在代码执行之前执行完成。
+
+		// 变量预解析
+		// 预解析也叫做变量、函数提升。
+		// 变量提升（变量预解析）： 变量的声明会被提升到当前作用域的最上面，变量的赋值不会提升。
+		
+		// 变量被提升了,所在变量赋值之前输出变量的值,不会报错,会输出undefind
+		console.log( num );// undefined
+		var num = 10;
+		console.log( num );// 10
+
+		console.log("");
+
+
+
+
+		// 函数预解析
+		// 函数提升： "函数的声明会被提升到当前作用域的最上面，但是不会调用函数"。
+		// 默认情况下,在函数定义之前调用函数是不会报错的,是可以正常调用的
+		// 不过我们还是推荐,先定义函数,再调用函数
+		// 注意：函数声明代表函数整体，所以函数提升后，函数名代表整个函数，但是函数并没有被调用！	
+		fn();
+		function fn() {
+			console.log("打印");
+		}
+		function fn(){
+			console.log("复印")
+		}
+		fn();
+		console.log("");
+		console.log("");
+		console.log("");
+		console.log("");
+
+
+		// 函数表达式声明函数问题
+		// 函数表达式创建函数，会执行变量提升，此时接收函数的变量名无法正确的调用：
+		
+		// fn2加括号调用匿名函数
+		console.log( fn2 );// undefined
+		// fn2();// 报错
+		// 匿名赋值给变量fn2
+		var fn2 = function() {
+		   console.log('想不到吧');
+		}
+		// 解释：该段代码执行之前，会做变量声明提升，fn2在提升之后的值是undefined;而fn2调用是在fn2被赋值为函数体之前，此时fn2的值是undefined，所以无法正确调用
+	</script>
+</head>
+<body>
+	
+
+
+</body>
+</html>

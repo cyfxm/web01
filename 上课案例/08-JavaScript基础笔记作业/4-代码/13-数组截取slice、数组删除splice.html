@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript">
+		// 数组截取slice、数组删除splice
+		var arr1 = [10,20,30,40,50,60,70];
+		// slice(begin下标,end下标) 数组截取 返回截取出来的新数组 包括 begin，不包括end ,这个不会影响原数组
+
+		// slice截取,就是数组中截取一小部分出来,返回截取出来的数组
+		console.log( arr1.slice(1,4) );
+		// slice不会影响,这个不会影响原数组
+		console.log( arr1 );
+		console.log("");
+
+		// splice(从第几个开始,要删除几个) 数组删除 返回被删除的数组元素的组成的数组,这个会影响原数组
+		// splice更加常用,更加灵活,  有点类似  字符串中的substr方法 
+		var arr2 = [5,6,7,8,2,1];
+		// 返回被删除的数组元素的组成的数组
+		console.log( arr2.splice(1,2) );
+		console.log( arr2 );
+		console.log("");
+
+		var arr3 = [1,2,3,4,5,6,7,8];
+		console.log( arr3.splice(3,1) );
+		console.log( arr3 );
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

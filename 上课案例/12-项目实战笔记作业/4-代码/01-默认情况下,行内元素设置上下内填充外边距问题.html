@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.span1{
+			background: orange;
+			/*默认情况下,我们给行内元素设置下上左右的内填充外边距*/
+			padding-left: 10px;
+			padding-right: 20px;
+
+			/*行内元素设置上下填充有问题*/
+			padding-top: 20px;
+			padding-bottom: 10px;
+
+
+			/*margin-left: 10px;*/
+			/*float:right;*/
+			/*margin-right: 20px;*/
+
+			/*行内元素设置上下外边距有问题*/
+			margin-top: 10px;
+			margin-bottom: 50px;
+		}
+		div{
+			background: skyblue;
+		}
+		.input1{
+			padding-left: 10px;
+			text-align: right;
+			padding-right: 20px;
+			padding-top: 10px;
+			padding-bottom: 10px;
+
+			margin-left: 10px;
+			/*float:right;*/
+			/*margin-right: 20px;*/
+			margin-top: 30px;
+			margin-bottom: 40px;
+		}
+		p{
+			background: lightgreen;
+		}
+
+		/*所以,我们得到出的结论是,默认情况下,行内元素设置上下内填充外边距有问题,而行内块以及块级元素设置上下内填充外边距没有问题*/
+	</style>
+</head>
+<body>
+	<span class="span1">行内元素</span>
+	<div>div的内容</div>
+	<input class="input1" value="我是行内块元素"/>
+	<p>pppppppppppppp</p>
+</body>
+</html>

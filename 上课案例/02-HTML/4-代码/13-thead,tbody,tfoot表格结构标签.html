@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<!-- thead,tbody,tfoot表格结构标签,专门用于划分表格中的行的 -->
+	<!-- thead表示表格的头部 -->
+	<!-- tbody表示表格的主体 -->
+	<!-- tfoot表示表格的底部 -->
+
+	<!-- thead,tbody,tfoot可以出现多次,也可以一次都不出现 -->
+
+	<!-- 如果thead,tbody,tfoot一个标签都没有写,浏览器自动会把所以的tr行放在一个tbody中 -->
+
+	<!-- thead,tbody,tfoot一般不需要设置,主要用于划分结构使用,大家了解即可 -->
+
+	<!-- thead,tbody,tfoot都有align跟valign属性; -->
+	<table border="1" rules="all" width="300" height="300">
+		<thead>
+			<tr>
+				<th>序号</th>
+				<th>姓名</th>
+				<th>性别</th>
+			</tr>
+		</thead>
+
+		<tbody align="center" valign="bottom">
+			<tr align="right">
+				<td>1</td>
+				<td align="left">张三</td>
+				<td>男</td>
+			</tr>
+			<tr>
+				<td>2</td>
+				<td>李四</td>
+				<td>男</td>
+			</tr>
+			<tr>
+				<td>3</td>
+				<td>王五</td>
+				<td>男</td>
+			</tr>
+			<tr>
+				<td>4</td>
+				<td>赵六</td>
+				<td>男</td>
+			</tr>
+		</tbody>
+		
+		<tfoot>
+			<tr>
+				<td>5</td>
+				<td>李狗蛋</td>
+				<td>男</td>
+			</tr>
+		</tfoot>
+	</table>
+</body>
+</html>

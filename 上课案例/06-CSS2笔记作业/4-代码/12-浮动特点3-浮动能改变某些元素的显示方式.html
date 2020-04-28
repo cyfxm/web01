@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+
+		/*浮动能改变某些元素的显示方式	行内元素虽然变成块级元素,但是可以"一行显示",并且可以设置宽度高度,也就是行内块级元素的特点,但是他们之间没有"间隙"(这个特性我们简称为"行内块特性")*/
+		.div1{
+			background: red;
+			/*我们现在没有给div1设置宽度,如果我们给div1浮动以后,这个div1的宽度默认就会由"内容"决定*/
+			float:left;
+			height: 100px;
+		}
+		.div2{
+			background: blue;
+			width: 200px;
+			float:right;
+			height: 100px;
+		}
+	</style>
+</head>
+<body>
+	<div class="div1">div1</div>
+	<div class="div2">div2</div>
+</body>
+</html>

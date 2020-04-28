@@ -1,0 +1,109 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            padding: 100px;
+        }
+        
+        textarea {
+            width: 200px;
+            height: 100px;
+            border: 1px solid pink;
+            outline: none;
+            resize: none;
+        }
+        
+        ul {
+            margin-top: 50px;
+        }
+        
+        li {
+            width: 300px;
+            padding: 5px;
+            background-color: rgb(245, 209, 243);
+            color: red;
+            font-size: 14px;
+            margin: 15px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <textarea></textarea>
+    <button>发布</button>
+    <ul>
+
+    </ul>
+    
+    <script>
+        // 点击发布按钮以后,需要把文本域中的内容提取出来,生成一个li标签,li标签的内容,就是文本域,输入的内容,再把li标签放到ul里面
+        // 获取所需对象
+        var btn      = document.querySelector("button");
+        var textarea = document.querySelector("textarea");
+        var ul       = document.querySelector("ul");
+        
+        btn.onclick=function(){
+            // 获取文本域中的内容
+            var content =  textarea.value ;
+
+            // 判断文本域内容是否为空
+            if(content == ""){
+                alert("您没有输入内容");
+                // return可以终止函数的执行
+                return ;
+            }
+
+            // console.log( textarea.innerHTML );// 获取文本域的值
+            // console.log( textarea.innerText );// 获取文本域的值
+
+            // 创建一个新的li标签
+            var li = document.createElement("li");
+            // 设置li的标签内容为文本域中的内容
+            // javascript:void(0)也是空链接的一种,点击以后页面不会回到顶部,而且点击a链接以后,字体的颜色不会变化
+            li.innerHTML = content+"<a href='javascript:void(0)' style='float:right'>删除</a>";
+
+            // 把li标签添加到ul中
+            ul.appendChild( li );
+
+            // 清空文本域的值
+            textarea.value = "";
+
+            // 获取li里面的a标签,因为a标签是点击按钮以后,跟随li生成的,这个a标签不是一打开网页就有的
+            var as = document.querySelectorAll("ul li a");
+            // console.log( as );
+            for(var i=0;i<as.length;i++){
+                as[i].onclick=function(){
+                    // console.log( this );
+                    // console.log( this.parentNode );
+
+                    // 用户确认框 window.confirm("内容") 点击确定返回true 点击取消返回false
+
+                    if(  window.confirm("你真的要删除人家嘛?")  ){
+                        // 点击a标签以后,删除对应的留言,其实就是删除a标签所在的li标签
+                        // 父元素.removeChild(子元素);
+
+                        ul.removeChild( this.parentNode );
+                    }else{
+                        alert("讨厌!就知道你不舍得人家");
+                    }
+                    
+                }
+            }
+        }
+
+    </script>
+</body>
+
+</html>

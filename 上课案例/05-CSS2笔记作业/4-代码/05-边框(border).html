@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		.div1{
+			width: 300px;
+			height: 300px;
+			background: pink;
+			
+
+			/*border设置的上下左右4个方向的边框*/
+
+			/* 
+			border:border-width border-style border-color;
+			border:边框粗细 边框类型 边框颜色;
+			
+			边框粗细取值是数值,带px单位,正值或者0,0代表无边框
+
+			边框类型取值 solid实线 dashed虚线 dotted点状线 none没有线 double双实线
+			其中solid跟none以及dashed取值用的最多
+
+			边框颜色取值 颜色值 
+			*/
+			border:5px solid red;
+			/*border:5px dashed red;*/
+			/*border:5px dotted red;*/
+			/*border:5px double red;*/
+		}
+
+		.div2{
+			width: 300px;
+			height: 300px;
+			background: skyblue;
+			/*可以单独设置某个方向的边框*/
+
+			/*上边框*/
+			/*border-top:边框粗细 边框类型 边框颜色;*/
+			border-top:5px solid green;
+
+			/*下边框*/
+			/*border-bottom:边框粗细 边框类型 边框颜色;*/
+			border-bottom:5px dashed orange;
+
+			/*左边框*/
+			/*border-left:边框粗细 边框类型 边框颜色;*/
+			border-left:5px dotted purple;
+
+			/*右边框*/
+			/*border-right:边框粗细 边框类型 边框颜色;*/
+			border-right:5px double red;
+		}
+
+		.div3{
+			width: 300px;
+			height: 300px;
+			background: orange;
+			/*我们平时使用边框的时候,可以先设置4个方向的边框,再单独设置某个或者某几个方向的边框*/
+			border:5px solid blue;
+
+			/*不要上边框线*/
+			/*border-top:5px none blue;*/
+			/*我们更喜欢直接使用一个none取值,去掉边框线*/
+			border-top:none;
+
+			border-right:10px dashed red;
+		}
+	</style>
+</head>
+<body>
+	<div class="div1">div1的内容</div>
+	
+	<br/>
+
+	<div class="div2">div2的内容</div>
+
+	<br/>
+
+	<div class="div3">div3的内容</div>
+</body>
+</html>

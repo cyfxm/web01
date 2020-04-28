@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript">
+		// 九九乘法表
+		document.write("<h1 style='font-family:宋体;text-align:center'>九九乘法表</h1>");
+
+		var str = "<table border='1' width='600' rules='all' align='center'>";
+		for(var i=9; i>=1; i--){
+			str += "<tr>";
+			for(var j=1;j<=i;j++){
+				str += "<td><font color='blue' size='5'>"+j+"</font>&times;<font color='red' size='5'>"+i+"</font>="+i*j+"</td>";
+			}
+			str += "</tr>";
+		}
+		str += "</table>";
+		document.write( str );
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

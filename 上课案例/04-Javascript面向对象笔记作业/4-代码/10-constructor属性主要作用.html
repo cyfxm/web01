@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // constructor 主要用于记录该对象引用于哪个构造函数，它可以让原型对象重新指向原来的构造函数。
+
+        // 注意:  一般情况下，对象的方法都在构造函数的原型对象中设置。如果有多个对象的方法，我们可以给原型对象采取对象形式赋值，但是这样就会"覆盖"构造函数原型对象原来的内容，这样修改后的原型对象 constructor "就不再指向当前构造函数了"。此时，我们可以在修改后的原型对象中，添加一个 constructor 指向原来的构造函数。
+
+        // 如果我们修改了原来的原型对象,给原型对象赋值的是一个对象,则必须手动的利用constructor指回原来的构造函数
+
+        function Star(uname,age){
+            this.uname = uname;
+            this.age = age;
+        }
+        // 如果想给原型对象设置多个方法,可以考虑使用"对象的形式"赋值,但是这样会丢失constructor属性
+
+        // 因为我们说过原型对象的值是一个"对象"
+        // console.log( Star.prototype );
+
+        // 使用"对象的形式"给原型对象赋值  会丢失constructor的指向
+        Star.prototype = {
+            // 解决方法,手动设置constructor属性
+            constructor: Star,
+
+            sing  : function(){
+                console.log("我会唱歌");
+            },
+            movie : function(){
+                console.log("我会演电影");
+            }
+        }
+
+        /* Star.prototype.sing = function(){
+            console.log("我会唱歌");
+        }
+        Star.prototype.movie = function(){
+            console.log("我会演电影");
+        } */
+
+        var ldh = new Star("刘德华",18);
+        ldh.sing();
+        ldh.movie();
+        console.log( Star.prototype );
+        console.log( Star.prototype.constructor );
+    </script>
+</body>
+</html>

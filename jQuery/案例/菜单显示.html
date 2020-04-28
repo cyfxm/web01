@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .box{
+            width: 100px;
+            height: 250px;
+        }
+        .title{
+            width: 100px;
+            height: 50px;
+            background-color: blanchedalmond;
+            line-height: 50px;
+            text-align: center;
+        }
+        .out{
+            width: 100px;
+            background-color: blanchedalmond;
+            line-height: 50px;
+            text-align: center;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="title">一级菜单</div>
+        <div class="out">
+            <ul>
+                <li>nihao</li>
+                <li>nihao</li>
+                <li>nihao</li>
+                <li>nihao</li>
+            </ul>
+        </div>
+    </div>
+
+    <script src="../js/jquery-3.4.1.js"></script>
+    <script>
+        $(function(){
+            $(".box").mouseover(function(){
+                $(".out").show(1000);
+            })
+            $(".box").mouseout(function(){
+                $(".out").hide(1000);
+            })
+        })
+    </script>
+</body>
+</html>

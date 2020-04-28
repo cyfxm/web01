@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		body{
+			font-size:50px;
+			font-family: "仿宋";
+		}
+	</style>
+	<script type="text/javascript">
+		// 使用for循环输出如下各个图案
+		document.write("<h2>A:</h2>");
+		for(var i=1;i<=4;i++){
+			document.write("****<br/>");
+		}
+
+
+
+		document.write("<h2>B:</h2>");
+		for(var i=1;i<=4;i++){
+			for(var j=1;j<=i;j++){
+				document.write("*");
+			}
+			document.write("<br/>");
+		}
+
+		document.write("<h2>C:</h2>");
+		for(var i=1;i<=4;i++){
+			for(var j=1;j<=2*i-1;j++){
+				document.write("*");
+			}
+			document.write("<br/>");
+		}
+
+		document.write("<h2>D:</h2>");
+		for(var i=1;i<=4;i++){
+			for(var k = 4-i ;k>=1 ;k--){
+				document.write("a");
+			}
+
+			for(var j=1;j<=2*i-1;j++){
+				document.write("*");
+			}
+			document.write("<br/>");
+		}
+
+		document.write("<h2>E:</h2>");
+		for(var i=1;i<=4;i++){
+			for(var k = 4-i ;k>=1 ;k--){
+				document.write("a");
+			}
+
+			for(var j=1;j<=2*i-1;j++){
+				// 每一行的第一个跟每一个的最后一个才输出*,每一行的其他输出空格
+				if(j == 1 || j == 2*i-1){
+					document.write("*");
+				}else{ 
+					document.write("b");
+				}
+			}
+			document.write("<br/>");
+		}
+
+		document.write("<h2>F:</h2>");
+		for(var i=1;i<=4;i++){
+			for(var k = 4-i ;k>=1 ;k--){
+				document.write("a");
+			}
+
+			for(var j=1;j<=2*i-1;j++){
+				if(j == 1 || j == 2*i-1 || i == 4){
+					document.write("*");
+				}else{ 
+					document.write("b");
+				}
+			}
+			document.write("<br/>");
+		}
+
+
+		document.write("<h2>G:</h2>");
+		for(var i=1;i<=4;i++){
+			for(var k = 4-i ;k>=1 ;k--){
+				document.write("&nbsp;");
+			}
+
+			for(var j=1;j<=2*i-1;j++){
+				// 每一行的第一个跟每一个的最后一个才输出*,每一行的其他输出空格
+				if(j == 1 || j == 2*i-1){
+					document.write("*");
+				}else{ 
+					document.write("&nbsp;");
+				}
+			}
+			document.write("<br/>");
+		}
+		for(var i=3;i>=1;i--){
+			for(var k = 4-i ;k>=1 ;k--){
+				document.write("&nbsp;");
+			}
+
+			for(var j=1;j<=2*i-1;j++){
+				// 每一行的第一个跟每一个的最后一个才输出*,每一行的其他输出空格
+				if(j == 1 || j == 2*i-1){
+					document.write("*");
+				}else{ 
+					document.write("&nbsp;");
+				}
+			}
+			document.write("<br/>");
+		}
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

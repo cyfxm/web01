@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <div id="box">
+        <div>box里面的div的内容</div>
+        <div>box里面的div的内容</div>
+    </div>
+
+    <div>div的内容</div>
+    <div>div的内容</div>
+
+    <a href="#">百度</a>
+
+    <script>
+        // 根据标签名获取元素  有点类似CSS标签选择器
+        /* 语法:
+        document.getElementsByTagName('标签名')
+        或者
+        父元素对象.getElementsByTagName('标签名')   可以获取到这个父元素对象里面的某些标签
+        ​
+        作用:根据标签名获取元素对象
+        参数:标签名
+        返回值:元素对象集合（伪数组，数组元素是元素对象） */
+
+        var objDivs = document.getElementsByTagName("div");
+        console.log( objDivs );
+        console.log( objDivs.length );
+        console.log( objDivs[2] );
+        console.log("");
+
+        // 注意:document.getElementsByTagNament即使获取出来只有一个元素,也会放在伪数组(集合)中
+        var objA = document.getElementsByTagName("a");
+        console.log( objA );
+        console.log( objA[0] );
+        console.log("");
+
+        // 父元素对象.getElementsByTagName('标签名')   可以获取到这个父元素对象里面的某些标签   有点类似CSS后代选择器
+
+        // 先通过id获取p段落标签
+        var objP = document.getElementById("box");
+        console.log( objP );
+
+        var Pdivs = objP.getElementsByTagName("div");
+        console.log( Pdivs );
+    </script>
+</body>
+</html>

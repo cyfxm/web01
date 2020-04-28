@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>作业</title>
+    <style>
+
+        div {
+            height: 100px;
+            line-height: 100px;
+        }
+        input {
+            width: 80px;
+            height: 50px;
+            vertical-align: middle;
+        }
+        button {
+            vertical-align: middle;
+            width: 50px;
+            height: 40px;
+        }
+        b {
+            display: inline-block;
+            width: 80px;
+            height: 50px;
+            line-height: 50px;
+            background-color: #ccc;
+            vertical-align: middle;
+        }
+
+    </style>
+</head>
+<body>
+
+    <h1>作业内容</h1>
+    <div>
+        <input type="number" > 
+        <span>+</span>
+        <input type="number">
+        <button>=</button>
+        <b></b>
+    </div>
+
+
+    <script src="./js/ajaxV0.0.2.js"></script>
+    <script>
+        // 加法运算的接口
+        // 接口地址：http://127.0.0.1:3005/add
+        // 请求方式：get
+        // 参数：
+        //    属性     数据类型   是否必须填写
+        //    num1    number     是
+        //    num2    number     是
+        // 返回值：
+        // 范例
+        // { data:{total:2},code:200,text:"请求数据成功"}
+
+
+        // 1.0 获取相关元素
+        var all_num_ele = document.querySelectorAll("input[type='number']");
+        var calc_btn_ele = document.querySelector("button");
+        var res_element = document.querySelector("b");
+
+        // 2.0 事件绑定
+        calc_btn_ele.onclick = function(){
+            // 3.0 书写处理程序
+            var v1 =  all_num_ele[0].value;
+            var v2 =  all_num_ele[1].value;
+            // console.log(v1,v2)
+            // 3.0.1 判断(输入框有没有值)
+            if(v1.length === 0 || v2.length == 0){
+                alert('请输入数值');
+                return ;// 终止代码
+            }
+            // 3.0.2 ajax 进行数据前后端交互
+            $.ajax({
+                url:"http://127.0.0.1:3005/add", //请求数据的地址
+                type:"get",//请求数据的方式
+                async:true, // 是异步请求
+                data:{ //提交给服务端的数据
+                    num1:v1,
+                    num2:v2
+                },
+                success:function(res){//请求成功执行的回调函数
+                    console.log(res);
+                    // 一般后端程序员 会说明哪些
+                    if(res.code == 200){//严谨
+                        // 如何处理json格式数据 并且渲染数据
+                        res_element.innerHTML = res.data.total;
+                    }
+                },
+                error:function(err){//请求失败执行的回调函数
+                    console.log(err);
+                }
+            })
+        }
+    </script>
+</body>
+</html>

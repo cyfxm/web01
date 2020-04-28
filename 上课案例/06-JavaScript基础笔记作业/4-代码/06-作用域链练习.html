@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript">
+		var a = 40;
+
+		function fn1(){
+			// 这里没有加var,使用的是全局变量a,给全局变量赋值 a = 10
+			a = 10;
+			fn2();
+			function fn2(){
+				// 这里没有加var,使用的是全局变量a,给全局变量赋值 a = 20
+				a = 20;
+				fn3();
+				function fn3(){
+					// 这里有var,局部变量
+					var a = 30;
+					console.log( a );// 30
+				}
+			}
+		}
+
+		console.log( a );// 因为没有调用函数,所以用的就是全局变量a的值40
+		fn1();
+		console.log( a );// 20
+
+		// 40 30 40 
+		// 20 30 20
+		// 30 40 20
+		// 40 30 20 √
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

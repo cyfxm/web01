@@ -1,0 +1,36 @@
+/*
+* @Author: 程宜峰
+* @Date:   2020-02-23 15:46:49
+* @Last Modified by:   程宜峰
+* @Last Modified time: 2020-02-23 15:54:37
+*/
+*{
+	margin: 0;
+	padding: 0;
+}
+li{
+	list-style:none;
+}
+a{
+	text-decoration: none;
+	color:#818496;
+}
+a:hover{
+	color:#e2e4ed;
+}
+/*定义一个版心类*/
+.w{
+	width: 1002px;
+	margin:0 auto;
+}
+.fl{
+	float:left;
+}
+/*右浮动类*/
+.fr{
+	float: right;
+}
+/*去掉input和textarea标签外轮廓线*/
+input,textarea{
+	outline:none;
+}

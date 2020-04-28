@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript">
+		// 立即调用的函数表达式    了解
+		// 也可以叫自调用匿名函数 , 简称 IIFE ( Immediately-invoked function expression )
+		// 使用场景: 只需要执行一次，不需要重复调用
+
+		// 在定义函数之后，就会立即调用该函数,语法如下:
+		
+		/*
+			(function(){ 函数体 }());
+			// 或者
+			(function(){ 函数体 })();
+		*/
+
+		// 匿名函数如果不赋值给变量,也不赋值给事件,那么就需要马上调用这个匿名函数
+		
+		// 第一种方法,用()包裹匿名函数,再在后面再加一个()调用
+		(function(){
+			console.log("我是喷火娃,我可以给爷爷拔火罐~");
+		})();
+
+		// 注意:两种写法最后的分号都是必须的。如果省略分号，遇到连着两个 IIFE，可能就会报错。
+		
+		// 第二种方法,先在后面加一个(),最后把用一个()再包裹一个内容
+		(function(){
+			console.log("我可以大娃,我可以变得超级大大大!");
+		}());
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

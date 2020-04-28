@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript">
+		// 使用new Object方式,创建一个 手机对象   型号(type)  iphoneX      颜色是 黑色   大小（size) 5.5寸    可以 发短信 (sendMessage)  输出   吃大肘子      可以  打电话（call)   说  全聚德吃烤鸭 
+
+		var mobilePhone = new Object();
+		mobilePhone.type = 'iphoneX';
+		mobilePhone.color = 'black';
+		mobilePhone.size = '5.5寸';
+		mobilePhone.sendMessage=function(){
+			console.log("吃大肘子");
+		}
+		mobilePhone.call=function(){
+			console.log("全聚德吃烤鸭");
+		}
+		console.log("手机型号是"+mobilePhone.type+",颜色是"+mobilePhone.color+",大小是"+mobilePhone.size);
+		mobilePhone.sendMessage();
+		mobilePhone.call();
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

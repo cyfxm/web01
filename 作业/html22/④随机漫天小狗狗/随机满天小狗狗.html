@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	
+<body>
+	<script>
+		window.onload = function(){
+			window.setInterval("dog()",1000);
+			document.body.bgColor="pink"
+		}
+		function dog(){
+			var imgObj = document.createElement("img");
+			imgObj.setAttribute("src","images/dog.png");
+			var width = getRandom(20,120);
+			imgObj.setAttribute("width",width);
+			var x = getRandom(0,window.innerWidth);
+			var y = getRandom(0,window.innerHeight);
+			imgObj.setAttribute("style","position:absolute;left:"+x+"px;top:"+y+"px;");
+			imgObj.setAttribute("onclick","removeImg(this)");
+			document.body.appendChild(imgObj);
+		}
+		function getRandom(min,max){
+			var random =Math.floor( Math.random()*( max - min)+min );
+			return random;
+		}
+		function removeImg(obj){
+   		 	document.body.removeChild(obj);
+    
+		}
+	</script>
+</body>
+</html>

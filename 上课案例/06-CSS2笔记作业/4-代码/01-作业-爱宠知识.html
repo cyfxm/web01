@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		/*第二步:写网页初始化样式,这个初始化样式大家基本是可以背下来的*/
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		a{
+			text-decoration: none;
+			color:#0066cc;
+		}
+		a:hover{
+			text-decoration: underline;
+			color:red;
+		}
+		li{
+			list-style:none;	
+		}
+
+		/*第三步:写具体样式,先整体后细节,先大盒子后小盒子,先上盒子后下盒子,先左盒子后右盒子*/
+		.box{
+			/*width: 326px;*/
+			width: 300px;
+			/*height: 405px;*/
+			height: 392px;
+			border:1px solid #009900;
+			margin-left:auto;
+			margin-right:auto;
+			margin-top: 100px;
+			background:url(images/bg.gif);
+			padding:13px;
+			padding-bottom: 0;
+		}
+		.box h2{
+			border-left:5px solid #c9e143;
+			height: 29px;
+			color:white;
+			font-size:22px;
+			padding-left:9px;
+		}
+		.box ul{
+			background:white;
+			padding:0 12px;
+			margin-top: 6px;
+		}
+		.box ul li{
+			border-bottom: 1px dashed #666666;
+			height: 38px;
+			line-height: 38px;
+			font-size:14px;
+			padding-left:20px;
+		}
+	</style>
+</head>
+<body>
+	<!-- 实现步骤 -->
+	<!-- 第一步:分析效果图写HTML结构 -->
+	
+	<!-- 大盒子start -->
+	<div class="box">
+		<!-- 上面的标题 -->
+		<h2>爱宠知识</h2>
+
+		<!-- 下面的内容 -->
+		<ul>
+			<li><a href="#">养狗比养猫对健康更有利</a></li>
+			<li><a href="#">日本正宗柴犬亮相，你怎么看柴犬</a></li>
+			<li><a href="#">狗狗歌曲《新年旺旺》</a></li>
+			<li><a href="#">带宠兜风，开车带宠需要注意什么？</a></li>
+			<li><a href="#">【爆笑】这狗狗太不给力了</a></li>
+			<li><a href="#">狗狗与男童相同着装拍有爱造型照</a></li>
+			<li><a href="#">狗狗各个阶段健康大事件</a></li>
+			<li><a href="#">调皮宠物狗陷在沙发里的搞笑瞬间</a></li>
+			<li><a href="#">为什么每次大小便后，会用脚踢土？</a></li>
+		</ul>
+	</div>
+	<!-- 大盒子end -->
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button>点击按钮,段落内容字体大小变20px</button>
+    <button>点击按钮,段落内容字体大小变40px</button>
+    <button>点击按钮,段落内容字体大小变60px</button>
+    <p>我是段落内容</p>
+
+    <script>
+        // 点击按钮改变页面上的文字大小
+        var btns = document.querySelectorAll("button");
+        var p = document.querySelector("p");
+
+        // 方式一:使用自定义属性
+        /* for(var i = 0;i < btns.length; i++){
+            btns[i].setAttribute("data-size", (i+1)*20   )
+
+            btns[i].onclick = function(){
+                var size = this.getAttribute("data-size");
+                p.style.fontSize = size + "px";
+            }
+        } */
+
+        // 方式二:使用闭包
+        for(var i = 0;i < btns.length; i++){
+            // 借助立即调用函数
+            (function(index){
+                // 再立即调用函数里面给每个按钮绑定鼠标单击事件
+                btns[i].onclick = function(){
+                    // 按钮点击的事件函数中使用的index变量就是立即调用函数的index变量 ,立即调用函数是小闭包
+                    // console.log( index );
+                    p.style.fontSize = (index+1)*20 + "px";
+                }
+            })(i)
+        }
+    </script>
+</body>
+</html>

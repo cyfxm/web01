@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="fn()">唐伯虎</button>
+    <button onclick="alert('获取验证码成功')">获取验证码</button>
+
+    <div>div内容</div>
+
+    <script>
+        // 事件的绑定方式,其实就是给网页中的元素绑定事件
+        // 事件的绑定方式的方法分为两种
+
+        // 一种是行内绑定(比较少用)
+        // 说明:所谓的行内绑定事件 是将"事件"写在"HTML标签"里面
+        // 格式:
+        // <标签名 事件名="函数名()" />
+        // 或者
+        // <标签名 事件名="js代码" />
+
+        function fn(){
+            alert("点秋香");
+        }
+
+
+        // 一种是动态绑定(常用)
+        // 动态绑定事件   重点
+        // 说明:是将"事件名写在JS代码"里面  
+        
+        // 动态事件绑定的步骤如下:
+        // 第一步:获取事件源(获取对象)
+        // 第二步:注册事件(绑定事件)
+        // 第三步:添加事件处理程序(一般是一个匿名函数)
+
+        // 1.获取对象
+        var div = document.querySelector("div");
+        // 建议初学者,获取对象以后,输出对象看看是否获取正确
+        // console.log( div );
+
+        // 格式:
+        // 通过JS获取标签对象.事件名 = 事件的处理程序   事件的处理程序一般是一个"匿名函数"  
+
+        // 2.注册事件(绑定事件)
+        div.onclick = function(){
+            // 具体事件处理程序
+
+            // 改变div的背景颜色
+            div.style.backgroundColor = "pink";
+        }
+    </script>
+</body>
+</html>

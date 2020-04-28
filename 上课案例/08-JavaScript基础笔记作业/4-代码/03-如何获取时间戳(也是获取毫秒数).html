@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript">
+		// 通过Date实例获取总毫秒数(也就是时间戳)
+		// 总毫秒数的含义: 基于1970年1月1日（世界标准时间）起的毫秒数
+		
+		// 获取当前日期时间
+		var date = new Date();
+
+		// 第一种方法:  日期对象.getTime()    或者  日期对象.valueOf()
+		console.log( date.getTime() );
+		console.log( date.valueOf() );
+
+		// 第二种方法:  +new Date()
+		console.log( +date );
+
+		// 第三种方法:  HTML5中提供的方法，有兼容性问题   Date.now()
+		console.log( Date.now() );
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

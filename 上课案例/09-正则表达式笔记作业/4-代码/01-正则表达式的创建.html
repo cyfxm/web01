@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 在 JavaScript 中，可以通过两种方式创建一个正则表达式。
+        // 方式一：通过调用RegExp对象的构造函数创建   RegExp是内置对象
+        // var 变量名 = new RegExp(/表达式/);
+        var reg1 = new RegExp(/abc/);
+        console.dir( reg1 );
+        
+        // 方式二：利用字面量创建 正则表达式  推荐使用,更加简单
+        // var 变量名 = /表达式/;
+        var reg2 = /abc/;
+        console.dir( reg2 );
+        console.log("");
+
+        // 测试正则表达式
+        // test() 正则对象方法，用于检测字符串是否符合该规则，该对象会返回 true 或 false，其参数是测试字符串。
+        // 语法:
+        // regexObj.test(str)
+
+        // 说明:
+        // 1.regexObj 是写的正则表达式
+        // 2.str 我们要测试的文本
+        // 3.test方法 就是检测str文本是否符合我们写的正则表达式规范
+
+        //    /abc/  只要含有abc的字符串就返回true
+        console.log( reg2.test("123abc456") );// true
+        console.log( reg2.test("ab123c") );// false
+        console.log( reg2.test("abc789abc") );// true
+        console.log( reg2.test("qwezxc") );// false
+    </script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.father{
+			width: 500px;
+			height: 500px;
+			background: skyblue;
+			margin: 50px auto;
+		}
+		.father .son1{
+			width: 100px;
+			height: 100px;
+			background: red;
+			/*隐藏元素 display:none;*/
+			/*特点： 隐藏之后，不再保留位置。(离职停薪)*/
+			display: none;
+		}
+		
+
+		.father:hover .son1 {
+			/*显示元素 display:block;*/
+			display: block;
+		}
+
+		.father .son2{
+			width: 150px;
+			height: 150px;
+			background: blue;
+		}
+	</style>
+</head>
+<body>
+	<div class="father">
+		<div class="son1">大娃</div>
+		<div class="son2">喷火娃</div>
+	</div>
+</body>
+</html>

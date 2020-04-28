@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript">
+		// 如果想在函数里面返回多个值,可以使用数组;因为数组就是可以保存多个值的
+		/*function fn(){
+			return 1;
+			return 2;
+			return 3;
+		}
+		var result = fn();
+		console.log( result ); */
+
+
+		function fn(){
+			// 返回了一个数组
+			return [1,2,3];
+		}
+		var result = fn();
+		console.log( result );
+
+		// 通过下标就可以从数组中找到某一个数组元素
+		console.log( result[1] );
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

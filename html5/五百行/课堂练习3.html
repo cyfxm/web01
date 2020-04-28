@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .icon {
+            width: 60px;
+            height: 60px;
+            background-color: #ccc;
+            padding: 10px 10px;
+            border:10px dashed red;
+        }
+        .box {
+            width: 60px;
+            height: 60px; 
+        }
+
+        .icon_bg {
+            background-image: url(./images/sprites.png);
+            background-repeat: no-repeat;
+            /* 设置背景图从内容开始显示 */
+            background-origin: content-box;
+            /* 设置背景图从内容开始进行裁剪 */
+            background-clip: content-box;
+        }
+        .icon_bg_1 {
+            background-position: 0 0;
+        }
+        .icon_bg_2 {
+            background-position: 0 -56px;
+        }
+
+        .icon_bg_3 {
+            background-position: 0 -112px;
+        }
+        .icon_bg_4 {
+            background-position: 0 -168px;
+        }
+       
+
+    </style>
+</head>
+<body>
+    
+    <div class="icon icon_bg icon_bg_1">
+    </div>
+
+
+    <div class="box icon_bg icon_bg_2">
+    </div>
+
+    <div class="box icon_bg icon_bg_3">
+    </div>
+
+    <div class="box icon_bg icon_bg_4">
+    </div>
+
+    <div class="box icon_bg icon_bg_2">
+    </div>
+
+    <div class="box icon_bg icon_bg_2">
+    </div>
+
+</body>
+</html>

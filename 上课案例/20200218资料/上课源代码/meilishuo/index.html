@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>仿美丽说</title>
+	<!-- 引入外链式base.css文件,注意css文件所在路径 -->
+	<link rel="stylesheet" href="css/base.css">
+	<!-- 引入网站图标,如果需要生成ico图标,可以用一张图片,百度搜索比特虫可以在线转换图标 -->
+	<!-- link:favicon再按tab键 -->
+	<link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
+	<style>
+		/*header头部样式开始*/
+		.header{
+			height: 30px;
+			background: #f8f8f8;
+		}
+		/*子元素选择器*/
+		.header .w>ul>li{
+			float: left;
+		}
+		/*子元素选择器*/
+		.header .w>ul>li>a{
+			padding:0 20px;
+			/*border-right:1px dotted #cccccc ;*/
+			border-right:1px dotted red ;
+			/*为了解决帮助中心右边的边框消失问题,把a标签转为行内块或者块级元素*/
+			display: inline-block;
+			/*设置高度是为了a的右边框线高度不铺满整个li*/
+			height: 20px;
+			line-height: 20px;
+			margin-top: 5px;
+		}
+		/*找到最后一个li里面的a标签*/
+		.header ul li:last-child a{
+			border-right: none;
+		}
+		.header ul li a span{
+			height: 16px;
+			width: 19px;
+			background:url(images/top_nav.png) no-repeat;
+			display: inline-block;
+			margin-right: 10px;
+			/*行内或者行内块元素可以使用vertical-align属性*/
+			vertical-align: -2px;
+		}
+		/*并集选择器*/
+		.header ul li a span.weixin{
+			background-position:-25px 0px;
+		}
+		.header ul li a span.qq{
+			background-position:-50px 0px;
+		}
+		.header ul li a span.shoucang{
+			background-position:-75px 0px;
+		}
+		.header ul li a span.cart{
+			background-position:-100px 0px;
+		}
+		.header ul li a span.orderlist{
+			background-position:-125px 0px;
+		}
+		.header ul li a span.help_center{
+			background-position:-180px 0px;
+			margin-right: 0;
+			width: 8px;
+			margin-left: 11px;
+		}
+
+		/*下拉框代码开始*/
+		.header ul .drop {
+			/*父相*/
+			position: relative;
+			/*解决li高度没有撑满整个.header,导致鼠标移上.drop的时候有显示.down的问题*/
+			padding-bottom: 5px;
+		}
+		.header ul .drop .down{
+			background: #f8f8f8;
+			/*设置行高*/
+			line-height: 20px;
+			width: 85px;
+			/*子绝*/
+			position: absolute;
+			left: 0;
+			top: 30px;
+			border:1px solid #f1f1f1;
+			padding-top: 6px;
+			padding-bottom: 6px;
+			/*隐藏元素*/
+			display: none;
+		}
+		/*鼠标移上.drop以后,.drop里面的.down对应的样式*/
+		.header ul .drop:hover .down{
+			/*显示元素*/
+			display: block;
+		}
+		.header ul .drop .down a{
+			/*把a标签转换为块元素,让a标签宽度铺满整个li*/
+			display: block;
+			text-align: center;
+		}
+		/*下拉框代码结束*/
+
+		/*header头部样式结束*/
+	</style>
+</head>
+<body>
+	<!-- header头部开始 -->
+	<div class="header">
+		<div class="w">
+			<ul class="fr">
+				<li><a href="#"><span class="weixin"></span>微信登录</a></li>
+				<li><a href="#"><span class="qq"></span>QQ登录</a></li>
+				<li><a href="#">登录</a></li>
+				<li><a href="#">注册</a></li>
+				<li class="drop">
+					<a href="#"><span class="shoucang"></span>我的收藏</a>
+					<!-- 列表的嵌套 -->
+					<ul class="down">
+						<li><a href="#">收藏宝贝</a></li>
+						<li><a href="#">收藏店铺</a></li>
+					</ul>
+				</li>
+				<li><a href="#"><span class="cart"></span>我的购物车</a></li>
+				<li><a href="#"><span class="orderlist"></span>我的订单</a></li>
+				<li class="drop">
+					<a href="#">帮助中心<span class="help_center"></span></a>
+					<!-- 列表的嵌套 -->
+					<ul class="down">
+						<li><a href="#">买家服务</a></li>
+						<li><a href="#">商家服务</a></li>
+						<li><a href="#">规则中心</a></li>
+					</ul>
+				</li>
+				<li><a href="#">商家后台</a></li>
+			</ul>
+		</div>
+	</div>
+	<!-- header头部结束 -->
+</body>
+</html>

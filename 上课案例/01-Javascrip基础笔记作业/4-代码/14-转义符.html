@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript">
+		// 在网页中输出   我是一个"帅气"的人
+
+		// 双引号不允许直接包裹双引号,会报错
+		// document.write("我是一个"帅气"的人");
+
+
+		// 单引号不允许直接包裹单引号,会报错
+		// document.write('我是一个'帅气'的人');
+
+		// 注意:但是我们可以双包单,可以单包双
+		document.write('我是一个"帅气"的人');
+		document.write("<hr/>");
+		document.write("我是一个'帅气'的人");
+		document.write("<br/>");
+
+		// 如果想让双包双或者单包单正确执行,那么我们需要借助一个转义符 \ ,在前面多加一个转义符就可以了
+		document.write("我是一个\"帅气\"的人");
+		document.write("<br/>");
+		document.write('我是一个\'帅气\'的人');
+		document.write("<hr/>");
+
+		// 我们想再页面中直接输出一个反斜杠
+		// document.write("\");// 报错
+		// document.write(\);// 报错
+		document.write("\\");
+		document.write("<br/>");
+		document.write('\\');
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

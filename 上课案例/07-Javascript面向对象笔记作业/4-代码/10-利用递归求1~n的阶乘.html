@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 利用递归函数求1~n的阶乘 1 * 2 * 3 * 4...n
+        // 比如n = 5   1*2*3*4*5    5*4*3*2*1
+        // 比如n = 4   1*2*3*4      4*3*2*1
+        // 比如n = 3   1*2*3        3*2*1
+        // ...
+
+        function fn(num){
+            if( num == 1 ){
+                return 1;
+            }
+            return num*fn(num-1);
+        }
+        console.log( fn( 2 ) );
+        console.log( fn( 5 ) );
+    </script>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript">
+		// 数组排序的方法
+		// reverse() 颠倒数组中元素的顺序,无参数 该方法会改变原来的数组 返回新数组
+		var arr1 = [10,20,30,"a","b","c"];
+		// reverse()会返回翻转以后的新数组
+		console.log( arr1.reverse() );
+		// reverse()会改变原数组
+		console.log( arr1 );
+		console.log( "" );
+
+		// sort() 对数组的元素进行排序 该方法会改变原来的数组 返回新数组
+		var arr2 = ["a",5,7,8,"b",3,1,"A",2];
+		// sort()方法可以对数组中的元素进行排序,排序一般分为升序跟降序  sort可以传一个参数,这个参数是一个函数,这个函数我们称之为排序函数,排序函数需要返回 0 或者 正值 或者 负值
+
+		// sort()如果不传参,默认会按ASCII码升序排序
+		arr2.sort();
+		console.log( arr2 );
+		console.log( "" );
+
+		// 两个数比较,只有三种结果,大于,小于,等于;那么如果两个数相减,也是有三种结果,大于0,小于0,等于0
+		// 10 - 5  =   5 >0
+		// 10 - 20 = -10 <0
+		// 10 - 10 = 0
+
+
+		// 升序函数
+		function asc(a,b){
+			return a-b;
+		}
+		// 降序函数
+		function desc(a,b){
+			return b-a;
+		}
+
+		var arr3 = [5,3,1,7,8,10];
+		// 如果要给sort传参数的时候,可以给函数名或者一个匿名函数
+		arr3.sort( asc );
+		console.log( arr3 );
+
+		var arr4 = [50,2,60,1,75];
+		arr4.sort( desc );
+		console.log( arr4 );
+		console.log("");
+
+		var arr5 = [20,30,50,10,70];
+		arr5.sort(function(a,b){
+			return a-b;
+		});
+		console.log( arr5 );
+		console.log("");
+
+		var arr6 = [10,5,7,9,2,3];
+		// Math.random() 得到0到1之间的小数,包括0不包括1
+		// console.log( Math.random() );
+		// console.log( Math.random() - 0.5 );
+		arr6.sort( function(){
+			return Math.random()-0.5;
+		} );
+		console.log( arr6 );
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript">
+		// 用{}方式,创建一个电脑对象,有颜色,有重量,有品牌,有型号,可以看电影,可以听音乐,可以打游戏,可以敲代码
+		
+		var pc = {};
+		pc.color = "黑色";
+		pc.weight = "5kg";
+		pc.name = "华硕";
+		pc.type = "k55v";
+
+		pc.see = function(){
+			console.log("电脑可以看电影");
+		}
+		pc.listen = function(){
+			console.log("电脑可以听音乐");
+		}
+		pc.play = function(){
+			console.log("电脑可以打游戏");
+		}
+		pc.knock = function(){
+			console.log("电脑可以敲代码");
+		}
+
+		console.log("电脑颜色为："+pc.color);
+		console.log("电脑重量为："+pc.weight);
+		console.log("电脑品牌为："+pc.name);
+		console.log("电脑类型为："+pc.type);
+		pc.see();
+		pc.listen();
+		pc.play();
+		pc.knock();
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

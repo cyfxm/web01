@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button>assign跳转页面,记录历史</button>
+    <button>replace替换当前页面,不记录历史</button>
+    <button>reload刷新页面</button>
+
+    <script>
+        var btns = document.querySelectorAll("button");
+        // location对象的常见方法
+        // location.assign(网址) 跟location.href一样,可以跳转页面(也称为重定向页面) 记录历史,可以实现后退功能   location.href是属性,location.assign()是方法
+        btns[0].onclick = function(){
+            location.assign("https://www.baidu.com");
+        }
+        // location.replace(网址) 替换当前页面,不记录浏览历史，所以不可以实现后退功能
+        btns[1].onclick = function(){
+            location.replace("https://www.qq.com");
+        }
+        // location.reload() 重新加载页面,相当于点了刷新,或者按了f5 如果参数为true,表示强制刷新ctrl+f5
+        btns[2].onclick = function(){
+            location.reload(true);
+        }
+    </script>
+</body>
+</html>

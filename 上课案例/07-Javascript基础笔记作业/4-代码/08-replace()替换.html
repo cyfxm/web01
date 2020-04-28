@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript">
+		// replace()方法中可以还可以放正则表达式
+		// replace() 方法用于在字符串中用一些字符替换另一些字符     
+		// 默认只替换一次,不会全部替换
+		
+		// 格式如下:
+		// replace(被替换的字符串, 要替换为的字符串);
+		// 默认只能进行一次替换,不会全部替换
+
+		var str1 = "我去你妹的,你妹的逗比";
+		console.log( str1.replace("你妹","*") ); 
+
+		/*
+			如果需要全部替换,可以使用正则表达式(这个后面会学)
+			在js里面通过//来定义正则表达式
+			g=>global全局的意思
+			i=>ignore表示不区分大小写
+		*/
+
+		var str2 ="hello帅哥,Hello美女,hEllo世界";
+		
+		// 定义一个正则表达式,  正则是在注释//里面的
+		var reg = /hello/gi;
+
+		// replace(正则表达式, 要替换为的字符串);
+		console.log( str2.replace( reg ,"你好") );
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

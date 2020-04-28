@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		/*兄弟选择器(相邻元素选择器)*/
+
+		/* 选择器名:
+
+		选择器1+选择器2+......{
+		    属性1:属性值1;
+		    属性2:属性值2;
+		    属性3:属性值3;
+		    ...
+		}
+		 */
+
+		/*用法:兄弟选择器只能选择选择器1"相邻下一个"的选择器2兄弟标签*/
+		div+p{
+			color:red;
+		}
+
+		div+p+p{
+			color:blue;
+		}
+	</style>
+</head>
+<body>
+	<p>p段落</p>
+	<p>p段落</p>
+	<div>div内容</div>
+	<p>p段落</p>
+	<p>p段落</p>
+</body>
+</html>

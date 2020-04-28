@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+	<title>无标题文档</title>
+	<style>
+		.content{
+			text-align: center;
+			margin:300px auto;
+			font-size:50px;
+			color: white;
+		}
+	</style>
+</head>
+<body>
+	<div class="content"></div>
+</body>
+<script>
+	function changeColor() {
+			var content = document.querySelector(".content")
+			// console.log(bg);
+			var bg = document.body;
+			var rand = Math.round(Math.random()*1000000);
+			bg.style.backgroundColor="#"+rand;
+			content.innerHTML="#"+rand;
+			
+     		
+		}
+		setInterval("changeColor();",1000);
+		
+</script>
+</html>

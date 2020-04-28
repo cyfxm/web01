@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		div{
+			width: 300px;
+			height: 300px;
+		}
+		.div1{
+			background: pink;
+			text-align: center;
+			line-height: 300px;
+			border:5px solid blue;
+			/*border-radius设置圆角边框属性,取值数值带px,或者百分比*/
+			/*数值取值只能是正值,不能是负值*/
+			border-radius: 50px;
+		}
+		.div2{
+			background: skyblue;
+			line-height: 300px;
+			text-align: center;
+			/*圆角边框可以单独使用*/
+			border-radius: 50px;
+		}
+
+		img{
+			/*圆角边框属性可以给元素设置,也可以给图片设置*/
+			border-radius: 100px;
+		}
+		.div3{
+			background: red;
+			/*border-radius: 10%;*/
+
+			/*圆角边框取值"50%"的时候,可以让一个"正方形"变成一个"圆形"*/
+			border-radius: 50%;
+		}
+		p{
+			width: 200px;
+			height: 50px;
+			background: blue;
+			/*椭圆*/
+			border-radius: 50%;
+		}
+
+		.div4{
+			background: green;
+			/*border-radius取值可以写一个值也可以写多个值,多个值老师只给大家讲一个4个取值的*/
+
+			/*border-radius:左上角 右上角 右下角 左下角; 记忆方法:顺时针 */
+			border-radius: 100px 0px 100px 0px;
+		}
+		.img2{
+			border-radius: 100px 0px 100px 0px;
+		}
+	</style>
+</head>
+<body>
+	<div class="div1">div1的内容</div>
+	<br/>
+	<div class="div2">div2的内容</div>
+	<br/>
+	<img src="images/1.jpg"/>
+	<br/>
+	<div class="div3"></div>
+	<br/>
+	<p></p>
+	<br/>
+	<div class="div4"></div>
+	<br/>
+	<img src="images/3.jpg" class="img2"/>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript">
+		// var date = new Date("2018-12-02 16:05:07");
+		// var year = date.getFullYear();
+		// var month = date.getMonth();
+		// var day = date.getDate();
+		// var hours = date.getHours();
+		// var minutes = date.getMinutes();
+		// var seconds = date.getSeconds();
+		// var week = date.getDay();
+
+		// if(parseInt(seconds/10) ==0 ){
+		// 	seconds = "0" + seconds;
+		// }
+		// if(parseInt(minutes/10) ==0 ){
+		// 	minutes = "0" + minutes;
+		// }
+
+		// var arrWeek = ["天","一","二","三","四","五","六"];
+		
+		// console.log(year + "年"+(month+1)+"月"+day+"日"+hours+":"+minutes+":"+seconds + " 星期" +arrWeek[week]);
+
+		function getRandom(arr){
+			arr.sort(function(a,b){
+			    return Math.random() - 0.5;
+			});
+			return arr;
+		}
+	
+		var arr1 = ["鹿晗","王俊凯","蔡徐坤","彭于晏","周杰伦","刘德华","赵本山"];
+		console.log(getRandom(arr1));
+
+
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

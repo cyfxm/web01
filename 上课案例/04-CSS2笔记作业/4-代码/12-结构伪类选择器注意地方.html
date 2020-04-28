@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		/*E:nth-child(n)找到第n子元素,特别需要注意的是,"不关心是什么元素,只关心元素排第几"*/
+
+		.father p:nth-child(3){
+			color:red;
+		}
+
+		/*找到最后一个p标签*/
+		/* .father p:last-child{
+			color:blue;
+		} */
+
+		.father p:nth-child(6){
+			color:blue;
+		}
+
+		/*p:nth-type-of选择器只关心同类型排第几,不关心在父元素中排第几个,同学们自己可以去了解一下*/
+	</style>
+</head>
+<body>
+	<div class="father">
+		<p>p1p1p1p1p1p1</p>
+		<span>哈哈哈,我就在这里</span>
+		<p>p2p2p2p2p2p2</p>
+		<b>加粗标签</b>
+		<i>倾斜标签</i>
+		<p>p3p3p3p3p3p3</p>
+	</div>
+</body>
+</html>

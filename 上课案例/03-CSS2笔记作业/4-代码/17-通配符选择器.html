@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		/* 通配符选择器可以选中页面上所有的标签,一般我们用于后期清除所有标签的内填充与外边距
+		*{
+			margin:0;
+			padding:0;
+		} */
+
+
+		/*
+			通配符选择器名就是
+			*{
+				css属性名1:css属性值1;
+				css属性名2:css属性值2;
+				......
+			}
+		*/
+	
+		/*我们想要页面上所有的内容字体变成红色?有哪些方法?*/
+
+		/*给body设置可以让所有的标签变成红色,原因是因为内容都在body标签中,另一个原因是因为css有部分样式可以继承*/
+		/*body{
+			color:red;
+		}*/
+
+		/* .redFont{
+			color:blue;
+		} */
+	
+
+		/*div{
+			color:orange;
+		}
+		h1{
+			color:orange;
+		}
+		p{
+			color:orange;
+		}
+		h2{
+			color:orange;
+		}
+		span{
+			color:orange;
+		}*/
+			
+		/*这个叫分组选择器,明天我们会讲*/
+		/* div,h1,p,h2,span{
+			color:pink;
+		} */
+
+		/* html{
+			color:green;
+		} */
+		
+		/*通配符选择器选中所有标签*/
+		*{
+			color:skyblue;
+		}
+	</style>
+</head>
+<body>
+	<div class="redFont">div</div>
+	<h1 class="redFont">h1h1h1h1</h1>
+	<p class="redFont">ppppp</p>
+	<h2 class="redFont">h2h2h2h2</h2>
+	<span class="redFont">span1</span>
+	<span class="redFont">span2</span>
+	<span class="redFont">span3</span>
+</body>
+</html>

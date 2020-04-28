@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="myDiv">div的内容</div>
+    <div>div的内容</div>
+    <p>p的内容</p>
+
+    <script>
+        // js默认执行代码的顺序是从上到下的,如果js代码放在html结构的上面,就会出现先获取,再出现HTML标签,容易导致获取不到对象
+        // 解决方法,把js代码放在HTML结构的后面或者加window.onload事件
+
+
+        // 根据ID获取元素
+        // 语法 document.getElementById("id属性值") 通过id查找网页中的对象,返回对象或者null
+        var obj = document.getElementById("myDiv");
+        console.log( obj );
+    </script>
+</body>
+</html>

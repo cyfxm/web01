@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript">
+		// 字符串连接运算符有两个 + 和 +=
+		// 什么时候+号是字符串连接符呢, +号左右两个的值只要有一个是字符串,那么+号就会变成字符串连接符,把多个小字符串,变成一个大字符串
+
+		var num1 = 10;
+		var num2 = 20;
+		console.log(num1 + num2);// 30
+
+		var num3 = "10";
+		var num4 = 20;
+		console.log(num3 + num4);// "1020"
+
+		var str1 = "abc";
+		var str2 = "zhangsan";
+		console.log( str1 + str2);// "abczhangsan"
+
+		var username = "lisi";
+		var age = 24;
+		var sex = "女";
+		// 以下情况,可以正确输出,但是username,age,sex这些变量,因为在引号里面,所以被当做字符串,原样输出
+		document.write("我的姓名是username,我的年龄是age,我的性别是sex");
+		document.write("<br/>");
+
+		// 如果想要解析变量的值  语法: "字符串"+变量名+"字符串"   字符串拼接的方法
+		document.write("我的姓名是"+username+",我的年龄是"+age+",我的性别是"+sex);
+		document.write("<hr/>");
+
+		// var str = "<ul><li>张三</li><li>李四</li><li>王五</li></ul>";
+		// document.write( str );
+
+		// += 即是赋值运算符,又是字符串连接符
+
+		var str = "<ul>";
+			// 等同于  str = str + "<li>张三</li>" => "<ul>"+"<li>张三</li>" => "<ul><li>张三</li>"
+			str += "<li>张三</li>";
+			str += "<li>李四</li>";
+			str += "<li>王五</li>";
+			
+			// 等同于 str = str + "</ul>" => "<ul><li>张三</li>"+"</ul>" => "<ul><li>张三</li></ul>"
+			str += "</ul>";
+
+			document.write(str);
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

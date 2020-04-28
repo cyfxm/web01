@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <button id="btn">开关灯</button>
+    <script>
+        // 获取按钮对象
+        var btn = document.getElementById("btn");
+
+        // 获取body对象
+        var objBody = document.body;
+
+        // 定义一个变量,保存现在开关灯的状态  如果body背景颜色为白色,就代表开灯;如果body背景颜色为黑色,就代表关灯  注意:status需要是全局变量
+        var status = "open";
+
+        // 给按钮绑定单击事件
+        btn.onclick = function(){
+            // 因为if用到objBody.style.backgroundColor,所以出问题以后,可以输出objBody.style.backgroundColor的值
+            // console.log( objBody.style );
+            // console.log(objBody.style.backgroundColor );
+
+            // 第一种实现方法
+            /* if(objBody.style.backgroundColor == "" || objBody.style.backgroundColor == "white"){
+                objBody.style.backgroundColor = "black";
+            }else if(objBody.style.backgroundColor == "black"){
+                objBody.style.backgroundColor = "white";
+            } */
+
+            
+            // 输出status的值
+            // console.log( status );
+
+            if(status == "open"){
+                objBody.style.backgroundColor = "black";
+                // 改变开关灯的状态
+                status = "close";
+            }else if(status == "close"){
+                objBody.style.backgroundColor = "white";
+                // 改变开关灯的状态
+                status = "open";
+            }
+        }
+    </script>
+</body>
+
+</html>

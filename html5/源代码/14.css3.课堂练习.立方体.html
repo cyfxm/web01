@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>立方体</title>
+    <style>
+        ul {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+
+        /* 改变父元素的旋转角度，就可以看到立方体在旋转了。 */
+        .box {
+            width: 200px;
+            height: 200px;
+            /* border: 1px solid #ccc; */
+            margin-left: 100px;
+            margin-top: 100px;
+            position: relative;
+
+            /* 创建3维空间 */
+            transform-style: preserve-3d;
+            /* 设置ul元素旋转 倾斜一点角度 */
+            transform: rotateX(135deg) rotateY(135deg) rotateZ(0);
+
+        }
+        .box > li {
+            width: 200px;
+            height: 200px;
+            opacity: 0.5;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+
+        /* 旋转  位移 */
+        .box > li:nth-of-type(1) {
+            background-color: red;
+            /* 举起左手，拇指Y  , 食指Z ，中指X */
+            /* 拿一张纸 贴在你的中指上，旋转90度，这张纸变成一条线 */
+            /* 然后这张纸绕着 食指位移 100 px */
+            transform: rotateX(90deg) translateZ(100px);
+        }
+
+        .box > li:nth-of-type(2) {
+            background-color: green;
+            transform: rotateX(90deg) translateZ(-100px);
+        }
+        .box > li:nth-of-type(3) {
+            background-color: blue;
+            transform: rotateY(90deg) translateZ(100px);
+        }
+
+        .box > li:nth-of-type(4) {
+            background-color: purple;
+            transform: rotateY(90deg) translateZ(-100px);
+        }
+
+        .box > li:nth-of-type(5) {
+            background-color: orange;
+            /* 因为是个正方体 旋转rotateZ(90deg) 旋转90度，效果不明显 ，看文本*/
+            transform: rotateZ(90deg) translateZ(100px);
+        }
+        .box > li:nth-of-type(6) {
+            background-color: darkolivegreen;
+            transform: rotateZ(90deg) translateZ(-100px);;
+        }
+    </style>
+</head>
+<body>
+    <ul class="box">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+        <li>6</li>
+    </ul>
+
+
+</body>
+</html>

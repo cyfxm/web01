@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>美丽说-潮流穿搭快人一步</title>
+	<meta name="description" content="彷美丽说" />
+	<meta name="keywords" content="彷美丽说" />
+	<link rel="icon" href="favicon.ico" type="image/x-icon" />
+	<link rel="stylesheet" href="css/base.css">
+	<link rel="stylesheet" href="css/index.css">
+	<script type="text/javascript" src='js/jquery1.11.1.min.js'></script>
+	<script type="text/javascript" src='js/jquery.SuperSlide.2.1.1.js'></script>
+	<script type="text/javascript" src='js/jquery.lazyload.min.js'></script>
+	<script type="text/javascript" src='js/app.js'></script>
+</head>
+<body>
+	<div class="header">
+		<div class="top-nav">
+			<div class="container">
+				<ul>
+					<li><a href="#"><span class='weixin'></span>微信登录</a></li>
+					<li><a href="#"><span class='qq'></span>QQ登录</a></li>
+					<li><a href="#">登录</a></li>
+					<li><a href="#">注册</a></li>
+					<li class='drop'>
+						<a href="#"><span class='shoucang'></span>我的收藏</a>
+						<ul class='down'>
+							<li><a href="#">收藏宝贝</a></li>
+							<li><a href="#">收藏店铺</a></li>
+						</ul>
+					</li>
+					<li><a href="#"><span class='cart'></span>我的购物车</a></li>
+					<li><a href="#"><span class='myList'></span>我的订单</a></li>
+					<li class='drop'>
+						<a href="#">帮助中心<span class='helpCenter'></span></a>
+						<ul class='down'>
+							<li><a href="#">买家服务</a></li>
+							<li><a href="#">商家服务</a></li>
+							<li><a href="#">规则中心</a></li>
+						</ul>
+					</li>
+					<li><a href="#">商家后台</a></li>
+				</ul>
+			</div>
+		</div>
+		<div class="container">
+			<div class="logo">
+				<div class="logoLeft">
+					<h1><a href='#'>美丽说</a></h1>
+				</div>
+				<div class="search">
+					<div class="search-tab">
+						<span class='active'>宝贝</span>
+						<span>店铺</span>
+					</div>
+					<div class="search-box">
+						<input type="text" name='search'>
+						<span class='fdj-icon'></span>
+					</div>
+					<div class="hot-search-words">
+						<ul>
+							<li><a href="#" class='active'>连衣裙</a></li>
+							<li><a href="#">运动鞋</a></li>
+							<li><a href="#" class='active'>雪纺衫</a></li>
+							<li><a href="#" class='active'>衬衫</a></li>
+							<li><a href="#">薄外套</a></li>
+							<li><a href="#">T恤</a></li>
+							<li><a href="#">套装</a></li>
+							<li><a href="#">牛仔裤</a></li>
+							<li><a href="#" class='active'>小白鞋</a></li>
+							<li><a href="#">风衣</a></li>
+							<li><a href="#" class='active'>绑带凉鞋</a></li>
+							<li><a href="#">粗跟单鞋</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="meilishuo-app">
+					<img src='images/meilishuo_app.gif'/>
+				</div>
+			</div>
+		</div>
+		<div class="main-nav">
+			<div class="container">
+				<ul>
+					<li><a href="#" class='active'>首页</a></li>
+					<li><a href="#">上衣</a></li>
+					<li><a href="#">裙子</a></li>
+					<li><a href="#">裤子</a></li>
+					<li><a href="#">女鞋</a></li>
+					<li><a href="#">包包</a></li>
+					<li><a href="#">配饰</a></li>
+					<li><a href="#">美妆</a></li>
+					<li><a href="#">男友</a></li>
+					<li><a href="#">童装</a></li>
+					<li><a href="#">家居</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+	<div class="container">
+		<div class="banner">
+			<div class="focusBox" style="margin:0 auto">
+				<ul class="pic">
+						<li><a href="#"><img src="images/banner01.jpg"/></a></li>
+						<li><a href="#"><img src="images/banner02.jpg"/></a></li>
+						<li><a href="#"><img src="images/banner03.jpg"/></a></li>
+						<li><a href="#"><img src="images/banner04.jpg"/></a></li>
+						<li><a href="#"><img src="images/banner05.jpg"/></a></li>
+						<li><a href="#"><img src="images/banner06.jpg"/></a></li>
+				</ul>
+				<a class="prev" href="javascript:void(0)"></a>
+				<a class="next" href="javascript:void(0)"></a>
+				<ul class="hd">
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+				</ul>
+			</div>
+			<script type="text/javascript">
+				/*SuperSlide图片切换*/
+				jQuery(".focusBox").slide({ mainCell:".pic",effect:"leftLoop", autoPlay:true, delayTime:600, trigger:"click"});
+			</script>
+		</div>
+	</div>
+
+	<div class="classify">
+		<div class="container">
+			<ul>
+				<li><a href="#"><img src="images/kinds01.png" title="今日新品"></a></li>
+				<li><a href="#"><img src="images/kinds02.png" title="热销单品"></a></li>
+				<li><a href="#"><img src="images/kinds03.png" title="每日特价"></a></li>
+				<li><a href="#"><img src="images/kinds04.png" title="好物专题"></a></li>
+			</ul>
+		</div>
+	</div>
+
+	<div class="top-goods">
+		<div class="container">
+			<div class="title-wrap">
+				<a href="#">查看更多></a>
+				<div class="nav">
+					<a href="javascript:void(0)" class='active'>今日新品</a>
+					<a href="javascript:void(0)">一周热销</a>
+				</div>
+			</div>
+			<div class="content">
+				<div class="today-new-goods content-wrap" style='display: block;'>
+					<div class="item">
+						<a href="#">
+							<img class="lazy" data-original="images/goods01.png">
+						</a>
+						<div class="info">
+							<div class="price">
+								93.75
+							</div>
+							<div class="collect">
+								250
+							</div>
+						</div>
+						<div class="title-goods">
+							小清新新款韩版气质收腰显瘦百搭蕾丝边V领木耳边镂空休闲连衣裙
+						</div>
+					</div>
+					<div class="item">
+						<a href="#">
+							<img class="lazy" data-original="images/goods02.png">
+						</a>
+						<div class="info">
+							<div class="price">
+								93.75
+							</div>
+							<div class="collect">
+								250
+							</div>
+						</div>
+						<div class="title-goods">
+							小清新新款韩版气质收腰显瘦百搭蕾丝边V领木耳边镂空休闲连衣裙
+						</div>
+					</div>
+					<div class="item">
+						<a href="#">
+							<img class="lazy" data-original="images/goods03.png">
+						</a>
+						<div class="info">
+							<div class="price">
+								93.75
+							</div>
+							<div class="collect">
+								250
+							</div>
+						</div>
+						<div class="title-goods">
+							小清新新款韩版气质收腰显瘦百搭蕾丝边V领木耳边镂空休闲连衣裙
+						</div>
+					</div>
+					<div class="item">
+						<a href="#">
+							<img class="lazy" data-original="images/goods04.png">
+						</a>
+						<div class="info">
+							<div class="price">
+								93.75
+							</div>
+							<div class="collect">
+								250
+							</div>
+						</div>
+						<div class="title-goods">
+							小清新新款韩版气质收腰显瘦百搭蕾丝边V领木耳边镂空休闲连衣裙
+						</div>
+					</div>
+					<div class="item row-last-item">
+						<a href="#">
+							<img class="lazy" data-original="images/goods05.png">
+						</a>
+						<div class="info">
+							<div class="price">
+								93.75
+							</div>
+							<div class="collect">
+								250
+							</div>
+						</div>
+						<div class="title-goods">
+							小清新新款韩版气质收腰显瘦百搭蕾丝边V领木耳边镂空休闲连衣裙
+						</div>
+					</div>
+					<div class="item">
+						<a href="#">
+							<img class="lazy" data-original="images/goods06.png">
+						</a>
+						<div class="info">
+							<div class="price">
+								93.75
+							</div>
+							<div class="collect">
+								250
+							</div>
+						</div>
+						<div class="title-goods">
+							小清新新款韩版气质收腰显瘦百搭蕾丝边V领木耳边镂空休闲连衣裙
+						</div>
+					</div>
+					<div class="item">
+						<a href="#">
+							<img class="lazy" data-original="images/goods07.png">
+						</a>
+						<div class="info">
+							<div class="price">
+								93.75
+							</div>
+							<div class="collect">
+								250
+							</div>
+						</div>
+						<div class="title-goods">
+							小清新新款韩版气质收腰显瘦百搭蕾丝边V领木耳边镂空休闲连衣裙
+						</div>
+					</div>
+					<div class="item">
+						<a href="#">
+							<img class="lazy" data-original="images/goods08.png">
+						</a>
+						<div class="info">
+							<div class="price">
+								93.75
+							</div>
+							<div class="collect">
+								250
+							</div>
+						</div>
+						<div class="title-goods">
+							小清新新款韩版气质收腰显瘦百搭蕾丝边V领木耳边镂空休闲连衣裙
+						</div>
+					</div>
+					<div class="item">
+						<a href="#">
+							<img class="lazy" data-original="images/goods09.png">
+						</a>
+						<div class="info">
+							<div class="price">
+								93.75
+							</div>
+							<div class="collect">
+								250
+							</div>
+						</div>
+						<div class="title-goods">
+							小清新新款韩版气质收腰显瘦百搭蕾丝边V领木耳边镂空休闲连衣裙
+						</div>
+					</div>
+					<div class="item row-last-item">
+						<a href="#">
+							<img class="lazy" data-original="images/goods10.png">
+						</a>
+						<div class="info">
+							<div class="price">
+								93.75
+							</div>
+							<div class="collect">
+								250
+							</div>
+						</div>
+						<div class="title-goods">
+							小清新新款韩版气质收腰显瘦百搭蕾丝边V领木耳边镂空休闲连衣裙
+						</div>
+					</div>
+				</div>
+				<div class="one-week-hot-sale content-wrap" style='display: none;'>
+					<div class="item">
+						<a href="#">
+							<img class="lazy" data-original="images/goods11.png">
+						</a>
+						<div class="info">
+							<div class="price">
+								81.25
+							</div>
+							<div class="collect">
+								154
+							</div>
+						</div>
+						<div class="title-goods">
+							两件套女装新款时尚碎花木耳边雪纺衫套装女夏装高腰百搭A字裙
+						</div>
+					</div>
+					<div class="item">
+						<a href="#">
+							<img class="lazy" data-original="images/goods12.png">
+						</a>
+						<div class="info">
+							<div class="price">
+								81.25
+							</div>
+							<div class="collect">
+								154
+							</div>
+						</div>
+						<div class="title-goods">
+							两件套女装新款时尚碎花木耳边雪纺衫套装女夏装高腰百搭A字裙
+						</div>
+					</div>
+					<div class="item">
+						<a href="#">
+							<img class="lazy" data-original="images/goods13.png">
+						</a>
+						<div class="info">
+							<div class="price">
+								81.25
+							</div>
+							<div class="collect">
+								154
+							</div>
+						</div>
+						<div class="title-goods">
+							两件套女装新款时尚碎花木耳边雪纺衫套装女夏装高腰百搭A字裙
+						</div>
+					</div>
+					<div class="item">
+						<a href="#">
+							<img class="lazy" data-original="images/goods14.png">
+						</a>
+						<div class="info">
+							<div class="price">
+								81.25
+							</div>
+							<div class="collect">
+								154
+							</div>
+						</div>
+						<div class="title-goods">
+							两件套女装新款时尚碎花木耳边雪纺衫套装女夏装高腰百搭A字裙
+						</div>
+					</div>
+					<div class="item row-last-item">
+						<a href="#">
+							<img class="lazy" data-original="images/goods15.png">
+						</a>
+						<div class="info">
+							<div class="price">
+								81.25
+							</div>
+							<div class="collect">
+								154
+							</div>
+						</div>
+						<div class="title-goods">
+							两件套女装新款时尚碎花木耳边雪纺衫套装女夏装高腰百搭A字裙
+						</div>
+					</div>
+					<div class="item">
+						<a href="#">
+							<img class="lazy" data-original="images/goods16.png">
+						</a>
+						<div class="info">
+							<div class="price">
+								81.25
+							</div>
+							<div class="collect">
+								154
+							</div>
+						</div>
+						<div class="title-goods">
+							两件套女装新款时尚碎花木耳边雪纺衫套装女夏装高腰百搭A字裙
+						</div>
+					</div>
+					<div class="item">
+						<a href="#">
+							<img class="lazy" data-original="images/goods17.png">
+						</a>
+						<div class="info">
+							<div class="price">
+								81.25
+							</div>
+							<div class="collect">
+								154
+							</div>
+						</div>
+						<div class="title-goods">
+							两件套女装新款时尚碎花木耳边雪纺衫套装女夏装高腰百搭A字裙
+						</div>
+					</div>
+					<div class="item">
+						<a href="#">
+							<img class="lazy" data-original="images/goods18.png">
+						</a>
+						<div class="info">
+							<div class="price">
+								81.25
+							</div>
+							<div class="collect">
+								154
+							</div>
+						</div>
+						<div class="title-goods">
+							两件套女装新款时尚碎花木耳边雪纺衫套装女夏装高腰百搭A字裙
+						</div>
+					</div>
+					<div class="item">
+						<a href="#">
+							<img class="lazy" data-original="images/goods19.png">
+						</a>
+						<div class="info">
+							<div class="price">
+								81.25
+							</div>
+							<div class="collect">
+								154
+							</div>
+						</div>
+						<div class="title-goods">
+							两件套女装新款时尚碎花木耳边雪纺衫套装女夏装高腰百搭A字裙
+						</div>
+					</div>
+					<div class="item row-last-item">
+						<a href="#">
+							<img class="lazy" data-original="images/goods20.png">
+						</a>
+						<div class="info">
+							<div class="price">
+								81.25
+							</div>
+							<div class="collect">
+								154
+							</div>
+						</div>
+						<div class="title-goods">
+							两件套女装新款时尚碎花木耳边雪纺衫套装女夏装高腰百搭A字裙
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<div class="good-goods">
+		<div class="container">
+			<div class="title-wrap">
+				<a href='#'>查看更多></a>
+				<h3>好物组货</h3>
+			</div>
+			<div class="content">
+				<div class="item">
+					<a href="#">
+						<div class="shadow">
+							<div class="desc">50款商品</div>
+						</div>
+					</a>
+					<div class="part">
+						<a href="#">
+							<div class="price">
+								<img class="lazy" data-original="images/dress01.png" alt="">
+								<p>&yen;&nbsp;100.00</p>
+							</div>
+						</a>
+						<a href="#">
+							<div class="price">
+								<img class="lazy" data-original="images/dress02.png" alt="">
+								<p>&yen;&nbsp;100.00</p>
+							</div>
+						</a>
+						<a href="#">
+							<div class="price">
+								<img class="lazy" data-original="images/dress03.png" alt="">
+								<p>&yen;&nbsp;100.00</p>
+							</div>
+						</a>
+					</div>
+				</div>
+
+				<div class="item">
+					<a href="#">
+						<div class="shadow">
+							<div class="desc">50款商品</div>
+						</div>
+					</a>
+					<div class="part">
+						<a href="#">
+							<div class="price">
+								<img class="lazy" data-original="images/pants01.png" alt="">
+								<p>&yen;&nbsp;100.00</p>
+							</div>
+						</a>
+						<a href="#">
+							<div class="price">
+								<img class="lazy" data-original="images/pants02.png" alt="">
+								<p>&yen;&nbsp;100.00</p>
+							</div>
+						</a>
+						<a href="#">
+							<div class="price">
+								<img class="lazy" data-original="images/pants03.png" alt="">
+								<p>&yen;&nbsp;100.00</p>
+							</div>
+						</a>
+					</div>
+				</div>
+
+				<div class="item">
+					<a href="#">
+						<div class="shadow">
+							<div class="desc">50款商品</div>
+						</div>
+					</a>
+					<div class="part">
+						<a href="#">
+							<div class="price">
+								<img class="lazy" data-original="images/shoes01.png" alt="">
+								<p>&yen;&nbsp;100.00</p>
+							</div>
+						</a>
+						<a href="#">
+							<div class="price">
+								<img class="lazy" data-original="images/shoes02.png" alt="">
+								<p>&yen;&nbsp;100.00</p>
+							</div>
+						</a>
+						<a href="#">
+							<div class="price">
+								<img class="lazy" data-original="images/shoes03.png" alt="">
+								<p>&yen;&nbsp;100.00</p>
+							</div>
+						</a>
+					</div>
+				</div>
+
+
+			</div>
+		</div>
+	</div>
+
+	<div class="footer">
+		<div class="container">
+			<dl>
+				<dt><h2>买家帮助</h2></dt>
+				<dd><a href="#">新手指南</a></dd>
+				<dd><a href="#">服务保障</a></dd>
+				<dd><a href="#">常见问题</a></dd>
+				<dd><a href="#">风险监测</a></dd>
+			</dl>
+			<dl>
+				<dt><h2>商家帮助</h2></dt>
+				<dd><a href="#">供货商招募</a></dd>
+				<dd><a href="#">商家后台</a></dd>
+			</dl>
+			<dl>
+				<dt><h2>关于我们</h2></dt>
+				<dd><a href="#">关于美丽说</a></dd>
+				<dd><a href="#">联系我们</a></dd>
+			</dl>
+			<dl>
+				<dt><h2>关注我们</h2></dt>
+				<dd><a href="#"><span class='sina-weibo'></span>新浪微博</a></dd>
+				<dd><a href="#"><span class='qq-zone'></span>QQ空间</a></dd>
+				<dd><a href="#"><span class='qq-weibo'></span>腾讯微博</a></dd>
+			</dl>
+			<div class="qrcode">
+				<div class="server">
+					<h3>美丽说微信服务号</h3>
+					<img class="lazy" data-original="images/weixin-server-qrcode.jpg" alt="">
+				</div>
+				<div class="meili-app">
+					<h3>美丽说客户端下载</h3>
+					<img class="lazy" data-original="images/meili-app-qrcode.png" alt="">
+				</div>
+			</div>
+		</div>
+		<div class='content'>
+			<p>Copyright ©2017 xxxxxxxx.com  电信与信息服务业务经营许可证xxxxxx号 经营性网站备案信息</p>
+			<p>
+	京ICP备xxxxxxxx号  京公网安备xxxxxxxx   客服电话：xxxx-xxx-xxx  文明办网文明上网举报电话：xxx-xxxxxxxx  违法不良信息举报中心</p>
+		</div>
+	</div>
+
+
+
+    <div class="sidebar">
+        <ul>
+            <li>
+            	<a href="#">
+            		<i class='iconfont'>&#xe63c;</i>下载<span>APP</span>
+            		<div class='qrcode'>
+						<img src='images/meili-app-qrcode140X140.png'/>
+					</div>
+            	</a>
+
+            </li>
+            <li><a href="#"><i class='iconfont'>&#xe615;</i>购物车</a></li>
+            <li><a href="#"><i class='iconfont'>&#xe65a;</i>消息</a></li>
+            <li><a href="#"><i class='iconfont'>&#xe624;</i>优惠券</a></li>
+            <li><a href="#"><i class='iconfont'>&#xe604;</i>收藏</a></li>
+            <li><a href="#"><i class='iconfont'>&#xe603;</i>足迹</a></li>
+        </ul>
+    </div>
+	<div class="backTop">
+        <a href="#"><i class="iconfont">&#xe6ab;</i></a>
+    </div>
+</body>
+</html>

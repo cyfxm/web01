@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		li{
+			list-style:none;
+		}
+		/*超链接的美化*/
+		a{
+			text-decoration: none;
+			color:#a4b0b0;
+		}
+		a:hover{
+			color:white;
+		}
+		/*定义版心类*/
+		.w{
+			width: 1200px;
+			margin: 0 auto;
+		}
+		/*左浮动类*/
+		.fl{
+			float: left;
+		}
+		/*右浮动类*/
+		.fr{
+			float: right;
+		}
+		.header{
+			height: 30px;
+			background: #333333;
+		}
+		/*摆盒子可以给盒子设置背景颜色或者边框,方便我们查看盒子的位置*/
+		.header .header_left{
+			width: 800px;
+			height: 30px;
+			line-height: 30px;
+		}
+		.header .header_left ul li{
+			float: left;
+			font-size:14px;
+		}
+		.header .header_right{
+			width: 250px;
+			height: 30px;
+			line-height: 30px;
+		}
+		.header .header_right ul li{
+			float: left;
+			font-size:14px;
+		}
+	</style>
+</head>
+<body>
+	<!-- 常用网页布局有三种 -->
+	<!-- 第一种:版心布局 -->
+	<!-- 第二种:通栏布局 -->
+	<!-- 第三种:分栏布局 -->
+
+	<!-- 如何确定是通栏布局,一般会有一个明显的特征,当你把网页缩小的时候,盒子占据的宽度还是占满页面100%,可以通过背景颜色看到	 -->
+
+	<!-- 如何确定使用了版心布局?只需要看层中的内容是不是在页面水平居中显示 -->
+		
+	<!-- 如何确定分栏布局?一般是多个盒子,水平显示在一行上 -->
+
+	<div class="header">
+		<div class="w">
+			<div class="header_left fl">
+				<ul>
+					<li><a href="#">小米商城 |</a></li>
+					<li><a href="#">MIUI |</a></li>
+					<li><a href="#">IoT |</a></li>
+					<li><a href="#">云服务 |</a></li>
+					<li><a href="#">金融 |</a></li>
+					<li><a href="#">有品 |</a></li>
+					<li><a href="#">小爱开放平台 |</a></li>
+					<li><a href="#">企业团购 |</a></li>
+					<li><a href="#">资质证照 |</a></li>
+					<li><a href="#">协议规则 |</a></li>
+					<li><a href="#">下载app  |</a></li>
+					<li><a href="#">Select Location</a></li>
+				</ul>
+			</div>
+			<div class="header_right fr">
+				<ul>
+					<li><a href="#">登录  |</a></li>
+					<li><a href="#">注册  |</a></li>
+					<li><a href="#">消息通知</a></li>
+				</ul>
+				<a href="#" class="cart fr">购物车(0)</a>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
+

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>作业</title>
+    <style>
+        .ball {
+            width: 100px;
+            height: 100px;
+            background-color: skyblue;
+            border-radius: 50%;
+
+            position: absolute;
+            top: 0;
+            left: 50%;
+            margin-left: -50px;
+        }
+
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+            line-height: 600px;
+            background-color: #333;
+            overflow: hidden;
+        }
+
+        img {
+            width: 100%;
+            vertical-align: middle;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="ball"></div>
+    <img class="photo" src="./images/01.jpg" alt="">
+    <img class="photo" src="./images/02.jpg" alt="">
+    <img class="photo" src="./images/03.jpg" alt="">
+</body>
+
+</html>
+
+<script src="./animate.js"></script>
+<script>
+    var photo = document.querySelector(".photo");
+    var ball = document.querySelector(".ball");
+
+    var data = [
+        {src:"./images/01.jpg"},
+        {src:"./images/02.jpg"},
+        {src:"./images/03.jpg"},
+    ]
+
+    function slide(){
+        var rx = 0;
+        var bool = false;
+        var moveY = 0;
+        var startY = 0;
+        var index = 0;
+       
+        ball.ontouchstart = function(e){
+            startY = e.touches[0].pageY;
+            bool = true;
+        }
+
+        document.ontouchmove = function(e){
+            if(bool=true && rx < 200){
+                console.log("111");
+                moveY = e.touches[0].pageY;
+                rx = moveY - startY;
+                ball.style.top = rx + "px"
+            }
+        }
+
+        document.ontouchend = function(){
+            if(rx>100){
+                index++;
+                index = index > 2 ? 0 : index;
+                photo.setAttribute('src',data[index].src)
+            }
+            animate(ball,{top:0})
+            bool =  false;
+            rx = 0;
+        }
+    }
+
+
+    slide();
+</script>

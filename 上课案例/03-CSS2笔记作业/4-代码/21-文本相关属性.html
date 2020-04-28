@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		.div1{
+			/*color设置字体颜色,取值颜色值,英文颜色单词,rgb以及十六进制,rgba方式放到后续课程给大家讲解*/
+
+			/*color:red;*/
+
+			/*css在使用rgb颜色表示方式的时候,没有兼容问题*/
+			/*color:rgb(255,0,0);*/
+
+			color:#f92672;
+		}
+
+		.div2{
+			/*text-align设置元素中内容水平方向上的对齐方式,取值:left center right,其中center取值会用的比较多,让内容水平居中*/
+			background-color: skyblue;
+			/*text-align:right;*/
+			/*text-align:left;*/
+			text-align:center;
+		}
+		.div3{
+			/*text-decoration设置文本修饰线,
+				取值
+				underline下划线
+				overline上划线
+				none没有线,去掉线
+				line-through删除线
+				其中 underline跟none取值用的最多
+				none取值一般用于去掉a链接的下划线
+			*/
+			/*text-decoration: underline;*/
+			/*text-decoration: overline;*/
+			text-decoration: line-through;
+		}
+		a{
+			/*去掉下划线*/
+			text-decoration: none;
+		}
+		.div4{
+			/*line-height设置行与行之间的距离,简称行距,也可以叫行高*/
+			/*取值数值可以带px单位;也可以不带单位,不带单位的时候,代表几倍行高*/
+			background-color:pink;
+			/*line-height:50px;*/
+			
+			/*不带单位,代表的是几倍行高*/
+			line-height: 2;
+		}
+		.div5{
+			/*行高经最常用于实现"单行"文字"垂直居中"  重点: 需要设置line-height的值等于高度的值 */
+			background-color:lightgreen;
+			height:200px;
+			/*水平居中*/
+			text-align:center;
+			/*如果行高值等于高度值,会垂直居中*/
+			line-height: 200px;
+
+			/*如果行高值大于高度值,会垂直偏下*/
+			/*line-height: 300px;*/
+
+			/*如果行高值小于高度值,会垂直偏上*/
+			/*line-height: 50px;*/
+		}
+		.div6{
+			background-color:orange;
+			/*
+				text-indent设置文字首行缩进
+				取值:数值可以带px或者带em单位;
+				推荐使用em单位,因为1em = 1个字体大小
+			*/
+		
+			/*如果取值带的单位是px,那么跟字体大小有关系*/
+			/*默认字体大小是16px,那么我们需要缩进两个字,就需要设置32px*/
+			/*text-indent: 32px;*/
+
+			/*设置字体大小*/
+			/*font-size:30px;*/
+			/*text-indent:60px;*/
+
+			/*推荐使用em单位 1em就等于1个字体大小,不管你的字体大小是多少,都可以使用*/
+			text-indent: 2em;
+			font-size:30px;
+
+			/*text-indent的取值可以正数,也可以负数*/
+			/*text-indent: -30px;*/
+		}
+	</style>
+</head>
+<body>
+	<!-- []里面代表设置的是标签的属性 -->
+	<!-- {}里面代表设置的是标签的内容 -->
+	<!-- div[class="div$"]{div$}*5 -->
+
+	<div class="div1">div1</div>
+	<div class="div2">div2</div>
+	<div class="div3">div3的内容</div>
+	<!-- 当我们给a链接设置了href属性以后,a链接就会默认变成蓝色,有下划线 -->
+	<a href="#">我是a链接</a>
+
+	<div class="div4">习近平强调，新冠肺炎疫情发生以来，中国政府和人民全力以赴抗击疫情。我们全国动员、全面部署、快速反应，采取了最全面、最严格的防控举措，打响了一场疫情防控的人民战争。有关工作正在逐步取得成效，我们完全有信心、有能力战胜疫情。中国经济长期向好发展的趋势不会改变</div>
+	<div class="div5">武汉加油</div>
+	<div class="div6">习近平强调，新冠肺炎疫情发生以来，中国政府和人民全力以赴抗击疫情。我们全国动员、全面部署、快速反应，采取了最全面、最严格的防控举措，打响了一场疫情防控的人民战争。有关工作正在逐步取得成效，我们完全有信心、有能力战胜疫情。中国经济长期向好发展的趋势不会改变</div>
+</body>
+</html>

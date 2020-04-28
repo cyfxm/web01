@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 页面（窗口）加载事件（两种）
+        // 第1种    常用,要记住
+        /* window.onload = function(){}
+        或者
+        window.addEventListener("load",function(){}); */
+
+        /* window.onload 是窗口 (页面）加载事件，当文档内容完全加载完成会触发该事件(包括图像、脚本文件、CSS 文件等), 就调用的处理函数。
+        注意:
+        有了window.onload就可以把JS代码写在页面元素的上方,因为onload是等页面内容全部加载完毕,再去执行处理函数的
+        window.onload传统注册事件方式 只能写一次 , 如果有多个,会以最后一个window.onload为准
+        如果使用addEventListener方法注册事件,则没有限制 */
+
+
+        // 如果直接在标签的上面使用js获取对象,容易获取失败得到null
+        // 但是我们可以把获取对象的代码,放在window.onload事件中,给window对象绑定onload事件
+        // window.onload代表页面加载完成时候,才执行函数里面的代码
+        
+        // 传统的注册事件方式
+        /* window.onload = function(){
+            var div = document.querySelector("div");
+            console.log( div ) ;
+            console.log( "页面加载完成了111111111" );
+        }
+        window.onload = function(){
+            console.log( "页面加载完成了222222222" );
+        } */
+
+        // 监听方式注册事件
+        window.addEventListener("load",function(){
+            var div = document.querySelector("div");
+            console.log( div ) ;
+            console.log( "页面加载完成了111111111" );
+        });
+
+        window.addEventListener("load",function(){
+            console.log( "页面加载完成了222222222" );
+        });
+
+        window.addEventListener("load",function(){
+            console.log( "页面加载完成了3333333" );
+        });
+
+         /* 第2种
+        document.addEventListener("DOMContentLoaded",function(){}) */
+
+        /* DOMContentLoaded 事件触发时，仅当DOM加载完成，不包括样式表，图片，flash等等。IE9以上才支持！！！
+        DOMContentLoaded 加载速度比 load 更快一些
+        如果页面的图片很多的话, 从用户访问到onload触发可能需要较长的时间, 交互效果就不能实现，必然影响用户的体验，此时用 DOMContentLoaded 事件比较合适。 */
+        document.addEventListener("DOMContentLoaded",function(){
+            console.log("DOMContentLoaded 加载速度比 load 更快一些,因为我只要加载完成DOM我就执行,而load需要等到所有的东西加载完成才执行");
+        })
+
+        // 好消息,后面这种DOMContentLoaded几乎不用用到,常用的就是window.onload事件
+    </script>
+</head>
+<body>
+    <div>div内容</div>
+</body>
+</html>

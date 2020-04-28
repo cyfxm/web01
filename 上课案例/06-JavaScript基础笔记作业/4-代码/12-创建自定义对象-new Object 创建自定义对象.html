@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript">
+		// new Object 创建自定义对象
+		/*  语法
+
+			var 变量名 = new Object();
+			变量名.属性1 = 属性值1;
+			变量名.属性2 = 属性值2;
+			变量名.属性3 = 属性值3;
+			变量名.方法名1=匿名函数1;
+			变量名.方法名2=匿名函数2;
+			...
+		*/
+
+		// 定义了一个猫对象
+		// var cat = {};
+		var cat = new Object();
+		
+		// 猫的属性(猫的特性)
+		cat.color    = "white";
+		cat.weight   = "5kg";
+		// 猫的方法(猫的特性)
+		cat.skill = function(){
+			console.log("猫可以抓老鼠~");
+		}
+		cat.cry = function(){
+			console.log("喵~");
+		}
+
+		// 访问对象中的属性  语法:  对象名.属性名  或者  对象['属性名']
+		console.log( cat.color );
+		console.log( cat["weight"] );
+
+		// 访问对象中的方法  语法:  对象名.方法()
+		cat.skill();
+		cat.cry();
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

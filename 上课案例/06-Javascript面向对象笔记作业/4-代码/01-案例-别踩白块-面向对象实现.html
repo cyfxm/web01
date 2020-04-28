@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .score{
+            margin-left: 50px;
+            margin-top: 44px;
+        }
+        .box{
+            width: 400px;
+            height: 400px;
+            margin-left: 50px;
+            margin-top: 50px;
+            border:1px solid blue;
+            /* 父相 */
+            position: relative;
+            /* 溢出隐藏 */
+            overflow: hidden;
+        }
+        .box .game {
+            /* 因为后期我们需要让游戏区下落运动起来,所以需要给游戏区设置绝对定位 */
+            /* 子绝 */
+            position: absolute;
+            top: -50px;
+            left: 0;
+        }
+        .box .game .row div{
+            width: 98px;
+            height: 98px;
+            border:1px solid gray;
+            float: left;
+        }
+        .box .game .row .black{
+            background: black;
+        }
+    </style>
+</head>
+<body>
+    <!-- 1. HTML,CSS完成可视区以及游戏区的布局 -->
+    <!-- 统计分数的文本框  disabled代表禁用属性,不能可以编辑-->
+    <input type="text" class="score" value="0" disabled="disabled">
+    
+    <!-- 外层大盒子  可视区 -->
+    <div class="box">
+        <!-- 内层盒子 游戏区域 也就是需要一直向下运动并且可以点击的区域  -->
+        <div class="game">
+            <div class="row">
+                <div class="black"></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+            <div class="row">
+                <div></div>
+                <div class="black"></div>
+                <div></div>
+                <div></div>
+            </div>
+            <div class="row">
+                <div></div>
+                <div></div>
+                <div class="black"></div>
+                <div></div>
+            </div>
+            <div class="row">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div class="black"></div>
+            </div>
+        </div>
+    </div>
+    <script>
+        // 面向过程的内容怎么转换成面向对象的内容
+        // 面向过程是把功能封装到各个函数中,按步骤调用函数即可
+        // 面向对象是把封装到对象里面,让对象去调用功能
+        // 面相对象有两个比较重要的东西,属性和方法;属性就是特征,可以简单理解为就是变量;方法是功能行为,可以简单理解函数
+        // 思考:别踩白块游戏需要封装什么对象?这个对象具有什么属性和方法
+        
+        // 封装一个别踩白块游戏对象
+        /* 
+            有什么属性?属性就是需要用到什么变量   
+            游戏区对象
+            文本框分数对象
+            游戏是否已经结束的标识符
+            当前分数
+            游戏区下落速度
+         */
+
+        /* 有什么方法?方法就是这个对象有什么功能,可以理解为有什么函数
+        生成行的方法(游戏区到达底部的时候)
+        游戏区动画下落的方法(不断往下移动)
+        判断游戏是否结束的方法(游戏区可以点击,点击黑块怎样,点击白块怎样)
+        初始化游戏区的方法(指挥其他方法如何工作) */
+
+        // 缓存this
+        var that;
+
+        // 定义一个游戏对象
+        function Game(){
+            that = this;
+
+            // 在构造函数中,定义相关属性
+            // 游戏区对象
+            this.game = document.querySelector(".game");
+            // 文本框对象(放置分数的对象)
+            this.score = document.querySelector(".score");
+            // 游戏是否已经结束的标识符  false代表游戏没有结束  true代表游戏已经结束
+            this.gameover = false;
+            // 当前分数
+            this.fenshu = 0;
+            // 游戏区下落速度
+            this.speed = 1;
+            // 因为多个方法需要使用timer这个变量,可以把timer这个变量变成游戏对象中的一个属性
+            this.timer = null;
+
+            // 调用初始化方法
+            this.init();
+        }
+
+        // 定义方法,我们就放在原型对象上
+        // 生成行的方法(游戏区到达底部的时候,生成行,并且随机生成黑块的方法(一行里面有一个是黑块))
+        Game.prototype.createRow = function(){
+            // 得到1 2 3 4随机一个数字
+            var random = Math.floor(Math.random()*4 + 1);
+                    
+            // 创建行
+            var row = document.createElement("div");
+            row.className = "row";
+            for(var i = 1 ; i <= 4; i++ ){
+                // 创建列
+                var div = document.createElement("div");
+                
+                // 设置随机黑块
+                if(i == random){
+                    div.className = "black";
+                }
+                row.appendChild(div);
+            }
+            // 再把创建出来的行添加到游戏区的子元素列表最前面
+            that.game.insertBefore(row, that.game.firstElementChild );
+            // 设置游戏的top值为-100px
+            that.game.style.top = "-100px";
+        }
+
+        // 游戏区动画下落的方法(不断往下移动)
+        Game.prototype.moveDown = function(){
+            // 让div游戏区 动起来 向下运动(不断增加游戏区域的top值,让游戏动起来)
+            this.timer = window.setInterval(function(){
+                // 在定时器里面的this指向window对象
+                that.game.style.top = that.game.offsetTop + that.speed + "px";
+
+                // 当游戏区的top值大于等于0的时候,动态添加一行
+                if(  that.game.offsetTop >=0 ){
+                    // 判断游戏区最后一行上的自定义属性的值是否为null
+                    // 如果是则清除定时器,设置游戏状态为结束,并且弹窗提示用户,最后加上一个return终止函数体后续的代码执行
+                    if( that.game.lastElementChild.getAttribute("pass") == null ){
+                        alert("游戏结束,请重新开始");
+                        clearInterval( that.timer );
+                        that.gameover = true;
+                        return ;
+                    }
+
+                    // 到达底部的时候,我们就去判断当前游戏区中game的行数是否大于等于5,如果大于等于5,我们就删除最后一行
+                    if( that.game.children.length >= 5){
+                        that.game.lastElementChild.remove();
+                    }
+
+                    // 创建一行并且随机出现黑块
+                    that.createRow();
+                }
+            },30)
+
+        }
+        
+        // 判断游戏是否结束的方法(游戏区可以点击,点击黑块怎样,点击白块怎样)
+        Game.prototype.isOver = function(){
+            // 绑定点击事件 在事件中进行判断 点击的是黑块还是白块;如果是黑块就加分变白,白块就游戏结束;
+            this.game.onclick = function(e){
+                e = e || window.event;
+                // 在判断点击黑白块之前,需要先判断游戏是否已经结束,如果结束了我们就弹窗提示用户游戏已经结束
+                if( that.gameover ){// 判断gameover属性值是否为true
+                    alert("游戏已经结束,请重新开始");
+                }else if( e.target.className == "black" ){//如果点击的是黑块就加1分,黑块变白
+                    that.fenshu++;
+                    that.score.value = that.fenshu;
+
+                    if(that.fenshu %5 ==0 ){// 如果分数达到5的倍数,比如5分 10分 15分,每达到一个5分,我们就让速度加快
+                        that.speed++;
+                    }
+
+                    // 黑块变白
+                    e.target.removeAttribute("class");
+
+                    // 如果当前行的黑块被成功点击,我们就给这行添加一个自定义属性pass,并且赋值为true
+                    e.target.parentNode.setAttribute("pass",true);
+
+                }else{
+                    // 如果点击的白块就弹窗提示游戏结束 清除定时器
+                    alert("游戏结束");
+                    window.clearInterval( that.timer );
+                    // 如果点击的白块,除了清除定时器,还需要修改gameover的值为true
+                    that.gameover = true;
+                }
+            }
+        }
+
+        // 初始化游戏区的方法(指挥其他方法如何工作的)
+        Game.prototype.init = function(){
+            console.log("游戏开始了");
+            // 在原型对象中this默认是指向实例对象的
+            this.moveDown();
+            this.isOver();
+        }
+
+        // 构造函数中的代码,只要实例化对象就会执行
+        new Game();
+    </script>
+</body>
+</html>

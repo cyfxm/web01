@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		/*第二步:写页面初始化样式*/
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		li{
+			list-style:none;
+		}
+		/*超链接的美化*/
+		a{
+			text-decoration: none;
+			color:#000000;
+		}
+		a:hover{
+			color:white;
+		}
+
+		/*第三步:写具体样式*/
+		.box{
+			width: 760px;
+			height: 182px;
+			/*margin:0 auto代表上下外边距为0,左右外边距为auto*/
+			margin:0 auto;
+
+			/*小技巧:想要看一个元素的位置,可以设置盒子边框或者背景颜色*/
+			/*border:1px solid red;*/
+		}
+		.box .top{
+			background:url(images/banner_bg.jpg);
+			height: 150px;
+		}
+		.box .bottom{
+			height: 32px;
+			background: url(images/button1_bg.jpg);
+		}
+		.box .bottom ul li{
+			/*左浮动*/
+			float:left;
+			width: 80px;
+			height: 32px;
+			background:url(images/button1.jpg);
+			text-align:center;
+			line-height: 32px;
+			font-size:12px;
+		}
+		/*鼠标移上li以后对应的样式*/
+		.box .bottom ul li:hover{
+			background:url(images/button2.jpg);
+		}
+		/*鼠标移上li以后,li里面的a对应的样式*/
+		.box .bottom ul li:hover a{
+			color:white;
+		}
+	</style>
+</head>
+<body>
+	<!-- 第一步:书写HTML结构 -->
+	<div class="box">
+		<!-- 上部分 -->
+		<div class="top">
+			<img src="images/banner1.jpg"/>
+		</div>
+
+		<!-- 下部分 -->
+		<div class="bottom">
+			<ul>
+				<li><a href="#">网站首页</a></li>
+				<li><a href="#">最新新闻</a></li>
+				<li><a href="#">联系我们</a></li>
+				<li><a href="#">关于我们</a></li>
+				<li><a href="#">案例展示</a></li>
+				<li><a href="#">产品中心</a></li>
+			</ul>
+		</div>
+	</div>
+</body>
+</html>

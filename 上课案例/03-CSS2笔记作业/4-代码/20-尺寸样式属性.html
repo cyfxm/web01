@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		/*在css样式的取值中,如果是0px的时候,就可以省略px,其他数值不可以省略px单位*/
+
+		/*width可以设置元素宽度,取值数值带px单位 或者 百分比(相对父元素)*/
+		/*默认div元素的宽度是100%,也就是独占一行*/
+
+		/*height可以设置元素高度,取值数值带px单位或者 百分比(相对父元素)*/
+		/*默认元素的高度由内容决定*/
+
+		.one{
+			/*设置背景颜色*/
+			background-color:skyblue;
+			width:100px;
+			height:100px;
+		}
+
+		.two{
+			background-color:pink;
+			width:50%;
+			/*height属性也可以使用百分比,不过如果这个元素的父元素是body,百分比默认是无效*/
+			height:50%;
+		}
+
+		.father{
+			width: 500px;
+			height: 500px;
+			background: orange;
+		}
+		.son{
+			background: lightgreen;
+			width:50%;
+			/*如果父元素不是body,height使用百分比是可以生效的*/
+			height:100%;
+		}
+	</style>
+</head>
+<body>
+	<div class="one">div1</div>
+	<br/>
+
+	<div class="two">div2</div>
+	<br/>
+	
+	<!-- .father>.son -->
+	<div class="father">
+		<div class="son">子元素</div>
+	</div>
+</body>
+</html>

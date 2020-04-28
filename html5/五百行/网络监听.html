@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        p {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+
+    <p id="message">
+
+    </p>
+
+    <script>
+        var message_element = document.querySelector("#message");
+        window.addEventListener('online', function () {
+            console.log("online")
+            // 提示
+            message_element.innerHTML = "网路连接上了.."
+
+        })
+
+        // 网络断开
+        window.addEventListener('offline', function () {
+            console.log("offline")
+            // 提示
+            message_element.innerHTML = "网路跑到火星了.."
+        })
+    </script>
+</body>
+
+</html>

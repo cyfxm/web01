@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+
+    <script>
+        // 目标,实现每个div只有被点击一次
+
+        // 删除事件（解绑事件）,解除元素上所有绑定的指定的事件
+        
+        // 获取所有div标签
+        var divs = document.getElementsByTagName("div");
+
+        /* 传统注册方式
+        eventTarget.on事件名称 = null;
+        比如:eventTarget.onclick = null; */
+
+        divs[0].onclick = function(){
+            alert("我是第一个div");
+            // 用disabled禁用div是没有效果的
+            // divs[0].disabled = true;
+
+            // 传统方式解绑  语法:    对象.on事件类名 = null
+            divs[0].onclick = null;
+        }
+        
+        /* 方法监听注册方式
+        ① eventTarget.removeEventListener(type,listener[,useCapture]);
+        ② eventTarget.detachEvent(eventNameWithOn,callback); */
+
+        // 给第二个div使用监听的方式绑定事件,需要后续需要解绑,请使用有名函数
+        divs[1].addEventListener("click", fn1 );
+        
+        function fn1(){
+            alert("我是第二个div");
+
+            //语法 eventTarget.removeEventListener(type,listener[,useCapture])
+            // 如果要解绑监听方法绑定的事件,需要是有名函数
+            divs[1].removeEventListener("click" , fn1 );
+        }
+
+        // 给第三个div使用监听的方式绑定事件,需要后续需要解绑,请使用有名函数(这个我们使用attachEvent方法绑定,测试IE9以下的浏览器)
+        /* divs[2].attachEvent("onclick", fn2 );
+
+        function fn2(){
+            alert("我是第三个div,我用于测试IE9以下的浏览器");
+            // 解绑语法 eventTarget.detachEvent(eventNameWithOn,callback); 
+            divs[2].detachEvent( "onclick", fn2);
+        } */
+
+        
+    </script>
+</body>
+</html>

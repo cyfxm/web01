@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>  径向渐变 </title>
+    <style>
+        .box {
+            width: 150px;
+            height: 150px;
+            border: 1px solid #ccc;
+            margin-bottom: 10px;
+        }
+        /* 参数1  */
+        .box1 {
+            background-image: radial-gradient(
+                circle,
+                red ,
+                green
+            );
+        }
+
+        .box2 {
+            background-image: radial-gradient(
+                ellipse,
+                red ,
+                green
+            );
+        }
+
+        /* 
+        closest-side      最近的边
+        farthest-side     最远的边
+        closest-corner    最近的角
+        farthest-corner   最远的角*/
+        .box3 {
+            background-image: radial-gradient(
+                closest-corner
+                at 50px 50px,
+                red,
+                green
+            );
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="box box1"></div>
+    <div class="box box2"></div>
+    <div class="box box3"></div>
+
+
+</body>
+</html>

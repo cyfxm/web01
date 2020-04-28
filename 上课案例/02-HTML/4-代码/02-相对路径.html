@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<h2>①网页跟图片同一个目录下  语法:   直接图片名称</h2>
+	<img src="P_021.jpg" />
+	<!-- ./   代表当前路径,一般我们省略不写 -->
+	<img src="./P_021.jpg" />
+
+	<h2>②图片在网页的下级目录 (这种用的最多) 语法:    下一级目录名称/图片名称</h2> 
+	<img src="images/P_039.jpg" />
+	<img src="tupian/P_037.jpg" />
+
+	<h2>③图片在网页的上级目录  语法:    ../图片名称</h2>
+	<!-- ../ 代表上一级 -->
+	<img src="../P_030.jpg" />
+
+	<!-- 小结:相对路径有三种,我们一般用的最多是第二种,会把所有的图片,都放在某个目录下,比如images下 -->
+
+	<h2>如果是上一级的某个目录下,应该如何写路径</h2>
+	<img src="../abc/P_033.jpg" />
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript">
+		// 变量的命名规则和规范,指的是变量名命名的时候该遵循哪些规则和规范
+		// 规则就是必须遵守,规范建议遵守
+
+		/*规则 - 必须遵守的，不遵守会报错
+		由字母(A~Za~z)、数字(0~9)、下划线(_)、$符号组成，不能以数字开头
+
+		不能是JS中关键字和保留字，例如：for、while等(其中变量名为name需要注意,不会错,但是不推荐使用,因为name是window对象下的一个属性,设置的属性值会被加上双引号,成为字符串类型)
+		
+		区分大小写
+		*/
+
+		// 不允许使用数字开头的变量名
+		// var 1abc;// 报错
+
+		var abc$AKL87;
+		var $user;
+
+		// 不能是JS关键字
+		// var for;
+
+		// 不能是保留字
+		// var const;
+
+
+		// 特别需要注意的是,变量名为name需要注意,不会错,但是不推荐使用,因为name是window对象下的一个属性,设置的属性值会被加上双引号,成为字符串类型
+
+		// 因为name是window对象下一个属性,设置的属性值会被加上双引号
+		// 也就是不推荐大家使用name这个变量名
+		var name = 123;
+		console.log( name );
+		// 用typeof看一下变量的数据类型
+		console.log( typeof name );// string
+
+		var username = 123;
+		console.log( username );
+		// 用typeof看一下变量的数据类型
+		console.log( typeof username );// number
+
+		var AGE = 23;
+		console.log(AGE);
+		// console.log(age);// 大小写敏感
+
+
+
+		/*规范 - 建议遵守的，不遵守不会报错
+		变量名需要有意义,希望大家在声明变量的时候变量名要做到"见名知意"  
+		变量名可以由多个英文单词组成   建议使用下划线连接法 或者是驼峰法  
+		下划线连接法  每一个单词之间使用下划线进行连接  比如:get_user_name 
+		驼峰法   第一个英文单词的首字母小写 其它的英文单词首字母大写   比如:getUserName */
+
+		var get_user_name = "zhangsan";
+		var getUserName = "李四";
+		console.log(get_user_name,getUserName);
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

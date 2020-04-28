@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript">
+		// 如果函数体中没有return值,那么函数的调用者得到的结果是"undefind"
+		// return了什么,函数的调用者就得到什么
+		function fn(a,b){
+			var result = a+b;
+		}
+
+		var jieguo = fn(10,20);
+		console.log( jieguo );// undefined,因为函数体中没有return返回东西
+
+		console.log("");
+
+		function fn2(a,b){
+			var result = a+b;
+			return 100;
+		}
+		var jieguo2 = fn2(10,20);
+		console.log( jieguo2 );// 100,因为函数体中返回的是100
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <script>
+        function ajax(option){
+            var type = option.type;
+            var url = option.url;
+            var async = option.async;
+            var data = option.data;
+            var dataStr = "";
+
+            if(data !=null){
+                for(var key in data){
+                    dataStr +=key+ "="+ data[key] + "&"
+                }
+                dataStr = dataStr.slice(0,-1);
+            }
+            var xhr = null;
+            if(window.XMLHttpRequest){
+                xhr = new XMLHttpRequest();
+            }else{
+                xhr = new ActiveXObject('Microsoft.XMLHTTP');
+            }
+            if(type == 'get'){
+                url = url + "?" + dataStr
+            }
+            xhr.open(type,url,async);
+            if(type == 'post'){
+                xhr.setRequestHeader('Content-Type','application/x-www.form-urlendcode');
+            }
+            xhr.send(type == 'get' ? null : dataStr);
+            xhr.onreadystatechange = function(){
+                if(xhr.readyState == 4){
+                    if(xhr.status == 200){
+                        var contentType = xhr.getResponseHeader('Content-Type');
+                        var res = "";
+                        if(contentType.indexOf('json') > -1){
+                            console.log(contentTyoe,'文档类型json');
+                            res = JSON.parse(xhr.responseText);
+                        }else if(contentType.indexOf('xml') > -1){
+                            console.log(contentType,'文档类型xml');
+                            res = xhr.responseXML;
+                        }else{
+                            console.log(contenteType,'文档类型text');
+                            res = xhr.responseText;
+                            console.log(res);
+                        }
+                        if(option.success) option.success(res);
+                    }else{
+                        if(option.error) option.error("请求失败");
+                    }
+                }
+            }
+        }
+
+        ajax({
+            type:"get",
+            url:"./blue.txt",
+            async:true,
+            success:function(res){
+                console.log(res,"text");
+            },
+            error:function(err){
+                console.log(err)
+            }
+        })
+    </script>
+</body>
+</html>

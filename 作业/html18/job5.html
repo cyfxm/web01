@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript">
+		// 从以下学员名单中随机选出4个学员：
+
+		// var newArr = [];
+		// function getRandom(arr){
+		// 	arr.sort(function(a,b){
+		// 		var num = Math.random() - 0.5; 
+		// 		return num;
+		// 	});
+		// 	return arr;
+		// }
+	
+		// var arr1 = ["鹿晗","王俊凯","蔡徐坤","彭于晏","周杰伦","刘德华","赵本山"];
+		// console.log(getRandom(arr1));
+
+
+
+		var arr = ["鹿晗","王俊凯","蔡徐坤","彭于晏","周杰伦","刘德华","赵本山"];
+			function getRandom(min,max){
+				return Math.floor(Math.random()*(max-min+1) + min)
+			}
+			var newArr = [];
+			for(var i = 1;i<arr.length;i++){
+				var index = getRandom(0,arr.length-1);
+				newArr.push(arr[index]);
+				arr.splice(index,1);
+			}
+			console.log(arr);
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

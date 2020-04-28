@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript">
+		// 鸡兔同笼 有若干只鸡兔在同一个笼子里，从上面数，有35个头，从下面数，有94只脚。问笼中各有多少只鸡和兔？
+
+		// 假设兔子数量未知 可取范围是0~35 我们可以使用for循环模拟
+		for(var tuzi = 0;tuzi<=35; tuzi++){
+			// 鸡的数量等于35-兔子的数量
+			var ji = 35 - tuzi;
+			// 一只兔子有4条腿  一只鸡2条腿
+			if(tuzi*4+ji*2 == 94){
+				document.write("兔子有:"+tuzi+"只<br/>鸡有:"+ji+"只");
+			}
+		}
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

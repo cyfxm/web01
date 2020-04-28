@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>面向过程 Tab</title>
+    <link rel="stylesheet" href="./styles/tab.css">
+    <link rel="stylesheet" href="./styles/style.css">
+</head>
+
+<body>
+
+    <main>
+        <h4>
+            Js 面向过程 动态添加标签页
+        </h4>
+        <div class="tabsbox" id="tab">
+            <!-- tab 标签 -->
+            <nav class="fisrstnav">
+                <ul>
+                    <li class="liactive"><span>测试1</span><span class="iconfont icon-guanbi"></span></li>
+                    <li><span>测试2</span><span class="iconfont icon-guanbi"></span></li>
+                    <li><span>测试3</span><span class="iconfont icon-guanbi"></span></li>
+                </ul>
+                <div class="tabadd">
+                    <span>+</span>
+                </div>
+            </nav>
+
+            <!-- tab 内容 -->
+            <div class="tabscon">
+                <section class="conactive">测试1</section>
+                <section>测试2</section>
+                <section>测试3</section>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // 功能1 点击 tab栏,可以切换效果
+        // 获取tab栏对应的3个li对象
+        var lis = document.querySelectorAll("#tab .fisrstnav ul li");
+        // 获取所有section对象
+        var sections = document.querySelectorAll(".tabscon section");
+
+        // 功能2: 点击 + 号, 可以添加 tab 项和内容项
+        // 获取+号对象
+        var tabadd = document.querySelector(".tabadd");
+        // 获取li的父元素ul
+        var ul = document.querySelector(".fisrstnav ul");
+        // 获取section的父元素
+        var tabscon = document.querySelector(".tabscon");
+        
+        // 因为再这样写下来,代码越来越多,越来越乱,那么这个时候,可以把一些常用的功能封装成函数
+        // 比如 清除所有li和section类名的功能
+        function clearClass(){
+            for(var j=0;j<lis.length;j++){
+                lis[j].removeAttribute("class");
+                sections[j].removeAttribute("class");
+            }
+        }
+
+        // 更新节点,获取当前最新所有li和所有section元素
+        function updateNode(){
+            // 获取当前所有tab栏中li对象
+            lis = document.querySelectorAll("#tab .fisrstnav ul li");
+            // 获取当前所有section对象
+            sections = document.querySelectorAll(".tabscon section");
+        }
+
+        // 因为我们一打开页面就需要给页面各种元素绑定相应的事件,比如li绑定点击切换功能,+号绑定点击添加tab等等
+        // init初始化给元素绑定事件
+        function init(){
+            // 获取最近节点
+            updateNode();
+
+            // 循环给每个元素绑定事件
+            for(var i=0;i<lis.length;i++){
+                // 设置自定义属性
+                lis[i].setAttribute("data-index" , i);
+
+                // 给li绑定鼠标单击事件  可以给对象的事件驱动程序指定一个有名函数
+                lis[i].onclick = toggleTab;
+            }
+
+            // 因为+号只需要给一个元素绑定事件
+            tabadd.onclick = addTab;
+        }
+
+        // 切换选项卡的功能
+        function toggleTab(){
+            clearClass();
+
+            // 单独设置当前被点击的li的类名
+            this.className = "liactive";
+            
+            // 单独设置当前被点击的li对应的section显示
+            var index = this.getAttribute("data-index");
+            sections[index].className = "conactive";
+        }
+    
+        // 添加选项卡的功能
+        function addTab(){
+            // 先清除所有的li和section标签的类名
+            clearClass();
+
+            // 创建一个HTML元素的字符串
+            var li = '<li class="liactive"><span>新选项卡</span><span class="iconfont icon-guanbi"></span></li>';
+            // 使用insertAdjacentHTML把HTML字符串当做节点添加到指定父元素中
+            ul.insertAdjacentHTML("beforeend",li);
+
+            var section = '<section class="conactive">测试 '+Math.random()+'</section>';
+            tabscon.insertAdjacentHTML("beforeend",section);
+
+            // 调用初始化函数,实现各种元素的绑定事件
+            init();
+        }
+    
+        // 调用初始函数,给整个页面各种元素绑定事件
+        init();
+    </script>
+</body>
+
+</html>

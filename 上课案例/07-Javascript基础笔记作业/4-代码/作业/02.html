@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript">
+		// 2.用new Object()方式,创建一个按钮对象,宽,高,背景颜色,可以鼠标点击
+		var button = new Object();
+		button.width = "100px";
+		button.height = "100px";
+		button.bgcolor = "pink";
+		button.dian = function(){
+			console.log("我是"+this.width+"宽度,"+this.height+"高度,"+this.bgcolor+"背景颜色的按钮,我可以被点击");
+		}
+
+		button.dian();
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

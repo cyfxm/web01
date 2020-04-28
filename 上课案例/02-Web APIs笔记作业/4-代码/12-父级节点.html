@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="demo">
+        <div class="box">
+            <span class="erweima">二维码</span>
+        </div>
+     </div>
+
+     <script>
+        // 获取.erweima对象
+        var erweima = document.querySelector(".erweima");
+
+        // 获取父级节点(获取父元素)  大家可以简单理解为节点就是元素
+        // node.parentNode
+        // parentNode属性可返回某节点的父节点,注意是最近的一个父节点
+        // 如果指定的节点没有父节点,则返回null
+        console.log( erweima.parentNode );// .box
+        console.log( erweima.parentNode.parentNode );// .demo
+        console.log( erweima.parentNode.parentNode.parentNode );// body
+        console.log("");
+
+        // 输出HTML元素
+        console.log( document.documentElement );// HTML
+        console.log( document.documentElement.parentNode );// document
+        // 如果指定的节点没有父节点,则返回null
+        console.log( document.documentElement.parentNode.parentNode );// null
+     </script>
+</body>
+</html>

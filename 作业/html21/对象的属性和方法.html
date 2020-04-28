@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            width: 200px;
+            height: 200px;
+            background: pink;
+        }
+    </style>
+</head>
+<body>
+    <div>123</div>
+    <a href="http://www.baidu.com">百度</a>
+
+    <form action="http://www.baidu.com">
+        <input type="submit" value="提交" name="sub">
+    </form>
+    <script>
+        var div = document.getElementsByTagName("div")[0];
+        div.onclick = function(e){
+            e = e || window.event;
+            console.log(e);
+            console.log("");
+
+            console.log(e.target);
+            console.log(e.srcElement);
+            console.log(this);
+            
+        }
+    </script>
+    <script>
+        var div  =document.querySelector("div");
+        div.onclick = function(e){
+            e = e || window.event;
+            console.log(e.type);
+            console.log("");
+        }
+        div.onmouseover = function(e){
+            e = e || window.event;
+            console.log(e.type);
+            console.log("");
+        }
+        div.onmouseout = function(e){
+            e = e || window.event;
+            console.log(e.type);
+            console.log("");
+        }
+
+        // 阻止默认行为
+        var a = document.querySelector("a");
+        a.onclick = function(e){
+            e = e || window.event;
+            e.preventDefault();
+        }
+
+        // 阻止表单提交
+        var input = document.querySelector("input");
+        input.onclick = function(e){
+            e = e || window.event;
+            e.preventDefault();
+        }
+    </script>
+</body>
+</html>

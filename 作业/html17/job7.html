@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript">
+		// 随机生成16进制的颜色,并输出在控制台中,每次刷新,输出的16进制颜色值都不相同
+		
+		function getColor() {
+     		 var str = "#";
+     		 var arr = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "a", "b", "c", "d", "e", "f"];
+     		 for (var i = 0; i < 6; i++) {
+        		var num = parseInt(Math.random() * 16);
+        		str += arr[num];
+      		}
+			console.log(str);
+		}
+		getColor();
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

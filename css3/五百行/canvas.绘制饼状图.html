@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        canvas{
+            background-color: #ccc;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="canvas">不支持canvas标签</canvas>
+
+    <script>
+        var canvas = document.querySelector("#canvas");
+        canvas.width = 800;
+        canvas.height = 800;
+        var ctx = canvas.getContext("2d");
+        var data = [
+            { "date": "一月份", "persent": "0.3", "color": "red" },
+            { "date": "二月份", "persent": "0.2", "color": "green" },
+            { "date": "三月份", "persent": "0.05", "color": "blue" },
+            { "date": "四月份", "persent": "0.35", "color": "orange" },
+            { "date": "五月份", "persent": "0.1", "color": "purple" }
+        ]
+        var point = {x:300,y:300}
+        var rad = 200;
+
+        function drawCirlce(start,end,color){
+            ctx.beginPath();
+            ctx.moveTo(point.x,point.y);
+            ctx.arc(
+                point.x,
+                point.y,
+                rad,
+                start,
+                end,
+                false
+            )
+            ctx.fillStyle = color;
+            ctx.closePath();
+            ctx.fill();
+        }
+
+        var startAngle = 0;
+        var endAngle = 360 * data[0].persent * Math.PI / 180;
+        drawCirlce(
+            startAngle,
+            endAngle,
+            data[0].color
+        )
+
+        startAngle = endAngle
+        endAngle = startAngle + 360 * data[1].persent * Math.PI / 180;
+        drawCirlce(
+            startAngle,
+            endAngle,
+            data[1].color
+        )
+
+        startAngle = endAngle
+        endAngle = startAngle + 360 * data[2].persent * Math.PI / 180;
+        drawCirlce(
+            startAngle,
+            endAngle,
+            data[2].color
+        )
+
+        startAngle = endAngle
+        endAngle = startAngle + 360 * data[3].persent * Math.PI / 180;
+        drawCirlce(
+            startAngle,
+            endAngle,
+            data[3].color
+        )
+
+        startAngle = endAngle
+        endAngle = startAngle + 360 * data[4].persent * Math.PI / 180;
+        drawCirlce(
+            startAngle,
+            endAngle,
+            data[4].color
+        )
+    </script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <script>
+        var bool = false;
+        function ajax(option){
+            if(bool){
+                option.success("服务器响应的数据")
+            }else{
+                option.error("请求资源失败")
+            }
+        }
+
+        ajax({
+            success:function(res){
+                console.log(res);
+                
+            },
+            error:function(err){
+                console.log(err);
+                
+            }
+        })
+
+        var obj  = {num1:100,num2:99};
+        console.log(obj);
+        var str = "";
+        for(var k in obj){
+            str == k + "=" + obj[k] + "&"
+        }
+        console.log(str);
+        str = str.slice(0,-1);
+        console.log(str);
+        
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.box{
+			width: 224px;
+			height: 68px;
+			background: #ff0066;
+			margin:100px auto;
+			font-size:30px;
+			color:white;
+			text-align:center;
+			line-height: 68px;
+			/*父相*/
+			position: relative;
+		}
+		.box .left{
+			/*css实现三角形的步骤*/
+			/*第一步:设置宽度高度为0;*/
+			width: 0;
+			height: 0;
+			/*第二步:设置4个方向的边框*/
+			border:34px solid #ff0066;
+			/*第三步:单独设置某边边框*/
+			border-left:34px solid white;
+			float: left;
+			margin-top: 16px;
+			margin-left: -56px;
+		}
+		.box .right{
+			/*css实现三角形的步骤*/
+			/*第一步:设置宽度高度为0;*/
+			width: 0;
+			height: 0;
+			/*第二步:设置4个方向的边框*/
+			border:34px solid #ff0066;
+			/*第三步:单独设置某边边框*/
+			border-right:34px solid white;
+			float: right;
+			margin-top: 16px;
+			margin-right: -56px;
+		}
+		.box .left_arrow{
+			width: 0;
+			height: 0;
+			border:8px solid rgba(0,0,0,0.5);
+			border-left:8px solid transparent;
+			border-bottom:8px solid transparent;
+			/*子绝*/
+			position: absolute;
+			bottom: -16px;
+    		left: -4px;
+		}
+		.box .right_arrow{
+			width: 0;
+			height: 0;
+			border:8px solid rgba(0,0,0,0.5);
+			border-right:8px solid transparent;
+			border-bottom:8px solid transparent;
+			/*子绝*/
+			position: absolute;
+			bottom: -16px;
+    		right: -4px;
+		}
+	</style>
+</head>
+<body>
+	<div class="box">
+		金卡会员
+		<!-- 左边部分 -->
+		<div class="left"></div>
+		<!-- 右边部分 -->
+		<div class="right"></div>
+
+		<!-- 左边三角形 -->
+		<div class="left_arrow"></div>
+
+		<!-- 右边三角形 -->
+		<div class="right_arrow"></div>
+	</div>
+</body>
+</html>

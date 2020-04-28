@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>作业</title>
+    <style>
+        body {
+            background-color: #ccc;
+        }
+        .wrapper {
+            width: 408px;
+            margin: 150px auto;
+            background-color: seagreen;
+        }
+        .wrapper ul {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+        .wrapper ul li {
+            float: left;
+        }
+
+        .clearfix::after {
+            content: "";
+            display: block;
+            clear: both;
+        }
+
+        .wrapper ul li:nth-of-type(1) {
+            transform: translate(-100px ,100px) rotate(35deg);
+        }
+        .wrapper:hover ul li:nth-of-type(1){
+            transform: translate(0px ,0px) rotate(0deg);
+        }
+
+        .wrapper ul li:nth-of-type(2) {
+            transform: translate(100px ,-100px) rotate(35deg);
+        }
+        .wrapper:hover ul li:nth-of-type(2){
+            transform: translate(0px ,0px) rotate(0deg);
+        }
+
+        .wrapper ul li:nth-of-type(3) {
+            transform: translate(100px ,-100px) rotate(35deg);
+        }
+        .wrapper:hover ul li:nth-of-type(3){
+            transform: translate(0px ,0px) rotate(0deg);
+        }
+
+        .wrapper ul li:nth-of-type(4) {
+            transform: translate(-100px ,200px) rotate(35deg);
+        }
+        .wrapper:hover ul li:nth-of-type(4){
+            transform: translate(0px ,0px) rotate(0deg);
+        }
+
+        .wrapper ul li:nth-of-type(5) {
+            transform: translate(-100px ,400px) rotate(35deg);
+        }
+        .wrapper:hover ul li:nth-of-type(5){
+            transform: translate(0px ,0px) rotate(0deg);
+        }
+
+        .wrapper ul li:nth-of-type(6) {
+            transform: translate(-100px ,100px) rotate(35deg);
+        }
+        .wrapper:hover ul li:nth-of-type(6){
+            transform: translate(0px ,0px) rotate(0deg);
+        }
+
+        .wrapper ul li:nth-of-type(7) {
+            transform: translate(-100px ,100px) rotate(35deg);
+        }
+        .wrapper:hover ul li:nth-of-type(7){
+            transform: translate(0px ,0px) rotate(0deg);
+        }
+
+        .wrapper ul li:nth-of-type(8) {
+            transform: translate(400px ,-100px) rotate(35deg);
+        }
+        .wrapper:hover ul li:nth-of-type(8){
+            transform: translate(0px ,0px) rotate(0deg);
+        }
+
+        .wrapper ul li:nth-of-type(9) {
+            transform: translate(-100px ,-700px) rotate(35deg);
+        }
+        .wrapper:hover ul li:nth-of-type(9){
+            transform: translate(0px ,0px) rotate(0deg);
+        }
+    </style>
+</head>
+<body>
+    <!-- 
+        1、打乱图片的位置
+        2、鼠标移入绿色区域，拼成一个盾牌
+        
+        知识点：转换  ， 过渡 
+
+     -->
+    <div class="wrapper">
+        <ul class="clearfix">
+            <li><img src="./images/shield_1_01.png" alt=""></li>
+            <li><img src="./images/shield_1_02.png" alt=""></li>
+            <li><img src="./images/shield_1_03.png" alt=""></li>
+
+            <li><img src="./images/shield_1_04.png" alt=""></li>
+            <li><img src="./images/shield_1_05.png" alt=""></li>
+            <li><img src="./images/shield_1_06.png" alt=""></li>
+
+            <li><img src="./images/shield_1_07.png" alt=""></li>
+            <li><img src="./images/shield_1_08.png" alt=""></li>
+            <li><img src="./images/shield_1_09.png" alt=""></li>
+        </ul>
+    </div>
+</body>
+</html>

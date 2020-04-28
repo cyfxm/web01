@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript">
+		// 用构造函数方式,创建一个车的对象,有重量,颜色,牌子,可以载人,拉货
+		function Car(username,weight,color){
+			this.username = username;
+			this.weight = weight;
+			this.color = color;
+
+			this.record = function(){
+				console.log(this.username+"小车载人中....");
+			}
+			this.pull = function(){
+				console.log(this.username+"小车拉货中....");
+			}
+
+		}
+
+		var car = new Car("宝马","1000kg","白色");
+		// console.log(car);
+		console.log(car.username);
+		console.log(car.weight);
+		console.log(car.color);
+		car.record();
+		car.pull();
+
+		console.log(" ");
+
+		var car = new Car("奔驰","2000kg","米色");
+		console.log(car.username);
+		console.log(car.weight);
+		console.log(car.color);
+		car.record();
+		car.pull();
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

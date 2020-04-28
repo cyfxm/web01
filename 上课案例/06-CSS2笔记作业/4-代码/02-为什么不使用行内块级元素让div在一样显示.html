@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		div{
+			width: 100px;
+			height: 100px;
+
+			/*我们使用display:inline-block转换元素,也可以让元素一行排列,但是他们div之间会"有间隙"*/
+			display: inline-block;
+			
+			/*float: left;*/
+			/*float:left左浮动,可以让块元素本身从上到下排列变成从左到右排列,并且他们div之间"没有间隙"*/
+		}
+	</style>
+</head>
+<body>
+	<div style="background:red">one</div>
+	<div style="background:blue">two</div>
+	<div style="background:yellow">three</div>
+	<div style="background:green">four</div>
+	<div style="background:pink">five</div>
+</body>
+</html>

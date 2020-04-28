@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>百度注册</title>
+</head>
+<body>
+	<form action="index.php" method="post">
+		<p>
+			<label>
+				<b>用户名</b>
+				<input type="text" placeholder="请设置用户名" name='username'>
+			</label>
+		</p>
+		<p>
+			<b>性　别</b>
+			<label><input type="radio" name="sex" value='man'>男</label>
+			<label><input type="radio" name="sex" value='woman' checked="checked">女</label>
+		</p>
+		<p>
+			<label>
+				<b>手机号</b>
+				<input type="text" placeholder="可用于登录和找回密码" name='userphone'>
+			</label>
+		</p>
+		<p>
+			<label>
+				<b>密　码</b>
+				<input type="password" placeholder="请设置登录密码" name='userpass'>
+			</label>
+		</p>
+		<p>
+			<label>
+				<b>验证码</b>
+				<input type="text" placeholder="请输入验证码" name='captcha'>
+			</label>
+			<input type="button" value="获取短信验证码">
+		</p>
+		<p>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			<label>
+				<input type="checkbox" name='isAgree' value='agree' checked="checked">
+				<font size='2'>阅读并接受<a href="#">百度用户协议</a>及<a href="#">百度隐私权保护声明</a></font>
+			</label>
+		</p>
+		<p>
+			<input type="image" src='images/btn_reg.png'>
+		</p>
+	</form>
+</body>
+</html>

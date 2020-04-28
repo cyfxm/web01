@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript">
+		// 为什么要使用好函数
+	 	// 我们js 里面，也有非常多的相同代码，可能需要大量重复使用。 此时我们可以利用函数。
+		// 为了解决代码的重用！
+		// 减少代码量。
+		
+		 function fn(m){
+		 	var str = '<table border="1" rules="all">';
+				for(var j=1;j<=m;j++){
+					str += '<tr>';
+					for(var i=1;i<=j;i++){
+						str += '<td>'+i+' &times; '+j+' = '+i*j+'</td>';
+					}
+					str += '</tr>';
+				}
+			 	str += '</table>';
+
+			 document.write( str );
+		 }
+
+		 fn(10);
+		 fn(5);
+		 fn(20);
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

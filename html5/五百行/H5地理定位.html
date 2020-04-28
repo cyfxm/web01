@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .map {
+            width: 300px;
+            margin: 100px auto;
+
+        }
+        .map > div {
+            height: 50px;
+            line-height: 50px;
+            border: 1px solid #ccc;
+            margin: 10px auto;
+        }
+        .map > div span {
+            color: blue;
+        }
+
+        .message {
+            width: 300px;
+            height: 50px;
+            line-height: 50px;
+            margin: 0 auto;
+            background-color: rgba(255, 0, 0, 0.5);
+            color: white;
+            text-align: center;
+            font-size: 14px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="map">
+        <div> 纬度: <span id="lat"> </span> </div>
+        <div> 经度: <span id="lon"> </span> </div>
+    </div>
+
+    <div class="message" ></div>
+
+    <script>
+        if(window.navigator.geolocation){
+            window.navigator.geolocation.getCurrentPosition(success,error);
+        }else{
+            console.log("当前浏览器不支持h5地理定位");
+            
+        }
+
+        var lat = document.querySelector('#lat');
+        var lon = document.querySelector('#lon');
+        var message = document.querySelector(".message");
+
+        function success(postion){
+            console.log("success");
+            var weidu = postion.coords.latitude;
+            var jingdu = postion.coords.longitude;
+
+            lat.innerHTML = weidu;
+            lon.innerHTML = jingdu;
+            
+        }
+
+        function error(err){
+            message.style.display = "block";
+
+            var code  =err.code;
+            switch(code){
+                case 0 : 
+                        message.innerHTML  = "不包括其他错误编号中的错误";
+                    break ;
+                case 1 : 
+                        message.innerHTML  = "用户拒绝浏览器获取位置信息";
+                    break;
+                case 2 : 
+                        message.innerHTML  = "尝试获取用户信息，但失败了";
+                   break;
+                case 3 : 
+                        message.innerHTML  = "设置了timeout值，获取位置超时了";
+                   break;
+            }
+        }
+    </script>
+</body>
+</html>

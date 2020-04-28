@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button class="btn1">按钮1</button>
+
+    <div class="box1">
+        <button>box1盒子里面的按钮1</button>
+        <button>box1盒子里面的按钮2</button>
+        <button>box1盒子里面的按钮3</button>
+    </div>
+
+    <div class="box2">
+        <button>box2盒子里面的按钮1</button>
+        <button>box2盒子里面的按钮2</button>
+        <button>box2盒子里面的按钮3</button>
+    </div>
+
+    <script>
+        /* bind方法
+        bind() 方法不会调用函数,但是能改变函数内部this 指向
+        返回的是原函数改变this之后产生的新函数
+        如果只是想改变 this 指向，并且不想调用这个函数的时候，可以使用bind
+        应用场景: 不调用函数,但是还想改变this指向 */
+
+        /* 语法:
+        函数.bind(thisArg, arg1, arg2, ...)
+        thisArg：在 fun 函数运行时指定的 this 值
+        arg1，arg2：传递的其他参数
+        ​
+        返回由指定的 this 值和初始化参数改造的"原函数拷贝"
+        因此当我们只是想改变 this 指向，并且不想调用这个函数的时候，可以使用 bind */
+
+        function fn(x , y ){
+            console.log( this );
+            console.log( x );
+            console.log( y );
+            console.log( "" );
+        }
+        fn(10,20);
+
+        var obj = {
+            uname: "李四",
+            age: 24
+        };
+
+        // 函数.bind(thisArg, arg1, arg2, ...)
+        // bind不会调用函数,可以改变函数体中的this指向,返回值是一个改变this以后的新函数
+        var f = fn.bind( obj, 30, 40 );
+        console.log( f );
+        f();
+
+        // 比如我们有一个按钮,当我们点击了之后,就禁用这个按钮,3秒钟之后开启这个按钮
+        var btn1 = document.querySelector(".btn1");
+        btn1.onclick = function(){
+            // 禁用按钮
+            this.disabled = true;
+            setTimeout(function(){
+                // 重新开始按钮
+                btn1.disabled = false;
+            },3000)
+        }
+
+        // 如果有多个按钮,想实现点击之后,就禁用对应的按钮,3秒以后,再开启这个按钮
+        // 第一个方式解决,使用缓存this
+        var box1Btns = document.querySelectorAll(".box1 button");
+        for(var i=0;i<box1Btns.length;i++){
+            box1Btns[i].onclick = function(){
+                // 禁用按钮
+                this.disabled = true;
+                // 缓存this
+                var that = this;
+
+                setTimeout(function(){
+                    // console.log( that );
+                    
+                    // 重新开始按钮
+                    // box1Btns[i].disabled = false;
+
+                    that.disabled = false;
+                },3000)
+            }
+        }
+
+        // 如果有多个按钮,想实现点击之后,就禁用对应的按钮,3秒以后,再开启这个按钮
+        // 第二个方式解决,使用bind方法改变setTimeout中匿名函数里面this指向
+        var box2Btns = document.querySelectorAll(".box2 button");
+        for(var i=0;i<box2Btns.length;i++){
+            box2Btns[i].onclick = function(){
+                // 禁用按钮
+                this.disabled = true;
+
+                // 使用bind把延时器外边的this传进延时器的匿名函数中,改变了匿名函数中this的指向
+                // 为什么要选中bind,而不call或者apply因为bind不会立即调用函数
+                setTimeout( function(){
+                    this.disabled = false;
+                }.bind( this ),   3000)
+            }
+        }
+    </script>
+</body>
+</html>

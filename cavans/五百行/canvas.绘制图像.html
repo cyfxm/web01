@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>绘制图像</title>
+    <style>
+        canvas {
+            background-color: #f0f0f0;
+        }
+    </style>
+</head>
+
+<body>
+
+    <canvas id="canvas">不支持canvas标签！</canvas>
+
+    <script>
+        // 1.0 获取canvas标签
+        var canvas = document.getElementById("canvas");
+        // 2.0 设置画布的大小
+        canvas.width = 600;
+        canvas.height = 600;
+        // 3.0 获取canvas上下文对象
+        var ctx = canvas.getContext('2d');
+
+        // *.0 全局变量
+        // 改变人物水平位置
+        var sx = 0;
+        // 人物的宽
+        var w = 40;
+        // 人物的高
+        var h = 65; //  260 / 4 = 65
+        // 人物行走的方向
+        var direction = "front";
+        // 索引值（改变行走的方向）
+        var index = 0;
+        // 编写函数 绘制图像
+        function drawImage2() {
+            // 清空画布
+            ctx.clearRect(0,0,canvas.width,canvas.height);
+            // 根据direction的值设置裁剪的坐标
+            switch (direction) {
+                case "front":
+                     index = 0; //往前走
+                     sx += w;   //每个动作的坐标位置
+                    break;
+                case "back":
+                     index=3;  //往后走
+                     sx += w;
+                    break;
+                case "left":   //往左走
+                     index=1;
+                     sx += w;
+                    break;
+                case "right": //往右走
+                     index=2;
+                     sx += w;
+                    break;
+            }
+            // 判断
+            // sx = sx >= 120 ? 0 : sx;
+            // 0 40 80 120
+            if(sx > 120){
+                // 重新赋值
+                sx = 0;
+            }
+            // console.log({sx:sx})
+            // 绘制图像
+            ctx.drawImage(
+                // 图片资源
+                img,
+                // 裁剪的坐标
+                sx,
+                h * index ,
+                // 裁剪的大小
+                w,
+                h,
+                // 在画布的位置
+                200,
+                200,
+                // 在画布的大小
+                w * 2,
+                h * 2
+            )
+        }
+        
+        // 4.0 获取图片
+        var img = new Image();
+        img.src = "./DMMban.png";
+        img.onload = function () {
+            // 5.0 绘制图片中指定的区域
+            drawImage2();
+        }
+
+        // 键盘事件
+        document.onkeydown = function(evt){
+            // 40 ---> 下
+            // 38 ---> 上
+            // 37 ---> 左
+            // 39 ---> 右
+            var keyCode = evt.keyCode;
+            // 判断
+            if(keyCode == 40){
+                direction="front"
+            }
+            if(keyCode == 38){
+                direction="back"
+            }
+            if(keyCode == 37){
+                direction="left"
+            }
+            if(keyCode == 39){
+                direction="right"
+            }
+            
+            drawImage2();
+        }
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>
+        <input type="radio" checked="checked"/>男
+    </p>
+
+    <input type="text" placeholder="请输入手机验证码">
+    <button>获取验证码</button>
+
+    <script>
+        // 利用DOM可以操作一下表单元素属性
+        // 常见表单元素属性: type,value,checked,selected,disabled
+
+        // 注意:表单元素中有一些属性如:disabled、checked、selected，元素对象的这些属性的值是"布尔型",所以 在给表单元素设置 disabled、checked、selected这几个属性的时候,也需要使用"布尔型"
+
+        // var input = document.querySelector("input");
+        // console.log( input.checked );// true
+
+        // 点击按钮弹窗提示发送验证码成功,并把按钮状态改为禁用,按钮内容显示为60s重新获取验证码
+        var btn = document.querySelector("button");
+        btn.onclick=function(){
+            alert("发送验证码成功");
+            // 设置按钮的禁用状态为true
+            btn.disabled = true;
+            
+            // 改变按钮的内容
+            btn.innerHTML = "60s重新获取验证码";
+        }
+    </script>
+</body>
+</html>

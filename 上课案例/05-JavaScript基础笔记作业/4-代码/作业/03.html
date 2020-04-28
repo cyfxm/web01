@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript">
+		/*
+		3.有一个二维数组如下
+		var arr = [ 
+			['小A','女',21,'PHP'],['小B','男',23,'C'],
+			['小C','男',24,'C'],['小D','女',21,'PHP'],
+			['小E','女',22,'C'],['小F','男',21,'PHP'],
+			['小G','女',22,'JAVA'],['小H','女',20,'JAVA'],
+			['小I','女',20,'PHP'],['小J','男',20,'PHP']
+		];
+		请使用javascript语言遍历成如下表格
+		*/
+
+		var arr = [
+			['小A','女',21,'PHP'],['小B','男',23,'C'],
+			['小C','男',24,'C'],['小D','女',21,'PHP'],
+			['小E','女',22,'C'],['小F','男',21,'PHP'],
+			['小G','女',22,'JAVA'],['小H','女',20,'JAVA'],
+			['小I','女',20,'PHP'],['小J','男',20,'PHP']
+		];
+
+		var str = "<table border='1' rules='all' width='400'>";
+			str += "<tr>";
+			str += "<th>姓名</th><th>性别</th><th>年龄</th><th>学科</th>";
+			str += "</tr>";
+			for(var i=0;i<arr.length;i++){
+				str += "<tr>";
+				for(var j=0;j<arr[i].length;j++){
+					str += "<td align='center'>"+arr[i][j]+"</td>";
+				}
+				str += "</tr>";
+			}
+			str += "</table>";
+
+		document.write( str );
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

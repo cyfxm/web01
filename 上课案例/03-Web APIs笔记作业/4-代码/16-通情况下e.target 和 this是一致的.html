@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            width: 200px;
+            height: 200px;
+            background: pink;
+        }
+    </style>
+</head>
+<body>
+    <div>123</div>
+
+    <script>
+        // 获取div对象
+        var div = document.getElementsByTagName("div")[0];
+        // 通情况下e.target 和 this是一致的
+        div.onclick=function( e ){
+            // 兼容写法获取事件对象
+            e = e || window.event;
+            console.log( e );
+            console.log("");
+            
+            // e.target 返回触发事件的对象
+            console.log( e.target );
+            console.log( e.srcElement );
+            console.log( this );
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!-- 我们把DTD注释了,那么代表没有声明DTD -->
+<!-- <!DOCTYPE html> -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            height: 2000px;
+            background:skyblue;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        // 2. 未声明 DTD，使用  document.body.scrollTop
+        // 给window对象绑定滚动事件
+        window.onscroll = function(){
+            // 没有声明DTD的时候,想要获取页面被卷去的距离,需要通过body标签
+            console.log( document.body.scrollTop );
+        }
+    </script>
+</body>
+</html>

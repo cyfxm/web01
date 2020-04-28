@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box{
+            width: 150px;
+            height: 150px;
+            border: 1px solid #000;
+            margin-left: 150px;
+            margin-top: 150px;
+            /* overflow: hidden; */
+            position: relative;
+        }
+        .box > div{
+            position: absolute;
+        }
+        .box .up,
+        .box .down{
+            width: 150px;
+            height: 10px;
+        }
+        .box .up{
+            background-color: red;
+            left: -150px;
+            top: 0;
+        }
+        .box .down{
+            background-color: orange;
+            left: 150px;
+            bottom: 0;
+        }
+        .box .left,
+        .box .right{
+            width: 10px;
+            height: 150px;
+        }
+        .box .left{
+            background-color: blue;
+            top: 150px;
+            left: 0;
+        }
+        .box .right{
+            background-color: green;
+            top: -150px;
+            right: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="up"></div>
+        <div class="right"></div>
+        <div class="left"></div>
+        <div class="down"></div>
+    </div>
+
+    <script src="../js/jquery-3.4.1.js"></script>
+    <script>
+        $(function(){
+            $(".box").hover(
+                function(){
+                    $(".up").stop().animate({left:0},1000);
+                    $(".down").stop().animate({left:0},1000)
+
+                    $(".left").stop().animate({top:0},1000);
+                    $(".right").stop().animate({top:0},1000)
+                },
+                function(){
+                    $(".up").stop().animate({left:-150},1000);
+                    $(".down").stop().animate({left:150},1000)
+
+                    $(".left").stop().animate({top:150},1000);
+                    $(".right").stop().animate({top:-150},1000)
+                }
+            )
+        })
+    </script>
+</body>
+</html>

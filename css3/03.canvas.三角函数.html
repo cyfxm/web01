@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>三角函数的应用</title>
+    <style>
+        canvas {
+            background-color: skyblue;
+        }
+    </style>
+</head>
+<body>
+
+    <canvas id="canvas">不支持canvas标签！</canvas>
+
+    <script>
+        // 1.0 获取canvas标签
+        var canvas = document.getElementById("canvas");
+        // 2.0 设置画布的大小
+        canvas.width = 800;
+        canvas.height = 800;
+        // 3.0 获取canvas上下文对象
+        var ctx = canvas.getContext('2d');
+
+        // 4.0  定义坐标原点   
+        var point = {
+            x:100,
+            y:150
+        }
+        // 5.0 定义线长度 
+        var width = 200;
+        // 6.0 定义角度
+        // 等边三角形
+        // var angle =60;
+        // 等腰三角形
+        // var angle =45;
+        // 直角三角形
+        var  angle = 90;
+
+        // 根据给出的斜边和角度计算坐标。
+        // 这三个连起来是不是一个直角三角形这个就得去计算
+        // 计算什么锐角，什么是直角三角形，那需要花时间去调试，去计算了。
+
+        // 7.0 绘制x轴上的一根线 (邻边)
+        ctx.beginPath()
+        ctx.moveTo(point.x , point.y);
+        ctx.lineTo(point.x+width , point.y);
+        ctx.closePath();
+        ctx.stroke();
+
+       
+        // 弧度 = 角度 * Math.PI / 180
+        //  Math.sin(弧度) = 对边 / 斜边
+        //  Math.cos(弧度) = 邻边 / 斜边
+        // 8.0 根据x轴的线长度和角度，然后利用三角函数 计算出angle对应的坐标
+        var  x0  = Math.cos(angle * Math.PI / 180) * width;
+        var  y0 = Math.sin(angle * Math.PI / 180) * width;
+        
+        // 9.0 绘制的一根
+        ctx.beginPath();
+        ctx.moveTo(point.x+width , point.y);
+        //计算的坐标值
+        ctx.lineTo(point.x + x0 , point.y + y0);
+        ctx.closePath();
+        ctx.stroke();
+
+        ctx.beginPath();
+        ctx.moveTo(point.x , point.y);
+        //计算的坐标值
+        ctx.lineTo(point.x + x0 , point.y + y0);
+        ctx.closePath();
+        ctx.stroke();
+        
+        
+
+
+        
+        
+
+        
+    </script>
+</body>
+</html>

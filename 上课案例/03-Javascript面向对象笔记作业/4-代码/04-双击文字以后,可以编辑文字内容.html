@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        span{
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            -khtml-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+    </style>
+</head>
+<body>
+    <span>双击我可以编辑内容</span>
+
+    <script>
+        var span = document.querySelector("span");
+        span.ondblclick = function(){
+            // 获取span原来的内容
+            var oldStr = span.innerHTML;
+            // 设置span的标签内容为input标签 其实就是往span标签中添加了一个input子元素
+            span.innerHTML = "<input type='text'/>";
+            // 得到span中第一个子元素,也就是input标签
+            var input =  span.children[0] ;
+            // 设置input标签的内容
+            input.value = oldStr;
+            // 选中input标签中所有文字内容  语法: 文本框对象.select()
+            input.select();
+            
+        
+            // input失去焦点事件
+            input.onblur = function(){
+                // 把span标签内容设置为input的value值
+                span.innerHTML = this.value;
+            }
+
+            // input键盘弹起事件
+            input.onkeyup = function(e){
+                if(e.keyCode == 13){
+                    // 手动调用失去焦点事件  对象名.事件名()
+                    this.blur();
+                }
+            }
+        }
+    </script>
+</body>
+</html>

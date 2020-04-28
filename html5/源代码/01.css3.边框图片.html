@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>边框图片</title>
+    <style>
+         .box {
+             width: 200px;
+             height: 600px;
+             border-width: 27px;
+             background-color: #ccc;
+             border-color: transparent;
+             border-style: solid;
+             float: left;
+         }
+
+         .demo {
+             width: 600px;
+             height: 200px;
+             border-width: 27px;
+             background-color: #ccc;
+             border-color: transparent;
+             border-style: solid;
+             float: left;
+             margin-left: 15px;
+         }
+         .box1 {
+            border-image-source: url(./img/border.png);
+            border-image-slice: 27 27 27 27;
+            /* stretch 拉伸 */
+            /* border-image-repeat: stretch; */
+            /* round 自动计算平铺满边框 */
+            border-image-repeat: round;
+         }
+    </style>
+</head>
+<body>
+
+
+    <div class="box box1"></div>
+
+
+    <div class="demo box1"></div>
+
+    
+</body>
+</html>

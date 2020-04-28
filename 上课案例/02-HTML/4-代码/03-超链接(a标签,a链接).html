@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<h2>基本用法</h2>
+	<!-- <a href="跳转的目标地址,取值是一个url(网址)或者本地文件所在路径" target="目标窗口的打开方式,取值 _blank新窗口打开 _self本窗口打开">链接内容</a> -->
+
+	<h2>外部链接  链接href取值是一个url(网址),需要以http://或者https://</h2>
+	<!-- 如果href里面的属性取值,已经访问过,那么显示在页面上是紫色的字体,紫色的下划线 -->
+	<!-- 如果href里面的属性取值,未被访问过,那么显示在页面上是蓝色的字体,蓝色的下划线 -->
+
+	<!-- 我们使用ctrl+shift+delete清除浏览器的浏览器数据 -->
+	<a href="https://www.baidu.com">百度</a>
+	<a href="https://www.iqiyi.com">爱奇艺</a>
+
+	<h2>内部链接 href取值是一个本地文件所在路径  如果浏览器可以直接打开,浏览器就会帮我们在页面中打开;如果浏览器不可以直接打开,就会提供用户下载</h2>
+	<a href="02-相对路径.html">链接到本地网页文件</a>
+	<a href="test.doc">链接到本地word文件</a>
+	<a href="test.txt">链接到本地文本文件</a>
+	<a href="test.zip">链接到本地压缩文件</a>
+
+	<h2>空链接 需要记  空链接就是点击以后不会跳转的链接 href="#" 或者 href="javascript:void(0)" 常用于css调试样式使用以及js触发事件使用</h2>
+	<a href="#">空链接1</a>
+	<a href="javascript:void(0)">空链接2</a>
+
+	<a href="https://www.baidu.com" onclick="alert('点你妹的')">点我看看</a>
+	<a href="#" onclick="alert('点你妹的')">点我看看</a>
+	<a href="javascript:void(0)" onclick="alert('点你妹的')">点我看看</a>
+
+	<h2>图片链接 需要记 点击图片以后,可以跳转到指定的目标地址  就是使用a标签包裹img图片标签</h2>
+	<a href="https://www.baidu.com">
+		<img src="https://www.baidu.com/img/pc_1c6e30772d5e4103103bd460913332f9.png"/>
+	</a>
+
+	<h2>target属性是设置目标窗口的打开方式 _self本窗口打开,默认取值 _blank新窗口打开</h2>
+	<a href="https://www.baidu.com">百度</a>
+	<a href="https://www.jd.com" target="_self">京东</a>
+	<a href="https://www.tmall.com" target="_blank">天猫</a>
+</body>
+</html>

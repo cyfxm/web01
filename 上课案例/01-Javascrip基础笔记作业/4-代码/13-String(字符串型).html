@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript">
+		// 在js中,什么情况下的值是字符串呢?
+		// 变量的值只要加上了引号,不管双引号,还是单引号,都是字符串了
+		var a = 10;
+		console.log( typeof(a) );// number
+		var b = "10";
+		console.log( typeof(b) );// string
+		var c = '10';
+		console.log( typeof(c) );// string
+		var d = "";
+		console.log( typeof(d) );// string
+		var e = " ";
+		console.log( typeof(e) );// string
+
+		// 平时使用的时候 , 汉字需要加引号，特殊符号也需要加引号，除了JS中的一些特殊英文单词比如null,undefined,true,false等以外其它的都需要加引号
+		var username = "张三";
+		console.log( username );
+		console.log( typeof(username) );
+
+		var zifu = "&";
+		console.log(zifu);
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

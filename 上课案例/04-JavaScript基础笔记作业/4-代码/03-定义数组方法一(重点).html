@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript">
+		
+		// 数组(array)
+		// 定义数组的方式有多种
+		// 第一种:使用[]定义数组
+		// 先定义空数组,后赋值,语法如下
+		/*var 数组变量名 = [];
+		数组变量名[下标0] = 值1;
+		数组变量名[下标1] = 值2;
+		数组变量名[下标2] = 值3;
+		...*/
+
+		// 数组的下标是从0开始的递增数字
+		var arr1 = [];
+		arr1[0] = 10;
+		arr1[1] = 20;
+		arr1[2] = 30;
+		arr1[3] = null;
+		arr1[4] = true;
+		arr1[5] = undefined;
+		arr1[6] = false;
+		console.log( arr1 );// 使用console.log可以更加直观的查看数组
+
+		// 注意:如果使用document.write或者alert输出数组,js会帮我们把数组自动转换string类型的字符串,再输出;其实就是把每个数组元素以"逗号"连接,拼接成一个大字符串
+		document.write( arr1 );
+		alert( arr1 );
+
+		// 其他类型转成字符串类型方法有哪些?
+		// 变量名.toString(),
+		console.log( arr1.toString() );
+		// 加引号
+		
+		// String(变量名)
+		console.log( String(arr1) );
+		
+		// 和字符串连接
+		console.log( arr1 +"" );
+		console.log("");
+
+
+		// 定义数组,并给数组元素赋值,语法如下,推荐使用这种
+		// var 数组变量名 = [值1,值2,值3...]
+		var arr2 = [25,23,10,true,false,null,undefined];
+		console.log( arr2 );
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

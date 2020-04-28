@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript">
+	// 	3、制作一个函数,getDayNum( 年,月,日期 ),可以返回指定日期是当前年的第几天
+	// 	说明:   
+	// 		闰年一年有366天   平年一年有365天  如果闰年,2月份有29天;如果平年,2月份只有28天
+	// 		判断闰年的条件是  
+	// 		1.能被4整除并且不能被100整除的年份       
+	// 		2.能被400整除的年份
+	// ​		比如：  getDayNum( 2019,1,2)    返回值为：2
+	// 
+	// 把十二个月放到数组里面去，根据月份累加，最后加上当月。。最后判断是否闰年，且月份大于2，成立的话天数加1
+		function LeapYear(year) {
+        	return year % 4 ==0 && year % 100 != 0;
+	    }
+	    function getDays(year, month, day) {
+	        var day1 = day;
+	        if (month == 1) {
+	            return day1;
+	        }
+	        var monthDay = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
+	        for (var i=0;i<month-1;i++){
+	                day1+=monthDay[i];
+	        }
+	        if(LeapYear(year)&&month>2){
+	            day1++;
+	        }
+	        return day1;
+	    }
+	    console.log(getDays(2020,4,2));
+
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

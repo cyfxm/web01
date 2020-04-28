@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>面向过程 Tab</title>
+    <link rel="stylesheet" href="./styles/tab.css">
+    <link rel="stylesheet" href="./styles/style.css">
+    <style>
+        body{
+            -webkit-touch-callout:none;
+            -webkit-user-select: none;    
+            -khtml-user-select:none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+    </style>
+</head>
+
+<body>
+
+    <main>
+        <h4>
+            Js 面向过程 动态添加标签页
+        </h4>
+        <div class="tabsbox" id="tab">
+            <!-- tab 标签 -->
+            <nav class="fisrstnav">
+                <ul>
+                    <li class="liactive"><span class="text">测试1</span><span class="iconfont icon-guanbi"></span></li>
+                    <li><span class="text">测试2</span><span class="iconfont icon-guanbi" ></span></li>
+                    <li><span class="text">测试3</span><span class="iconfont icon-guanbi" ></span></li>
+                </ul>
+                <div class="tabadd">
+                    <span>+</span>
+                </div>
+            </nav>
+
+            <!-- tab 内容 -->
+            <div class="tabscon">
+                <section class="conactive">测试1</section>
+                <section>测试2</section>
+                <section>测试3</section>
+            </div>
+        </div>
+        
+    </main>
+    <!-- 面向对象 -->
+    <script>
+        var that;
+        class Tab{
+            constructor(id){
+                that = this;
+                this.main = document.querySelector(id);
+                this.lis = this.main.querySelectorAll(".fisrstnav ul li");
+                this.sections = this.main.querySelectorAll(".tabscon section");
+                this.ul = this.main.querySelector("ul");
+                this.tabscon = this.main.querySelector(".tabscon");
+                this.tabadd = this.main.querySelector(".fisrstnav .tabadd");               
+                this.guanbis = this.main.querySelectorAll(".tabsbox .fisrstnav ul li .icon-guanbi");
+                this.changeSpan = this.main.querySelectorAll(".tabsbox .fisrstnav ul li span:first-child"); 
+                this.init();    
+            }
+       
+
+        init(){
+            this.updateNode();
+            for(var i = 0;i<this.lis.length;i++){
+                this.lis[i].setAttribute("date-index",i);
+                this.lis[i].onclick = this.toggleTab;
+                this.tabadd.onclick = this.addTab;
+                this.guanbis[i].onclick = this.removeTab;
+                that.changeSpan[i].onclick = this.editTab;
+                that.sections[i].onclick = this.editTab;
+            }
+        }
+
+        clearClass(){
+            for(var j = 0;j<this.lis.length;j++){
+                    this.lis[j].removeAttribute("class");
+                    this.sections[j].removeAttribute("class");
+            }
+        }
+
+        updateNode(){
+            this.lis = document.querySelectorAll("li");
+            this.sections = document.querySelectorAll("section");
+            this.guanbis = document.querySelectorAll(".tabsbox .fisrstnav ul li .icon-guanbi");
+            this.changeSpan = document.querySelectorAll(".tabsbox .fisrstnav ul li span:first-child");
+        } 
+
+        toggleTab(){
+            that.clearClass();
+            this.className = "liactive";
+            var index = this.getAttribute("date-index");
+            that.sections[index].className = "conactive";
+        }
+
+        addTab(){
+            that.clearClass();
+            var li = '<li class="liactive"><span>新选项卡</span><span class="iconfont icon-guanbi"></span></li';
+            that.ul.insertAdjacentHTML("beforeend",li);
+            var section = '<section>测试'+ Math.random() +'</section>';
+            that.tabscon.insertAdjacentHTML("beforeend",section);
+            that.updateNode();
+            that.init(); 
+        }
+
+        removeTab(e){
+            e.stopPropagation();
+            var index = this.parentNode.getAttribute("date-index"); 
+            that.lis[index].remove();
+            that.sections[index].remove();
+            that.init();
+            if(this.parentNode.className == "liactive"){
+                index--;
+                that.lis[index] && that.lis[index].click();
+            }
+        }
+
+        editTab(){
+            var oldStr = this.innerHTML;
+            this.innerHTML = "<input type='text'>";
+            var input = this.children[0];
+            input.value = oldStr;
+            input.select();
+
+            input.onblur = function(){
+                this.parentNode.innerHTML = this.value;
+            }
+            input.onkeyup = function(e){
+                if(e.keyCode == 13){
+                    this.blur();
+                }
+            }
+            
+        }
+    }
+    new Tab("#tab");
+    </script>
+
+
+    <!-- 面向过程 -->
+    <!-- <script>
+        var lis = document.querySelectorAll("li");
+        var sections = document.querySelectorAll("section");
+        var tabadd = document.querySelector(".tabadd");
+        var ul = document.querySelector("ul");
+        var tabscon = document.querySelector(".tabscon");
+        var objSpan = document.querySelectorAll(".tabsbox .fisrstnav ul li .icon-guanbi");
+        var changeSpan = document.querySelectorAll(".tabsbox .fisrstnav ul li .text");
+        console.log(changeSpan);
+        
+        function clearClass(){
+            for(var j = 0;j<lis.length;j++){
+                    lis[j].className = " ";
+                    sections[j].className = " ";
+                }
+        }
+
+        function updateNode(){
+            lis = document.querySelectorAll("li");
+            sections = document.querySelectorAll("section");
+            objSpan = document.querySelectorAll(".tabsbox .fisrstnav ul li .icon-guanbi");
+            changeSpan = document.querySelectorAll(".tabsbox .fisrstnav ul li .text");
+        } 
+
+        function init(){
+            updateNode();
+            for(var i = 0;i<lis.length;i++){
+                lis[i].setAttribute("date-index",i);                
+                // objSpan[i].setAttribute("date-index",i); 
+                // 给每个li绑定
+                lis[i].onclick = toggleTab;
+                objSpan[i].onclick = initSpan;
+                changeSpan[i].onclick = changeTab;
+                sections[i].onclick = changeTab;
+                }
+            // 点击加号
+            tabadd.onclick = addTab;
+        }  
+
+        // 点击编辑文字
+        function changeTab(){
+            var oldStr = this.innerHTML;
+            this.innerHTML = "<input type='text'>";
+            var input = this.children[0];
+            input.value = oldStr;
+            input.select();
+
+            input.onblur = function(){
+                this.parentNode.innerHTML = this.value;
+            }
+            input.onkeyup = function(e){
+                if(e.keyCode == 13){
+                    this.blur();
+                }
+            }
+        }
+
+        // 删除选项卡功能
+        function initSpan(e){ 
+            e.stopPropagation();
+            // updateNode();
+            var index = this.parentNode.getAttribute("date-index");
+            // console.log(this);           
+            lis[index].remove();
+            sections[index].remove();
+            init();
+            if(document.querySelector('.liactive')) 
+            //当我们删除 了选中状态，让它前一个li处于选中状态
+                index--;
+            return;
+        }
+        
+        function toggleTab(){
+            // 清楚所有li和section的类名
+            clearClass();
+            this.className = "liactive";
+            var index = this.getAttribute("date-index");
+            sections[index].className = "conactive";
+           
+        }
+        function addTab(){
+            clearClass();
+            var li = '<li class="liactive"><span>新选项卡</span><span class="iconfont icon-guanbi"></span></li';
+            ul.insertAdjacentHTML("beforeend",li);
+            var section = '<section>测试'+ Math.random() +'</section>';
+            tabscon.insertAdjacentHTML("beforeend",section);
+  
+            init();
+        }
+
+       
+        init();
+
+        //删除功能
+       
+        
+        
+    </script> -->
+</body>
+
+</html>

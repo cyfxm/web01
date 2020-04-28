@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 借用原型来继承构造函数中的属性和方法
+        // 一个构造函数Father中有money cars house company 属性,有管理的方法,另一个构造函数Son要继承构造函数Father的属性和方法 构造函数Son中有自己独特的score分数属性以及study学习方法
+        function Father(money,cars,house,company){
+            // 构造函数中一般就是对属性赋值
+            this.money   = money;
+            this.cars    = cars;
+            this.house   = house;
+            this.company = company;
+        }
+        // 方法一般会放在原型对象上,这样才可以实现多个实例共享方法
+        Father.prototype.manage = function(){
+            console.log("管理公司");
+        }
+
+        function Son(money,cars,house,company,score){
+            // 如何实现子构造器继承父构造器的属性  通过call方法调用父构造器函数,并且改变this指向
+            // console.log( this );
+            Father.call(this,money,cars,house,company);
+            // 子构造器也可以有自己的属性
+            this.score = score;
+        }
+
+        // 如何实现子构造器继承父构造器的方法
+
+        // 让子原型对象等于父原型对象,弊端:这样会有一个问题,因为原型对象的取值是对象,他们之间的赋值是引用传值,也就是传地址,会同生共死(相互影响)
+        // Son.prototype = Father.prototype;
+
+        // 我们可以使用Son.prototype = 父构造器实例对象; 如果原型对象直接赋值一个对象的话,会丢失constructor属性  需要手动设置回来
+        Son.prototype = new Father();
+        Son.prototype.constructor = Son;
+
+        Son.prototype.study = function(){
+            console.log( "好好学习,天天向上" );
+        }
+
+        Son.prototype.exam = function(){
+            console.log( "考试" );
+        }
+
+        Father.prototype.smoke = function(){
+            console.log( "抽烟" );
+        }
+
+        var son = new Son("100百万","上海大众","海景房","上市公司",100);
+        console.log( son );
+        // 如果父构造器的方法是写在原型对象上的话,用call方法只能继承到父构造器的属性,继承不了父构造器的方法;  但是如果方法父构造器上的,子构造器通过call方法是可以继承到的
+        // 根据原型链,son在自己对象身上找不到的东西,就会去原型对象上面找
+        console.log("子构造器的原型对象");
+        console.log( Son.prototype );
+        son.manage();
+        son.exam();
+        son.study();
+        
+        var father = new Father("更多钱","更多车","更多房","更多公司");
+        // father.exam();
+        // father.study();
+        // console.log("");
+        
+        console.log("父构造器的原型对象");
+        console.log( Father.prototype );
+    </script>
+</body>
+</html>

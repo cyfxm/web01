@@ -1,0 +1,36 @@
+/* 页面底部 */
+.jd_footer {
+    width: 100%;
+    height: 2.5rem;
+    background-color: #fff;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: 1000;
+    border-top: 1px solid #ccc;
+}
+.jd_footer .jd_footer_box {
+    width: 100%;
+    max-width: 640px;
+    min-width: 300px;
+    margin: 0 auto;
+}
+.jd_footer .jd_footer_box ul {
+    height: 2.5rem;
+    width: 100%;
+    display: flex;
+}
+.jd_footer .jd_footer_box ul li {
+    flex: 1;
+}
+.jd_footer .jd_footer_box ul li a {
+    display: block;
+    font-size: 0;
+    height: 2.5rem;
+    line-height: 2.5rem;
+    text-align: center;
+}
+.jd_footer .jd_footer_box ul li a img {
+    width: 2.5rem;
+    vertical-align: middle;
+}

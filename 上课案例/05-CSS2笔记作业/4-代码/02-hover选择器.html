@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		div{
+			width: 100px;
+			height: 100px;
+			background-color:red;
+		}
+		div:hover{
+			background-color: blue;
+		}
+
+		p{
+			width: 200px;
+			height: 200px;
+			background-color: orange;
+		}
+		/*hover选择器可以给任何CSS选择器加*/
+		/*鼠标移上.p1以后的样式*/
+		.p1:hover{
+			background-color: green;
+		}
+
+		.father{
+			width: 300px;
+			height: 300px;
+			background-color: skyblue;
+		}
+		.father .son{
+			background-color: pink;
+		}
+		
+		/*鼠标移上.father以后,.father里面的.son对应的样式*/
+		.father:hover .son{
+			background-color: red;
+		}
+	</style>
+</head>
+<body>
+	<div>div的内容</div>
+	<p class="p1">p的内容</p>
+	<h1 class="father">
+		父元素
+		<span class="son">子元素</span>
+	</h1>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 在全局作用域下定义的变量就是全局变量
+        // 在局部作用域下定义的变量就是局部变量
+        // 全局作用域指的是函数外
+        // 局部作用域指的是函数内
+        // 全局变量在函数外,函数内都可以使用
+        // 局部变量只能在函数内使用
+
+        // 定义全局变量a
+        var a = 10;
+        function fn1(){
+            console.log("在fn1函数里面输出a变量的值:" + a );
+        }
+        fn1();
+        console.log("在fn1函数外面输出a变量的值:" + a );
+        console.log("");
+
+        // 解决方法,可以在函数外定义一个同名全局变量b,函数内赋值的时候,不加var关键字,这个时候函数内调用的就是全局变量了b
+        var b = 100;
+        function fn2(){
+            // 在函数内使用var定义的变量就是局部变量了  只能在函数内才可以使用
+            // var b = 20;
+
+            // 把var去掉,这样使用的就是全局变量了
+            b = 20;
+
+            console.log("输出fn2函数里面的b变量" + b );
+        }
+        fn2();
+        console.log("输出fn2函数外面的b变量" + b );
+
+        /* function fn3(){
+            console.log( b );
+        }
+        fn3(); */
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

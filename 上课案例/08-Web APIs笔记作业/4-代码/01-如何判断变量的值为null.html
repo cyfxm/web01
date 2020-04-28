@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 第一种方式
+        /* var timer = null;
+        console.log( Boolean(null) );
+        if( !timer ){
+            console.log( "进来if分支了 ");
+        } */
+
+        // 第二种方式
+        var timer = null;
+        console.log( timer == null );
+
+        if( timer == null ){// 判断值是否等于null
+            console.log( "进来if分支了 ");
+        }
+    </script>
+</body>
+</html>

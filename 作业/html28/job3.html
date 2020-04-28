@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        input{
+            margin-left: 30px;
+        }
+    </style>
+</head>
+<body>
+    <input type="button" value="赞(1)">
+    <input type="button" value="赞(1)">
+    <input type="button" value="赞(1)">
+    <script>
+		function getValue(){
+			var value = 1;
+			return function(){
+				this.value = "赞(" + (++value) + ")";
+			}
+		}
+		var btn = document.querySelectorAll("input");
+		for(var i=0; i<btn.length; i++){
+			btn[i].onclick = getValue();
+		}
+    </script>
+</body>
+</html>

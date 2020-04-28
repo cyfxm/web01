@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        div{
+            width: 100px;
+            height: 100px;
+            background: pink;
+            /* 设置绝对定位 */
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+        button{
+            margin-top: 200px;
+        }
+    </style>
+</head>
+<body>
+    <div>下冰雹</div>
+    <button>点我去到500位置</button>
+    <button>点我去到800位置</button>
+
+    <script>
+        // 动画函数
+        function animate(obj,target){
+            // 先清除定时器
+            clearInterval( obj.timer );
+           
+           // 再开启定时器,让对象开始移动
+           obj.timer = setInterval(function(){
+                // 缓动动画公式:(目标值 - 现在的位置) / 10
+
+                // 目标值是 500
+                // 现在的位置 是 800
+                // var step = (500-800)/10 = -30    现在位置变成了 770
+                // var step = (500-770)/10 = -27    现在位置变成了 743
+                // var step = (500-743)/10 = -24.3  现在位置变成了 718.7
+                // ...
+
+                // 定义一个变量 step 保存对象每次移动的速度  这个step我们也会叫步长值
+                var step = (target - obj.offsetLeft)/10;
+                // 注意步长值需要取整   步长值是正值向上取整    步长值是负值向下取整    如果不取整,容易导致达不到目标值的问题
+
+                /* if( step > 0){// 步长值是正值向上取整
+                    step = Math.ceil( step );
+                }else{// 步长值是负值向下取整
+                    step = Math.floor( step );
+                } */
+
+                // 上面的if...else可以写成三目运算符
+                step = step > 0  ? Math.ceil( step ) : Math.floor( step ) ;
+                
+                if(obj.offsetLeft == target){
+                    // 到达目标值的时候,清除定时器
+                    clearInterval( obj.timer );
+                }else{
+                    obj.style.left = obj.offsetLeft + step + "px";
+                }
+            },15);
+        }
+
+        // 获取div对象
+        var div = document.querySelector("div");
+        // 获取所有的按钮对象
+        var btns = document.querySelectorAll("button");
+        btns[0].onclick = function(){
+            animate( div, 500 );
+        }
+        btns[1].onclick = function(){
+            animate( div, 800 );
+        }
+    </script>
+</body>
+</html>

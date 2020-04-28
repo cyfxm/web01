@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button>按钮1</button>
+    <button>按钮2</button>
+    <button>按钮3</button>
+
+    <script>
+        // 事件对象的使用
+        // 事件触发发生时就会产生事件对象，并且系统会以实参的形式传给事件处理函数。
+        // 所以，在事件处理函数中声明1个形参用来接收事件对象。
+
+        // 事件对象的兼容性处理
+        // 事件对象本身的获取存在兼容问题:
+        // 1. 标准浏览器中是浏览器给方法传递的参数，只需要定义形参 e 就可以获取到。
+        // 2. 在 IE6~8 中，浏览器不会给方法传递参数，如果需要的话，需要到 window.event 中获取查找。
+        // 解决方法:
+        // e = e || window.event;
+        // 特别说明:
+        // 只要"||"前面为false, 不管"||"后面是true 还是 false，都返回 "||" 后面的值。
+        // 只要"||"前面为true,  不管"||"后面是true 还是 false，都返回 "||" 前面的值。
+        
+        var btns = document.getElementsByTagName("button");
+        /* eventTarget.onclick = function(event){
+        // 这个event 就是事件对象,我们还喜欢写成e或者evt
+        }; */
+
+        btns[0].onclick=function(e){
+            // 这个event 就是事件对象,我们还喜欢写成e或者evt或者event
+            // console.log( event );
+            // window.event是关键字,一个字母都不能改
+            // console.log( window.event );
+
+            // 如果e不为undefined,我们就得到e;如果e为undefined,我们就得到window.event
+            e = e || window.event;
+            console.log( e );
+        }
+
+
+        /* eventTarget.addEventListener("click",function(event){
+        // 这个event 就是事件对象,我们还喜欢写成e或者evt
+        }); */
+
+        /* btns[1].addEventListener("click",function(e){
+            console.log( e );
+        }) */
+
+
+        /* eventTarget.attachEvent("onclick",function(event){
+        // 这个event 就是事件对象,我们还喜欢写成e或者evt
+        }); */
+
+        /* btns[2].attachEvent("onclick",function( evt ){
+            // 这个event 就是事件对象,我们还喜欢写成e或者evt
+            console.log( evt );
+        }); */
+    </script>
+</body>
+</html>

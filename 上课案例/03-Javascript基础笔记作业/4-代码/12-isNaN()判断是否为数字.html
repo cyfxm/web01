@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript">
+		// isNaN => is not a number 是一个非数字吗
+		// isNaN(变量名或者值)  判断变量或者值是否为数字 
+		// 如果不是数字,返回true
+		// 如果是数字,返回false
+		// isNaN判断规则:   先将一个变量的数据类型自动的转换为Number  如果是NaN就会得到true　　如果是一个数字的话就是得到false
+
+		// 小结:只要是在字符串中含有非数字的都会转换为NaN;
+
+
+		      // 变量原来的值      转成Number的值
+		var v1 = 123;				// 数字
+		var v2 = "123";				// 数字
+		var v3 = "abc123";			// NaN
+		var v4 = "123abc";			// NaN
+		var v5 = true;				// 1
+		var v6 = false;				// 0
+		var v7 = undefined;			// NaN
+		var v8 = null;				// 0
+		var v9 = "";				// 0
+		var v10 = " ";				// 0
+		console.log( isNaN(v1) );// false
+		console.log( isNaN(v2) );// false
+		console.log( isNaN(v3) );// true
+		console.log( isNaN(v4) );// true
+		console.log( isNaN(v5) );// false
+		console.log( isNaN(v6) );// false
+		console.log( isNaN(v7) );// true
+		console.log( isNaN(v8) );// false
+		console.log( isNaN(v9) );// false
+		console.log( isNaN(v10) );// false
+		console.log(" ");
+
+		console.log( Number(v7) );// NaN
+		console.log( Number(v8) );// 0
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

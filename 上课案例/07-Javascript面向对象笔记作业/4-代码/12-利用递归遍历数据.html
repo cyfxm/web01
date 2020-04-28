@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 我们想要做输入id号, 就可以输出查找到的数据对象
+        var data = [{
+            id: 1,
+            name: '家电',
+            goods: [{
+                id: 11,
+                gname: '冰箱',
+                goods: [{
+                        id: 111,
+                        gname: '海尔'
+                    }, {
+                        id: 112,
+                        gname: '美的'
+                    },
+                ]
+
+            }, {
+                id: 12,
+                gname: '洗衣机'
+            }]
+        }, {
+            id: 2,
+            name: '服饰'
+        }];
+
+        // console.log( data );
+
+        // 遍历数组可以使用forEach
+        /* data.forEach(function( item ){
+            // item就是数组中每个元素
+            console.log( item );
+        }) */
+        
+        // console.log("");
+
+        // 封装一个函数,根据用户传入的id号,输出找到的对象,json参数代表需要查询的数据
+        function getId(json , id ){
+            json.forEach(function( item ){
+                // item就是数组中每个元素
+                // console.log( item );
+
+                // 如果想得到对象中属性的值 通过 对象.属性名 或者 对象[属性名]
+                // console.log( item.name );
+                // console.log( "" );
+
+                if( id == item.id ){// 判断用户传入的id号是不是等于item中的id属性值
+                    console.log( item );
+                }else{// 如果外层找不到想要的,我们可以尝试去内层找
+                    
+                    // 如果item里面存着goods数组 并且goods数组的元素还需要大于0
+                    if( item.goods && item.goods.length > 0){
+                        // 递归调用getId函数
+                        getId(  item.goods  ,  id );
+                    }
+                    
+                }
+            })
+        }
+        
+        // console.log( data );
+
+        // 这题就是使用递归的原理,一层一层循环对应id号的对象
+        getId(data,1);
+        getId(data,2);
+        getId(data,11);
+        getId(data,12);
+        getId(data,111);
+        getId(data,112);
+    </script>
+</body>
+
+</html>

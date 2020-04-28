@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // window.alert("内容");  弹窗显示内容
+        window.alert("我是弹窗内容");
+
+        // window.prompt("提示内容","默认值")  用户输入框  如果用户点击了取消,得到null;不管用户输入的是什么,最后的数据类型都是string
+        var str = window.prompt("请输入你的账号","zhangsan");
+        console.log( str );
+        console.log( typeof str );
+        
+        // window.confirm("提示信息")   用户确认框   点击确定返回true,点击取消返回false
+        console.log( window.confirm("你确定要删除我吗~") );
+    </script>
+</body>
+</html>

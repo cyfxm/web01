@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul>
+        <li>知否知否，点我应有弹框在手！1111</li>
+        <li>知否知否，点我应有弹框在手！2222</li>
+        <li>知否知否，点我应有弹框在手！33333</li>
+        <li>知否知否，点我应有弹框在手！4444</li>
+        <li>知否知否，点我应有弹框在手！55555</li>
+    </ul>
+    <script>
+        // 我们实现每个li都可以点击,点击以后弹出当前li的标签内容
+        
+        // 以前的做法,我们会先获取所有的li标签,循环给每个li绑定事件
+        /* var lis = document.querySelectorAll("ul li");
+        for(var i=0;i<lis.length;i++){
+            lis[i].onclick=function(){
+                alert(this.innerHTML);
+            }
+        } */
+
+        // 事件委托,就是不绑定事件在子元素,绑定事件在父元素上,借助事件冒泡的原理,触发子元素事件的时候,会冒泡到父元素事件
+        var ul = document.querySelector("ul");
+        ul.onclick=function(e){
+            //  假设我点击了li 这里的this代表ul
+            // 因为this是给谁绑定事件,就代表谁
+            // console.log(  this );
+            // console.log( this.innerHTML );
+
+            // 如何获取事件对象
+            e = e || window.event;
+            // 使用事件对象的 e.target属性获取 触发事件目标对象
+            // console.log( e.target );
+            alert( e.target.innerHTML )
+        }
+    </script>
+</body>
+</html>

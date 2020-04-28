@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript">
+		var Phone = new Object();
+		Phone.type = "iphoneX";
+		Phone.color = "黑色";
+		Phone.size = "5.5寸";
+
+		Phone.sengMessage = function(){
+			console.log("可以发短信输出");
+		}
+		Phone.eat = function(){
+			console.log("吃大肘子");
+		}
+		Phone.call = function(){
+			console.log("可以打电话");
+		}
+		Phone.say = function(){
+			console.log("说全聚德吃烤鸭");
+		}
+
+		console.log("型号"+Phone.type+"颜色是"+Phone.color+"大小"+Phone.size);
+		Phone.sengMessage();
+		Phone.eat();
+		Phone.call();
+		Phone.say();
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

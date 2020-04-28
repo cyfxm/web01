@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<!-- CSS的书写位置分为三种嵌入式 外链式 以及 行内式 -->
+	<!-- 嵌入式是把样式写在html的style标签中 -->
+	<!-- 需要注意的是style标签可以写在html网页中的"任意位置",只是我们习惯把style标签写在"head标签"中 -->
+	<!-- style标签可以出现多次 -->
+	<!-- style标签有个type="text/css"属性,可以省略不写 -->
+	
+	<style>
+		/*在这里面写css样式*/
+		div{
+			color:red;
+			border:1px solid blue;
+		}
+	</style>
+</head>
+<body>
+	<div>div的内容</div>
+
+	<style type="text/css">
+		p{
+			color:orange;
+		}
+	</style>
+
+	<p>p段落的内容</p>
+</body>
+</html>
+

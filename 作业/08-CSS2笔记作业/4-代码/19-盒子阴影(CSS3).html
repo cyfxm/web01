@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.one{
+			width: 300px;
+			height: 300px;
+			margin:100px auto;
+			background: red;
+			/*box-shadow: 水平位置 垂直位置 模糊程度 阴影大小 阴影颜色*/
+			/*水平位置 垂直位置 模糊程度 阴影大小取值都是数值带px,但是水平位置 垂直位置  阴影大小 可以正值也可以负值,模糊程度只能正值*/
+			box-shadow: 9px 10px 11px 0px rgba(0,0,0,0.5);
+		}
+
+		.two{
+			width: 300px;
+			height: 300px;
+			background: lightgreen;
+			margin:100px auto;
+			/*box-shadow默认设置的盒子外阴影,如果需要设置盒子内阴影,需要在最后面添加一个inset*/
+			/*box-shadow: 6px 7px 11px 1px rgba(255,0,0,0.5);*/
+
+			/*内部阴影,添加一个inset取值即可*/
+			box-shadow: 6px 6px 7px 3px rgba(255,0,0,0.5) inset;
+
+			/*注意:内部阴影添加inset,外部阴影什么都不添加,不能outset,这样阴影会失效;*/
+			/*box-shadow: 6px 6px 7px 3px rgba(255,0,0,0.5) outset;*/
+		}
+
+		.three{
+			width: 300px;
+			height: 300px;
+			background:pink;
+			margin:100px auto;
+			/*可以使用多组阴影,每组阴影之间使用"逗号"隔开*/
+			box-shadow:6px 6px 13px -1px blue, 12px 12px 6px 0px orange, 20px 20px 15px 0px purple;
+		}
+	</style>
+</head>
+<body>
+	<div class="one">one</div>
+
+	<div class="two">two</div>
+
+	<div class="three">three</div>
+</body>
+</html>

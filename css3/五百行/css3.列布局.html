@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .layout .container{
+            width: 970px;
+            margin: 0 auto;
+            column-count: 2;
+            column-gap: 80px;
+            column-rule: 5px dashed #ccc;
+        }
+
+        .layout .container h3{
+            column-span: all;
+            text-align: center;
+        }
+
+        .layout .container p{
+            padding: 0;
+            margin: 0;
+            line-height: 1.5;
+            text-align: justify;
+            font-size: 18px;
+            text-indent: 40px;
+        } 
+
+        /* 选择第一个文字 */
+        .layout .container p:first-letter{
+            color: red;
+            font-size: 30px;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="layout">
+        <div class="container">
+            <h3>党的十八大以来，党中央重视互联网</h3>
+            <p>
+                党的十八大以来，党中央重视互联网、发展互联网、治理互联网，统筹协调涉及政治、经济、文化、社会、军事等领域信息化和网络安全重大问题，作出一系列重大决策、提出一系列重大举措。
+                2013年11月，党的十八届三中全会通过的《中共中央关于全面深化改革若干重大问题的决定》提出，坚持积极利用、科学发展、依法管理、确保安全的方针，加大依法管理网络力度，加快完善互联网管理领导体制，确保国家网络和信息安全。
+                2014年2月27日，中央网络安全和信息化领导小组第一次会议召开时，习近平总书记强调，网络安全和信息化是事关国家安全和国家发展、事关广大人民群众工作生活的重大战略问题，要从国际国内大势出发，总体布局，统筹各方，创新发展，努力把我国建设成为网络强国。
+                2017年6月1日，《中华人民共和国网络安全法》正式施行，将网络安全各项工作带入法治化轨道。
+                党的十九大提出要建设网络强国、数字中国、智慧社会。《深化党和国家机构改革方案》将中央网络安全和信息化领导小组改为中央网络安全和信息化委员会……
+                2018年4月20日至21日，习近平出席全国网络安全和信息化工作会议并发表重要讲话。
+            </p>
+        </div>
+    </div>
+</body>
+
+</html>

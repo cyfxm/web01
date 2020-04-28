@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div>
+        <button id="play_music">播放音乐</button>
+        <button id="pause_music">暂停音乐</button>
+    </div>
+    <audio id="audioId" src="./static/music/seegeqiu.mp3"></audio>
+
+    <script>
+        var play_music_btn = document.querySelector("#play_music");
+        var pause_music_btn = document.querySelector("#pause_music");
+        var audio_element = document.querySelector("#audioId");
+
+        play_music_btn.onclick = function () {
+            audio_element.play();
+            console.log("111");
+
+        }
+
+        pause_music_btn.onclick = function () {
+            audio_element.pause();
+            console.log("222");
+
+        }
+
+
+    </script>
+
+    <div>
+        <button id="play_video">播放视频</button>
+        <button id="pause_video">暂停视频</button>
+    </div>
+    <video id="videoId" src="./static/video/fun.mp4"></video>
+
+    <script>
+        var play_video_btn = document.querySelector("#play_video");
+        var pause_video_btn = document.querySelector("#pause_video");
+        var video_element = document.querySelector("#videoId");
+
+        play_video_btn.onclick = function(){
+            video_element.play();
+        }
+
+        pause_video_btn.onclick = function(){
+            video_element.pause();
+        }
+    </script>
+</body>
+
+</html>

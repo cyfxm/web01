@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript">
+		// 合并字符串
+		/*var str1 = "abc";
+		var str2 = "erwer";
+		var str3 = "zxv";
+		console.log( str1+str2+str3 );
+		console.log( str1.concat(str2,str3) );*/
+	
+		// 合并数组方法
+		// concat(数组1,数组2,数组3...) 将多个数组合并为一个数组 返回一个新的数组
+		var arr1 = [10,20,30];
+		var arr2 = [5,6,7];
+		var arr3 = [4,2,3];
+		// 如果多个数组使用+号拼接会变成一个字符串
+		console.log( arr1+arr2+arr3 );
+		console.log( typeof( arr1+arr2+arr3) );
+
+		var arr = arr1.concat(arr2,arr3);
+		console.log( arr );
+		console.log( typeof(arr) );
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

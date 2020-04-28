@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .score{
+            margin-left: 50px;
+            margin-top: 50px;
+        }
+        .box{
+            width: 400px;
+            height: 400px;
+            margin-left: 50px;
+            margin-top: 50px;
+            border: 1px solid blue;
+            position: relative;
+            overflow: hidden;
+        }
+        .box .game{
+            position: absolute;
+            top: -50px;
+            left: 0;
+        }
+        .box .game .row div{
+            width: 98px;
+            height: 100px;
+            float: left;
+            background: white;
+            border: 1px solid gray;
+        }
+        .box .game .row .black{
+            background-color: black;
+        }
+    </style>
+</head>
+<body>
+    <input type="text" class="score" value="0" disabled="disabled">
+
+    <div class="box"  id="one">
+        <div class="game">
+            <div class="row">
+                <div class="black"></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+            <div class="row">
+                <div></div>
+                <div class="black"></div>
+                <div></div>
+                <div></div>
+            </div>
+            <div class="row">
+                <div></div>
+                <div></div>
+                <div class="black"></div>
+                <div></div>
+            </div>
+            <div class="row">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div class="black"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        var that = null;
+        function Game(id){
+            that = this;
+            this.main = document.querySelector(id);
+            this.score =document.querySelector(".score");
+            this.game = this.main.querySelector(".game");
+            this.speed  = 1;//速度
+            this.score1 = 0;//分数
+            this.gameover = false;//代表游戏没有结束
+            this.timer = null;
+        }
+
+        Game.prototype.init = function(){
+            this.animate();
+            this.game.onclick = this.Run;
+        }   
+
+        Game.prototype.animate = function(){
+            this.timer =setInterval(function(){
+                that.game.style.top = that.game.offsetTop + that.speed +"px";
+                if( that.game.offsetTop >= 0 ){
+                    if( that.game.lastElementChild.getAttribute("pass") == null ){
+                        clearInterval(that.timer);
+                        that.gameover = true;
+                        alert("游戏结束");
+                        return false;
+                    }
+                    that.Add();
+                    that.Del();
+                    that.game.style.top = -100+"px";
+                }
+            },15) 
+        }
+
+        Game.prototype.Add = function(){
+                var row = document.createElement("div");
+                row.className = "row";
+                // 随机生成黑块
+                var random = Math.floor( Math.random()*4 + 1);
+                for( var i = 1; i <= 4; i++ ){
+                    var div = document.createElement("div");
+                    // i=随机数
+                    if( i == random ){
+                        div.className = "black";
+                    }
+                    row.appendChild(div);
+                }
+                that.game.insertBefore(row, that.game.children[0]);
+        }
+
+        Game.prototype.Del = function(){
+            if( this.game.children.length >= 6){
+                    this.game.lastElementChild.remove();
+                }
+        }
+
+        Game.prototype.Run = function(e){
+            e = e || window.event;
+            if(that.gameover){
+                alert("游戏结束,请重新开始");
+            }else if(e.target.className == "black"){
+                e.target.removeAttribute("class");
+                that.score.value = ++that.score1;
+                 // 根据分数加速
+                if( that.score1 % 5 ==0 ){
+                    that.speed++;
+                }
+
+                e.target.parentNode.setAttribute("pass",true);
+            }else{
+                alert("游戏结束，你的分数为" + that.score1);
+                clearInterval(that.timer);
+                // 游戏结束
+                that.gameover = true;
+            }
+        }
+
+        var game1 = new Game("#one");
+        game1.init();
+    </script>
+</body>
+</html>

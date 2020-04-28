@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>柱状图</title>
+    <style>
+        body {
+            margin: 0;
+        }
+
+        canvas {
+            background-color: skyblue;
+        }
+    </style>
+</head>
+
+<body>
+
+    <canvas id="canvas">不支持canvas标签！</canvas>
+
+    <script>
+        // 1.0 获取canvas标签
+        var canvas = document.getElementById("canvas");
+        // 2.0 设置画布的大小
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+        // 3.0 获取canvas上下文对象
+        var ctx = canvas.getContext('2d');
+        // 4.0 定义坐标
+        var point = {
+            x: 100,
+            y: 700
+        }
+        // 5.0 假数据
+        var data = [
+            { "date": "一月份", "persent": "0.3", "color": "darkred" },
+            { "date": "二月份", "persent": "0.2", "color": "green" },
+            { "date": "三月份", "persent": "0.05", "color": "blue" },
+            { "date": "四月份", "persent": "0.35", "color": "orange" },
+            { "date": "五月份", "persent": "0.1", "color": "purple" }
+        ]
+        // 6.0 绘制线
+        function drawLine(x, y, x0, y0, color) {
+            // 默认值
+            var color = color || "red";
+            // 描边的颜色
+            ctx.strokeStyle = color;
+            // 开始绘制
+            ctx.beginPath();
+            // 设置起点
+            ctx.moveTo(x, y);
+            // 设置终点
+            ctx.lineTo(x0, y0);
+            // 结束绘制
+            ctx.closePath();
+            // 描边
+            ctx.stroke();
+        }
+        // 7.0 绘制矩形
+        function drawRect(x, y, w, h, color) {
+            // 默认值
+            var color = color || "red";
+            // 开始绘制
+            ctx.beginPath();
+            // 填充颜色
+            ctx.fillStyle = color;
+            // 绘制矩形
+            ctx.rect(x, y, w, h);
+            // 结束绘制
+            ctx.closePath();
+            // 填充
+            ctx.fill();
+        }
+        // 8.0 绘制文本
+        function drawText(str,x , y,color){
+            // 默认
+            var color = color || "black";
+            ctx.beginPath();
+            ctx.strokeStyle= color;
+            ctx.font="30px Microsoft YaHei";
+            ctx.textAlign="center";
+            ctx.textBaseLine="middle";
+            ctx.strokeText(str,x,y);
+            ctx.closePath();
+        }
+        // 绘制X轴
+        drawLine(point.x, point.y, point.x + 800, point.y);
+        // 绘制Y轴
+        drawLine(point.x, point.y, point.x, point.y - 600);
+
+
+        // 矩形坐标 x , y ,矩形宽度 ， 矩形高度
+        // 一月份
+        // drawRect(point.x + 50, point.y - data[0].persent * 600, 100, data[0].persent * 600,data[0].color);
+        // 二月份
+        // drawRect(point.x + 200, point.y - data[1].persent * 600, 100, data[1].persent * 600,data[1].color);
+        // 三月份
+        // drawRect(point.x + 350, point.y - data[2].persent * 600, 100, data[2].persent * 600,data[2].color);
+        // 四月份
+        // drawRect(point.x + 500, point.y - data[3].persent * 600, 100, data[3].persent * 600,data[3].color);
+        // 五月份
+        // drawRect(point.x + 650, point.y - data[4].persent * 600, 100, data[4].persent * 600,data[4].color);
+
+
+        // var height =  data[0].persent * 600;
+        // var v1 = point.y - height;
+        // drawRect(point.x + 50,v1 , 100,height,data[0].color);
+
+        // 定义计数器变量
+        var count = 0 ;
+        // 定时器
+        var timer = setInterval(function(){
+            // 改变计数器变量的值
+            count += 10;
+            // 判断
+            if(count >= 600){
+                console.log("停止定时器")
+                // 停止定时器
+                clearInterval(timer);
+            }
+            // 清空画布
+            ctx.clearRect(0,0,canvas.width,canvas.height);
+            // 绘制坐标系
+            // 绘制X轴
+            drawLine(point.x, point.y, point.x + 800, point.y);
+            // 绘制Y轴
+            drawLine(point.x, point.y, point.x, point.y - 600);
+           
+         
+            // 循环数据
+            for(var i = 0 ; i < 5 ; i ++){
+                // 计算每个月高度
+                var height =  data[i].persent * count;
+                var v1 = point.y - height;
+                // 绘制每个月的柱状(矩形)
+                drawRect(point.x + 50+(i * 150),v1 , 100,height,data[i].color);
+                // 绘制每个月的文本
+                // 参数1： 文本 ，参数2：x 参数3：y 
+                drawText(data[i].date,point.x + 50+(i * 150)+50,v1-20);
+            }
+        },10)
+    </script>
+</body>
+
+</html>

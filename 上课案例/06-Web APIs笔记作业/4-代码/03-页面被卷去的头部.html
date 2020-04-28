@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            height: 2000px;
+            background:skyblue;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        // 页面被卷去的头部,其实就页面滚动的垂直滚动条滚动的距离
+        // 页面什么时候回出现垂直滚动条,就是当内容的高度很多时候,超出浏览器可以显示的范围,浏览器显示不下,浏览器就会出现滚动条
+        // 如果浏览器的高（或宽）度不足以显示整个页面时，会自动出现滚动条。当滚动条向下滚动时，页面上面被隐藏掉的高度，我们就称为页面被卷去的头部。滚动条在滚动时会触发 onscroll事件。
+        
+        // 获取body标签
+        var objBody = document.body;
+        // 滚动条在滚动的时候,可以触发onscroll事件
+        objBody.onscroll = function(){
+            // 对象.scrollTop 就可以返回对象被卷去的上侧距离
+            console.log( objBody.scrollTop );// 一直输出都是0
+        }
+    </script>
+</body>
+</html>

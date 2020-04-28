@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <img src="images/swh.gif"/>
+    <p>上午好,那么帅气的男子又来了~</p>
+
+    <script>
+        /* 要求:
+        根据不同时间，页面显示不同图片，同时显示不同的问候语。
+        如果上午时间打开页面，显示问候语上午好，显示上午的图片。
+        如果下午时间打开页面，显示问候语下午好，显示下午的图片。
+        如果晚上时间打开页面，显示问候语晚上好，显示晚上的图片。
+
+        分析:
+        1. 根据系统不同事件来判断,所以需要用来日期内置对象
+        2. 利用多分支语句设置不同的图片
+        3. 需要一个图片,并且根据时间修改图片,那么修改图片就要用到图片的src属性
+        4. 需要一个div元素,显示不同问候语,修改元素内容即可 */
+
+        // 获取所需对象
+        var img = document.querySelector("img");
+        var p   = document.querySelector("p");
+
+        // 先判断现在是什么时候,利用日期对象的方法获取当前小时数
+        var hours = new Date().getHours();
+        
+        if( hours>=6 && hours <= 12){// 如果是早上
+            img.src = "images/swh.gif";
+            p.innerHTML = "上午好,那么帅气的男子又来了~";
+        }else if( hours>12 && hours<= 18){// 如果是下午
+            img.src = "images/xwh.gif";
+            p.innerHTML = "下午好,那么靓仔又来了~";
+        }else{// 如果是晚上
+            img.src = "images/wsh.gif";
+            p.innerHTML = "晚上好,看不到帅气的大大了,大家别伤心,可以做作业";
+        }
+    </script>
+</body>
+</html>

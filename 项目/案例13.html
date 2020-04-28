@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    .select{
+        margin-left:20px;
+        /* display: block; */
+    }
+    li{
+        width: 80px;
+        height: 30px;
+        list-style: none;
+        text-decoration: none;
+    }
+    #under li{
+
+        list-style: none;
+       float: left;
+        margin-right: 35px;
+    }
+    a{
+        width: 80px;
+        height: 20px;
+      
+        text-decoration: none;
+        display: inline-block;
+        /* padding-right: 20px; */
+        text-align: center;
+    }
+</style>
+    <div class="select">
+        <ul>
+            <li id="list">
+                <a id="link" href="#">第一个</a>
+                <ul id="under" style="display: none">
+                    <li>隐藏1</li>
+                    <li>隐藏2</li>
+                    <li>隐藏3</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <script>
+        window.onload = function (){
+            var li=document.getElementById("list")
+            var under = document.getElementById('under');
+            var a = document.getElementById('link');
+            li.onmouseover = function (){
+                under.style.display = 'block';
+                a.style.backgroundColor = 'red';
+                
+            };
+            li.onmouseout = function(){
+                under.style.display = 'none';
+                under.style.backgroundColor = 'red';
+            };
+    };
+</script>
+</body>
+</html>

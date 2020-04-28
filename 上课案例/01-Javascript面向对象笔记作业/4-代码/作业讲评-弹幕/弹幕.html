@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        img{
+            vertical-align: bottom;
+        }
+        input{
+            outline: none;
+            border:none;
+        }
+        li{
+            list-style:none;
+        }
+        button{
+            border:none;
+        }
+        .box{
+            width: 800px;
+            height: 550px;
+            margin: 20px auto;
+        }
+        .box .videobox {
+            height: 500px;
+            position: relative;
+            overflow:hidden;
+        }
+        /* 子元素选择器,选择子元素 */
+        .box>.videobox>img{
+            width: 100%;
+            height: 100%;
+        }
+        .box .videobox .danmu{
+            position: absolute;
+            left: 800px;
+            top: 0;
+            color:red;
+            /* background: skyblue; */
+            /* 强制文字一行显示,不换行 */
+            white-space: nowrap;
+        }
+        .box .send{
+            height: 40px;
+            background: white;
+            padding-top: 10px;
+            /* 盒子阴影 */
+            box-shadow: 0px 0px 7px 0px rgba(0,0,0,0.3);
+            position: relative;
+        }
+        .box .send input{
+            width: 700px;
+            height: 28px;
+            margin-left: 20px;
+            float: left;
+            background: #f4f4f4;
+            border:1px solid #e7e7e7;
+            text-indent: 13px;
+        }
+        .box .send .btn{
+            width: 60px;
+            height: 30px;
+            color:white;
+            background:#00a1d6;
+            text-align: center;
+            line-height: 30px;
+            float: left;
+            cursor: pointer;
+        }
+        .box .send .btn:hover{
+            background: #00b5e5;
+        }
+        .box .send .biaoqing>img{
+            width: 22px;
+            height: 22px;
+            position: absolute;
+            right: 86px;
+            top: 50%;
+            margin-top: -11px;
+            cursor: pointer;
+        }
+        .box .send .biaoqing ul{
+            width: 394px;
+            height: 124px;
+            background: white;
+            position: absolute;
+            right: 0;
+            bottom: 40px;
+            border:1px solid #cccccc;
+            /* 隐藏表情列表 */
+            display: none;
+        }
+        .box .send .biaoqing ul li{
+            float: left;
+            margin-right: 2px;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <!-- 上部分 -->
+        <div class="videobox">
+            <!-- 背景图 -->
+            <img src="images/bg.jpg"/>
+            <!-- 弹幕内容 -->
+            <!-- <span class="danmu">我是弹<img src="images/28.gif"/>幕的<img src="images/1.gif"/>内容</span> -->
+        </div>
+        <!-- 下部分 -->
+        <div class="send">
+            <!-- 文本框 -->
+            <input type="text" placeholder="发个弹幕见证当下">
+            <!-- 表情部分 -->
+            <div class="biaoqing">
+                <!-- 小笑脸 -->
+                <img src="images/biaoqing.png" class="xiaoliang"/>
+                
+                <!-- 表情列表 -->
+                <ul>
+                    
+                </ul>
+            </div>
+            <!-- 发送按钮 -->
+            <button class="btn">发送</button>
+        </div>
+    </div>
+
+    <script src="js/animate.js"></script>
+    <script>
+        // 功能1:点击笑脸图片显示表情列表,再点击笑脸图片隐藏表情列表
+        // 获取笑脸对象
+        var xiaoliang = document.querySelector(".xiaoliang");
+        // 获取表情列表
+        var biaoqingUl = document.querySelector(".biaoqing ul");
+        // 获取文本框对象
+        var input = document.querySelector("input");
+
+        // 用一个变量保存现在表情列表是否隐藏  true代表表情列表隐藏了  false代表表情列表没有隐藏
+        var flag = true;
+        xiaoliang.onclick = function(){
+            if( flag ){
+                biaoqingUl.style.display = "block";
+                flag = false;
+            }else{
+                biaoqingUl.style.display = "none";
+                flag = true;
+            }
+        }
+
+        // 功能2. 循环显示表情列表中所有表情
+        // <li><img src="images/74.gif"></li>
+        for(var i=1;i<=75;i++){
+            // 创建一个li节点标签
+            var li = document.createElement("li");
+            li.innerHTML = '<img src="images/'+i+'.gif">';
+            // 把li标签追加到表情列表ul中
+            biaoqingUl.appendChild( li );
+        }
+
+        // 功能3: 点击表情列表中每个表情(其实img表情),就放相应的内容添加到input的value
+        // 什么事件委托  给父元素绑定事件  借助了冒泡的原理
+        biaoqingUl.onclick = function(e){
+            e = e || window.event;
+            // 这里的this代表绑定事件的对象
+            // console.log( this );
+            // e.target可以找到触发事件的对象
+            // console.log( e.target );
+
+            // 获取当前被点击表情对应图片的src属性
+            var imgSrc = e.target.src;
+            // 让字符串根据某个符号分割成数组
+            var arr = imgSrc.split("/");
+            // 从数组中得到最后一个元素,就是图片名文件包括后缀的
+            var fileFullName = arr[arr.length - 1];
+            // 找到最后一个.出现的位置
+            var pos = fileFullName.lastIndexOf(".");
+            // 再从下标0开始截取到最后一个.之前
+            // 得到文件名
+            var filename =  fileFullName.substring(0,pos) ;
+            // 拼接字符串成 [em_1]
+            var str = "[em_" + filename + "]";
+            
+            // 设置input文本框的内容
+            input.value = input.value + str;
+
+            // 隐藏表情列表
+            biaoqingUl.style.display = "none";
+        }
+
+        // 功能4:点击发送按钮,可以发送input中的内容(其实就是发送弹幕)
+        // 获取按钮对象
+        var btn = document.querySelector(".btn");
+        // 获取.videobox对象
+        var videobox = document.querySelector(".videobox");
+
+        btn.onclick = function(){
+            // 调用创建弹幕的函数
+            creteDanmu();
+        }
+
+        // 封装一个把字符串中的[em_1]转成图片的函数
+        function replaceBiaoqing(str){
+            // 正则表达式过几天学
+            var reg = /\[em_([0-9]*)\]/gi;
+            return str.replace(reg, "<img src='images/$1.gif'/>");
+        }
+
+
+        // 功能7:按下回车,发送弹幕,但是我们发现,按下回车发送弹幕跟点击发送按钮发送弹幕的效果是一样的,所以这个时候,我们可以把创建弹幕的代码封装到函数中
+
+        // 创建弹幕的函数
+        function creteDanmu(){
+            // 功能6: 判断input中内容是否为空
+            if( input.value == ""){
+                alert("请填写弹幕内容");
+                // 让后面的代码不执行
+                return false;
+            }
+            // 创建弹幕,其实就是创建一个span标签设置内容,把span添加到.videobox层中
+            var span = document.createElement("span");
+            // 设置span类名
+            span.className = "danmu";
+
+            // 设置span弹幕内容
+            span.innerHTML = replaceBiaoqing( input.value );
+            // 追加span到.videobox中
+            videobox.appendChild( span );
+
+            // 注意:因为获取span高度的时候,需要页面上有这个元素才可以正确获取到
+            // console.log( span.offsetHeight );
+            var spanTop = Math.floor( Math.random()*(videobox.offsetHeight-span.offsetHeight+1) );
+            span.style.top = spanTop +"px";
+
+            // 功能5: 开始执行匀速动画,让整个弹幕左边之外
+            // console.log( "弹幕内容的宽度"+span.offsetWidth);
+            animate_linear(span, -span.offsetWidth, function(){
+                // 当内容执行完毕动画以后,证明内容已经飞出边界,就不需要这个span标签了,那么可以删除它
+                span.parentNode.removeChild( span );
+            } );
+
+            // 清除input文本的内容
+            input.value = "";
+        }
+
+        // 给input绑定按下键盘事件
+        input.onkeydown = function(e){
+            var e = e || window.event;
+            if( e.keyCode == 13 ){
+                // 调用创建弹幕的函数
+                creteDanmu();
+            }
+        }
+    </script>
+</body>
+</html>

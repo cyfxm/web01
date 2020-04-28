@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title></title>
+    <style>
+        canvas {
+            background-color: skyblue;
+        }
+    </style>
+</head>
+<body>
+
+    <canvas id="canvas">不支持canvas标签！</canvas>
+
+    <script>
+        // 1.0 获取canvas标签
+        var canvas = document.getElementById("canvas");
+        // 2.0 设置画布的大小
+        canvas.width = 800;
+        canvas.height = 800;
+        // 3.0 获取canvas上下文对象
+        var ctx = canvas.getContext('2d');
+        // 4.0 定义中心坐标
+        var point = {
+            x:200,
+            y:300
+        }
+        // 5.0 表示圆心
+        ctx.beginPath()
+        ctx.fillStyle="red";
+        ctx.arc(
+            point.x , point.y ,
+            10 ,
+            0 ,
+            2*Math.PI,
+            false
+        )
+        ctx.stroke();
+        ctx.fill();
+
+        // 6.0 编写一个绘制圆的函数
+        function drawCircle(x,y,r,color){
+            ctx.beginPath()
+            ctx.fillStyle=color;
+            ctx.arc(
+                x , y,
+                r,
+                0 ,
+                2*Math.PI,
+                false
+            )
+            ctx.fill();
+        }
+
+        
+        // 7.0 定义角度
+        var angle = 30 ;
+        // 8.0 定义运动轨迹的半径
+        var r = 300 ;
+        // 9.0 计算蓝色圆的坐标（不可以直接使用）
+        var y = r * Math.sin(angle * Math.PI/180);
+        var x = r * Math.cos(angle * Math.PI/180);
+
+        // 10.0 绘制蓝色圆的时候，需要在红色圆心坐标基础上计算
+        drawCircle(
+           x + point.x, 
+           y + point.y,
+           50,
+           "blue"
+        )
+
+
+
+
+        
+
+
+        // 绘制文本
+        // ctx.font = "font-style font-variant font-weight font-size font-family";    //css字体样式，默认值："20px sans-serif"
+        // ctx.fillText("hello", 100, 100);    //String字符串，和坐标位置，第四个为可选参数，这行文字的最长宽度
+        // ctx.strokeText("hello", 100, 100); 
+
+
+        
+    </script>
+</body>
+</html>

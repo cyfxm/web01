@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		/*因为浮动以后的元素,会脱标,不占位置*/
+
+		*{
+			margin: 0;
+			padding: 0;
+		}
+
+		.father{
+			/*我们没有给父元素father设置宽度也没有设置高度,默认宽度是body标签100%,默认高度由两个子元素决定*/
+			background: skyblue;
+		}
+		.father .son1{
+			background: #00d900;
+			color:white;
+			width: 100px;
+			height: 50px;
+			text-align: center;
+			line-height: 50px;
+			/*第一个子盒子浮动*/
+			float:left;
+		}
+		.father .son2{
+			background: #016dd9;
+			color:white;
+			width: 150px;
+			height: 50px;
+			text-align: center;
+			line-height: 50px;
+			/*我们再给第二个子盒子浮动*/
+			float:left;
+		}
+		.gebilaowang{
+			background: #99ffcd;
+			height: 200px;
+			line-height: 200px;
+			color:red;
+		}
+	</style>
+</head>
+<body>
+
+
+
+	<div class="father">
+		<div class="son1">子盒子1</div>
+		<div class="son2">子盒子2</div>
+		<!-- 额外标签法,是w3c推荐的一种方法,在"最后一个浮动的元素之后",加上一个空的"块级"元素,比如div,接着设置这个div元素的样式属性clear:both   例如 <div style="clear:both"></div> -->
+		<div style="clear:both;"></div>
+	</div>
+
+	<div class="gebilaowang">
+		下面的盒子
+	</div>
+</body>
+</html>

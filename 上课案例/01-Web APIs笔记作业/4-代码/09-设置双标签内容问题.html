@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="myDiv">div的内容</div>
+    <button id="btn1">按钮</button>
+
+    <script>
+        var btn1 = document.getElementById("btn1");
+        btn1.onclick=function(){
+            var objDiv = document.getElementById("myDiv");
+            // objDiv.innerHTML = objDiv.innerHTML + "abc";
+            objDiv.innerHTML += "abc";
+        }
+        // 我们的DOM可以操作网页的内容,网页的结构,网页的样式,还可以操作标签的自带属性
+    </script>
+</body>
+</html>

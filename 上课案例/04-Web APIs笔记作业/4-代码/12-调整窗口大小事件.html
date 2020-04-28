@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            width: 200px;
+            height: 200px;
+            background: pink;
+        }
+    </style>
+</head>
+<body>
+    <!-- 页面中有一个div,当window.innerWidth小于等于800的时候就隐藏,否则显示 -->
+    <div>div的内容</div>
+
+    <script>
+        // 调整窗口大小事件,会在浏览器的窗口大小变化的时候触发事件
+        /* window.onresize = function(){}
+        或者
+        window.addEventListener("resize",function(){}) */
+
+        var div = document.querySelector("div");
+        window.onresize=function(){
+            console.log("当前页面可视区宽度为:" + window.innerWidth );
+            if(window.innerWidth <= 800){// 当window.innerWidth小于等于800的时候就隐藏div
+                div.style.display = "none";
+            }else{
+                div.style.display = "block";
+            }
+        }
+        // window.onresize 是调整窗口大小加载事件,  当触发时就调用的处理函数。
+        // 注意:
+        // 只要窗口大小发生像素变化，就会触发这个事件。
+        // 我们经常利用这个事件完成响应式布局。 window.innerWidth  获取当前屏幕的宽度
+    </script>
+</body>
+</html>

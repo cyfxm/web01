@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function fn(){
+            var num = 10;
+        
+            function fn2(){// fn2这个函数就用到另一个函数fn作用域里面num变量,那么这个num所在的函数,就是闭包函数
+                console.log( num );// 10
+            }
+            fn2();
+        }
+
+        fn();
+    </script>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript">
+		// Date对象的方法
+		// 如果我们想要 2018-8-8  8:8:8    格式怎么办？ 
+		// var date = new Date("2018-8-8 8:8:8");
+		var date = new Date();
+		// console.log( date );
+
+		// getFullYear() 获取4位数的年份
+		var year =  date.getFullYear() ;
+
+		// getMonth() 获取月份 返回值 0~11 0表示1月 11表示12月
+		var month = date.getMonth();
+
+		// getDate() 返回一个月中的某一天 返回值：1~31
+		var day = date.getDate();
+
+		// getHours() 小时 返回值0~23
+		var hours = date.getHours();
+		
+		// getMinutes() 获取分钟 返回值：0~59
+		var minutes = date.getMinutes();
+
+		// getSeconds() 获取秒数 返回值：0~59
+		var seconds = date.getSeconds();
+
+		// getMilliseconds() 获取毫秒 返回值：0~999
+		var milliseconds = date.getMilliseconds();
+		
+
+		// getDay() 获取一周中的某一天 就是星期几 返回值：0~6 0代表星期天 1代表星期一
+		var week = date.getDay();// 3
+
+		// getTime() 获取时间戳 返回从1970年1月1日 一直到现在的"毫秒数"！
+		var time = date.getTime();
+
+		// toLocaleString() 根据本地时间把 Date 对象转换为字符串，并返回结果。
+		var localeString = date.toLocaleString();
+
+		console.log( year,month,day,hours,minutes,seconds,milliseconds,week,time );
+		console.log( localeString );
+
+		// 想得到指定格式的日期时间,可以自己拼接字符串
+		// 如果我们想要 2018-8-8  8:8:8    格式怎么办？ 
+		var arrWeek = ["天","一","二","三","四","五","六"];
+		
+		console.log(year + "-"+(month+1)+"-"+day+" "+hours+":"+minutes+":"+seconds + " 星期" +arrWeek[week] );
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

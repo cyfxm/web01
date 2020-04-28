@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>H5 视频播放器 </title>
+    <link rel="icon shortcut" href="./favico.ico">
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+    <!-- 头部 -->
+    <header class="y_header">
+        <div class="container">
+            <h3>视频播放器</h3>
+        </div>
+    </header>
+    <!-- 主体 -->
+    <main class="y_main">
+        <div class="container">
+            <!-- 内容 -->
+            <article class="y_article">
+                <!-- 视频播放区 -->
+                <section class="content">
+                    <!-- <video id="video" src="./video/movie.mp4"></video> -->
+                    <video id="video" src="http://127.0.0.1:5500/html5_css3/day02/源代码/static/video/fun.mp4"></video>
+                </section>
+                <!-- 控件 -->
+                <section class="controls">
+                    <div class="controls_left">
+                        <!-- 播放 -->
+                        <div class="btn active" id="play_button">
+                            <svg class="bi bi-caret-right-fill" width="1em" height="1em" viewBox="0 0 16 16"
+                                fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M12.14 8.753l-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z" />
+                            </svg>
+                        </div>
+                        <!-- 暂停 -->
+                        <div class="btn" id="pause_button"><img src="" alt="">
+                            <svg class="bi bi-caret-right" width="1em" height="1em" viewBox="0 0 16 16"
+                                fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd"
+                                    d="M6 12.796L11.481 8 6 3.204v9.592zm.659.753l5.48-4.796a1 1 0 0 0 0-1.506L6.66 2.451C6.011 1.885 5 2.345 5 3.204v9.592a1 1 0 0 0 1.659.753z"
+                                    clip-rule="evenodd" />
+                            </svg>
+                        </div>
+                    </div>
+                    <!-- 进度条 -->
+                    <div class="controls_center">
+                        <ul id="progress">
+                            <li id="line">
+                                <span id="bar" class="circle"></span>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- 播放时间 -->
+                    <div class="controls_right">
+                        <div class="time_box">
+                            <span id="current" class="current">00:00:00</span> /
+                            <span id="total" class="total">00:00:00</span>
+                        </div>
+                    </div>
+                </section>
+            </article>
+            <aside class="y_aside">
+
+            </aside>
+        </div>
+    </main>
+
+
+    <ul class="menu">
+        <li>保存视频</li>
+        <li>其他操作</li>
+    </ul>
+
+    <script src="./js/main.js"></script>
+</body>
+
+</html>

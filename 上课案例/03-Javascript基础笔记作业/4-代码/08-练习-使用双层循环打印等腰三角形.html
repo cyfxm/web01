@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		/*设置网页中的字体为仿宋*/
+		body{
+			font-family: "仿宋";
+			font-size:50px;
+		}
+	</style>
+	<script type="text/javascript">
+		/*等腰三角形星星塔规律
+
+		行数	星星个数
+		1		1
+		2		3
+		3		5
+		4		7
+		5		9
+		6		11
+		...     ...
+		n       2*n-1*/
+		document.write("<h2>第一种居中方法</h2>");
+		document.write("<div style='text-align:center;border:5px solid red;width:280px;'>");
+		// 先输出星星
+		for(var i = 1; i <= 6; i++){// 外层循环控制行数
+
+			for(var j = 1;j<= 2*i-1 ; j++){// 里层循环控制星星个数
+				document.write("*");
+			}
+
+			document.write("<br/>");
+		}
+		document.write("</div>");
+
+
+
+		document.write("<h2>第二种居中方法</h2>");
+		for(var i = 1; i <= 6; i++){// 外层循环控制行数
+
+			// 输出空格
+			for(var k = i; k<= 5; k++ ){
+				document.write("&nbsp;");
+			}
+
+			// 输出星星
+			for(var j = 1;j<= 2*i-1 ; j++){// 里层循环控制星星个数
+				document.write("*");
+			}
+
+			document.write("<br/>");
+		}
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

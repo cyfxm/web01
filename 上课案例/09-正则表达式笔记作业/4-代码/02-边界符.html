@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 边界符
+        // 正则表达式中的边界符（位置符）用来提示字符所处的位置，主要有两个字符
+        // ^ 表示匹配行首的文本（以谁开始）
+        // $ 表示匹配行尾的文本（以谁结束）
+        // 如果 ^和 $ 在一起，表示必须是精确匹配。
+
+        var reg1 = /abc/;// 表示只要含有abc就返回true
+        console.log( reg1.test("123abc") );// true
+        console.log( reg1.test("abc456") );// true
+        console.log( reg1.test("123abc456") );// true
+        console.log( reg1.test("abc") );// true
+        console.log( reg1.test("a123b456c") );// false
+        console.log( reg1.test("abc456abc") );// true
+        console.log( reg1.test("abcabc") );// true
+        console.log("");
+
+        var reg2 = /^abc/;// 表示需要以abc开头才返回true
+        console.log( reg2.test("123abc") );// false
+        console.log( reg2.test("abc456") );// true
+        console.log( reg2.test("123abc456") );// false
+        console.log( reg2.test("abc") );// true
+        console.log( reg2.test("a123b456c") );// false
+        console.log( reg2.test("abc456abc") );// true
+        console.log( reg2.test("abcabc") );// true
+        console.log("");
+
+        var reg3 = /abc$/;// 表示需要以abc结尾才返回true
+        console.log( reg3.test("123abc") );// true
+        console.log( reg3.test("abc456") );// false
+        console.log( reg3.test("123abc456") );// false
+        console.log( reg3.test("abc") );// true
+        console.log( reg3.test("a123b456c") );// false 
+        console.log( reg3.test("abc456abc") );// true
+        console.log( reg3.test("abcabc") );// true
+        console.log("");
+
+        var reg4 = /^abc$/; // 精确匹配 字符串必须是abc才正确,其他都是错
+        console.log( reg4.test("123abc") );// false
+        console.log( reg4.test("abc456") );// false
+        console.log( reg4.test("123abc456") );// false
+        console.log( reg4.test("abc") );// true
+        console.log( reg4.test("a123b456c") ); // false
+        console.log( reg4.test("abc456abc") );// false
+        console.log( reg4.test("abcabc") );// false
+    </script>
+</body>
+</html>

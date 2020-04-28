@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>面向过程 Tab</title>
+    <link rel="stylesheet" href="./styles/tab.css">
+    <link rel="stylesheet" href="./styles/style.css">
+    <style>
+        body{
+            /* 双击禁止选中文字样式 */
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            -khtml-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+    </style>
+</head>
+
+<body>
+
+    <main>
+        <h4>
+            Js 面向过程 动态添加标签页
+        </h4>
+        <div class="tabsbox" id="tab">
+            <!-- tab 标签 -->
+            <nav class="fisrstnav">
+                <ul>
+                    <li class="liactive"><span>测试1</span><span class="iconfont icon-guanbi"></span></li>
+                    <li><span>测试2</span><span class="iconfont icon-guanbi"></span></li>
+                    <li><span>测试3</span><span class="iconfont icon-guanbi"></span></li>
+                </ul>
+                <div class="tabadd">
+                    <span>+</span>
+                </div>
+            </nav>
+
+            <!-- tab 内容 -->
+            <div class="tabscon">
+                <section class="conactive">测试1</section>
+                <section>测试2</section>
+                <section>测试3</section>
+            </div>
+        </div>
+    </main>
+</body>
+<script>
+    var that;
+    class Tab{
+        constructor(id){
+            // 缓存this
+            that = this;
+
+            // 获取最大的盒子
+            this.main = document.querySelector("#tab");
+
+            // 获取+号对象
+            this.add = this.main.querySelector(".tabadd");
+
+            // 获取tab栏的父元素
+            this.ul = this.main.querySelector(".fisrstnav ul");
+
+            // 获取section内容层的父元素
+            this.tabscon = this.main.querySelector(".tabscon");
+
+            // 调用初始化方法
+            this.init();
+        }
+
+        // init初始化方法主要让相关的元素绑定事件,因为我们动态添加删除元素,需要重新获取对应的元素
+        init(){
+            this.updateNode();
+
+            for(var i=0;i<this.lis.length;i++){
+                // 给每个tab栏设置自定义属性
+                this.lis[i].setAttribute("data-index",i);
+                // 给每个tab栏绑定单击事件
+                this.lis[i].onclick = this.toggleTab;
+                // 给每个删除按钮绑定单击事件
+                this.guanbis[i].onclick = this.removeTab;
+                // 给每个span绑定鼠标双击事件
+                this.spans[i].ondblclick = this.editTab;
+                // 给每个section绑定鼠标双击事件
+                this.sections[i].ondblclick = this.editTab;
+            }
+            // 给加号绑定事件
+            this.add.onclick = this.addTab;
+        }
+
+        // 更新节点功能,获取当前所有的对应的li跟section
+        updateNode(){
+            // 获取tab栏目
+            this.lis = this.main.querySelectorAll(".fisrstnav li");
+            // 获取内容层
+            this.sections = this.main.querySelectorAll(".tabscon section");
+            // 获取所有关闭按钮
+            this.guanbis = this.main.querySelectorAll(".icon-guanbi");
+            // 获取所有的.fisrstnav ul li所有的第一个span元素
+            this.spans = this.main.querySelectorAll(".fisrstnav ul li span:first-child");
+        }
+
+        // 切换tab栏功能
+        toggleTab(){
+            that.clearClass();
+
+            this.className = "liactive";
+
+            var index = this.getAttribute("data-index");
+            that.sections[index].className = "conactive";
+        }
+
+        // 清除样式的方法
+        clearClass(){
+            for(var j=0;j<this.lis.length;j++){
+                this.lis[j].removeAttribute("class");
+                this.sections[j].removeAttribute("class");
+            }
+        }
+
+        // 添加tab栏功能
+        addTab(){
+            // 清除样式
+            that.clearClass();
+
+            // 创建li元素和section元素
+            var li = '<li class="liactive"><span>新选项卡</span><span class="iconfont icon-guanbi"></span></li>';
+            
+            // 获取随机数
+            var random = Math.random();
+            var section = '<section class="conactive">测试 '+random+'</section>';
+
+            // 把这两个元素追加到对应的父元素中
+            that.ul.insertAdjacentHTML("beforeEnd",li);
+            that.tabscon.insertAdjacentHTML("beforeEnd",section);
+            
+            // 再次调用init初始化方法
+            that.init();
+        }
+
+        // 删除tab栏功能
+        removeTab(e){
+            // 阻止冒泡 防止触发li的切换点击事件
+            e.stopPropagation();
+
+            // 获取关闭按钮父元素身上的自定义属性
+            var index = this.parentNode.getAttribute("data-index");
+
+            // 执行删除节点操作   新方法    对象.remove()  
+            that.lis[index].remove();
+            that.sections[index].remove();
+
+            // 初始化一下
+            that.init();
+            
+            // 判断当前页面中有没有存在 .liactive的对象
+            if( document.querySelector(".liactive") ){
+                return false;
+            }
+
+            // 当我们删除了选中状态的这个li的时候,让它的前一个li处于选定状态
+            index--;
+            // 手动调用我们的点击事件  不需要鼠标触发
+            that.lis[index] && that.lis[index].click();
+        }
+
+        // 编辑tab栏功能
+        editTab(){
+            // 获取原先的文字
+            var str = this.innerHTML;
+            this.innerHTML = "<input type='text'/>";
+            var input = this.children[0];
+            input.value = str;
+            // 文本框里面的文字处于选定状态
+            input.select();
+            // 当我们焦点离开文本框的时候,把文本框里面的值给span
+            input.onblur = function(){
+                this.parentNode.innerHTML = this.value;
+            }
+
+            // 按下回车键也可以把文本框里面的值给span
+            input.onkeyup = function(e){
+                if( e.keyCode == 13){
+                    this.blur();
+                }
+            }
+        }
+    }
+
+    new Tab("tab");
+</script>
+</html>

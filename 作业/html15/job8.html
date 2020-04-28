@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript">
+		function getPrime(n) {
+        var str = "", n = 0;
+        for (var i = 1; i <= 100; i++) {
+            var m = 0; 
+            for (var j = 2; j < i; j++) {
+                if (i % j == 0) {
+                    m = 1; 
+                    break;
+                }
+            }
+            if (m == 0 && i != 1) {
+                str = str + i + "，";
+                n++; 
+            }
+        }
+        document.write("1-100间的质数分别为：" + str.substr(0, str.length - 1));
+       
+    }
+    getPrime(100);
+    document.write("<br>");
+    document.write("<br>");
+
+    function getPrime1(n) {
+        var str = "", n = 0;
+        for (var i = 1; i <= 200; i++) {
+            var m = 0; 
+            for (var j = 2; j < i; j++) {
+                if (i % j == 0) {
+                    m = 1; 
+                    break;
+                }
+            }
+            if (m == 0 && i != 1) {
+                str = str + i + "，";
+                n++; 
+            }
+        }
+        document.write("1-200间的质数分别为：" + str.substr(0, str.length - 1));
+       
+    }
+    getPrime1(200);
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

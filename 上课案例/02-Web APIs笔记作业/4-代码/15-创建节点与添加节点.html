@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul>
+        <li>苹果</li>
+        <li>香蕉</li>
+    </ul>
+
+     <script>
+        // 我们可以通过js创建节点,其实简单理解创建标签
+        // 语法   document.createElement("标签名")
+        
+        // 获取ul标签
+        var ul = document.querySelector("ul");
+        // console.log( ul );
+
+        // 创建一个新的li标签
+        var li = document.createElement("li");
+        // 设置新的li标签中的内容
+        li.innerHTML = "葡萄";
+        
+        // 添加节点
+        // 父节点.appendChild(节点)   方法将一个节点添加到指定父节点的子节点列表末尾  类似与数组中的push方法
+        ul.appendChild(li);
+
+        // 父节点.insertBefore(节点,指定元素)    方法将一个节点添加到父节点的指定子元素前面
+        var li2 = document.createElement("li");
+        li2.innerHTML = "桃子";
+        ul.insertBefore(li2,  ul.children[0] );
+
+        var li3 = document.createElement("li");
+        li3.innerHTML = "大冬瓜";
+        console.log( ul.children );
+        ul.insertBefore(li3,  ul.children[2] );
+
+     </script>
+</body>
+</html>

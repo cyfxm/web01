@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript">
+		// 函数形参和实参数量不匹配时
+		function fn(a,b,c){
+			console.log(a,b,c);
+		}
+
+		// 函数调用的时候实参不是必需的,javascript允许在调用函数的时候省略实参
+		
+		// 实参个数少于形参个数
+		fn(10);// 10 undefined undefined
+		fn(10,20);// 10 20 undefined
+
+		// 实参个数等于形参个数
+		fn(10,20,30);// 10 20 30
+
+		// 实参个数多余形参个数
+		fn(10,20,30,40,50,60);// 10 20 30
+
+		console.log("");
+		// 我们通过     函数名.length    可以得到形参的个数
+		console.log("fn函数的形参个数为:" + fn.length );
+
+		// 不能省略前面的参数,只能省略后面的参数;如果一定要省略前面的参数,可以传入undefined
+		// fn( ,20,30);// 会报错
+
+		// 如果一定要省略前面的参数,可以传入undefined
+		fn( undefined , 20 , 30);
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

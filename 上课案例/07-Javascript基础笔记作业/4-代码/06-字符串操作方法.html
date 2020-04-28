@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript">
+		/*String对象的方法,必须由String对象来调用*/
+
+		// 字符串操作方法
+		// concat(str1,str2,str3...) concat() 方法用于连接两个或多个字符串。拼接字符串，"等效于+，+更常用"
+		var str = "abc";
+		var str1 = "456";
+		var str2 = "zxv";
+		var str3 = "789";
+		console.log( str.concat(str1,str2,str3) );
+		// 拼接字符串，"等效于+，+更常用"
+		console.log( str+str1+str2+str3 );
+		
+		/*var str4 = 123;
+		var str5 = 456;
+		console.log( str4.concat( str5 ) );// str4不是string对象,所以不能使用conact方法*/
+
+
+		// substr(start,length) 从start位置开始(索引号) start也是从0开始的， length 截取的字符个数 重点记住这个 如果length (长度)没有书写 表示一直截取到字符串的末尾   如果有写则表示截取的长度
+
+		var str6 = "快到中午了,大家饿了,老师饿了,想吃饭了";
+
+		// 如果length (长度)没有书写 表示一直截取到字符串的末尾
+		console.log( str6.substr(2) );
+		console.log( str6.substr(0) );
+
+		// 如果length有写则表示截取的长度
+		console.log( str6.substr(2,2) );// 从第2个字符串开始,截取两个字符,包括第2个字符
+		console.log( str6.substr(6,4) );// 从第6个字符串开始,截取四个字符,包括第6个字符
+		console.log("");
+		
+		// substring(start, end) 截取字符串 从start(开始下标)处开始截取 ; 如果end(结束下标) 没有书写 表示一直截取到字符串的末尾   如果有写则表示截取到end下标的前一个位置
+		var str7 = "野火烧不尽,春风吹又生";
+		// 如果end(结束下标) 没有书写 表示一直截取到字符串的末尾   如果有写则表示截取到end下标的前一个位置
+		console.log( str7.substring( 0 , 5) );
+		console.log( str7.substring( 6 ) );
+		console.log( str7.substring( 2 , 8 ) );
+		console.log("");
+
+		// 扩展一下: substr(start,length)  其中start的取值还可以是负数,如果是负数,代表倒数第几个字符串开始截取指定length长度个字符串,如果length不设置代表截取到字符串的末尾
+		var str8 = "各位靓仔靓女,大家下午好啊";
+		console.log( str8.substr(2,4) );
+		console.log( str8.substr(0,2) );
+		// 如果length不设置代表截取到字符串的末尾
+		console.log( str8.substr(-4) );
+		console.log( str8.substr(-6) );
+		console.log( str8.substr(-6,5) );
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            color: blue;
+        }
+        .header{
+            width: 500px;
+            height: 80px;
+            background-color: #ccc;
+            text-align: center;
+            line-height: 80px;
+        }
+        .header button{
+            width: 120px;
+            height: 40px;
+            vertical-align: middle;
+            border: 1px solid transparent;
+            cursor: pointer;
+            color: blue;
+        }
+        .content{
+            width: 500px;
+            height: 300px;
+            background-color: #f0f0f0;
+        }
+        .content ul{
+            padding: 0;
+            margin: 0;
+        }
+        .content ul li{
+            height: 40px;
+            line-height: 40px;
+            border-bottom: 1px solid skyblue;
+            padding-left: 20px;
+        }
+    </style>
+</head>
+<body>
+
+
+    <div class="layoout">
+        <div class="header">
+            <button>今天</button>
+            <button>明天</button>
+            <button>后天</button>
+        </div>
+        <div class="content">
+            <ul id="list">
+
+            </ul>
+        </div>
+    </div>
+    <script src="../js/ajaxV0.0.2.js"></script>
+    <script>
+        var buttons = document.querySelectorAll("button");
+        var items = document.querySelectorAll("li");
+        var list = document.querySelector("#list");
+
+        buttons[0].onclick = function(){
+            $.ajax({
+                url:"/data.txt",
+                type:"get",
+                async:true,
+                success:function(res){
+                    var obj = JSON.parse(res);
+                    var data = obj.result[0];
+                    render(data);
+                }
+            })
+        }
+
+        buttons[1].onclick = function(){
+            $.ajax({
+                url:"./data.txt",
+                type:"get",
+                async:true,
+                success:function(res){
+                    var obj = JSON.parse(res);
+                    var data = obj.result[1];
+                    render(data);
+                }
+            })
+        }
+
+        buttons[2].onclick = function(){
+            $.ajax({
+                url:"./data.txt",
+                type:"get",
+                async:true,
+                success:function(res){
+                    var obj = JSON.parse(res);
+                    var data = obj.result[2];
+                    render(data);
+                }
+            })
+        }
+
+        function render(data){
+            var html = "<li>时间: "+data.data+"</li><li>温度："+data.weather+"</li><li>天气"
+            list.innerHTML=html;
+        }
+    </script>
+</body>
+</html>
